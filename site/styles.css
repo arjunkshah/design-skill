@@ -318,8 +318,10 @@ a {
 .canvas-view,
 .canvas-hero,
 .feature-section,
+.sticky-shell,
 .flow-grid,
 .showcase-grid,
+.bento-grid,
 .repo-head,
 .install-steps,
 .canvas-cards,
@@ -706,6 +708,187 @@ a {
   border-bottom: 1px solid rgba(17, 17, 17, 0.06);
 }
 
+.pattern-section {
+  padding-bottom: 72px;
+}
+
+.bento-grid {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.bento-card,
+.story-preview-inner,
+.story-step {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: var(--shadow);
+}
+
+.bento-card {
+  min-height: 220px;
+  padding: 24px;
+  border-radius: 24px;
+}
+
+.bento-card:nth-child(1) {
+  grid-column: span 7;
+}
+
+.bento-card:nth-child(2),
+.bento-card:nth-child(3) {
+  grid-column: span 5;
+}
+
+.bento-card:nth-child(4) {
+  grid-column: span 8;
+}
+
+.bento-card:nth-child(5) {
+  grid-column: span 4;
+}
+
+.bento-card-primary {
+  background:
+    radial-gradient(circle at top right, rgba(52, 104, 255, 0.12), transparent 30%),
+    rgba(255, 255, 255, 0.82);
+}
+
+.bento-label,
+.story-preview-head,
+.story-index {
+  color: var(--muted);
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.bento-card h3,
+.story-step h3 {
+  margin: 16px 0 0;
+  max-width: 14ch;
+  font-size: 2rem;
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+  text-transform: lowercase;
+}
+
+.bento-card p,
+.story-step p,
+.story-card p {
+  margin-top: 14px;
+  max-width: 36rem;
+  color: var(--muted);
+  line-height: 1.72;
+}
+
+.bento-card strong {
+  display: block;
+  margin-top: 16px;
+  max-width: 17ch;
+  font-size: 1.5rem;
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+  text-transform: lowercase;
+}
+
+.sticky-story {
+  padding-top: 48px;
+}
+
+.sticky-shell {
+  grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.05fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.story-preview {
+  position: sticky;
+  top: 112px;
+}
+
+.story-preview-inner {
+  position: relative;
+  min-height: 540px;
+  padding: 22px;
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.story-preview-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.story-card-stack {
+  position: relative;
+  min-height: 440px;
+  margin-top: 20px;
+}
+
+.story-card {
+  position: absolute;
+  inset: 0;
+  padding: 24px;
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(242, 241, 236, 0.92));
+  border: 1px solid var(--line);
+  opacity: 0;
+  transform: translate3d(0, 18px, 0) scale(0.985);
+  transition:
+    opacity 420ms var(--curve),
+    transform 420ms var(--curve);
+}
+
+.story-card.is-active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.story-card span {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: var(--blue-soft);
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.story-card strong {
+  display: block;
+  margin-top: 18px;
+  max-width: 13ch;
+  font-size: 2.2rem;
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+  text-transform: lowercase;
+}
+
+.story-steps {
+  display: grid;
+  gap: 18px;
+}
+
+.story-step {
+  min-height: 68dvh;
+  padding: 28px;
+  border-radius: 24px;
+}
+
+.story-index {
+  display: inline-flex;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(52, 104, 255, 0.08);
+  color: var(--blue);
+}
+
 .section-intro {
   max-width: 820px;
 }
@@ -800,6 +983,7 @@ a:focus-visible {
   .canvas-view,
   .feature-section,
   .feature-reverse,
+  .sticky-shell,
   .showcase-grid {
     grid-template-columns: 1fr;
   }
@@ -810,8 +994,25 @@ a:focus-visible {
   }
 
   .canvas-hero,
-  .flow-grid {
+  .flow-grid,
+  .bento-grid {
     grid-template-columns: 1fr;
+  }
+
+  .bento-card:nth-child(1),
+  .bento-card:nth-child(2),
+  .bento-card:nth-child(3),
+  .bento-card:nth-child(4),
+  .bento-card:nth-child(5) {
+    grid-column: span 12;
+  }
+
+  .story-preview {
+    position: static;
+  }
+
+  .story-step {
+    min-height: auto;
   }
 }
 

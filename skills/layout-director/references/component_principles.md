@@ -38,6 +38,39 @@ Rules:
 - keep internal padding generous
 - use card backgrounds to separate functions, not to add noise
 
+## Bento Systems
+
+Use bento sections when the page needs multiple product or proof modules in one viewport.
+
+Rules:
+
+- one card must dominate the composition
+- surrounding cards should support, not compete
+- vary both width and height
+- mix proof, explanation, and interaction instead of cloning the same card
+- collapse aggressively on mobile
+
+## Framed Product Areas
+
+Use framed product surfaces when the interface itself should carry persuasion.
+
+Rules:
+
+- give the product frame breathing room
+- let supporting notes orbit around it
+- avoid turning screenshots into flat decoration
+- combine with proof rails or bento support if needed
+
+## Rails And Side Notes
+
+Use rails when the page needs secondary context without breaking the main narrative.
+
+Rules:
+
+- keep the rail visually subordinate
+- use it for metrics, labels, proof, or navigation
+- do not let it become a second hero
+
 ## CTA Design
 
 Conversion should be visible without dominating every section.

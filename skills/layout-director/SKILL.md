@@ -30,10 +30,13 @@ Before writing UI code:
    - content density
    - section rhythm
    - motion profile
+   - viewport behavior
 4. Apply the component rules from [references/component_principles.md](references/component_principles.md).
-5. Run the final pass from [references/review_rubric.md](references/review_rubric.md).
-6. If the user wants help invoking the skill from a specific tool, use [references/platform_adaptation.md](references/platform_adaptation.md).
-7. If the user needs phrasing examples, use [references/prompt_recipe.md](references/prompt_recipe.md).
+5. If the page needs richer UI range, load [references/component_families.md](references/component_families.md).
+6. If the page needs pinned or scroll-reactive sections, load [references/scroll_patterns.md](references/scroll_patterns.md).
+7. Run the final pass from [references/review_rubric.md](references/review_rubric.md).
+8. If the user wants help invoking the skill from a specific tool, use [references/platform_adaptation.md](references/platform_adaptation.md).
+9. If the user needs phrasing examples, use [references/prompt_recipe.md](references/prompt_recipe.md).
 
 ## Design Intent
 
@@ -58,6 +61,7 @@ To avoid repetition, vary across these axes:
 - **Density**: airy, balanced, or information-rich
 - **Section rhythm**: long calm blocks, alternating compression, staggered reveals, or modular beats
 - **CTA structure**: single decisive action, paired actions, or distributed conversion points
+- **Viewport behavior**: static sections, sticky story panels, pinned media, horizontal rails, or layered stacks
 
 Do not vary aimlessly. Each choice must be justified by the brief.
 
@@ -123,6 +127,7 @@ Allowed motion:
 - staggered card entries
 - soft parallax on isolated hero layers
 - hover shifts on buttons and cards
+- sticky scrollytelling where one preview stays pinned and the internal content changes as the narrative advances
 
 Do not animate layout properties. Use transform and opacity only.
 

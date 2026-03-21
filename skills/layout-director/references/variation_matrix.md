@@ -44,13 +44,23 @@ Pick one:
 - **Measured**: stronger staged entry motion and subtle depth
 - **Expressive**: more visible but still controlled movement for campaign pages
 
+## 6. Viewport Behavior
+
+Pick one:
+
+- **Static flow**: normal stacked sections with no pinned behavior
+- **Sticky story**: one preview remains pinned while adjacent content advances
+- **Pinned media**: a product or visual frame stays fixed while supporting text scrolls
+- **Rail motion**: horizontal or staggered module movement inside a larger section
+- **Layered stack**: overlapping cards or sections that build depth as the user scrolls
+
 ## Combining Axes
 
 Examples:
 
-- Editorial Split + Serif-led + Airy + Calm blocks + Minimal
-- Asymmetric Bento + Grotesk-led + Balanced + Staggered beats + Measured
-- Product Frame + Quiet functional + Dense + Alternating compression + Minimal
+- Editorial Split + Serif-led + Airy + Calm blocks + Minimal + Static flow
+- Asymmetric Bento + Grotesk-led + Balanced + Staggered beats + Measured + Rail motion
+- Product Frame + Quiet functional + Dense + Alternating compression + Minimal + Sticky story
 
 Do not select combinations that fight the brief.
 

@@ -18,7 +18,7 @@ The goal is not to force one visual style. The goal is to raise the floor for co
 
 - `site/`: the landing page for the project
 - `skills/layout-director/`: the reusable skill package
-- `skills/layout-director/references/`: modular reference files for archetypes, variation, prompts, platform adaptation, and review
+- `skills/layout-director/references/`: modular reference files for archetypes, variation, component families, scroll patterns, prompts, platform adaptation, and review
 
 ## Why This Exists
 
@@ -49,6 +49,7 @@ The skill uses a variation matrix so the agent can change:
 - density
 - section rhythm
 - motion profile
+- viewport behavior
 
 That keeps outputs from collapsing into repetition without turning the process into aesthetic roulette.
 
@@ -78,11 +79,13 @@ The agent should reject the layout if the result still feels like:
         ├── agents/
         │   └── openai.yaml
         └── references/
+            ├── component_families.md
             ├── component_principles.md
             ├── layout_archetypes.md
             ├── platform_adaptation.md
             ├── prompt_recipe.md
             ├── review_rubric.md
+            ├── scroll_patterns.md
             └── variation_matrix.md
 ```
 
@@ -131,6 +134,19 @@ Useful commands:
 ```bash
 npm run dev
 ```
+
+## UI Range
+
+The skill is meant to support more than a polished hero and a few feature cards.
+
+It explicitly supports patterns such as:
+
+- asymmetric bento sections
+- proof rails
+- framed product stages
+- editorial split layouts
+- sticky scrollytelling modules
+- pinned product demos with changing supporting content
 
 ## Open Source
 

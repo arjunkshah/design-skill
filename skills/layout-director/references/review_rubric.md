@@ -33,6 +33,7 @@ Check:
 - Does animation support sequence or affordance?
 - Is the motion intensity appropriate for the brand?
 - Are only transform and opacity being animated?
+- If a sticky or pinned pattern is used, does it clarify the story instead of feeling like a gimmick?
 
 ## Mobile
 
