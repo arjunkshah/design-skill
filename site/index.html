@@ -423,24 +423,31 @@
       <section class="install-section section" id="install">
         <div class="feature-copy" data-reveal>
           <div class="eyebrow">open source install</div>
-          <h2>drop the skill into your workflow</h2>
+          <h2>install it like a normal skill repo</h2>
           <p>
-            The repo includes the landing page, the skill itself, modular
-            reference files, and project docs. It is organized so you can use the
-            skill directly or extend it for your own team.
+            The repo is meant to install directly as a skill source, then expose
+            `layout-director` as the skill you invoke in your agent.
           </p>
+          <div class="install-command">
+            <span>install</span>
+            <code>npx skills add https://github.com/arjunkshah/layout-skill</code>
+          </div>
+          <div class="install-command">
+            <span>invoke</span>
+            <code>$layout-director</code>
+          </div>
           <div class="install-steps">
             <div>
               <strong>1.</strong>
-              <span>copy `skills/layout-director` into your skills or rules directory</span>
+              <span>add the repo as a skill source</span>
             </div>
             <div>
               <strong>2.</strong>
-              <span>invoke `$layout-director` or adapt the same guidance for your tool</span>
+              <span>invoke `layout-director` in a frontend task</span>
             </div>
             <div>
               <strong>3.</strong>
-              <span>start every frontend task by selecting the layout system first</span>
+              <span>fall back to `skills/layout-director/` manually if your tool needs it</span>
             </div>
           </div>
         </div>

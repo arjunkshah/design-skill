@@ -89,6 +89,20 @@ The agent should reject the layout if the result still feels like:
             └── variation_matrix.md
 ```
 
+## Installing
+
+Works via CLI for major AI coding agents and skill-compatible workflows:
+
+```bash
+npx skills add https://github.com/arjunkshah/layout-skill
+```
+
+Then invoke:
+
+```text
+$layout-director
+```
+
 ## Quick Start
 
 ### View the landing page
@@ -99,11 +113,11 @@ npm run dev
 
 Then open `http://127.0.0.1:5177`.
 
-### Use the skill directly
+### Manual fallback
 
 Copy `skills/layout-director/` into the skill or rules area used by your agent tooling.
 
-Then invoke it as:
+Then invoke:
 
 ```text
 $layout-director
@@ -115,7 +129,7 @@ Or adapt the same workflow into your project instructions if your tool does not 
 
 ### Codex
 
-Use the bundled skill folder directly and invoke `$layout-director` for frontend layout work.
+Install the repo with `npx skills add ...` if your setup supports it, or use the bundled skill folder directly and invoke `$layout-director`.
 
 ### Claude Code
 

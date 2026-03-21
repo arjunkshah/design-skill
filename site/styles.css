@@ -916,6 +916,30 @@ a {
   margin-top: 18px;
 }
 
+.install-command {
+  margin-top: 14px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.install-command span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.install-command code {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  word-break: break-word;
+}
+
 .install-steps div {
   grid-template-columns: auto 1fr;
   gap: 12px;
