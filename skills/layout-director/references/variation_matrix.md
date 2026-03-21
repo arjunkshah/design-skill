@@ -54,13 +54,22 @@ Pick one:
 - **Rail motion**: horizontal or staggered module movement inside a larger section
 - **Layered stack**: overlapping cards or sections that build depth as the user scrolls
 
+## 7. Section Mix
+
+Pick one:
+
+- **Static-majority**: one motion-led section inside an otherwise calm page
+- **Balanced contrast**: a deliberate mix of static, modular, and motion-led sections
+- **Motion-forward**: multiple differentiated motion behaviors separated by quiet reset sections
+
 ## Combining Axes
 
 Examples:
 
-- Editorial Split + Serif-led + Airy + Calm blocks + Minimal + Static flow
-- Asymmetric Bento + Grotesk-led + Balanced + Staggered beats + Measured + Rail motion
-- Product Frame + Quiet functional + Dense + Alternating compression + Minimal + Sticky story
+- Editorial Split + Serif-led + Airy + Calm blocks + Minimal + Static flow + Static-majority
+- Asymmetric Bento + Grotesk-led + Balanced + Staggered beats + Measured + Rail motion + Balanced contrast
+- Product Frame + Quiet functional + Dense + Alternating compression + Minimal + Sticky story + Balanced contrast
+- Narrative Stack + Compressed display + Airy + Narrative progression + Expressive + Layered stack + Motion-forward
 
 Do not select combinations that fight the brief.
 

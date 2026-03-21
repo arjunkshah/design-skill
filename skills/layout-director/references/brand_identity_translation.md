@@ -11,7 +11,7 @@ Before styling, extract or ask for:
 - primary and secondary colors
 - typography roles: display, body, mono, utility
 - logo or mark usage constraints
-- image style: photography, illustration, abstract, product-first
+- image style: generated illustration, abstract composition, product-first mock, diagram, or photography direction
 - brand philosophy or tone
 - legal or visual do-not-break rules
 - whether the interface should feel playful, technical, premium, editorial, or institutional
@@ -57,6 +57,14 @@ Decide how logos, wordmarks, and brand assets are shown:
 - whether they act as proof, ornament, or primary identity anchor
 
 Treat logos as identity anchors, not filler.
+
+### Imagery
+
+If the page needs images:
+
+- prefer generated imagery that matches the brand logic
+- specify whether the asset should feel illustrative, product-led, abstract, textured, or diagrammatic
+- avoid dropping in unrelated stock photography with no connection to the brand system
 
 ### Philosophy
 

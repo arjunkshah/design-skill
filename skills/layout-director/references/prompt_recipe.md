@@ -27,6 +27,7 @@ Quality bar:
 - strong layout system
 - brand-aware visual identity
 - deliberate section rhythm
+- a mix of static, modular, and motion-led sections when appropriate
 - restrained motion
 - clear CTA hierarchy
 - mobile-first reorganization
@@ -36,9 +37,12 @@ Optional controls:
 - desired `VISUAL_DENSITY`
 - desired `MOTION_INTENSITY`
 - whether the page should follow a specific brand system or mood
+- whether imagery should be generated as part of the output
 
 ## Refinement Prompt
 
 Keep the same content but switch to a different archetype from the skill. Preserve the quality bar, increase compositional contrast, and avoid superficial cosmetic changes.
 
 If the structure is good but the styling still feels generic, keep the archetype and adjust the style engine instead.
+
+If the page feels repetitive, keep the core story but change the section mix: introduce a stronger static reset, a richer bento moment, a horizontal rail, or a sticky story section where it actually helps.

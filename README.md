@@ -75,7 +75,7 @@ The landing page also ships with multiple visual presets so the same structure c
 
 The skill package now also includes:
 
-- a style engine for stronger typography, palette, density, and taste decisions
+- a first-party style engine for stronger typography, palette, density, imagery, and taste decisions
 - a brand identity translation reference so brand systems can influence actual UI output
 - a separate animation skill so motion can be layered in without bloating the main layout prompt
 - a deeper motion reference set for scroll choreography, interaction patterns, prompt recipes, and review
@@ -237,10 +237,13 @@ The skill is meant to support more than a polished hero and a few feature cards.
 It explicitly supports patterns such as:
 
 - asymmetric bento sections
+- central thesis sections
 - proof rails
 - framed product stages
 - editorial split layouts
+- horizontal rail sections
 - sticky scrollytelling modules
+- layered scroll stacks
 - pinned product demos with changing supporting content
 
 The landing page also includes a project shelf section intended for screenshots of layouts you generate with the skill.
@@ -264,6 +267,5 @@ The landing page visual direction is intentionally influenced by the live struct
 The skill package in this repo was expanded using ideas distilled from:
 
 - structured brand-system modeling in `preetsuthar17/loftlyy`
-- premium frontend taste controls in `Leonxlnx/taste-skill`
 
-Those references informed the workflow and heuristics here, but the packaged skill files in this repository were written specifically for this project.
+Those references informed some workflow thinking, but the packaged style and motion system in this repository is now written as a first-party skill set for this project.

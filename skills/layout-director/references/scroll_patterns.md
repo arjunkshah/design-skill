@@ -48,6 +48,12 @@ Best for:
 - visual systems
 - modular proof clusters
 
+Rules:
+
+- keep one visual anchor stable
+- do not let the rail feel detached from the page
+- use for one major section, not every section
+
 ## 4. Layered Stack
 
 Pattern:
@@ -60,6 +66,37 @@ Best for:
 - campaign pages
 - narrative launches
 
+## 5. Horizontal Scroll Gallery
+
+Pattern:
+
+- vertical progress drives a horizontal sequence
+- cards, frames, or modules move laterally as one section
+
+Best for:
+
+- showcases
+- case studies
+- visual feature tours
+
+Rules:
+
+- keep the section finite
+- maintain orientation with clear captions or labels
+- flatten to a simpler stacked layout on mobile
+
+## 6. Static Counterpoint
+
+Pattern:
+
+- a deliberately quiet section between richer motion modules
+
+Best for:
+
+- re-centering the page
+- restoring readability
+- increasing contrast between motion-heavy sections
+
 ## Warnings
 
 Reject the pattern if:
@@ -68,3 +105,4 @@ Reject the pattern if:
 - movement overwhelms the content
 - mobile collapse feels broken
 - the pattern exists only because it looks fancy
+- there is no contrast between animated and static sections

@@ -20,6 +20,12 @@ Avoid:
 
 - six matching cards with different words
 
+Variants:
+
+- static bento with one dominant proof card
+- animated bento with one or two alive surfaces
+- mixed bento with product, proof, and copy coexisting
+
 ## 2. Proof Rails
 
 Best for:
@@ -76,6 +82,12 @@ Use:
 - horizontally biased sections
 - captions that create pacing
 
+Variants:
+
+- static runway
+- horizontally scrolling runway
+- pinned runway with changing captions
+
 ## 6. Sticky Story Modules
 
 Best for:
@@ -90,6 +102,41 @@ Use:
 - step content that updates or changes around it
 - a finite number of steps with a clear end
 
+Companions:
+
+- framed product stage
+- proof rail
+- comparison table
+
+## 7. Central Thesis Blocks
+
+Best for:
+
+- major hero moments
+- manifesto sections
+- chapter resets
+
+Use:
+
+- one large statement
+- minimal surrounding noise
+- either very quiet motion or none at all
+
+## 8. Horizontal Proof Belts
+
+Best for:
+
+- logos
+- testimonials
+- benchmark snapshots
+- modular feature rails
+
+Use:
+
+- lateral grouping
+- repeated units with strong restraint
+- horizontal bias without losing section identity
+
 ## Rule
 
-Do not use every pattern on every page. Choose two or three compatible families and let one of them dominate.
+Do not use every pattern on every page. Choose three or four compatible families and let one of them dominate.

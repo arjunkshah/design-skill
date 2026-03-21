@@ -34,11 +34,12 @@ Before writing UI code:
 4. Apply the component rules from [references/component_principles.md](references/component_principles.md).
 5. If the page needs stronger visual style, load [references/style_engine.md](references/style_engine.md).
 6. If the page needs brand-aware styling, load [references/brand_identity_translation.md](references/brand_identity_translation.md).
-7. If the page needs richer UI range, load [references/component_families.md](references/component_families.md).
-8. If the page needs pinned or scroll-reactive sections, load [references/scroll_patterns.md](references/scroll_patterns.md).
-9. Run the final pass from [references/review_rubric.md](references/review_rubric.md).
-10. If the user wants help invoking the skill from a specific tool, use [references/platform_adaptation.md](references/platform_adaptation.md).
-11. If the user needs phrasing examples, use [references/prompt_recipe.md](references/prompt_recipe.md).
+7. If the page needs richer section range, load [references/section_programming.md](references/section_programming.md).
+8. If the page needs richer UI range, load [references/component_families.md](references/component_families.md).
+9. If the page needs pinned or scroll-reactive sections, load [references/scroll_patterns.md](references/scroll_patterns.md).
+10. Run the final pass from [references/review_rubric.md](references/review_rubric.md).
+11. If the user wants help invoking the skill from a specific tool, use [references/platform_adaptation.md](references/platform_adaptation.md).
+12. If the user needs phrasing examples, use [references/prompt_recipe.md](references/prompt_recipe.md).
 
 ## Design Intent
 
@@ -104,6 +105,21 @@ Examples:
 
 One dominant structure is better than mixing five unrelated ideas.
 
+### 2.25. Program The Section Types
+
+Do not let every section behave the same way.
+
+Choose a section mix using [references/section_programming.md](references/section_programming.md).
+
+A strong page usually combines:
+
+- one static anchor section
+- one modular or bento section
+- one proof or rail section
+- one motion-led, sticky, or horizontally biased section when the brief supports it
+
+The exact mix depends on the product, but sameness across every section is a failure.
+
 ### 2.5. Set The Visual Engine
 
 Set these three control values before styling:
@@ -112,7 +128,7 @@ Set these three control values before styling:
 - `VISUAL_DENSITY`: how much information should fit per viewport
 - `MOTION_INTENSITY`: how animated or quiet the interface should feel
 
-Use the guidance in [references/style_engine.md](references/style_engine.md) to translate those controls into typography, color, materiality, and interaction decisions.
+Use the guidance in [references/style_engine.md](references/style_engine.md) to translate those controls into typography, color, materiality, rhythm, and imagery decisions.
 
 If the work needs to follow a specific brand, build a lightweight brand brief first using [references/brand_identity_translation.md](references/brand_identity_translation.md).
 
