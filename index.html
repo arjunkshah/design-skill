@@ -350,7 +350,7 @@
                                     {[
                                         ['layout archetypes', 'editorial split, bento, pinned stages'],
                                         ['motion profiles', 'quiet reveals, sticky story, rhythm shifts'],
-                                        ['style presets', 'paper, ember, terminal, pixel and more']
+                                        ['skill stack', '$layout-director + $animation-director']
                                     ].map(([label, value]) => (
                                         <div key={label} className="bg-bg px-5 py-5">
                                             <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-fg/45 mb-2">{label}</div>
@@ -583,7 +583,7 @@
                         </motion.div>
                         <motion.div whileHover={{ backgroundColor: 'rgba(var(--color-fg), 0.02)' }} className="bg-bg p-8 md:col-span-2 flex flex-col justify-center transition-colors">
                             <Reveal as="h3" className="font-secondary font-medium text-lg mb-2">Editorial Split Layouts</Reveal>
-                            <Reveal as="p" delay={0.06} className="text-sm text-fg/60">Classic print-inspired divisions.</Reveal>
+                            <Reveal as="p" delay={0.06} className="text-sm text-fg/60">Classic print-inspired divisions paired with a separate motion layer.</Reveal>
                         </motion.div>
                         <motion.div whileHover={{ backgroundColor: 'rgba(var(--color-fg), 0.02)' }} className="bg-bg p-8 flex flex-col justify-between transition-colors aspect-square">
                             <Reveal as="h3" className="font-secondary font-medium text-lg">Proof Rails</Reveal>
@@ -615,7 +615,7 @@
                             <Reveal as="span" className="font-mono text-xs uppercase tracking-widest text-fg/50 mb-5 block">Generated With The Skill</Reveal>
                             <Reveal as="h2" delay={0.06} className="font-primary text-4xl tracking-tight mb-4">Project Shelf</Reveal>
                             <Reveal as="p" delay={0.12} className="text-sm text-fg/65 leading-relaxed max-w-sm">
-                                These cards are placeholders for the projects you generate with Layout Director. Swap each image for your own capture and keep the editorial grid intact.
+                                These cards are placeholders for the projects you generate with Layout Director and Animation Director. Swap each image for your own capture and keep the editorial grid intact.
                             </Reveal>
                         </div>
                         <div className="md:col-span-8 grid grid-cols-1 lg:grid-cols-3 gap-[1px] bg-border">
@@ -700,7 +700,7 @@
                     <div className="md:col-span-4 p-8 md:p-16 border-r border-border bg-fg/5">
                         <Reveal as="h2" className="font-primary text-4xl tracking-tight mb-4">Install</Reveal>
                         <Reveal as="p" delay={0.08} className="text-sm text-fg/65 leading-relaxed">
-                            Add the repo as a skill source once, then invoke the skill directly when you want stronger frontend layout decisions.
+                            Add the repo as a skill source once, then invoke layout by itself or pair it with the motion layer when the page needs full frontend direction.
                         </Reveal>
                     </div>
                     <div className="md:col-span-8 p-8 md:p-16 space-y-10">
@@ -718,11 +718,17 @@
                         </div>
                         <div>
                             <Reveal as="div" className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-4">Step 3</Reveal>
+                            <div className="border border-border bg-fg/5 p-5 font-mono text-sm">
+                                $layout-director $animation-director
+                            </div>
+                        </div>
+                        <div>
+                            <Reveal as="div" className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-4">Step 4</Reveal>
                             <Reveal as="p" delay={0.08} className="text-sm text-fg/70 leading-relaxed max-w-2xl mb-4">
-                                Prompt for the outcome, not a template. The skill picks structure, component vocabulary, and scroll behavior from the brief.
+                                Prompt for the outcome, not a template. The layout skill picks structure and style direction, and the animation skill handles sequencing, interaction polish, and scroll behavior.
                             </Reveal>
                             <div className="border border-border bg-bg p-6 font-primary text-xl leading-relaxed italic">
-                                "$layout-director Design a landing page with a pinned demo stage, tighter editorial typography, and a bento section that breaks symmetry."
+                                "$layout-director $animation-director Design a landing page with a pinned demo stage, tighter editorial typography, a bento section that breaks symmetry, and restrained tactile motion."
                             </div>
                         </div>
                     </div>

@@ -23,8 +23,22 @@ Before writing animation code:
    - product demonstration
    - state transition
 3. Choose one motion profile from [references/motion_profiles.md](references/motion_profiles.md).
-4. Choose the right interaction patterns from [references/interaction_patterns.md](references/interaction_patterns.md).
-5. Enforce the constraints in [references/performance_guardrails.md](references/performance_guardrails.md).
+4. If the page uses sticky or scroll-led storytelling, load [references/scroll_choreography.md](references/scroll_choreography.md).
+5. Choose the right interaction patterns from [references/interaction_patterns.md](references/interaction_patterns.md).
+6. If the user needs help phrasing the motion request, load [references/prompt_recipe.md](references/prompt_recipe.md).
+7. Enforce the constraints in [references/performance_guardrails.md](references/performance_guardrails.md).
+8. Run the final pass in [references/review_rubric.md](references/review_rubric.md).
+
+## How It Combines With Layout Director
+
+Use `$animation-director` as a companion layer, not as a substitute for layout judgment.
+
+Typical pairing:
+
+- `$layout-director` decides structure, hierarchy, and style direction
+- `$animation-director` decides sequencing, interaction behavior, scroll choreography, and motion restraint
+
+If no strong structure exists yet, fix layout first.
 
 ## Design Intent
 
@@ -52,3 +66,4 @@ When using this skill:
 - avoid animation systems that force constant rerenders
 - preserve accessibility and readability
 - dial intensity according to the brief, not personal taste
+- simplify or remove decorative motion on mobile when clarity drops

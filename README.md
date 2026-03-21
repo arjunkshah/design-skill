@@ -28,6 +28,11 @@ For stronger motion output, combine it with:
 $layout-director $animation-director
 ```
 
+Recommended split:
+
+- `$layout-director` for structure, hierarchy, type, spacing, and style direction
+- `$animation-director` for entry sequencing, interaction polish, sticky narratives, and motion guardrails
+
 ## Skills
 
 | Skill | Description |
@@ -65,6 +70,7 @@ The skill package now also includes:
 - a style engine for stronger typography, palette, density, and taste decisions
 - a brand identity translation reference so brand systems can influence actual UI output
 - a separate animation skill so motion can be layered in without bloating the main layout prompt
+- a deeper motion reference set for scroll choreography, interaction patterns, prompt recipes, and review
 
 ## Core Ideas
 
@@ -142,6 +148,13 @@ Layout Director gives the agent a better process:
 
 The goal is not to force one visual style. The goal is to raise the floor for composition while keeping enough freedom for different layouts to emerge from different briefs.
 
+Animation Director adds the motion layer:
+
+- choose a motion profile
+- decide where motion actually helps comprehension
+- apply interaction and scroll choreography patterns
+- enforce performance and mobile simplification rules
+
 ## Using It With Different Tools
 
 ### Codex
@@ -155,6 +168,20 @@ Use the skill body and reference files as project instructions or custom guidanc
 ### Cursor
 
 Use the same principles in Cursor rules or project instructions. The reference files are intentionally modular so you can keep the core rule set small and load motion guidance only when needed.
+
+## Recommended Usage
+
+Use only one skill when the job is narrow:
+
+- `$layout-director` for layout, hierarchy, and visual identity
+- `$animation-director` for motion refinement on an already-strong page
+
+Use both when the page needs a full frontend direction:
+
+```text
+$layout-director $animation-director
+Design a landing page with a strong product frame, premium editorial typography, pinned storytelling, and tactile hover states.
+```
 
 ## Development
 
@@ -184,7 +211,7 @@ The landing page also includes a project shelf section intended for screenshots 
 
 ## Manual Fallback
 
-If your setup does not support repo-based skill installs yet, copy `skills/layout-director/` into your local skill or rules directory and invoke:
+If your setup does not support repo-based skill installs yet, copy `skills/layout-director/` and optionally `skills/animation-director/` into your local skill or rules directory and invoke:
 
 ```text
 $layout-director
