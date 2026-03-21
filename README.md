@@ -22,11 +22,18 @@ Then invoke:
 $layout-director
 ```
 
+For stronger motion output, combine it with:
+
+```text
+$layout-director $animation-director
+```
+
 ## Skills
 
 | Skill | Description |
 | --- | --- |
 | `layout-director` | The main frontend layout skill. Teaches structure selection, variation axes, component families, scroll patterns, and layout review. |
+| `animation-director` | Companion motion skill for entry choreography, interaction polish, sticky narratives, and animation performance guardrails. |
 
 ## What Is In This Repo
 
@@ -35,6 +42,7 @@ $layout-director
 - `site/`: the earlier static landing page iteration kept as a reference
 - `skills/layout-director/`: the reusable skill package
 - `skills/layout-director/references/`: modular reference files for archetypes, variation, component families, scroll patterns, prompts, platform adaptation, and review
+- `skills/animation-director/`: companion motion skill for choreography and performance-safe animation rules
 
 ## Why This Exists
 
@@ -51,6 +59,12 @@ The common failure modes are predictable:
 Layout Director addresses those issues by making layout selection an explicit step instead of an accidental byproduct of code generation.
 
 The landing page also ships with multiple visual presets so the same structure can be previewed across different moods, including a pixel-font preset for deliberately stylized outputs.
+
+The skill package now also includes:
+
+- a style engine for stronger typography, palette, density, and taste decisions
+- a brand identity translation reference so brand systems can influence actual UI output
+- a separate animation skill so motion can be layered in without bloating the main layout prompt
 
 ## Core Ideas
 
@@ -88,26 +102,22 @@ The agent should reject the layout if the result still feels like:
 ├── README.md
 ├── index.html
 ├── package.json
+├── skills/
+│   ├── animation-director/
+│   │   ├── SKILL.md
+│   │   ├── agents/
+│   │   └── references/
+│   └── layout-director/
+│       ├── SKILL.md
+│       ├── agents/
+│       └── references/
 ├── src/
 │   ├── components/
 │   ├── pages/
 │   ├── App.tsx
 │   ├── index.css
 │   └── main.tsx
-└── skills/
-    └── layout-director/
-        ├── SKILL.md
-        ├── agents/
-        │   └── openai.yaml
-        └── references/
-            ├── component_families.md
-            ├── component_principles.md
-            ├── layout_archetypes.md
-            ├── platform_adaptation.md
-            ├── prompt_recipe.md
-            ├── review_rubric.md
-            ├── scroll_patterns.md
-            └── variation_matrix.md
+└── ...
 ```
 
 ## Quick Start
@@ -136,15 +146,15 @@ The goal is not to force one visual style. The goal is to raise the floor for co
 
 ### Codex
 
-Install the repo with `npx skills add ...` if your setup supports it, or use the bundled skill folder directly and invoke `$layout-director`.
+Install the repo with `npx skills add ...` if your setup supports it, or use the bundled skill folders directly and invoke `$layout-director` and optionally `$animation-director`.
 
 ### Claude Code
 
-Use the skill body and reference files as project instructions or custom guidance. Keep the archetypes, variation matrix, and review rubric intact.
+Use the skill body and reference files as project instructions or custom guidance. Keep the archetypes, style engine, and review rubric intact.
 
 ### Cursor
 
-Use the same principles in Cursor rules or project instructions. The reference files are intentionally modular so you can keep the core rule set small.
+Use the same principles in Cursor rules or project instructions. The reference files are intentionally modular so you can keep the core rule set small and load motion guidance only when needed.
 
 ## Development
 
@@ -187,3 +197,10 @@ This repository is MIT licensed. See `LICENSE`.
 ## Reference
 
 The landing page visual direction is intentionally influenced by the live structure and product presentation style of [paper.design](https://paper.design/), while the content, code, and skill system in this repository are original.
+
+The skill package in this repo was expanded using ideas distilled from:
+
+- structured brand-system modeling in `preetsuthar17/loftlyy`
+- premium frontend taste controls in `Leonxlnx/taste-skill`
+
+Those references informed the workflow and heuristics here, but the packaged skill files in this repository were written specifically for this project.

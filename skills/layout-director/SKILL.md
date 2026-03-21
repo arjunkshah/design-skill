@@ -32,11 +32,13 @@ Before writing UI code:
    - motion profile
    - viewport behavior
 4. Apply the component rules from [references/component_principles.md](references/component_principles.md).
-5. If the page needs richer UI range, load [references/component_families.md](references/component_families.md).
-6. If the page needs pinned or scroll-reactive sections, load [references/scroll_patterns.md](references/scroll_patterns.md).
-7. Run the final pass from [references/review_rubric.md](references/review_rubric.md).
-8. If the user wants help invoking the skill from a specific tool, use [references/platform_adaptation.md](references/platform_adaptation.md).
-9. If the user needs phrasing examples, use [references/prompt_recipe.md](references/prompt_recipe.md).
+5. If the page needs stronger visual style, load [references/style_engine.md](references/style_engine.md).
+6. If the page needs brand-aware styling, load [references/brand_identity_translation.md](references/brand_identity_translation.md).
+7. If the page needs richer UI range, load [references/component_families.md](references/component_families.md).
+8. If the page needs pinned or scroll-reactive sections, load [references/scroll_patterns.md](references/scroll_patterns.md).
+9. Run the final pass from [references/review_rubric.md](references/review_rubric.md).
+10. If the user wants help invoking the skill from a specific tool, use [references/platform_adaptation.md](references/platform_adaptation.md).
+11. If the user needs phrasing examples, use [references/prompt_recipe.md](references/prompt_recipe.md).
 
 ## Design Intent
 
@@ -46,6 +48,7 @@ Outputs should vary based on the brief, but they should all share these qualitie
 - meaningful spacing and negative space
 - strong section-to-section pacing
 - deliberate asymmetry when useful
+- a clear visual identity instead of generic defaults
 - restrained, coherent motion
 - clean mobile collapse
 - components that support the layout instead of dictating it
@@ -100,6 +103,18 @@ Examples:
 - Narrative Stack + modular feature cluster
 
 One dominant structure is better than mixing five unrelated ideas.
+
+### 2.5. Set The Visual Engine
+
+Set these three control values before styling:
+
+- `DESIGN_VARIANCE`: how experimental or structured the composition should feel
+- `VISUAL_DENSITY`: how much information should fit per viewport
+- `MOTION_INTENSITY`: how animated or quiet the interface should feel
+
+Use the guidance in [references/style_engine.md](references/style_engine.md) to translate those controls into typography, color, materiality, and interaction decisions.
+
+If the work needs to follow a specific brand, build a lightweight brand brief first using [references/brand_identity_translation.md](references/brand_identity_translation.md).
 
 ### 3. Build Hierarchy With Scale
 

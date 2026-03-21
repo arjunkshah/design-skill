@@ -18,6 +18,14 @@ Check:
 - Are supporting elements clearly subordinate?
 - Is proof placed where the user needs it?
 
+## Style
+
+Check:
+
+- Does the page have a real visual point of view instead of generic defaults?
+- Are typography, color, and surfaces working together coherently?
+- If a brand is involved, does the page reflect the brand's logic instead of only reusing its colors?
+
 ## Restraint
 
 Check:
@@ -34,6 +42,7 @@ Check:
 - Is the motion intensity appropriate for the brand?
 - Are only transform and opacity being animated?
 - If a sticky or pinned pattern is used, does it clarify the story instead of feeling like a gimmick?
+- Is the animation budget concentrated in a few important places instead of spread everywhere?
 
 ## Mobile
 
@@ -50,4 +59,5 @@ Revise if the output feels like:
 - a template with different colors
 - a collection of cards without a thesis
 - an overdecorated hero with no proof
+- a generic interface with expensive fonts pasted on top
 - a desktop composition stacked thoughtlessly on mobile

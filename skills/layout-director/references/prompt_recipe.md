@@ -6,6 +6,8 @@ Use these when the model needs a stronger briefing structure.
 
 Use `$layout-director` to design this page. Choose a layout archetype based on the brief, keep the hierarchy and spacing premium, avoid generic SaaS symmetry, and make the mobile collapse feel intentionally redesigned.
 
+If motion needs to be part of the output, add `$animation-director`.
+
 ## Structured Prompt
 
 Use `$layout-director`.
@@ -23,11 +25,20 @@ Requirements:
 
 Quality bar:
 - strong layout system
+- brand-aware visual identity
 - deliberate section rhythm
 - restrained motion
 - clear CTA hierarchy
 - mobile-first reorganization
 
+Optional controls:
+- desired `DESIGN_VARIANCE`
+- desired `VISUAL_DENSITY`
+- desired `MOTION_INTENSITY`
+- whether the page should follow a specific brand system or mood
+
 ## Refinement Prompt
 
 Keep the same content but switch to a different archetype from the skill. Preserve the quality bar, increase compositional contrast, and avoid superficial cosmetic changes.
+
+If the structure is good but the styling still feels generic, keep the archetype and adjust the style engine instead.

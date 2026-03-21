@@ -95,12 +95,14 @@ Use:
 - high contrast between heading and body roles
 - consistent width and rhythm within a section
 - expressive display choices only when they support the brand
+- typography roles that match the brand system when one exists
 
 Avoid:
 
 - too many font families
 - uniform sizing across sections
 - overusing all caps or tiny labels
+- defaulting to generic neutral fonts for every brief
 
 ## Motion
 
@@ -111,6 +113,7 @@ Prefer:
 - reveal-on-entry
 - subtle hover translation
 - layered hero depth
+- one clear motion personality for the whole page
 
 Avoid:
 
