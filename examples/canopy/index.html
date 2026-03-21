@@ -3,41 +3,183 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Canopy Ritual</title>
+    <title>Pulse Loop</title>
     <link rel="stylesheet" href="../common.css" />
     <style>
       :root {
-        --bg: #eef2ea;
-        --panel: rgba(28, 46, 34, 0.04);
-        --panel-strong: rgba(28, 46, 34, 0.08);
-        --text: #203126;
-        --muted: rgba(32, 49, 38, 0.68);
-        --line: rgba(32, 49, 38, 0.12);
-        --accent: #6f8f6c;
-        --accent-soft: rgba(111, 143, 108, 0.12);
-        --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
-        --sans: Inter, "Segoe UI", system-ui, sans-serif;
+        --bg: #fff7ef;
+        --panel: rgba(29, 14, 6, 0.05);
+        --panel-strong: rgba(29, 14, 6, 0.08);
+        --text: #1f110a;
+        --muted: rgba(31, 17, 10, 0.68);
+        --line: rgba(31, 17, 10, 0.12);
+        --accent: #ff6a3d;
+        --accent-soft: rgba(255, 106, 61, 0.16);
+        --serif: "Avenir Next Condensed", "Arial Narrow", "Helvetica Neue", sans-serif;
+        --sans: "Avenir Next", Inter, "Segoe UI", system-ui, sans-serif;
         --mono: "SFMono-Regular", SFMono-Regular, Menlo, Consolas, monospace;
-        --shadow: 0 24px 70px rgba(30, 55, 34, 0.08);
+        --shadow: 0 32px 100px rgba(138, 48, 17, 0.14);
       }
-      body::before {
+
+      body {
+        background-image:
+          radial-gradient(circle at top left, rgba(255, 106, 61, 0.16), transparent 24%),
+          radial-gradient(circle at bottom right, rgba(255, 196, 74, 0.18), transparent 28%);
+      }
+
+      .hero-copy h1,
+      .section-head h2,
+      .quote-block h2,
+      .footer-cta h2,
+      .panel h3,
+      .card h3,
+      .plan h3,
+      .quote-card h3,
+      .table-card h3,
+      .spec-card h3 {
+        font-family: var(--serif);
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: -0.05em;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(72px, 11vw, 172px);
+        line-height: 0.9;
+        max-width: 7ch;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        padding-bottom: 28px;
+      }
+
+      .pulse-marquee {
+        display: flex;
+        gap: 14px;
+        overflow: hidden;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        padding: 16px 0;
+        white-space: nowrap;
+      }
+
+      .pulse-marquee span {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding-right: 14px;
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        animation: ticker 18s linear infinite;
+      }
+
+      .pulse-marquee span::before {
         content: "";
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        background: radial-gradient(circle at top left, rgba(111, 143, 108, 0.16), transparent 26%), radial-gradient(circle at bottom right, rgba(150, 165, 130, 0.14), transparent 28%);
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: var(--accent);
+      }
+
+      .hero-stack {
+        display: grid;
+        grid-template-columns: 0.92fr 1.08fr;
+        gap: 24px;
+        margin-top: 34px;
+      }
+
+      .phone-stage {
+        padding: 26px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.44);
+      }
+
+      .phone-stage img {
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        border-radius: 28px;
+        border: 1px solid var(--line);
+      }
+
+      .signal-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1px;
+        background: var(--line);
+      }
+
+      .signal-grid article {
+        background: var(--bg);
+        padding: 22px;
+      }
+
+      .rail {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(280px, 360px);
+        gap: 16px;
+        overflow-x: auto;
+        padding-bottom: 8px;
+        scrollbar-width: none;
+      }
+
+      .rail::-webkit-scrollbar {
+        display: none;
+      }
+
+      .rail-card {
+        padding: 26px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.52);
+        min-height: 320px;
+      }
+
+      .split-energy {
+        display: grid;
+        grid-template-columns: 1.02fr 0.98fr;
+        gap: 24px;
+      }
+
+      .cta-band {
+        padding: 24px 28px;
+        border: 1px solid var(--line);
+        background: linear-gradient(135deg, rgba(255, 106, 61, 0.16), rgba(255, 196, 74, 0.18));
+      }
+
+      @keyframes ticker {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-110%);
+        }
+      }
+
+      @media (max-width: 1080px) {
+        .hero-stack,
+        .split-energy,
+        .signal-grid {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
   <body>
     <header class="site-header">
       <div class="page-shell topbar">
-        <a class="brand" href="../index.html"><span class="brand-mark"></span><span>Canopy Ritual</span></a>
+        <a class="brand" href="../index.html"><span class="brand-mark"></span><span>Pulse Loop</span></a>
         <nav class="nav">
-          <a href="#rituals">Rituals</a>
-          <a href="#journal">Journal</a>
+          <a href="#drops">Drops</a>
+          <a href="#hosts">Hosts</a>
           <a href="#membership">Membership</a>
-          <a href="#stories">Stories</a>
+          <a href="#download">Download</a>
         </nav>
       </div>
     </header>
@@ -45,153 +187,136 @@
       <section class="hero">
         <div class="page-shell hero-grid">
           <div class="hero-copy">
-            <div class="eyebrow">Wellness practice</div>
-            <h1>A slower ritual system for modern nervous systems.</h1>
-            <p class="lead">Canopy Ritual combines guided sessions, daily journaling, mood-aware routines, and community prompts to help people reset without chasing optimization theater.</p>
+            <div class="eyebrow">Live culture app</div>
+            <h1>Find the city before the city finds you.</h1>
+            <p class="lead">Pulse Loop is a consumer app for underground events, limited-run drops, and local host communities. The market is culture-driven consumer discovery. The goal is app downloads, host applications, and social pull.</p>
             <div class="hero-actions">
-              <a class="button" href="#membership">Start membership</a>
-              <a class="ghost" href="#journal">See the journal flow</a>
-            </div>
-            <div class="hero-meta">
-              <article><span class="label">Tone</span><strong>Soft + expressive</strong></article>
-              <article><span class="label">Mode</span><strong>Guided ritual + reflection</strong></article>
-              <article><span class="label">Structure</span><strong>Airy sections, warm proof</strong></article>
+              <a class="button" href="#download">Download the app</a>
+              <a class="ghost" href="#hosts">Become a host</a>
             </div>
           </div>
-          <div class="stack-grid">
-            <article class="shot">
-              <img src="../../public/assets/generated/project-signal.svg" alt="Canopy app surface" />
+          <div class="pulse-marquee">
+            <span>late set releases</span>
+            <span>host applications open</span>
+            <span>drop alerts</span>
+            <span>members-only guest lists</span>
+            <span>afterhours maps</span>
+            <span>city-specific circles</span>
+          </div>
+          <div class="hero-stack">
+            <article class="phone-stage">
+              <img src="../../public/assets/generated/project-signal.svg" alt="Pulse Loop app surface" />
             </article>
-            <article class="panel">
-              <div class="label">Design thesis</div>
-              <h3>Wellness without the usual softness clichés.</h3>
-              <p>This page uses more space, warmer pacing, and a calmer material language, but it still keeps proof and product clarity visible.</p>
-            </article>
+            <div class="signal-grid">
+              <article>
+                <div class="label">Audience</div>
+                <h3>Urban culture seekers</h3>
+                <p>The tone needs velocity, taste, and social energy rather than trust-heavy restraint.</p>
+              </article>
+              <article>
+                <div class="label">Primary move</div>
+                <h3>Make downloads feel like access</h3>
+                <p>This is a desire-led consumer page, so the copy and section rhythm sell belonging more than explanation.</p>
+              </article>
+              <article>
+                <div class="label">Visual system</div>
+                <h3>Bold type, bright heat, moving rails</h3>
+                <p>The site is allowed to feel louder and more promotional than the enterprise or hospitality examples.</p>
+              </article>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section" id="rituals">
+      <section class="section" id="drops">
         <div class="page-shell section-head">
           <div>
-            <div class="eyebrow">Ritual system</div>
-            <h2>Small practices arranged like a real rhythm, not a challenge app.</h2>
+            <div class="eyebrow">Upcoming rails</div>
+            <h2>Consumer discovery pages need motion and appetite.</h2>
           </div>
+          <p class="section-note">Instead of editorial calm or systems proof, this example uses a horizontal card rail and faster copy to create momentum and FOMO.</p>
         </div>
-        <div class="page-shell timeline">
-          <article>
-            <div class="eyebrow">Wake</div>
-            <h3>Start with a body check</h3>
-            <p>Brief somatic prompts help users notice state before they force a routine onto themselves.</p>
+        <div class="page-shell rail">
+          <article class="rail-card card">
+            <div class="label">Friday</div>
+            <h3>Warehouse line in downtown LA</h3>
+            <p>Multi-room set with guest list unlocks pushed through the app at 8:45pm.</p>
           </article>
-          <article>
-            <div class="eyebrow">Midday</div>
-            <h3>Reset with guided softness</h3>
-            <p>Short restorative sessions create a pressure release without demanding high discipline.</p>
+          <article class="rail-card card">
+            <div class="label">Saturday</div>
+            <h3>Rooftop film drop in Brooklyn</h3>
+            <p>Limited invite release tied to local hosts and member referral code flow.</p>
           </article>
-          <article>
-            <div class="eyebrow">Night</div>
-            <h3>Close the day with reflection</h3>
-            <p>Journal structure is tuned for pattern recognition, not productivity vanity metrics.</p>
+          <article class="rail-card card">
+            <div class="label">Sunday</div>
+            <h3>Morning run club + post-session cafe map</h3>
+            <p>Culture is not just nightlife. The app sells a city rhythm from sunrise to last call.</p>
           </article>
-        </div>
-      </section>
-
-      <section class="section" id="journal">
-        <div class="page-shell bento">
-          <article class="card bento-large">
-            <div class="label">Journal layer</div>
-            <h3>Reflection feels tactile, private, and intentionally unhurried.</h3>
-            <p>The product stage uses softer section transitions and bigger quiet spaces, but still avoids generic wellness gradients and floating blobs.</p>
-          </article>
-          <article class="card">
-            <div class="label">Prompts</div>
-            <h3>Context-aware writing</h3>
-            <p>Questions shift based on user state instead of recycling the same journaling script.</p>
-          </article>
-          <article class="card">
-            <div class="label">Signals</div>
-            <h3>Mood patterns over time</h3>
-            <p>Visual summaries stay calm and useful instead of turning emotion into dashboard fetishism.</p>
-          </article>
-          <article class="card">
-            <div class="label">Audio</div>
-            <h3>Breath-led guidance</h3>
-            <p>Short guided sessions create a bridge between reflection and regulation.</p>
-          </article>
-          <article class="card">
-            <div class="label">Community</div>
-            <h3>Optional, not performative</h3>
-            <p>Shared rituals exist for support, not for streak pressure or social scorekeeping.</p>
+          <article class="rail-card card">
+            <div class="label">Always on</div>
+            <h3>Drop alerts for merch and micro releases</h3>
+            <p>Pulse Loop becomes useful between events because the discovery habit continues.</p>
           </article>
         </div>
       </section>
 
-      <section class="section">
-        <div class="page-shell quote-block">
-          <div class="eyebrow">Member note</div>
-          <h2>"It feels like the app is making room for me instead of asking me to optimize myself."</h2>
-          <p>That line becomes the design center: softer pacing, fewer noisy metrics, and more trust in calm surfaces.</p>
-        </div>
-      </section>
-
-      <section class="section" id="stories">
-        <div class="page-shell proof-grid">
-          <article class="quote-card">
-            <div class="label">Member story</div>
-            <h3>"The journal finally helped me notice patterns instead of just vent."</h3>
-            <p>Users respond to the way the writing prompts build continuity instead of chasing empty inspiration.</p>
+      <section class="section" id="hosts">
+        <div class="page-shell split-energy">
+          <article class="panel">
+            <div class="label">Host side</div>
+            <h3>Hosts need tools that feel curated, not corporate.</h3>
+            <p>On the host side the product sells waitlists, guest segmentation, drop timing, and post-event retention without feeling like a generic event dashboard.</p>
+            <div class="mini-list">
+              <div>Guest list pacing and release windows</div>
+              <div>Host circle growth and repeat guest tracking</div>
+              <div>Brand drop coordination and venue tie-ins</div>
+            </div>
           </article>
-          <article class="quote-card">
-            <div class="label">Practitioner note</div>
-            <h3>"It is gentle without becoming vague."</h3>
-            <p>The ritual structure keeps enough scaffolding for behavior change while staying emotionally soft.</p>
-          </article>
-          <article class="quote-card">
-            <div class="label">Community lead</div>
-            <h3>"The product never turns care into a gamified performance."</h3>
-            <p>That restraint is part of why users keep trusting the system over time.</p>
+          <article class="cta-band">
+            <div class="label">Why this page is different</div>
+            <h3>This site is selling social charge.</h3>
+            <p>That changes the product goal, the typography, the color energy, and the section rhythm. It should feel like access, not administration.</p>
           </article>
         </div>
       </section>
 
       <section class="section" id="membership">
-        <div class="page-shell pricing-grid">
-          <article class="plan">
-            <span class="plan-badge">Starter</span>
-            <h3>Daily rituals and journal flow</h3>
-            <p>Designed for people building a steadier morning and evening rhythm.</p>
+        <div class="page-shell proof-grid">
+          <article class="quote-card">
+            <div class="label">Member note</div>
+            <h3>"I use it like a cultural radar, not a calendar."</h3>
+            <p>The strongest consumer sites frame the product around identity and access, not just convenience.</p>
           </article>
-          <article class="plan">
-            <span class="plan-badge">Member</span>
-            <h3>Guided sessions and deeper prompts</h3>
-            <p>Includes the calmer audio library, deeper check-ins, and longer weekly reflection threads.</p>
+          <article class="quote-card">
+            <div class="label">Host note</div>
+            <h3>"It feels curated enough that the right crowd actually shows up."</h3>
+            <p>The product story shifts from logistics to taste curation because that is what the market actually values.</p>
           </article>
-          <article class="plan">
-            <span class="plan-badge">Circle</span>
-            <h3>Community rituals and practitioner events</h3>
-            <p>A slower, more intimate group structure for users who want shared rhythm without performance pressure.</p>
+          <article class="quote-card">
+            <div class="label">Brand partner</div>
+            <h3>"The drop moved because the audience already trusted the channel."</h3>
+            <p>Proof here is social and cultural, not enterprise or operational.</p>
           </article>
         </div>
       </section>
 
-      <section class="section">
+      <section class="section" id="download">
         <div class="page-shell footer-cta">
           <div>
-            <div class="eyebrow">Begin</div>
-            <h2>Choose the kind of calm that can actually survive a real life.</h2>
-            <p>Canopy is for users who want care, reflection, and repetition without turning healing into a system of punishment.</p>
+            <div class="eyebrow">Download</div>
+            <h2>Join the city before the good stuff disappears.</h2>
+            <p>This example is louder, faster, and more appetite-driven because the product lives or dies on cultural pull.</p>
           </div>
           <div class="footer-meta">
-            <a class="button" href="#">Start membership</a>
-            <a class="ghost" href="#">Read practitioner note</a>
+            <a class="button" href="#">Download iOS app</a>
+            <a class="ghost" href="#">Apply as a host</a>
           </div>
         </div>
       </section>
     </main>
     <footer class="site-footer">
       <div class="page-shell">
-        <span>Canopy Ritual example output</span>
+        <span>Pulse Loop example output</span>
         <span>This page is a showcase output for Design Skill.</span>
       </div>
     </footer>

@@ -3,212 +3,258 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Northstar Ledger</title>
+    <title>Solenne House</title>
     <link rel="stylesheet" href="../common.css" />
     <style>
       :root {
-        --bg: #f1ebe4;
-        --panel: rgba(60, 44, 28, 0.04);
-        --panel-strong: rgba(60, 44, 28, 0.08);
-        --text: #2b2118;
-        --muted: rgba(43, 33, 24, 0.68);
-        --line: rgba(43, 33, 24, 0.12);
-        --accent: #8d5f37;
-        --accent-soft: rgba(141, 95, 55, 0.12);
+        --bg: #f5efe7;
+        --panel: rgba(77, 55, 35, 0.05);
+        --panel-strong: rgba(77, 55, 35, 0.08);
+        --text: #2d2118;
+        --muted: rgba(45, 33, 24, 0.7);
+        --line: rgba(45, 33, 24, 0.1);
+        --accent: #9a6e47;
+        --accent-soft: rgba(154, 110, 71, 0.12);
         --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
         --sans: "Avenir Next", "Segoe UI", system-ui, sans-serif;
         --mono: "SFMono-Regular", SFMono-Regular, Menlo, Consolas, monospace;
-        --shadow: 0 24px 70px rgba(69, 44, 20, 0.1);
+        --shadow: 0 28px 90px rgba(73, 45, 21, 0.12);
       }
+
       body {
-        background-image: radial-gradient(circle at top right, rgba(141, 95, 55, 0.08), transparent 30%);
+        background-image:
+          radial-gradient(circle at top center, rgba(154, 110, 71, 0.08), transparent 34%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.45), transparent 20%);
+      }
+
+      .site-header {
+        background: rgba(245, 239, 231, 0.82);
+      }
+
+      .hero-center {
+        padding: 54px 0 10px;
+        text-align: center;
+      }
+
+      .hero-center h1 {
+        margin: 18px auto;
+        max-width: 10ch;
+        font-family: var(--serif);
+        font-size: clamp(72px, 10vw, 164px);
+        line-height: 0.92;
+        letter-spacing: -0.06em;
+      }
+
+      .hero-center .lead {
+        margin: 0 auto;
+      }
+
+      .hero-center .hero-actions,
+      .hero-center .market-strip {
+        justify-content: center;
+      }
+
+      .triptych {
+        display: grid;
+        grid-template-columns: 1.15fr 0.8fr 0.8fr;
+        gap: 18px;
+        margin-top: 44px;
+      }
+
+      .triptych article {
+        min-height: 440px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.52);
+      }
+
+      .triptych .image-large {
+        min-height: 520px;
+      }
+
+      .triptych img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .residence-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .residence-card {
+        padding: 24px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.48);
+      }
+
+      .editorial-split {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: 24px;
+        align-items: start;
+      }
+
+      .itinerary {
+        display: grid;
+        gap: 1px;
+        background: var(--line);
+      }
+
+      .itinerary article {
+        background: var(--bg);
+        padding: 22px;
+      }
+
+      .quote-block {
+        padding: 140px 0;
+      }
+
+      @media (max-width: 1080px) {
+        .triptych,
+        .residence-grid,
+        .editorial-split {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
   <body>
     <header class="site-header">
       <div class="page-shell topbar">
-        <a class="brand" href="../index.html"><span class="brand-mark"></span><span>Northstar Ledger</span></a>
+        <a class="brand" href="../index.html"><span class="brand-mark"></span><span>Solenne House</span></a>
         <nav class="nav">
-          <a href="#advisory">Advisory</a>
-          <a href="#proof">Proof</a>
-          <a href="#pricing">Plans</a>
-          <a href="#contact">Contact</a>
+          <a href="#residences">Residences</a>
+          <a href="#experience">Experience</a>
+          <a href="#journal">Journal</a>
+          <a href="#reserve">Reserve</a>
         </nav>
       </div>
     </header>
     <main>
       <section class="hero">
-        <div class="page-shell hero-grid">
-          <div class="hero-copy">
-            <div class="eyebrow">Private capital advisory</div>
-            <h1>Market clarity for founders, families, and operators.</h1>
-            <p class="lead">Northstar Ledger combines strategic treasury planning, capital structure guidance, and deliberate market communication for clients managing change at scale.</p>
-            <div class="hero-actions">
-              <a class="button" href="#contact">Request an introduction</a>
-              <a class="ghost" href="#proof">View case notes</a>
-            </div>
-            <div class="market-strip">
-              <span>AUM conversations in 14 markets</span>
-              <span>Founder-led liquidity planning</span>
-              <span>Family office strategy</span>
-            </div>
+        <div class="page-shell hero-center">
+          <div class="eyebrow">Private coastal retreat</div>
+          <h1>Stay inside a quieter kind of luxury.</h1>
+          <p class="lead">Solenne House is a high-end hospitality site selling confidence, atmosphere, and reservation desire. The buyer is a leisure traveler with taste. The goal is not “learn more.” The goal is to make the stay feel inevitable.</p>
+          <div class="hero-actions">
+            <a class="button" href="#reserve">Reserve a residence</a>
+            <a class="ghost" href="#experience">View the house ritual</a>
           </div>
-          <div class="stack-grid">
-            <article class="panel">
-              <div class="label">Current positioning</div>
-              <h3>Advisory that reads like a private briefing, not a sales deck.</h3>
-              <p>Warm editorial pacing, sharper proof placement, and a calmer material language signal trust before conversion pressure appears.</p>
+          <div class="market-strip">
+            <span>Destination stays</span>
+            <span>Private residences</span>
+            <span>Seasonal bookings</span>
+          </div>
+          <div class="triptych">
+            <article class="image-large">
+              <img src="../../public/assets/generated/project-lattice.svg" alt="Solenne House hero scene" />
             </article>
-            <article class="shot">
-              <img src="../../public/assets/generated/project-lattice.svg" alt="Ledger editorial surface" />
+            <article>
+              <img src="../../public/assets/generated/hero-detail.svg" alt="Solenne House interior detail" />
+            </article>
+            <article class="panel">
+              <div class="label">Property note</div>
+              <h3>A hospitality site should seduce before it explains.</h3>
+              <p>This layout moves like a boutique hotel book: centered thesis, cinematic image block, editorial details, and a cleaner path to booking.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section" id="advisory">
+      <section class="section" id="residences">
         <div class="page-shell section-head">
           <div>
-            <div class="eyebrow">Advisory layers</div>
-            <h2>Structured for confidence, not spectacle.</h2>
+            <div class="eyebrow">Residences</div>
+            <h2>Three ways to stay, all designed for slower time.</h2>
           </div>
-          <p class="section-note">This example leans editorial and trust-heavy. The sections breathe more, but proof still appears early and clearly.</p>
+          <p class="section-note">This site is warmer, image-led, and more emotionally paced than the enterprise example. The product is a booking decision, so atmosphere carries more weight than system explanation.</p>
         </div>
-        <div class="page-shell feature-grid">
-          <article class="card">
-            <div class="label">Capital strategy</div>
-            <h3>Decide what to hold, deploy, or defer.</h3>
-            <p>We build a capital plan that balances timing, optionality, tax posture, and operator psychology instead of optimizing for one spreadsheet variable.</p>
+        <div class="page-shell residence-grid">
+          <article class="residence-card">
+            <div class="label">Cliff residence</div>
+            <h3>For long mornings and sea-facing dinners.</h3>
+            <p>Two suites, private terrace, dedicated host, and a living space arranged for quiet entertaining.</p>
           </article>
-          <article class="card">
-            <div class="label">Narrative control</div>
-            <h3>Align investor communication with business reality.</h3>
-            <p>When public or internal expectations drift, we help reshape the operating narrative before confidence breaks down.</p>
+          <article class="residence-card">
+            <div class="label">Garden house</div>
+            <h3>For slower family stays.</h3>
+            <p>Shaded courtyard, outdoor bath, child-ready service flow, and a more grounded interior palette.</p>
           </article>
-          <article class="card">
-            <div class="label">Transition support</div>
-            <h3>Handle liquidity events without losing strategic discipline.</h3>
-            <p>Founders, executives, and families often need a slower, more considered process than institutions assume.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="page-shell quote-block">
-          <div class="eyebrow">Positioning note</div>
-          <h2>"The best financial guidance reduces noise before it touches capital."</h2>
-          <p>Northstar is designed to feel private, composed, and deeply informed rather than loud, tech-forward, or over-designed.</p>
-        </div>
-      </section>
-
-      <section class="section" id="proof">
-        <div class="page-shell table-grid">
-          <article class="table-card">
-            <div class="eyebrow">Selected outcomes</div>
-            <h3>Proof placed where trust is actually built.</h3>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Situation</th>
-                  <th>Result</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Post-exit founder capital allocation</td>
-                  <td>Reframed into a staged treasury model that reduced rushed deployment pressure.</td>
-                </tr>
-                <tr>
-                  <td>Family office liquidity reserve redesign</td>
-                  <td>Shifted from fragmented holdings to a cleaner decision framework and communication cadence.</td>
-                </tr>
-                <tr>
-                  <td>Private company investor messaging</td>
-                  <td>Built a more credible planning narrative ahead of a major strategic transition.</td>
-                </tr>
-              </tbody>
-            </table>
-          </article>
-          <article class="spec-card">
-            <div class="eyebrow">Operating approach</div>
-            <h3>Three conditions for every mandate.</h3>
-            <div class="stat-list">
-              <div>Clarity before optimization</div>
-              <div>Evidence before positioning</div>
-              <div>Composure before conversion pressure</div>
-            </div>
+          <article class="residence-card">
+            <div class="label">Studio suite</div>
+            <h3>For short ritual-led escapes.</h3>
+            <p>Compact but deeply considered, with sunrise breakfast service and evening tea already built into the stay.</p>
           </article>
         </div>
       </section>
 
-      <section class="section">
-        <div class="page-shell bento">
-          <article class="card bento-large">
-            <div class="label">Case format</div>
-            <h3>Every engagement ends with a document clients can actually govern against.</h3>
-            <p>Instead of a presentation that dies in a folder, Northstar delivers a working decision document for capital posture, scenario tradeoffs, and communication sequencing.</p>
+      <section class="section" id="experience">
+        <div class="page-shell editorial-split">
+          <article class="quote-block">
+            <div class="eyebrow">Experience thesis</div>
+            <h2>"The booking should feel like entering a world, not selecting inventory."</h2>
+            <p>This is why the page uses slower typography, more air, and image-led sequencing rather than dense feature proof.</p>
           </article>
-          <article class="card">
-            <div class="label">Tone</div>
-            <h3>Private, calm, exact</h3>
-            <p>No venture slogans, no fake urgency, no dashboard theater.</p>
+          <div class="itinerary">
+            <article>
+              <div class="label">Arrival</div>
+              <h3>Sunset transfer and private check-in.</h3>
+              <p>The first touchpoint is quiet, low-friction, and intentionally ceremonial.</p>
+            </article>
+            <article>
+              <div class="label">Morning</div>
+              <h3>Guided breakfast and water schedule.</h3>
+              <p>Every stay begins with one house ritual that makes the property memorable beyond aesthetics.</p>
+            </article>
+            <article>
+              <div class="label">Evening</div>
+              <h3>Dining, reading, and slow service cadence.</h3>
+              <p>The site sells how the place feels after 6pm, because that is where desire actually sharpens.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="journal">
+        <div class="page-shell proof-grid">
+          <article class="quote-card">
+            <div class="label">Guest note</div>
+            <h3>"It felt less like a resort and more like a private house with impossible service."</h3>
+            <p>Trust on a hospitality page is built through tone, specificity, and restraint rather than loud conversion pressure.</p>
           </article>
-          <article class="card">
-            <div class="label">Cadence</div>
-            <h3>Quarterly or event-driven</h3>
-            <p>Support can stretch with the business rather than forcing constant intervention.</p>
+          <article class="quote-card">
+            <div class="label">House journal</div>
+            <h3>Seasonal tables, local ceramic commissions, and shoreline itineraries.</h3>
+            <p>A luxury property site should create an editorial surface around the stay so the brand extends beyond booking mechanics.</p>
           </article>
-          <article class="card">
-            <div class="label">Scope</div>
-            <h3>From founder balance sheets to institutional readiness</h3>
-            <p>The framing changes with the client, but the rigor does not.</p>
-          </article>
-          <article class="card">
-            <div class="label">Format</div>
-            <h3>Working memoranda, not generic decks</h3>
-            <p>Clients need something they can return to when conditions change.</p>
+          <article class="quote-card">
+            <div class="label">Booking signal</div>
+            <h3>Limited inventory, longer lead windows, and concierge contact before purchase.</h3>
+            <p>The site is designed to make higher-intent booking feel natural instead of transactional.</p>
           </article>
         </div>
       </section>
 
-      <section class="section" id="pricing">
-        <div class="page-shell pricing-grid">
-          <article class="plan">
-            <span class="plan-badge">Advisory sprint</span>
-            <h3>Short, focused strategic work.</h3>
-            <p>For one capital decision, one narrative repair, or one near-term event with meaningful implications.</p>
-          </article>
-          <article class="plan">
-            <span class="plan-badge">Ongoing council</span>
-            <h3>Quarterly strategic support.</h3>
-            <p>For operators and families who need continuity without the weight of a large institutional process.</p>
-          </article>
-          <article class="plan">
-            <span class="plan-badge">Private mandate</span>
-            <h3>Deeper retained engagement.</h3>
-            <p>For more sensitive transitions, denser reporting needs, or multi-stakeholder coordination.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="contact">
+      <section class="section" id="reserve">
         <div class="page-shell footer-cta">
           <div>
-            <div class="eyebrow">Introduction</div>
-            <h2>When the moment matters, clarity is part of the asset.</h2>
-            <p>Northstar works best when clients need judgment, signal discipline, and a calmer operating posture around capital.</p>
+            <div class="eyebrow">Reserve</div>
+            <h2>Choose a residence, then let the stay arrive around you.</h2>
+            <p>Everything in this example is built around aspiration and booking confidence rather than feature density.</p>
           </div>
           <div class="footer-meta">
-            <a class="button" href="#">Request a conversation</a>
-            <a class="ghost" href="#">Download firm note</a>
+            <a class="button" href="#">Request availability</a>
+            <a class="ghost" href="#">Open the house journal</a>
           </div>
         </div>
       </section>
     </main>
     <footer class="site-footer">
       <div class="page-shell">
-        <span>Northstar Ledger example output</span>
+        <span>Solenne House example output</span>
         <span>This page is a showcase output for Design Skill.</span>
       </div>
     </footer>

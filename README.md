@@ -87,12 +87,12 @@ The skill package keeps generated imagery in scope and treats section range, hie
 These are real showcase sites added to the repo as proof of what the guide can produce:
 
 [![Axon Grid](examples/screenshots/axon-home.png)](examples/axon/index.html)
-[![Northstar Ledger](examples/screenshots/ledger-home.png)](examples/ledger/index.html)
-[![Canopy Ritual](examples/screenshots/canopy-home.png)](examples/canopy/index.html)
+[![Solenne House](examples/screenshots/ledger-home.png)](examples/ledger/index.html)
+[![Pulse Loop](examples/screenshots/canopy-home.png)](examples/canopy/index.html)
 
-- `examples/axon/`: developer-tool / AI operations example
-- `examples/ledger/`: premium finance / editorial trust example
-- `examples/canopy/`: consumer wellness / airy expressive example
+- `examples/axon/`: enterprise AI governance / platform-software example
+- `examples/ledger/`: luxury hospitality / booking-led editorial example
+- `examples/canopy/`: consumer culture app / faster conversion example
 
 ## Core Ideas
 
