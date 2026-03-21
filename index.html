@@ -10,7 +10,7 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Press+Start+2P&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             /* 1. Ember (Default) */
@@ -121,19 +121,6 @@
             --img-invert: 0.2;
             --img-opacity: 0.72;
         }
-        [data-theme="pixel"] {
-            --color-bg: 22 27 36;
-            --color-fg: 227 244 208;
-            --color-border: 148 204 112;
-            --border-opacity: 0.3;
-            --font-primary: 'Press Start 2P', cursive;
-            --font-secondary: 'Press Start 2P', cursive;
-            --font-mono: 'Press Start 2P', cursive;
-            --img-blend: normal;
-            --img-invert: 0;
-            --img-opacity: 0.78;
-        }
-
         body {
             background-color: rgb(var(--color-bg));
             color: rgb(var(--color-fg));
@@ -160,13 +147,6 @@
             inset: 12px;
             border: 1px solid rgba(var(--color-border), calc(var(--border-opacity) + 0.08));
             pointer-events: none;
-        }
-        [data-theme="pixel"] .theme-image {
-            image-rendering: pixelated;
-            filter: grayscale(20%) contrast(1.15) saturate(0.85);
-        }
-        [data-theme="pixel"] .pixel-border {
-            box-shadow: 0 0 0 2px rgba(var(--color-border), 0.35), 8px 8px 0 rgba(var(--color-border), 0.12);
         }
     </style>
     <script>
@@ -274,7 +254,7 @@
         );
 
         const ThemeToggle = ({ theme, setTheme }) => {
-            const themes = ['paper', 'brutalist', 'sepia', 'midnight', 'terminal', 'blueprint', 'hacker', 'signal', 'ember', 'pixel'];
+            const themes = ['paper', 'brutalist', 'sepia', 'midnight', 'terminal', 'blueprint', 'hacker', 'signal', 'ember'];
             
             useEffect(() => {
                 const handleKeyDown = (e) => { if (e.key.toLowerCase() === 'c') cycleTheme(); };
@@ -361,10 +341,10 @@
                             </motion.div>
                         </div>
                         <div className="md:col-span-4 flex flex-col justify-between relative bg-fg/5 overflow-hidden">
-                            <motion.div style={{ y: y1, opacity }} className="absolute inset-x-10 top-12 z-0 image-frame pixel-border border border-border bg-bg overflow-hidden shadow-2xl">
+                            <motion.div style={{ y: y1, opacity }} className="absolute inset-x-10 top-12 z-0 image-frame border border-border bg-bg overflow-hidden shadow-2xl">
                                 <img src={imagery.heroMain} alt="Editorial workspace" className="w-full aspect-[4/5] object-cover theme-image" />
                             </motion.div>
-                            <motion.div style={{ y: y2, opacity }} className="absolute right-8 bottom-24 z-10 image-frame pixel-border w-[48%] border border-border bg-bg overflow-hidden shadow-xl">
+                            <motion.div style={{ y: y2, opacity }} className="absolute right-8 bottom-24 z-10 image-frame w-[48%] border border-border bg-bg overflow-hidden shadow-xl">
                                 <img src={imagery.heroDetail} alt="Structured interior detail" className="w-full aspect-[4/5] object-cover theme-image" />
                             </motion.div>
                             <div className="p-8 md:p-16 z-20 mt-auto bg-gradient-to-t from-bg via-bg/88 to-transparent">
@@ -544,7 +524,7 @@
                                     <Reveal as="div" className="font-mono text-xs text-fg/40 mb-4">0{idx + 1}</Reveal>
                                     <Reveal as="h3" delay={0.06} className="text-3xl font-primary tracking-tight mb-6">{idea.title}</Reveal>
                                     <Reveal as="p" delay={0.12} className="text-fg/70 leading-relaxed mb-12 max-w-md">{idea.desc}</Reveal>
-                                    <motion.div className="w-full aspect-[4/3] bg-fg/5 relative overflow-hidden border border-border image-frame pixel-border" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }} custom={0.18} variants={frameReveal}>
+                                    <motion.div className="w-full aspect-[4/3] bg-fg/5 relative overflow-hidden border border-border image-frame" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }} custom={0.18} variants={frameReveal}>
                                         <img src={idea.img} alt={idea.title} className="w-full h-full object-cover theme-image" />
                                     </motion.div>
                                 </motion.div>
@@ -606,7 +586,7 @@
             const projects = [
                 { title: "Project Slot 01", note: "Replace this with your first generated landing page.", image: imagery.projectOne },
                 { title: "Project Slot 02", note: "Drop in a screenshot of a product frame or scrollytelling build.", image: imagery.projectTwo },
-                { title: "Project Slot 03", note: "Use this slot for a more experimental preset or pixel-mode output.", image: imagery.projectThree }
+                { title: "Project Slot 03", note: "Use this slot for a more experimental or motion-led output generated with the skill.", image: imagery.projectThree }
             ];
             return (
                 <section id="projects" className="border-b border-border bg-bg">
@@ -621,7 +601,7 @@
                         <div className="md:col-span-8 grid grid-cols-1 lg:grid-cols-3 gap-[1px] bg-border">
                             {projects.map((project, idx) => (
                                 <motion.article key={project.title} className="bg-bg p-6 md:p-8" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} custom={idx * 0.08} variants={frameReveal}>
-                                    <div className="relative border border-border overflow-hidden image-frame pixel-border bg-fg/5 mb-6">
+                                    <div className="relative border border-border overflow-hidden image-frame bg-fg/5 mb-6">
                                         <img src={project.image} alt={project.title} className="w-full aspect-[4/5] object-cover theme-image" />
                                         <div className="absolute left-4 top-4 bg-bg/90 border border-border px-3 py-2 font-mono text-[10px] uppercase tracking-[0.18em]">replace with your project</div>
                                     </div>

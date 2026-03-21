@@ -63,7 +63,7 @@ The common failure modes are predictable:
 
 Layout Director addresses those issues by making layout selection an explicit step instead of an accidental byproduct of code generation.
 
-The landing page also ships with multiple visual presets so the same structure can be previewed across different moods, including a pixel-font preset for deliberately stylized outputs.
+The landing page also ships with multiple visual presets so the same structure can be previewed across different moods.
 
 The skill package now also includes:
 
