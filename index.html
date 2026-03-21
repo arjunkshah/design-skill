@@ -13,17 +13,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Press+Start+2P&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* 1. Paper (Default) */
-            --color-bg: 246 245 241;
-            --color-fg: 17 17 17;
-            --color-border: 17 17 17;
-            --border-opacity: 0.1;
+            /* 1. Ember (Default) */
+            --color-bg: 24 18 16;
+            --color-fg: 243 224 204;
+            --color-border: 255 128 74;
+            --border-opacity: 0.28;
             --font-primary: 'Newsreader', serif;
             --font-secondary: 'Inter', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
-            --img-blend: multiply;
-            --img-invert: 0;
-            --img-opacity: 0.8;
+            --img-blend: screen;
+            --img-invert: 0.2;
+            --img-opacity: 0.72;
         }
         [data-theme="brutalist"] {
             /* 2. Brutalist */
@@ -751,7 +751,7 @@
 
         // --- Main App ---
         const App = () => {
-            const [theme, setTheme] = useState('paper');
+            const [theme, setTheme] = useState('ember');
             const scrollToSection = (id) => {
                 const el = document.getElementById(id);
                 if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
