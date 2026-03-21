@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Director</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* 1. Paper (Default) */
+            --color-bg: 246 245 241;
+            --color-fg: 17 17 17;
+            --color-border: 17 17 17;
+            --border-opacity: 0.1;
+            --font-primary: 'Newsreader', serif;
+            --font-secondary: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --img-blend: multiply;
+            --img-invert: 0;
+            --img-opacity: 0.8;
+        }
+        [data-theme="brutalist"] {
+            /* 2. Brutalist */
+            --color-bg: 255 255 255;
+            --color-fg: 0 0 0;
+            --color-border: 0 0 0;
+            --border-opacity: 1; /* Solid borders */
+            --font-primary: 'Inter', sans-serif;
+            --font-secondary: 'Inter', sans-serif;
+            --img-blend: luminosity;
+            --img-invert: 0;
+            --img-opacity: 1;
+        }
+        [data-theme="sepia"] {
+            /* 3. Sepia */
+            --color-bg: 244 236 222;
+            --color-fg: 67 52 34;
+            --color-border: 67 52 34;
+            --border-opacity: 0.2;
+            --font-primary: 'Newsreader', serif;
+            --font-secondary: 'Newsreader', serif;
+            --img-blend: multiply;
+            --img-invert: 0;
+            --img-opacity: 0.85;
+        }
+        [data-theme="midnight"] {
+            /* 4. Midnight */
+            --color-bg: 0 0 0;
+            --color-fg: 255 255 255;
+            --color-border: 255 255 255;
+            --border-opacity: 0.15;
+            --font-primary: 'Inter', sans-serif;
+            --font-secondary: 'Inter', sans-serif;
+            --img-blend: screen;
+            --img-invert: 1;
+            --img-opacity: 0.7;
+        }
+        [data-theme="terminal"] {
+            /* 5. Terminal */
+            --color-bg: 10 10 10;
+            --color-fg: 0 255 65;
+            --color-border: 0 255 65;
+            --border-opacity: 0.3;
+            --font-primary: 'JetBrains Mono', monospace;
+            --font-secondary: 'JetBrains Mono', monospace;
+            --img-blend: screen;
+            --img-invert: 1;
+            --img-opacity: 0.4;
+        }
+        [data-theme="blueprint"] {
+            /* 6. Blueprint */
+            --color-bg: 10 25 47;
+            --color-fg: 100 255 218;
+            --color-border: 100 255 218;
+            --border-opacity: 0.2;
+            --font-primary: 'Inter', sans-serif;
+            --font-secondary: 'Inter', sans-serif;
+            --img-blend: screen;
+            --img-invert: 1;
+            --img-opacity: 0.3;
+        }
+        [data-theme="hacker"] {
+            /* 7. Hacker / Cyberpunk */
+            --color-bg: 9 4 14;
+            --color-fg: 255 0 128;
+            --color-border: 255 0 128;
+            --border-opacity: 0.4;
+            --font-primary: 'JetBrains Mono', monospace;
+            --font-secondary: 'Inter', sans-serif;
+            --img-blend: screen;
+            --img-invert: 1;
+            --img-opacity: 0.6;
+        }
+
+        body {
+            background-color: rgb(var(--color-bg));
+            color: rgb(var(--color-fg));
+            font-family: var(--font-secondary);
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            overflow-x: hidden;
+        }
+        ::selection { background-color: rgb(var(--color-fg)); color: rgb(var(--color-bg)); }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: rgb(var(--color-bg)); border-left: 1px solid rgba(var(--color-border), var(--border-opacity)); }
+        ::-webkit-scrollbar-thumb { background: rgb(var(--color-fg)); }
+        .theme-image {
+            mix-blend-mode: var(--img-blend);
+            filter: grayscale(100%) invert(var(--img-invert));
+            opacity: var(--img-opacity);
+            transition: all 0.5s ease;
+        }
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: 'rgb(var(--color-bg) / <alpha-value>)',
+                        fg: 'rgb(var(--color-fg) / <alpha-value>)',
+                        border: 'rgba(var(--color-border), var(--border-opacity))',
+                    },
+                    fontFamily: {
+                        primary: 'var(--font-primary)',
+                        secondary: 'var(--font-secondary)',
+                        mono: 'var(--font-mono)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel" data-presets="react">
+        const { useState, useEffect, useRef } = React;
+        const { motion, useScroll, useTransform, AnimatePresence } = window.Motion;
+
+        // --- Icons ---
+        const TerminalIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>;
+        const GithubIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.02c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A4.8 4.8 0 0 0 8 18v4"/><polyline points="9 22 9 12 15 12 15 22"/></svg>;
+        const PlusIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>;
+
+        // --- Animations ---
+        const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } } };
+        const staggerContainer = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1 } } };
+
+        // --- Layout Shell ---
+        const sectionLinks = [
+            { id: 'system', label: 'System' },
+            { id: 'range', label: 'Range' },
+            { id: 'install', label: 'Install' },
+            { id: 'faq', label: 'FAQ' },
+        ];
+
+        const Nav = ({ scrollToSection }) => (
+            <motion.nav initial={{ y: -100 }} animate={{ y: 0 }} transition={{ duration: 0.8 }} className="flex items-center justify-between px-6 py-4 border-b border-border sticky top-0 bg-bg/90 backdrop-blur-md z-50">
+                <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2 group">
+                    <div className="w-4 h-4 bg-fg rounded-sm group-hover:scale-90 transition-transform"></div>
+                    <span className="font-primary text-xl tracking-tight font-medium">Layout Director</span>
+                </button>
+                <div className="flex items-center gap-6 text-sm font-medium hide-scroll overflow-x-auto">
+                    {sectionLinks.map(section => (
+                        <button key={section.id} onClick={() => scrollToSection(section.id)} className="hover:opacity-60 transition-opacity whitespace-nowrap">
+                            {section.label}
+                        </button>
+                    ))}
+                    <a href="https://github.com/arjunkshah/layout-skill" target="_blank" className="hidden lg:flex hover:opacity-60 transition-opacity items-center gap-2"><GithubIcon /> GitHub</a>
+                </div>
+            </motion.nav>
+        );
+
+        const ThemeToggle = ({ theme, setTheme }) => {
+            const themes = ['paper', 'brutalist', 'sepia', 'midnight', 'terminal', 'blueprint', 'hacker'];
+            
+            useEffect(() => {
+                const handleKeyDown = (e) => { if (e.key.toLowerCase() === 'c') cycleTheme(); };
+                window.addEventListener('keydown', handleKeyDown);
+                return () => window.removeEventListener('keydown', handleKeyDown);
+            }, [theme]);
+            
+            const cycleTheme = () => setTheme(themes[(themes.indexOf(theme) + 1) % themes.length]);
+            
+            return (
+                <motion.button 
+                    initial={{ scale: 0, opacity: 0 }} 
+                    animate={{ scale: 1, opacity: 1 }} 
+                    whileHover={{ scale: 1.05 }} 
+                    whileTap={{ scale: 0.95 }} 
+                    onClick={cycleTheme} 
+                    className="fixed bottom-6 right-6 z-50 bg-fg text-bg pl-5 pr-4 py-3 rounded-full shadow-2xl flex items-center gap-3 transition-colors duration-300 group"
+                >
+                    <span className="font-mono text-xs uppercase tracking-widest font-bold">Theme</span>
+                    <div className="flex items-center justify-center w-6 h-6 rounded bg-bg text-fg font-mono text-[11px] font-bold border border-fg/20 shadow-inner group-hover:bg-fg group-hover:text-bg group-hover:border-bg/20 transition-colors">
+                        C
+                    </div>
+                </motion.button>
+            );
+        };
+
+        const Footer = () => (
+            <footer className="p-8 md:p-16 max-w-[1400px] mx-auto w-full flex flex-col md:flex-row justify-between items-start md:items-center gap-8 bg-bg">
+                <div>
+                    <div className="font-primary text-2xl tracking-tight mb-2">Layout Director</div>
+                    <p className="font-mono text-xs text-fg/50 uppercase tracking-widest">A skill by arjunkshah.</p>
+                </div>
+                <div className="flex gap-8 text-sm font-medium">
+                    <a href="https://github.com/arjunkshah/layout-skill" target="_blank" className="hover:underline underline-offset-4 flex items-center gap-2"><GithubIcon /> Repository</a>
+                    <a href="https://github.com/arjunkshah/layout-skill/issues" target="_blank" className="hover:underline underline-offset-4">Issues</a>
+                    <a href="https://github.com/arjunkshah/layout-skill/blob/main/LICENSE" target="_blank" className="hover:underline underline-offset-4">License</a>
+                </div>
+            </footer>
+        );
+
+        // ==========================================
+        // HOME PAGE SECTIONS (11 Sections Total)
+        // ==========================================
+
+        // Section 1: Hero
+        const Hero = () => {
+            const { scrollY } = useScroll();
+            const y1 = useTransform(scrollY, [0, 1000], [0, 200]);
+            const opacity = useTransform(scrollY, [0, 400], [1, 0]);
+
+            return (
+                <header id="top" className="border-b border-border relative overflow-hidden">
+                    <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 min-h-[85vh]">
+                        <div className="md:col-span-8 p-8 md:p-16 border-r border-border flex flex-col justify-center relative z-10 bg-bg">
+                            <motion.div variants={staggerContainer} initial="hidden" animate="visible">
+                                <motion.span variants={fadeUp} className="font-mono text-xs tracking-[0.2em] uppercase text-fg/50 mb-8 block">v1.0.0 / Open-Source Skill</motion.span>
+                                <motion.h1 variants={fadeUp} className="font-primary text-[11vw] md:text-[8vw] leading-[0.85] tracking-[-0.04em] text-fg mb-8">
+                                    Structure<br/>before code.
+                                </motion.h1>
+                                <motion.p variants={fadeUp} className="text-xl md:text-2xl font-primary text-fg/60 max-w-2xl leading-relaxed">
+                                    An open-source layout skill for coding agents. It fixes a recurring failure mode: functional code with weak, repetitive layout judgment.
+                                </motion.p>
+                                <motion.div variants={fadeUp} className="mt-12 flex flex-wrap items-center gap-4">
+                                    <a href="https://github.com/arjunkshah/layout-skill" target="_blank" className="bg-fg text-bg px-6 py-4 text-sm font-medium rounded-sm flex items-center gap-2 hover:opacity-80 transition-opacity">
+                                        <GithubIcon /> View Repository
+                                    </a>
+                                    <div className="px-6 py-4 text-sm font-mono border border-border rounded-sm bg-fg/5 flex items-center gap-2">
+                                        <span className="text-fg/50">$</span> layout-director
+                                    </div>
+                                </motion.div>
+                            </motion.div>
+                        </div>
+                        <div className="md:col-span-4 flex flex-col justify-between relative">
+                            <motion.div style={{ y: y1, opacity }} className="absolute inset-0 z-0">
+                                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop" alt="Architecture" className="w-full h-full object-cover theme-image" />
+                            </motion.div>
+                            <div className="p-8 md:p-16 z-10 bg-gradient-to-b from-bg via-bg/80 to-transparent">
+                                <h3 className="font-mono text-xs tracking-widest uppercase mb-4 border-b border-border pb-4">The Failure Mode</h3>
+                                <p className="text-sm text-fg/70 leading-relaxed">
+                                    The model reaches for the same centered hero, the same repeated feature cards, and the same cramped mobile collapse.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            );
+        };
+
+        // Section 2: Code Comparison
+        const CodeComparison = () => (
+            <section className="border-b border-border bg-fg/5">
+                <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2">
+                    <div className="p-8 md:p-16 border-r border-border bg-bg">
+                        <h3 className="font-mono text-xs tracking-widest uppercase mb-6 text-fg/50">Standard AI Output</h3>
+                        <div className="font-mono text-sm leading-relaxed text-fg/70 bg-fg/5 p-6 border border-border rounded-sm">
+                            <span className="text-red-500">-</span> &lt;div className="flex flex-col items-center text-center p-8 bg-white rounded-xl shadow-lg"&gt;<br/>
+                            <span className="text-red-500">-</span> &nbsp;&nbsp;&lt;h1 className="text-4xl font-bold text-gray-900"&gt;Welcome&lt;/h1&gt;<br/>
+                            <span className="text-red-500">-</span> &nbsp;&nbsp;&lt;p className="text-gray-500 mt-4"&gt;Generic subtitle here&lt;/p&gt;<br/>
+                            <span className="text-red-500">-</span> &lt;/div&gt;
+                        </div>
+                        <p className="mt-6 text-sm font-primary italic text-fg/60">Result: "AI Slop". Arbitrary padding, generic shadows, lacking materiality.</p>
+                    </div>
+                    <div className="p-8 md:p-16 bg-bg">
+                        <h3 className="font-mono text-xs tracking-widest uppercase mb-6 text-fg/50 flex items-center gap-2"><TerminalIcon/> Layout Director Output</h3>
+                        <div className="font-mono text-sm leading-relaxed text-fg/90 bg-fg/10 p-6 border border-border rounded-sm shadow-inner">
+                            <span className="text-green-500">+</span> &lt;section className="grid grid-cols-12 border-b border-black/10"&gt;<br/>
+                            <span className="text-green-500">+</span> &nbsp;&nbsp;&lt;div className="col-span-8 border-r border-black/10 p-16"&gt;<br/>
+                            <span className="text-green-500">+</span> &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1 className="text-[8vw] font-serif leading-none tracking-tight"&gt;...&lt;/h1&gt;<br/>
+                            <span className="text-green-500">+</span> &nbsp;&nbsp;&lt;/div&gt;<br/>
+                            <span className="text-green-500">+</span> &lt;/section&gt;
+                        </div>
+                        <p className="mt-6 text-sm font-primary italic text-fg/60">Result: Structural, grid-aligned, materiality-focused composition.</p>
+                    </div>
+                </div>
+            </section>
+        );
+
+        // Section 3: Infinite Marquee
+        const Marquee = () => (
+            <div className="flex overflow-hidden bg-fg text-bg py-4 border-b border-border whitespace-nowrap">
+                <motion.div animate={{ x: ["0%", "-50%"] }} transition={{ repeat: Infinity, ease: "linear", duration: 25 }} className="flex font-mono text-sm uppercase tracking-[0.2em]">
+                    <span className="px-8">DETERMINISTIC LAYOUTS</span><span className="px-8">—</span>
+                    <span className="px-8">STRUCTURAL INTEGRITY</span><span className="px-8">—</span>
+                    <span className="px-8">END TO AI SLOP</span><span className="px-8">—</span>
+                    <span className="px-8">DETERMINISTIC LAYOUTS</span><span className="px-8">—</span>
+                    <span className="px-8">STRUCTURAL INTEGRITY</span><span className="px-8">—</span>
+                    <span className="px-8">END TO AI SLOP</span><span className="px-8">—</span>
+                </motion.div>
+            </div>
+        );
+
+        // Section 4: The Philosophy
+        const Philosophy = () => (
+            <section className="border-b border-border bg-bg py-24 md:py-48 px-8">
+                <div className="max-w-[1200px] mx-auto text-center">
+                    <motion.h2 
+                        initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}
+                        className="font-primary text-4xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight text-fg"
+                    >
+                        Design is not decoration.<br/>It is the structural division<br/>of space.
+                    </motion.h2>
+                </div>
+            </section>
+        );
+
+        // Section 5: Architecture
+        const Architecture = () => (
+            <section id="system" className="border-b border-border bg-bg">
+                <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3">
+                    <div className="p-8 md:p-16 border-b md:border-b-0 md:border-r border-border hover:bg-fg/5 transition-colors">
+                        <span className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-4 block">01. Intercept</span>
+                        <h3 className="font-primary text-2xl mb-4">Prompt Parsing</h3>
+                        <p className="text-sm text-fg/70 leading-relaxed font-mono">The agent reads the brief, activates `$layout-director`, and chooses a layout archetype before placing components.</p>
+                    </div>
+                    <div className="p-8 md:p-16 border-b md:border-b-0 md:border-r border-border hover:bg-fg/5 transition-colors">
+                        <span className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-4 block">02. Inject</span>
+                        <h3 className="font-primary text-2xl mb-4">System Injection</h3>
+                        <p className="text-sm text-fg/70 leading-relaxed font-mono">Archetypes, variation axes, component families, and scroll patterns are pulled from the skill references before generation.</p>
+                    </div>
+                    <div className="p-8 md:p-16 hover:bg-fg/5 transition-colors">
+                        <span className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-4 block">03. Generate</span>
+                        <h3 className="font-primary text-2xl mb-4">Deterministic Output</h3>
+                        <p className="text-sm text-fg/70 leading-relaxed font-mono">The agent outputs stronger layout rhythm, mobile reflow, and a review pass instead of a generic hero-and-cards default.</p>
+                    </div>
+                </div>
+            </section>
+        );
+
+        // Section 6: Typography Scale
+        const TypographyScale = () => (
+            <section className="border-b border-border bg-bg overflow-hidden">
+                <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12">
+                    <div className="md:col-span-4 p-8 md:p-16 border-r border-border flex flex-col justify-center">
+                        <h2 className="font-primary text-4xl tracking-tight mb-4">Modular Scale</h2>
+                        <p className="text-fg/60 text-sm leading-relaxed">Layout Director bans arbitrary font sizes. The LLM is constrained to a perfect typographic ratio, ensuring rhythm across all viewports.</p>
+                    </div>
+                    <div className="md:col-span-8 p-8 md:p-16 flex flex-col gap-8 justify-center bg-fg/5">
+                        <div className="flex justify-between items-baseline border-b border-border pb-2">
+                            <span className="font-primary text-[10vw] md:text-[6vw] leading-none tracking-tighter">Display</span>
+                            <span className="font-mono text-xs text-fg/40">text-[8vw]</span>
+                        </div>
+                        <div className="flex justify-between items-baseline border-b border-border pb-2">
+                            <span className="font-primary text-5xl md:text-6xl tracking-tight">Heading 1</span>
+                            <span className="font-mono text-xs text-fg/40">text-6xl</span>
+                        </div>
+                        <div className="flex justify-between items-baseline border-b border-border pb-2">
+                            <span className="font-secondary text-2xl font-medium">Heading 2</span>
+                            <span className="font-mono text-xs text-fg/40">text-2xl</span>
+                        </div>
+                        <div className="flex justify-between items-baseline border-b border-border pb-2">
+                            <span className="font-secondary text-base text-fg/80">Body Copy Regular</span>
+                            <span className="font-mono text-xs text-fg/40">text-base</span>
+                        </div>
+                        <div className="flex justify-between items-baseline border-b border-border pb-2">
+                            <span className="font-mono text-xs uppercase tracking-widest">Caption Mono</span>
+                            <span className="font-mono text-xs text-fg/40">text-xs</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+
+        // Section 7: The Spatial Grid
+        const SpatialGrid = () => (
+            <section className="border-b border-border bg-bg">
+                <div className="max-w-[1400px] mx-auto p-8 md:p-16 text-center border-b border-border">
+                    <h2 className="font-primary text-4xl tracking-tight mb-4">The 12-Column Engine</h2>
+                    <p className="text-fg/60 text-sm max-w-xl mx-auto">Visible structure removes the need for artificial depth.</p>
+                </div>
+                <div className="max-w-[1400px] mx-auto grid grid-cols-12 h-64 md:h-96">
+                    {[...Array(12)].map((_, i) => (
+                        <motion.div 
+                            key={i} 
+                            initial={{ opacity: 0, height: 0 }} 
+                            whileInView={{ opacity: 1, height: '100%' }} 
+                            viewport={{ once: true }} 
+                            transition={{ duration: 0.5, delay: i * 0.05 }}
+                            className="border-r border-border last:border-r-0 bg-fg/5 hover:bg-fg/10 transition-colors flex items-end justify-center pb-4"
+                        >
+                            <span className="font-mono text-[10px] text-fg/30">{i + 1}</span>
+                        </motion.div>
+                    ))}
+                </div>
+            </section>
+        );
+
+        // Section 8: Scrollytelling Features
+        const ScrollyTelling = () => {
+            const ideas = [
+                { title: "Structure before components", desc: "The page should begin with a structural choice such as editorial split, asymmetric bento, narrative stack, or product frame.", img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop" },
+                { title: "Variation without randomness", desc: "The skill uses a variation matrix so the agent can change structure, typography mode, density, section rhythm, and motion profile.", img: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=800&auto=format&fit=crop" },
+                { title: "Review before output", desc: "The agent rejects the layout if it feels like a centered startup template, a feature-card conveyor belt, or lacks a dominant thesis.", img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop" }
+            ];
+            return (
+                <section className="border-b border-border bg-bg relative">
+                    <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2">
+                        <div className="hidden md:block border-r border-border relative">
+                            <div className="sticky top-20 h-[calc(100vh-5rem)] p-16 flex flex-col justify-center">
+                                <span className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-6 block">Core Ideas</span>
+                                <h2 className="font-primary text-5xl md:text-6xl tracking-tight leading-[1.1] mb-8">A better process<br/>for coding agents.</h2>
+                                <p className="text-lg text-fg/60 font-primary italic max-w-md">"The goal is not to force one visual style. The goal is to raise the floor for composition while keeping enough freedom."</p>
+                            </div>
+                        </div>
+                        <div className="flex flex-col">
+                            {ideas.map((idea, idx) => (
+                                <motion.div key={idx} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ margin: "-20%" }} transition={{ duration: 0.8 }} className="min-h-[80vh] md:min-h-screen flex flex-col justify-center p-8 md:p-16 border-b border-border last:border-b-0">
+                                    <div className="font-mono text-xs text-fg/40 mb-4">0{idx + 1}</div>
+                                    <h3 className="text-3xl font-primary tracking-tight mb-6">{idea.title}</h3>
+                                    <p className="text-fg/70 leading-relaxed mb-12 max-w-md">{idea.desc}</p>
+                                    <div className="w-full aspect-[4/3] bg-fg/5 relative overflow-hidden border border-border">
+                                        <img src={idea.img} alt={idea.title} className="w-full h-full object-cover theme-image" />
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        // Section 9: Bento Grid
+        const BentoGrid = () => (
+            <section id="range" className="border-b border-border bg-border">
+                <div className="max-w-[1400px] mx-auto bg-bg">
+                    <div className="p-8 md:p-16 border-b border-border flex flex-col md:flex-row justify-between items-end gap-8">
+                        <div>
+                            <h2 className="font-primary text-4xl tracking-tight mb-4">UI Range</h2>
+                            <p className="text-fg/60 max-w-md">The skill explicitly supports complex structural patterns beyond basic cards.</p>
+                        </div>
+                        <span className="font-mono text-xs tracking-widest uppercase border border-border px-4 py-2 rounded-full">Supported Archetypes</span>
+                    </div>
+                    <div className="bg-border grid grid-cols-1 md:grid-cols-4 gap-[1px]">
+                        <motion.div whileHover={{ backgroundColor: 'rgba(var(--color-fg), 0.02)' }} className="bg-bg p-8 md:p-12 md:col-span-2 md:row-span-2 flex flex-col justify-between min-h-[400px] transition-colors">
+                            <h3 className="font-secondary font-medium text-xl mb-4">Asymmetric Bento Sections</h3>
+                            <div className="grid grid-cols-3 grid-rows-2 gap-2 mt-8 h-full">
+                                <div className="col-span-2 row-span-2 bg-fg/5 border border-border"></div>
+                                <div className="bg-fg/5 border border-border"></div>
+                                <div className="bg-fg/5 border border-border"></div>
+                            </div>
+                        </motion.div>
+                        <motion.div whileHover={{ backgroundColor: 'rgba(var(--color-fg), 0.02)' }} className="bg-bg p-8 md:col-span-2 flex flex-col justify-center transition-colors">
+                            <h3 className="font-secondary font-medium text-lg mb-2">Editorial Split Layouts</h3>
+                            <p className="text-sm text-fg/60">Classic print-inspired divisions.</p>
+                        </motion.div>
+                        <motion.div whileHover={{ backgroundColor: 'rgba(var(--color-fg), 0.02)' }} className="bg-bg p-8 flex flex-col justify-between transition-colors aspect-square">
+                            <h3 className="font-secondary font-medium text-lg">Proof Rails</h3>
+                            <div className="flex gap-2 mt-4 overflow-hidden">
+                                {[1,2,3].map(i => <div key={i} className="w-8 h-8 rounded-full bg-fg/10 shrink-0 border border-border"></div>)}
+                            </div>
+                        </motion.div>
+                        <motion.div whileHover={{ backgroundColor: 'rgba(var(--color-fg), 0.02)' }} className="bg-bg p-8 flex flex-col justify-between transition-colors aspect-square">
+                            <h3 className="font-secondary font-medium text-lg">Framed Stages</h3>
+                            <div className="w-full h-1/2 mt-4 border border-border border-b-0 rounded-t-lg bg-fg/5 relative overflow-hidden">
+                                <div className="absolute top-2 left-2 right-2 bottom-0 bg-bg border border-border border-b-0 rounded-t-md shadow-sm"></div>
+                            </div>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+        );
+
+        // Section 10: Testimonials
+        const Testimonials = () => {
+            const quotes = [
+                { text: "Finally, an AI that doesn't use box-shadow: 0 4px 6px rgba(0,0,0,0.1) on literally every div.", author: "Frontend Lead" },
+                { text: "It feels like having a senior designer sitting next to Claude, slapping its hand when it reaches for a generic gradient.", author: "Indie Hacker" },
+                { text: "The typographic scale enforcement alone saves me hours of manual CSS tweaking after generation.", author: "Design Engineer" }
+            ];
+            return (
+                <section className="border-b border-border bg-bg">
+                    <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3">
+                        {quotes.map((q, i) => (
+                            <div key={i} className="p-8 md:p-16 border-b md:border-b-0 md:border-r border-border last:border-r-0 flex flex-col justify-between min-h-[300px] hover:bg-fg/5 transition-colors">
+                                <p className="font-primary text-xl md:text-2xl leading-relaxed text-fg/90 mb-8">"{q.text}"</p>
+                                <span className="font-mono text-xs uppercase tracking-widest text-fg/50">— {q.author}</span>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            );
+        };
+
+        // Section 11: FAQ
+        const FAQ = () => {
+            const faqs = [
+                { q: "Does it work with standard frontend stacks?", a: "Yes. The skill outputs normal frontend code, but it pushes the agent toward stronger spacing systems, hierarchy, and section rhythm instead of arbitrary utility spam." },
+                { q: "Can I customize the system?", a: "Yes. Edit the files in skills/layout-director/references to tune archetypes, variation ranges, component families, or review rules for your own design taste." },
+                { q: "How do I install it?", a: "Run npx skills add https://github.com/arjunkshah/layout-skill, then invoke $layout-director in a compatible coding agent session." },
+            ];
+            const [open, setOpen] = useState(0);
+
+            return (
+                <section id="faq" className="border-b border-border bg-bg">
+                    <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12">
+                        <div className="md:col-span-4 p-8 md:p-16 border-r border-border">
+                            <h2 className="font-primary text-4xl tracking-tight mb-4">Index</h2>
+                            <p className="font-mono text-xs uppercase tracking-widest text-fg/50">Frequently Asked Questions</p>
+                        </div>
+                        <div className="md:col-span-8 flex flex-col">
+                            {faqs.map((faq, i) => (
+                                <div key={i} className="border-b border-border last:border-b-0">
+                                    <button onClick={() => setOpen(open === i ? -1 : i)} className="w-full p-8 md:p-12 flex justify-between items-center text-left hover:bg-fg/5 transition-colors">
+                                        <h3 className="font-primary text-2xl">{faq.q}</h3>
+                                        <motion.div animate={{ rotate: open === i ? 45 : 0 }}><PlusIcon /></motion.div>
+                                    </button>
+                                    <AnimatePresence>
+                                        {open === i && (
+                                            <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden">
+                                                <div className="px-8 md:px-12 pb-12 pt-0 text-fg/70 leading-relaxed max-w-2xl">{faq.a}</div>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        const Install = () => (
+            <section id="install" className="border-b border-border bg-bg">
+                <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12">
+                    <div className="md:col-span-4 p-8 md:p-16 border-r border-border bg-fg/5">
+                        <h2 className="font-primary text-4xl tracking-tight mb-4">Install</h2>
+                        <p className="text-sm text-fg/65 leading-relaxed">
+                            Add the repo as a skill source once, then invoke the skill directly when you want stronger frontend layout decisions.
+                        </p>
+                    </div>
+                    <div className="md:col-span-8 p-8 md:p-16 space-y-10">
+                        <div>
+                            <div className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-4">Step 1</div>
+                            <div className="border border-border bg-fg/5 p-5 font-mono text-sm overflow-x-auto">
+                                npx skills add https://github.com/arjunkshah/layout-skill
+                            </div>
+                        </div>
+                        <div>
+                            <div className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-4">Step 2</div>
+                            <div className="border border-border bg-fg/5 p-5 font-mono text-sm">
+                                $layout-director
+                            </div>
+                        </div>
+                        <div>
+                            <div className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-4">Step 3</div>
+                            <p className="text-sm text-fg/70 leading-relaxed max-w-2xl mb-4">
+                                Prompt for the outcome, not a template. The skill picks structure, component vocabulary, and scroll behavior from the brief.
+                            </p>
+                            <div className="border border-border bg-bg p-6 font-primary text-xl leading-relaxed italic">
+                                "$layout-director Design a landing page with a pinned demo stage, tighter editorial typography, and a bento section that breaks symmetry."
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+
+        // Section 12: Open Source Callout
+        const OpenSourceCallout = () => (
+            <section className="bg-fg text-bg overflow-hidden relative border-b border-border">
+                <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="max-w-[1400px] mx-auto p-8 md:p-16 py-24 md:py-48 flex flex-col items-center justify-center text-center relative z-10">
+                    <span className="font-mono text-sm tracking-[0.3em] uppercase opacity-50 mb-8 block">MIT Licensed</span>
+                    <a href="https://github.com/arjunkshah/layout-skill" target="_blank" className="group block">
+                        <h2 className="font-primary text-[15vw] md:text-[12vw] leading-[0.8] tracking-tighter mb-8 group-hover:opacity-80 transition-opacity">Open<br/>Source.</h2>
+                        <div className="flex items-center justify-center gap-4 opacity-70 group-hover:opacity-100 transition-opacity">
+                            <GithubIcon />
+                            <span className="font-mono text-sm md:text-base border-b border-bg/30 pb-1 group-hover:border-bg transition-colors">github.com/arjunkshah/layout-skill</span>
+                        </div>
+                    </a>
+                </motion.div>
+                <div className="absolute top-0 left-1/4 w-[1px] h-full bg-bg/10"></div>
+                <div className="absolute top-0 right-1/4 w-[1px] h-full bg-bg/10"></div>
+                <div className="absolute top-1/2 left-0 w-full h-[1px] bg-bg/10"></div>
+            </section>
+        );
+
+        // --- Main App ---
+        const App = () => {
+            const [theme, setTheme] = useState('paper');
+            const scrollToSection = (id) => {
+                const el = document.getElementById(id);
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            };
+
+            useEffect(() => {
+                document.documentElement.setAttribute('data-theme', theme);
+            }, [theme]);
+
+            return (
+                <div className="min-h-screen flex flex-col">
+                    <Nav scrollToSection={scrollToSection} />
+                    
+                    <main className="flex-grow">
+                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                            <Hero />
+                            <CodeComparison />
+                            <Marquee />
+                            <Philosophy />
+                            <Architecture />
+                            <TypographyScale />
+                            <SpatialGrid />
+                            <ScrollyTelling />
+                            <BentoGrid />
+                            <Testimonials />
+                            <FAQ />
+                            <Install />
+                            <OpenSourceCallout />
+                        </motion.div>
+                    </main>
+
+                    <Footer />
+                    <ThemeToggle theme={theme} setTheme={setTheme} />
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>

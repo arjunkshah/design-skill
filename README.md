@@ -30,7 +30,9 @@ $layout-director
 
 ## What Is In This Repo
 
-- `site/`: the landing page for the project
+- `index.html`: the current landing page frontend
+- `src/`: a componentized port of the landing page kept for future iteration
+- `site/`: the earlier static landing page iteration kept as a reference
 - `skills/layout-director/`: the reusable skill package
 - `skills/layout-director/references/`: modular reference files for archetypes, variation, component families, scroll patterns, prompts, platform adaptation, and review
 
@@ -82,11 +84,14 @@ The agent should reject the layout if the result still feels like:
 .
 ├── LICENSE
 ├── README.md
+├── index.html
 ├── package.json
-├── site/
-│   ├── index.html
-│   ├── styles.css
-│   └── script.js
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── App.tsx
+│   ├── index.css
+│   └── main.tsx
 └── skills/
     └── layout-director/
         ├── SKILL.md
@@ -141,7 +146,8 @@ Use the same principles in Cursor rules or project instructions. The reference f
 
 ## Development
 
-This repo is intentionally lightweight. The site is static HTML, CSS, and JavaScript. The skill is plain Markdown plus small metadata.
+This repo is intentionally lightweight. The frontend is a small React + Vite app, and the skill stays plain Markdown plus compact reference files.
+The published landing page currently ships from the root `index.html`, while the `src/` directory is the componentized port for future cleanup.
 
 Useful commands:
 

@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: 246 245 241; /* #F6F5F1 */
+    --color-fg: 17 17 17;    /* #111111 */
+    --color-border: 17 17 17;
+    --color-accent: 17 17 17;
+    --border-opacity: 0.1;
+    
+    --font-primary: 'Newsreader', serif;
+    --font-secondary: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --img-blend: multiply;
+    --img-invert: 0;
+    --img-opacity: 0.8;
+  }
+
+  [data-theme="terminal"] {
+    --color-bg: 10 10 10;    /* #0A0A0A */
+    --color-fg: 0 255 65;    /* #00FF41 */
+    --color-border: 0 255 65;
+    --color-accent: 0 255 65;
+    --border-opacity: 0.3;
+    
+    --font-primary: 'JetBrains Mono', monospace;
+    --font-secondary: 'JetBrains Mono', monospace;
+    
+    --img-blend: screen;
+    --img-invert: 1;
+    --img-opacity: 0.4;
+  }
+
+  [data-theme="blueprint"] {
+    --color-bg: 10 25 47;    /* #0A192F */
+    --color-fg: 100 255 218; /* #64FFDA */
+    --color-border: 100 255 218;
+    --color-accent: 100 255 218;
+    --border-opacity: 0.2;
+    
+    --font-primary: 'Inter', sans-serif;
+    --font-secondary: 'Inter', sans-serif;
+    
+    --img-blend: screen;
+    --img-invert: 1;
+    --img-opacity: 0.3;
+  }
+
+  body {
+    @apply bg-bg text-fg font-secondary antialiased transition-colors duration-500 overflow-x-hidden;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  ::selection {
+    @apply bg-fg text-bg;
+  }
+
+  /* Hide scrollbar for clean aesthetic */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { @apply bg-bg border-l border-border transition-colors duration-500; }
+  ::-webkit-scrollbar-thumb { @apply bg-fg transition-colors duration-500; }
+  
+  .theme-image {
+    mix-blend-mode: var(--img-blend);
+    filter: grayscale(100%) invert(var(--img-invert));
+    opacity: var(--img-opacity);
+    transition: all 0.5s ease;
+  }
+}
+
+@layer utilities {
+  .structural-border {
+    border-color: rgb(var(--color-border) / var(--border-opacity));
+  }
+}
