@@ -619,7 +619,7 @@
         const ScrollyTelling = () => {
             const ideas = [
                 { title: "Structure before components", desc: "The page should begin with a structural choice such as editorial split, asymmetric bento, narrative stack, or product frame.", img: imagery.processOne },
-                { title: "Variation without randomness", desc: "The skill uses a variation matrix so the agent can change structure, typography mode, density, section rhythm, and motion profile.", img: imagery.processTwo },
+                { title: "Variation without repetition", desc: "The skill pushes the agent to change section type, hierarchy, imagery mode, typography contrast, and motion level instead of repeating one shell down the page.", img: imagery.processTwo },
                 { title: "Review before output", desc: "The agent rejects the layout if it feels like a centered startup template, a feature-card conveyor belt, or lacks a dominant thesis.", img: imagery.processThree }
             ];
             return (
@@ -754,7 +754,7 @@
         const FAQ = () => {
             const faqs = [
                 { q: "Does it work with standard frontend stacks?", a: "Yes. The skill outputs normal frontend code, but it pushes the agent toward stronger spacing systems, hierarchy, and section rhythm instead of arbitrary utility spam." },
-                { q: "Can I customize the system?", a: "Yes. Edit the files in skills/design-skill/references to tune archetypes, variation ranges, component families, or review rules for your own design taste." },
+                { q: "Can I customize the system?", a: "Yes. Edit skills/design-skill/SKILL.md directly. The design skill is now just the Jasmine prompt, so customization happens in one place." },
                 { q: "How do I install it?", a: "Run npx skills add https://github.com/arjunkshah/design-skill, then invoke $design-skill by itself or pair it with $animation-director when the page needs a full motion layer." },
             ];
             const [open, setOpen] = useState(0);

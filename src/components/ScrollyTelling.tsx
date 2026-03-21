@@ -12,7 +12,7 @@ export default function ScrollyTelling() {
     },
     {
       title: "Variation without randomness",
-      desc: "The skill uses a variation matrix so the agent can change structure, typography mode, density, section rhythm, and motion profile.",
+      desc: "The skill pushes the agent to vary section type, typography contrast, imagery mode, spacing rhythm, and motion level instead of repeating one template.",
       img: "/assets/generated/process-variation.svg"
     },
     {

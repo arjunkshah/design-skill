@@ -37,15 +37,14 @@ Recommended split:
 
 | Skill | Description |
 | --- | --- |
-| `design-skill` | The main frontend design skill. Teaches structure selection, variation axes, component families, scroll patterns, and layout review. |
+| `design-skill` | The main frontend design skill. It is now a single Jasmine prompt focused on crafted layout, typography, imagery, section range, and anti-generic styling. |
 | `animation-director` | Companion motion skill for entry choreography, interaction polish, sticky narratives, and animation performance guardrails. |
 
 ## System Stack
 
-The repo now works best as a small frontend system rather than one giant instruction file:
+The repo now works best as a small frontend system:
 
-- `design-skill`: chooses structure, hierarchy, section rhythm, and visual direction
-- `style engine`: inside `design-skill`, handles typography, palette, density, and brand translation
+- `design-skill`: a single Jasmine prompt for structure, hierarchy, section rhythm, typography, imagery, and visual direction
 - `animation-director`: adds motion sequencing, scroll choreography, and performance-safe interaction polish
 
 ## What Is In This Repo
@@ -54,7 +53,6 @@ The repo now works best as a small frontend system rather than one giant instruc
 - `src/`: a componentized port of the landing page kept for future iteration
 - `site/`: the earlier static landing page iteration kept as a reference
 - `skills/design-skill/`: the reusable skill package
-- `skills/design-skill/references/`: modular reference files for archetypes, variation, component families, scroll patterns, prompts, platform adaptation, and review
 - `skills/animation-director/`: companion motion skill for choreography and performance-safe animation rules
 
 ## Why This Exists
@@ -69,16 +67,11 @@ The common failure modes are predictable:
 - decorative motion without meaning
 - mobile layouts that only shrink instead of reorganizing
 
-Design Skill addresses those issues by making layout selection an explicit step instead of an accidental byproduct of code generation.
+Design Skill addresses those issues by forcing a stronger design brain at the prompt level instead of relying on scattered heuristics.
 
 The landing page also ships with multiple visual presets so the same structure can be previewed across different moods.
 
-The skill package now also includes:
-
-- a first-party style engine for stronger typography, palette, density, imagery, and taste decisions
-- a brand identity translation reference so brand systems can influence actual UI output
-- a separate animation skill so motion can be layered in without bloating the main layout prompt
-- a deeper motion reference set for scroll choreography, interaction patterns, prompt recipes, and review
+The skill package keeps generated imagery in scope and treats section range, hierarchy, and anti-slop styling as part of one prompt instead of a separate reference stack.
 
 ## Core Ideas
 
@@ -86,20 +79,11 @@ The skill package now also includes:
 
 The page should begin with a structural choice such as editorial split, asymmetric bento, narrative stack, or product frame. Components come later.
 
-### 2. Variation without randomness
+### 2. Variation without repetition
 
-The skill uses a variation matrix so the agent can change:
+The skill explicitly pushes the model to use different section types such as editorial splits, bentos, proof rails, pinned demos, sticky stories, horizontal rails, comparison bands, and quiet reset sections.
 
-- structure
-- typography mode
-- density
-- section rhythm
-- motion profile
-- viewport behavior
-
-That keeps outputs from collapsing into repetition without turning the process into aesthetic roulette.
-
-### 3. Review before output
+### 3. Reject weak output
 
 The agent should reject the layout if the result still feels like:
 
@@ -123,8 +107,7 @@ The agent should reject the layout if the result still feels like:
 │   │   └── references/
 │   └── design-skill/
 │       ├── SKILL.md
-│       ├── agents/
-│       └── references/
+│       └── agents/
 ├── src/
 │   ├── components/
 │   ├── pages/
@@ -149,10 +132,10 @@ Then open `http://127.0.0.1:5177`.
 Design Skill gives the agent a better process:
 
 - read the brief before coding
-- choose a layout archetype first
-- vary the right design axes deliberately
-- apply component rules that serve the page structure
-- run a final review rubric before shipping
+- choose a section sequence first
+- vary section type, typography, imagery, and motion deliberately
+- keep the whole page inside one coherent visual language
+- reject generic output before shipping
 
 The goal is not to force one visual style. The goal is to raise the floor for composition while keeping enough freedom for different layouts to emerge from different briefs.
 
@@ -171,11 +154,11 @@ Install the repo with `npx skills add ...` if your setup supports it, or use the
 
 ### Claude Code
 
-Use the skill body and reference files as project instructions or custom guidance. Keep the archetypes, style engine, and review rubric intact.
+Use the Jasmine prompt in `skills/design-skill/SKILL.md` as project instructions or custom guidance.
 
 ### Cursor
 
-Use the same principles in Cursor rules or project instructions. The reference files are intentionally modular so you can keep the core rule set small and load motion guidance only when needed.
+Use the same Jasmine prompt in Cursor rules or project instructions. Pair it with `animation-director` only when the page needs a dedicated motion layer.
 
 ## Recommended Usage
 
@@ -221,7 +204,7 @@ Create a launch page with a pinned demo rail, staggered product storytelling, ta
 
 ## Development
 
-This repo is intentionally lightweight. The frontend is a small React + Vite app, and the skill stays plain Markdown plus compact reference files.
+This repo is intentionally lightweight. The frontend is a small React + Vite app, and the skill stays plain Markdown plus a minimal agent wrapper.
 The published landing page currently ships from the root `index.html`, while the `src/` directory is the componentized port for future cleanup.
 
 Useful commands:

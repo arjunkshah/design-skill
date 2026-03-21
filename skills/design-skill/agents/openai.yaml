@@ -2,7 +2,7 @@ interface:
   display_name: "Design Skill"
   short_description: "Portable layout taste for frontend agents"
   brand_color: "#C46D3B"
-  default_prompt: "Use $design-skill to design a frontend page with a strong layout system, deliberate hierarchy, and a premium mobile collapse."
+  default_prompt: "$design-skill"
 
 policy:
   allow_implicit_invocation: true
