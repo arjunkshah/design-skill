@@ -22,100 +22,269 @@
       }
 
       body {
-        background-image:
-          radial-gradient(circle at top center, rgba(154, 110, 71, 0.08), transparent 34%),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.45), transparent 20%);
+        background:
+          radial-gradient(circle at top center, rgba(154, 110, 71, 0.1), transparent 34%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.5), transparent 18%),
+          var(--bg);
+      }
+
+      body::after {
+        display: none;
       }
 
       .site-header {
         background: rgba(245, 239, 231, 0.82);
       }
 
+      .estate-hero {
+        padding: 42px 0 14px;
+      }
+
       .hero-center {
-        padding: 54px 0 10px;
         text-align: center;
       }
 
       .hero-center h1 {
-        margin: 18px auto;
-        max-width: 10ch;
+        margin: 20px auto 18px;
+        max-width: 9ch;
         font-family: var(--serif);
-        font-size: clamp(72px, 10vw, 164px);
-        line-height: 0.92;
-        letter-spacing: -0.06em;
+        font-size: clamp(78px, 10vw, 176px);
+        line-height: 0.9;
+        letter-spacing: -0.07em;
       }
 
-      .hero-center .lead {
-        margin: 0 auto;
-      }
-
+      .hero-center .lead,
       .hero-center .hero-actions,
       .hero-center .market-strip {
         justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
       }
 
-      .triptych {
+      .estate-filmstrip {
         display: grid;
-        grid-template-columns: 1.15fr 0.8fr 0.8fr;
+        grid-template-columns: minmax(0, 1.3fr) minmax(240px, 0.7fr);
         gap: 18px;
         margin-top: 44px;
       }
 
-      .triptych article {
-        min-height: 440px;
+      .estate-frame {
+        position: relative;
         overflow: hidden;
         border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.52);
+        background: rgba(255, 255, 255, 0.56);
+        min-height: 620px;
       }
 
-      .triptych .image-large {
-        min-height: 520px;
+      .estate-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1.04);
+        transition: transform 1s ease;
       }
 
-      .triptych img {
+      .estate-stack {
+        display: grid;
+        grid-template-rows: minmax(260px, 1fr) auto;
+        gap: 18px;
+      }
+
+      .estate-side-image {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        min-height: 320px;
+      }
+
+      .estate-side-image img {
         width: 100%;
         height: 100%;
         object-fit: cover;
       }
 
-      .residence-grid {
+      .reservation-card {
+        padding: 26px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.72);
+        text-align: left;
+      }
+
+      .reservation-list {
+        display: grid;
+        gap: 12px;
+        margin-top: 22px;
+      }
+
+      .reservation-list div {
+        padding-top: 12px;
+        border-top: 1px solid var(--line);
+      }
+
+      .residences {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 24px;
+        gap: 1px;
+        background: var(--line);
       }
 
-      .residence-card {
-        padding: 24px;
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.48);
+      .residences article {
+        background: var(--bg);
+        padding: 28px;
       }
 
-      .editorial-split {
+      .photo-band {
+        position: relative;
+        min-height: 86vh;
+        overflow: hidden;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .photo-band img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: saturate(0.92) contrast(0.95);
+      }
+
+      .photo-band::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(18, 10, 4, 0.12), rgba(18, 10, 4, 0.42));
+      }
+
+      .photo-overlay {
+        position: relative;
+        z-index: 1;
         display: grid;
-        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-        gap: 24px;
+        place-items: end start;
+        min-height: 86vh;
+      }
+
+      .photo-overlay article {
+        width: min(560px, 100%);
+        margin: 0 0 46px;
+        padding: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        background: rgba(26, 14, 7, 0.38);
+        backdrop-filter: blur(16px);
+        color: #fff7ef;
+      }
+
+      .ritual-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+        gap: 30px;
         align-items: start;
       }
 
-      .itinerary {
+      .ritual-copy h2 {
+        margin: 14px 0 18px;
+        font-family: var(--serif);
+        font-size: clamp(48px, 6vw, 94px);
+        line-height: 0.92;
+        letter-spacing: -0.06em;
+      }
+
+      .ritual-steps {
         display: grid;
         gap: 1px;
         background: var(--line);
       }
 
-      .itinerary article {
+      .ritual-steps article {
+        display: grid;
+        grid-template-columns: 84px 1fr;
+        gap: 16px;
+        padding: 22px 24px;
         background: var(--bg);
-        padding: 22px;
       }
 
-      .quote-block {
-        padding: 140px 0;
+      .journal-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
+        gap: 22px;
+      }
+
+      .journal-image,
+      .journal-panel {
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.48);
+      }
+
+      .journal-image img {
+        width: 100%;
+        height: 100%;
+        min-height: 540px;
+        object-fit: cover;
+      }
+
+      .journal-panel {
+        padding: 28px;
+      }
+
+      .journal-panel blockquote {
+        margin: 26px 0;
+        font-family: var(--serif);
+        font-size: 34px;
+        line-height: 1.04;
+        letter-spacing: -0.04em;
+      }
+
+      .journal-notes {
+        display: grid;
+        gap: 14px;
+      }
+
+      .journal-notes div {
+        padding-top: 14px;
+        border-top: 1px solid var(--line);
+      }
+
+      .reserve-panel {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 24px;
+        align-items: end;
+        padding: 94px 0 110px;
+      }
+
+      .reserve-panel h2 {
+        margin: 12px 0 18px;
+        font-family: var(--serif);
+        font-size: clamp(54px, 6vw, 100px);
+        line-height: 0.92;
+        letter-spacing: -0.06em;
+      }
+
+      [data-drift] {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.9s ease, transform 0.9s ease;
+      }
+
+      [data-drift].is-visible {
+        opacity: 1;
+        transform: translateY(0);
       }
 
       @media (max-width: 1080px) {
-        .triptych,
-        .residence-grid,
-        .editorial-split {
+        .estate-filmstrip,
+        .ritual-grid,
+        .journal-grid,
+        .reserve-panel,
+        .residences {
+          grid-template-columns: 1fr;
+        }
+
+        .estate-stack {
+          grid-template-rows: auto;
+        }
+
+        .ritual-steps article {
           grid-template-columns: 1fr;
         }
       }
@@ -127,39 +296,46 @@
         <a class="brand" href="../index.html"><span class="brand-mark"></span><span>Solenne House</span></a>
         <nav class="nav">
           <a href="#residences">Residences</a>
-          <a href="#experience">Experience</a>
+          <a href="#ritual">Ritual</a>
           <a href="#journal">Journal</a>
           <a href="#reserve">Reserve</a>
         </nav>
       </div>
     </header>
     <main>
-      <section class="hero">
+      <section class="estate-hero">
         <div class="page-shell hero-center">
-          <div class="eyebrow">Private coastal retreat</div>
-          <h1>Stay inside a quieter kind of luxury.</h1>
-          <p class="lead">Solenne House is a high-end hospitality site selling confidence, atmosphere, and reservation desire. The buyer is a leisure traveler with taste. The goal is not “learn more.” The goal is to make the stay feel inevitable.</p>
-          <div class="hero-actions">
-            <a class="button" href="#reserve">Reserve a residence</a>
-            <a class="ghost" href="#experience">View the house ritual</a>
+          <div class="eyebrow" data-drift>Private coastal retreat</div>
+          <h1 data-drift>Stay inside a quieter kind of luxury.</h1>
+          <p class="lead" data-drift>Solenne House is a reservation-driven hospitality brand. The whole page is built to sell atmosphere, confidence, and anticipation before it explains inventory. It should feel more like a property book than a SaaS homepage.</p>
+          <div class="hero-actions" data-drift>
+            <a class="button" href="#reserve">Request availability</a>
+            <a class="ghost" href="#journal">Read the house journal</a>
           </div>
-          <div class="market-strip">
-            <span>Destination stays</span>
-            <span>Private residences</span>
-            <span>Seasonal bookings</span>
+          <div class="market-strip" data-drift>
+            <span>Coastal residency</span>
+            <span>Concierge arrival</span>
+            <span>Long-stay bookings</span>
           </div>
-          <div class="triptych">
-            <article class="image-large">
-              <img src="../../public/assets/generated/project-lattice.svg" alt="Solenne House hero scene" />
+          <div class="estate-filmstrip">
+            <article class="estate-frame" data-drift>
+              <img src="https://images.pexels.com/photos/14746040/pexels-photo-14746040.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Sea-facing Solenne suite" />
             </article>
-            <article>
-              <img src="../../public/assets/generated/hero-detail.svg" alt="Solenne House interior detail" />
-            </article>
-            <article class="panel">
-              <div class="label">Property note</div>
-              <h3>A hospitality site should seduce before it explains.</h3>
-              <p>This layout moves like a boutique hotel book: centered thesis, cinematic image block, editorial details, and a cleaner path to booking.</p>
-            </article>
+            <div class="estate-stack">
+              <article class="estate-side-image" data-drift>
+                <img src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Solenne pool and shoreline view" />
+              </article>
+              <article class="reservation-card" data-drift>
+                <div class="label">Booking thesis</div>
+                <h3>A hospitality site should heighten desire before it asks for a date.</h3>
+                <p>The visual pace here is slower, the content is more image-led, and the CTA is meant to feel inevitable rather than immediate.</p>
+                <div class="reservation-list">
+                  <div>Arrival transfer and private welcome ritual</div>
+                  <div>Residences released by season and stay length</div>
+                  <div>Concierge response before formal booking</div>
+                </div>
+              </article>
+            </div>
           </div>
         </div>
       </section>
@@ -167,85 +343,100 @@
       <section class="section" id="residences">
         <div class="page-shell section-head">
           <div>
-            <div class="eyebrow">Residences</div>
-            <h2>Three ways to stay, all designed for slower time.</h2>
+            <div class="eyebrow" data-drift>Residences</div>
+            <h2 data-drift>Three stay types, each arranged around a different tempo.</h2>
           </div>
-          <p class="section-note">This site is warmer, image-led, and more emotionally paced than the enterprise example. The product is a booking decision, so atmosphere carries more weight than system explanation.</p>
+          <p class="section-note" data-drift>This page is not trying to explain a platform. It is trying to create booking confidence through specificity, atmosphere, and a stronger image hierarchy.</p>
         </div>
-        <div class="page-shell residence-grid">
-          <article class="residence-card">
-            <div class="label">Cliff residence</div>
-            <h3>For long mornings and sea-facing dinners.</h3>
-            <p>Two suites, private terrace, dedicated host, and a living space arranged for quiet entertaining.</p>
+        <div class="page-shell residences">
+          <article data-drift>
+            <div class="label">Cliff suite</div>
+            <h3>Sea-facing mornings and private dining after dusk.</h3>
+            <p>For longer stays built around horizon views, deep terraces, and quiet entertaining.</p>
           </article>
-          <article class="residence-card">
+          <article data-drift>
             <div class="label">Garden house</div>
-            <h3>For slower family stays.</h3>
-            <p>Shaded courtyard, outdoor bath, child-ready service flow, and a more grounded interior palette.</p>
+            <h3>Family pacing with a calmer interior cadence.</h3>
+            <p>Grounded rooms, shaded exterior spaces, and a more domestic service rhythm.</p>
           </article>
-          <article class="residence-card">
-            <div class="label">Studio suite</div>
-            <h3>For short ritual-led escapes.</h3>
-            <p>Compact but deeply considered, with sunrise breakfast service and evening tea already built into the stay.</p>
+          <article data-drift>
+            <div class="label">Studio retreat</div>
+            <h3>Short stays that still feel ceremonial.</h3>
+            <p>For guests arriving around one moment and wanting the whole property to frame it.</p>
           </article>
         </div>
       </section>
 
-      <section class="section" id="experience">
-        <div class="page-shell editorial-split">
-          <article class="quote-block">
-            <div class="eyebrow">Experience thesis</div>
-            <h2>"The booking should feel like entering a world, not selecting inventory."</h2>
-            <p>This is why the page uses slower typography, more air, and image-led sequencing rather than dense feature proof.</p>
+      <section class="photo-band">
+        <img src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Solenne House pool and coast" />
+        <div class="page-shell photo-overlay">
+          <article data-drift>
+            <div class="eyebrow">House note</div>
+            <h3>The site should make a reservation feel like entering a world, not selecting inventory.</h3>
+            <p>That is why the page uses full-bleed imagery, quieter typography, and fewer modular “features” than the enterprise and consumer examples.</p>
           </article>
-          <div class="itinerary">
-            <article>
-              <div class="label">Arrival</div>
-              <h3>Sunset transfer and private check-in.</h3>
-              <p>The first touchpoint is quiet, low-friction, and intentionally ceremonial.</p>
+        </div>
+      </section>
+
+      <section class="section" id="ritual">
+        <div class="page-shell ritual-grid">
+          <div class="ritual-copy">
+            <div class="eyebrow" data-drift>The house ritual</div>
+            <h2 data-drift>Arrival, morning, and evening are part of the product.</h2>
+            <p data-drift>The strongest hospitality pages sell how time will feel on property. This section is about sequencing, not feature count.</p>
+          </div>
+          <div class="ritual-steps">
+            <article data-drift>
+              <div class="eyebrow">01 arrival</div>
+              <div>
+                <h3>Sunset transfer and private check-in.</h3>
+                <p>Guests meet the property through service, not through a front-desk queue.</p>
+              </div>
             </article>
-            <article>
-              <div class="label">Morning</div>
-              <h3>Guided breakfast and water schedule.</h3>
-              <p>Every stay begins with one house ritual that makes the property memorable beyond aesthetics.</p>
+            <article data-drift>
+              <div class="eyebrow">02 morning</div>
+              <div>
+                <h3>Guided breakfast and shoreline pacing.</h3>
+                <p>The first day is structured to slow the guest down immediately.</p>
+              </div>
             </article>
-            <article>
-              <div class="label">Evening</div>
-              <h3>Dining, reading, and slow service cadence.</h3>
-              <p>The site sells how the place feels after 6pm, because that is where desire actually sharpens.</p>
+            <article data-drift>
+              <div class="eyebrow">03 evening</div>
+              <div>
+                <h3>Reading, dining, and room return as one atmosphere.</h3>
+                <p>The product is the feeling after 6pm, so the site gives that emotional space real weight.</p>
+              </div>
             </article>
           </div>
         </div>
       </section>
 
       <section class="section" id="journal">
-        <div class="page-shell proof-grid">
-          <article class="quote-card">
-            <div class="label">Guest note</div>
-            <h3>"It felt less like a resort and more like a private house with impossible service."</h3>
-            <p>Trust on a hospitality page is built through tone, specificity, and restraint rather than loud conversion pressure.</p>
+        <div class="page-shell journal-grid">
+          <article class="journal-image" data-drift>
+            <img src="https://images.pexels.com/photos/14746040/pexels-photo-14746040.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Solenne private suite interior" />
           </article>
-          <article class="quote-card">
-            <div class="label">House journal</div>
-            <h3>Seasonal tables, local ceramic commissions, and shoreline itineraries.</h3>
-            <p>A luxury property site should create an editorial surface around the stay so the brand extends beyond booking mechanics.</p>
-          </article>
-          <article class="quote-card">
-            <div class="label">Booking signal</div>
-            <h3>Limited inventory, longer lead windows, and concierge contact before purchase.</h3>
-            <p>The site is designed to make higher-intent booking feel natural instead of transactional.</p>
+          <article class="journal-panel" data-drift>
+            <div class="eyebrow">House journal</div>
+            <blockquote>"It felt less like a resort and more like a private house with impossible service."</blockquote>
+            <p>The editorial layer exists to extend the world beyond the reservation flow. That makes the brand feel inhabited, not transactional.</p>
+            <div class="journal-notes">
+              <div>Seasonal table notes and local ceramic commissions</div>
+              <div>Shoreline itineraries written like invitation letters</div>
+              <div>Long-stay guidance framed as house etiquette, not upsell</div>
+            </div>
           </article>
         </div>
       </section>
 
       <section class="section" id="reserve">
-        <div class="page-shell footer-cta">
+        <div class="page-shell reserve-panel">
           <div>
-            <div class="eyebrow">Reserve</div>
-            <h2>Choose a residence, then let the stay arrive around you.</h2>
-            <p>Everything in this example is built around aspiration and booking confidence rather than feature density.</p>
+            <div class="eyebrow" data-drift>Reserve</div>
+            <h2 data-drift>Choose a residence, then let the stay arrive around you.</h2>
+            <p data-drift>This example is built around aspiration, imagery, and booking readiness. It should feel radically less system-driven than the AI governance or culture app demos.</p>
           </div>
-          <div class="footer-meta">
+          <div class="footer-meta" data-drift>
             <a class="button" href="#">Request availability</a>
             <a class="ghost" href="#">Open the house journal</a>
           </div>
@@ -258,6 +449,32 @@
         <span>This page is a showcase output for Design Skill.</span>
       </div>
     </footer>
-    <script src="../common.js" defer></script>
+    <script>
+      const driftObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+            }
+          });
+        },
+        { threshold: 0.2, rootMargin: "0px 0px -8% 0px" }
+      );
+
+      document.querySelectorAll("[data-drift]").forEach((node) => driftObserver.observe(node));
+
+      const filmImages = document.querySelectorAll(".estate-frame img, .estate-side-image img");
+      window.addEventListener(
+        "scroll",
+        () => {
+          const offset = Math.min(window.scrollY * 0.03, 24);
+          filmImages.forEach((img, index) => {
+            const direction = index % 2 === 0 ? -1 : 1;
+            img.style.transform = `translate3d(0, ${offset * direction}px, 0) scale(1.04)`;
+          });
+        },
+        { passive: true }
+      );
+    </script>
   </body>
 </html>
