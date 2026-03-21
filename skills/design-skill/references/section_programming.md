@@ -3,12 +3,13 @@
 Use this file when the page needs richer section variety.
 
 The goal is to stop the page from becoming one repeated section template with different copy.
+This file should be used as a page programming system, not as loose inspiration.
 
 ## Rule
 
-Every serious landing page or showcase should mix section behaviors.
+Every serious landing page or showcase should be programmed as a sequence.
 
-Most strong pages use at least three different section types.
+Do not jump from hero to random sections. Decide the page recipe first, then assign a section form to each slot.
 
 Do not make every section:
 
@@ -16,6 +17,103 @@ Do not make every section:
 - card-based
 - equally dense
 - equally animated
+
+## Required Page Recipe
+
+For substantial landing pages, marketing pages, or showcases, define these six slots before generating:
+
+1. `HERO_THESIS`
+2. `PROOF`
+3. `PRODUCT_STAGE`
+4. `DEEP_EXPLANATION`
+5. `SOCIAL_PROOF`
+6. `CONVERSION`
+
+You may add supporting slots such as:
+
+- comparison
+- FAQ
+- editorial interlude
+- founder note
+- pricing
+- process walkthrough
+
+But the core six should be accounted for unless the brief clearly does not need one.
+
+## Allowed Section Forms By Slot
+
+Each slot should use one deliberate form.
+
+### Hero Thesis
+
+Allowed forms:
+
+- centered
+- split
+- pinned demo
+- editorial quote
+
+### Proof
+
+Allowed forms:
+
+- proof rail
+- comparison band
+- bento
+- split
+
+### Product Stage
+
+Allowed forms:
+
+- framed product stage
+- pinned demo
+- sticky story
+- horizontal rail
+
+### Deep Explanation
+
+Allowed forms:
+
+- sticky story
+- split
+- bento
+- scroll stack
+- quiet reset
+
+### Social Proof
+
+Allowed forms:
+
+- proof rail
+- comparison band
+- bento
+- centered
+
+### Conversion
+
+Allowed forms:
+
+- centered
+- split
+- editorial quote
+- quiet reset
+
+## Section Form Vocabulary
+
+Use this vocabulary consistently when programming the page:
+
+- centered
+- split
+- bento
+- sticky
+- horizontal rail
+- pinned demo
+- quiet reset
+- comparison band
+- editorial quote
+- proof rail
+- scroll stack
 
 ## Core Section Types
 
@@ -157,13 +255,21 @@ Characteristics:
 - strong whitespace
 - cleaner, flatter composition
 
+## Programming Rules
+
+- do not use the same section form for more than two adjacent slots
+- if one section is highly animated, the next section should usually decompress
+- proof must appear early enough to support the claim, not only near the footer
+- product-stage sections should feel like persuasion, not like a random screenshot dump
+- conversion should feel earned by the narrative, not bolted on at the end
+
 ## Good Mixes
 
 Examples:
 
-- Central Thesis + Split Section + Static Bento + Proof Rail
-- Framed Product Stage + Sticky Story + Static Reset + CTA close
-- Split Hero + Animated Bento + Horizontal Rail + Proof Rail + Static Reset
+- Hero Thesis as split + Proof as proof rail + Product Stage as pinned demo + Deep Explanation as sticky story + Social Proof as comparison band + Conversion as quiet reset
+- Hero Thesis as centered + Proof as bento + Product Stage as framed product stage + Deep Explanation as split + Social Proof as proof rail + Conversion as centered
+- Hero Thesis as editorial quote + Proof as split + Product Stage as horizontal rail + Deep Explanation as scroll stack + Social Proof as bento + Conversion as split
 
 ## Bad Mixes
 
@@ -173,6 +279,8 @@ Reject pages that feel like:
 - a hero followed by identical card rows
 - motion in every section with no quiet contrast
 - every section trying to be the hero
+- every slot solved with the same bento shell
+- no clear difference between proof, explanation, and conversion
 
 ## Section Contrast
 

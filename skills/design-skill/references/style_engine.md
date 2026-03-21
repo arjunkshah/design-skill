@@ -191,11 +191,63 @@ Reject outputs that look like:
 
 Do not rely on pulling random web images.
 
+Imagery must be chosen as a first-class system decision.
+
+Pick exactly one primary `IMAGE_STRATEGY`:
+
+- `generated product mock`
+- `abstract brand composition`
+- `diagram system`
+- `3D object scene`
+- `editorial texture`
+- `no-image typography-only`
+
+### Strategy Guidance
+
+`generated product mock`
+
+- use when the product itself is the selling point
+- generate interface frames, device composites, or staged product surfaces
+- keep it aligned with the chosen type system and brand tension
+
+`abstract brand composition`
+
+- use when the product story is conceptual, atmospheric, or brand-led
+- generate shapes, light, material studies, or controlled abstractions
+- this should feel art-directed, not like a random blob
+
+`diagram system`
+
+- use when explanation, process, or trust is central
+- generate flow diagrams, architecture boards, labeled maps, or explainer visuals
+- prioritize clarity and structural logic
+
+`3D object scene`
+
+- use when the brand needs physicality, product theater, or tactile depth
+- generate controlled object scenes, icon objects, or stylized hardware-like forms
+- avoid gimmicky floating objects with no narrative role
+
+`editorial texture`
+
+- use when the page needs mood, warmth, or material presence without full illustration
+- generate textures, crops, shadows, paper, glass, mesh, grain, or surface studies
+- keep it subordinate to typography and layout
+
+`no-image typography-only`
+
+- use when type, spacing, and structure are already strong enough
+- rely on scale, rhythm, borders, pattern, and composition instead of adding imagery
+- this is often the strongest choice for high-trust or editorial work
+
+### Execution Rules
+
 When the page needs imagery:
 
 - generate it as part of the product output
-- create illustrations, abstract compositions, mock product frames, diagrams, textured surfaces, or art-directed placeholders directly
-- if image generation tooling exists, direct the system to generate assets that match the page's visual language
+- make the image strategy explicit before building sections
+- keep all imagery within one coherent visual language
+- if image generation tooling exists, direct the system to generate assets that match the page's type, palette, and materiality
 - if image generation tooling does not exist, build self-generated visual surfaces in code using gradients, SVG, patterns, procedural shapes, masked screenshots, or designed placeholders
 
 Treat imagery as designed material, not as stock filler.

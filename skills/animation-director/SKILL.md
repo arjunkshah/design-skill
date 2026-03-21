@@ -29,6 +29,28 @@ Before writing animation code:
 7. Enforce the constraints in [references/performance_guardrails.md](references/performance_guardrails.md).
 8. Run the final pass in [references/review_rubric.md](references/review_rubric.md).
 
+## Section-To-Motion Pairing
+
+Motion must reinforce the section's job, not merely add movement.
+
+Default pairings:
+
+- hero -> staged reveal
+- bento -> staggered depth
+- sticky story -> progress-linked transitions
+- proof rail -> continuous drift
+- CTA -> tactile hover/press
+
+Use these as structural defaults unless the brief clearly calls for something else.
+
+Interpret them this way:
+
+- `hero -> staged reveal`: reveal headline, support copy, and action in a controlled reading order
+- `bento -> staggered depth`: give priority tiles more presence through offset timing, depth, or light motion rather than moving the entire grid
+- `sticky story -> progress-linked transitions`: tie visual state changes to narrative progress so the user understands what changed and why
+- `proof rail -> continuous drift`: allow subtle belt-like motion or chip movement only when it improves liveliness without stealing attention
+- `CTA -> tactile hover/press`: interactions should feel responsive and physical, not flashy
+
 ## How It Combines With Design Skill
 
 Use `$animation-director` as a companion layer, not as a substitute for layout judgment.
@@ -49,6 +71,7 @@ Good motion should:
 - make UI feel tactile
 - help product surfaces feel alive
 - stay performant on real devices
+- respect the structural role of each section
 
 Bad motion:
 
@@ -56,6 +79,15 @@ Bad motion:
 - loops everywhere
 - competes with the content
 - animates layout properties unnecessarily
+- gives every section the same fade-up treatment regardless of purpose
+
+## Compositional Motion Rules
+
+- choose motion after the page structure is already clear
+- concentrate the largest motion budget in one or two moments
+- let quiet sections stay quiet
+- if a section is already visually dense, reduce animation complexity
+- if motion does not improve reading order, affordance, or persuasion, remove it
 
 ## Output Expectations
 

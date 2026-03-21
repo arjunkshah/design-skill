@@ -15,15 +15,19 @@ Do not start coding from components. Start from page structure.
 
 Before writing UI code:
 
-1. Extract the brief:
+1. Classify the product first. Explicitly decide:
    - product type
-   - audience sophistication
+   - trust level
    - content density
-   - trust vs excitement balance
-   - visual assets available
-   - required sections
-   - mobile constraints
-2. Choose one primary layout archetype from [references/layout_archetypes.md](references/layout_archetypes.md).
+   - interaction mode
+   - brand temperature
+   - motion tolerance
+2. Translate that classification into concrete design choices:
+   - one primary layout archetype from [references/layout_archetypes.md](references/layout_archetypes.md)
+   - a section sequence from [references/section_programming.md](references/section_programming.md)
+   - a type system
+   - an image strategy
+   - a motion profile
 3. Choose the variation axes from [references/variation_matrix.md](references/variation_matrix.md):
    - type mode
    - spacing intensity
@@ -32,14 +36,51 @@ Before writing UI code:
    - motion profile
    - viewport behavior
 4. Apply the component rules from [references/component_principles.md](references/component_principles.md).
-5. If the page needs stronger visual style, load [references/style_engine.md](references/style_engine.md).
+5. Load [references/style_engine.md](references/style_engine.md) to set the styling logic and imagery strategy.
 6. If the page needs brand-aware styling, load [references/brand_identity_translation.md](references/brand_identity_translation.md).
-7. If the page needs richer section range, load [references/section_programming.md](references/section_programming.md).
-8. If the page needs richer UI range, load [references/component_families.md](references/component_families.md).
-9. If the page needs pinned or scroll-reactive sections, load [references/scroll_patterns.md](references/scroll_patterns.md).
-10. Run the final pass from [references/review_rubric.md](references/review_rubric.md).
-11. If the user wants help invoking the skill from a specific tool, use [references/platform_adaptation.md](references/platform_adaptation.md).
-12. If the user needs phrasing examples, use [references/prompt_recipe.md](references/prompt_recipe.md).
+7. If the page needs richer UI range, load [references/component_families.md](references/component_families.md).
+8. If the page needs pinned or scroll-reactive sections, load [references/scroll_patterns.md](references/scroll_patterns.md).
+9. Run the final pass from [references/review_rubric.md](references/review_rubric.md).
+10. If the user wants help invoking the skill from a specific tool, use [references/platform_adaptation.md](references/platform_adaptation.md).
+11. If the user needs phrasing examples, use [references/prompt_recipe.md](references/prompt_recipe.md).
+
+## Decision Framework
+
+Do not leave the brief in a vague state. Convert it into a design decision map before generating.
+
+### 1. Product Classification
+
+Classify all six fields:
+
+- `PRODUCT_TYPE`: developer tool, finance product, workflow SaaS, consumer app, editorial brand, portfolio, marketplace, AI product, or other explicit category
+- `TRUST_LEVEL`: low, medium, or high
+- `CONTENT_DENSITY`: airy, balanced, or dense
+- `INTERACTION_MODE`: reading, exploration, comparison, browsing, data entry, workflow orchestration, or mixed
+- `BRAND_TEMPERATURE`: cool, neutral, warm, or high-expression
+- `MOTION_TOLERANCE`: static, restrained, moderate, or expressive
+
+### 2. Design Translation
+
+After classifying, choose all five design outputs:
+
+- `LAYOUT_ARCHETYPE`
+- `SECTION_SEQUENCE`
+- `TYPE_SYSTEM`
+- `IMAGE_STRATEGY`
+- `MOTION_PROFILE`
+
+Do not start styling or coding until all five are chosen.
+
+### 3. Mapping Logic
+
+Use this logic:
+
+- high trust + dense information + workflow interaction -> more structural archetypes, tighter typography, clearer rails, calmer motion
+- low trust + expressive brand + browsing interaction -> stronger hero thesis, more contrast in pacing, more image-led persuasion
+- reading-heavy pages -> longer calm sections, stronger editorial hierarchy, fewer simultaneous motion events
+- exploration-heavy pages -> more modular sections, stronger preview surfaces, clearer section contrast
+
+Each output must read like a consequence of the product, not like personal preference.
 
 ## Design Intent
 
@@ -92,6 +133,8 @@ Define:
 - where the page should widen, compress, or pause
 - where conversion should happen
 
+Write the page sequence explicitly before building sections.
+
 ### 2. Choose The Structural System
 
 Pick one primary archetype and optionally one supporting pattern.
@@ -111,14 +154,18 @@ Do not let every section behave the same way.
 
 Choose a section mix using [references/section_programming.md](references/section_programming.md).
 
-A strong page usually combines:
+At minimum, define:
 
-- one static anchor section
-- one modular or bento section
-- one proof or rail section
-- one motion-led, sticky, or horizontally biased section when the brief supports it
+- hero thesis
+- proof
+- product stage
+- deep explanation
+- social proof
+- conversion
 
-The exact mix depends on the product, but sameness across every section is a failure.
+For each slot, choose the section form deliberately rather than repeating one shell.
+
+Sameness across every section is a failure.
 
 ### 2.5. Set The Visual Engine
 
@@ -131,6 +178,17 @@ Set these three control values before styling:
 Use the guidance in [references/style_engine.md](references/style_engine.md) to translate those controls into typography, color, materiality, rhythm, and imagery decisions.
 
 If the work needs to follow a specific brand, build a lightweight brand brief first using [references/brand_identity_translation.md](references/brand_identity_translation.md).
+
+You must also choose one explicit `IMAGE_STRATEGY` before generation:
+
+- generated product mock
+- abstract brand composition
+- diagram system
+- 3D object scene
+- editorial texture
+- no-image typography-only
+
+Imagery is part of the design system, not filler added later.
 
 ### 3. Build Hierarchy With Scale
 
@@ -161,6 +219,8 @@ Allowed motion:
 - sticky scrollytelling where one preview stays pinned and the internal content changes as the narrative advances
 
 Do not animate layout properties. Use transform and opacity only.
+
+When motion is important, pair the section type with a matching motion behavior instead of sprinkling effects everywhere.
 
 ### 5. Collapse For Mobile On Purpose
 
