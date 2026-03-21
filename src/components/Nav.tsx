@@ -25,7 +25,7 @@ export default function Nav({ currentPage, setCurrentPage }: NavProps) {
     >
       <div className="flex items-center gap-2">
         <div className="w-4 h-4 bg-ink rounded-sm"></div>
-        <span className="font-serif text-xl tracking-tight font-medium">Layout Director</span>
+        <span className="font-serif text-xl tracking-tight font-medium">Design Skill</span>
       </div>
       <div className="hidden md:flex items-center gap-3 text-sm">
         {pages.map((page) => (
@@ -42,7 +42,7 @@ export default function Nav({ currentPage, setCurrentPage }: NavProps) {
         ))}
       </div>
       <div className="flex items-center gap-4 text-sm font-medium">
-        <a href="https://github.com/arjunkshah/layout-skill" target="_blank" rel="noreferrer" className="hover:opacity-60 transition-opacity flex items-center gap-2">
+        <a href="https://github.com/arjunkshah/design-skill" target="_blank" rel="noreferrer" className="hover:opacity-60 transition-opacity flex items-center gap-2">
           <Github size={16} /> GitHub
         </a>
         <button

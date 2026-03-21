@@ -30,14 +30,14 @@ export default function Hero() {
               Structure<br/>before code.
             </motion.h1>
             <motion.p variants={fadeUp} className="text-xl md:text-2xl font-serif text-black/60 max-w-2xl leading-relaxed">
-              An open-source layout skill for coding agents. It fixes a recurring failure mode: functional code with weak, repetitive layout judgment.
+              An open-source design skill for coding agents. It fixes a recurring failure mode: functional code with weak, repetitive layout judgment.
             </motion.p>
             <motion.div variants={fadeUp} className="mt-12 flex items-center gap-4">
-              <a href="https://github.com/arjunkshah/layout-skill" target="_blank" rel="noreferrer" className="bg-ink text-paper px-6 py-4 text-sm font-medium rounded-sm flex items-center gap-2 hover:bg-black/80 transition-all">
+              <a href="https://github.com/arjunkshah/design-skill" target="_blank" rel="noreferrer" className="bg-ink text-paper px-6 py-4 text-sm font-medium rounded-sm flex items-center gap-2 hover:bg-black/80 transition-all">
                 <Github size={16} /> View Repository
               </a>
               <div className="px-6 py-4 text-sm font-mono border border-black/10 rounded-sm bg-black/5 flex items-center gap-2">
-                <span className="text-black/50">$</span> layout-director
+                <span className="text-black/50">$</span> design-skill
               </div>
             </motion.div>
           </motion.div>

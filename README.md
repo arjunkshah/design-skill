@@ -1,6 +1,6 @@
-# Layout Director
+# Design Skill
 
-Layout Director is a skill repo for coding agents that need better frontend layout judgment.
+Design Skill is a skill repo for coding agents that need better frontend layout judgment.
 
 It is built for tools like Codex, Claude Code, Cursor, Cline, Windsurf, and similar agent workflows. Instead of defaulting to the same centered hero, repeated feature cards, and weak mobile collapse, the agent gets a stricter layout process and a wider UI vocabulary.
 
@@ -13,39 +13,39 @@ It is built for tools like Codex, Claude Code, Cursor, Cline, Windsurf, and simi
 Works via CLI for major AI coding agents and skill-compatible workflows:
 
 ```bash
-npx skills add https://github.com/arjunkshah/layout-skill
+npx skills add https://github.com/arjunkshah/design-skill
 ```
 
 Then invoke:
 
 ```text
-$layout-director
+$design-skill
 ```
 
 For stronger motion output, combine it with:
 
 ```text
-$layout-director $animation-director
+$design-skill $animation-director
 ```
 
 Recommended split:
 
-- `$layout-director` for structure, hierarchy, type, spacing, and style direction
+- `$design-skill` for structure, hierarchy, type, spacing, and style direction
 - `$animation-director` for entry sequencing, interaction polish, sticky narratives, and motion guardrails
 
 ## Skills
 
 | Skill | Description |
 | --- | --- |
-| `layout-director` | The main frontend layout skill. Teaches structure selection, variation axes, component families, scroll patterns, and layout review. |
+| `design-skill` | The main frontend design skill. Teaches structure selection, variation axes, component families, scroll patterns, and layout review. |
 | `animation-director` | Companion motion skill for entry choreography, interaction polish, sticky narratives, and animation performance guardrails. |
 
 ## System Stack
 
 The repo now works best as a small frontend system rather than one giant instruction file:
 
-- `layout-director`: chooses structure, hierarchy, section rhythm, and visual direction
-- `style engine`: inside `layout-director`, handles typography, palette, density, and brand translation
+- `design-skill`: chooses structure, hierarchy, section rhythm, and visual direction
+- `style engine`: inside `design-skill`, handles typography, palette, density, and brand translation
 - `animation-director`: adds motion sequencing, scroll choreography, and performance-safe interaction polish
 
 ## What Is In This Repo
@@ -53,8 +53,8 @@ The repo now works best as a small frontend system rather than one giant instruc
 - `index.html`: the current landing page frontend
 - `src/`: a componentized port of the landing page kept for future iteration
 - `site/`: the earlier static landing page iteration kept as a reference
-- `skills/layout-director/`: the reusable skill package
-- `skills/layout-director/references/`: modular reference files for archetypes, variation, component families, scroll patterns, prompts, platform adaptation, and review
+- `skills/design-skill/`: the reusable skill package
+- `skills/design-skill/references/`: modular reference files for archetypes, variation, component families, scroll patterns, prompts, platform adaptation, and review
 - `skills/animation-director/`: companion motion skill for choreography and performance-safe animation rules
 
 ## Why This Exists
@@ -69,7 +69,7 @@ The common failure modes are predictable:
 - decorative motion without meaning
 - mobile layouts that only shrink instead of reorganizing
 
-Layout Director addresses those issues by making layout selection an explicit step instead of an accidental byproduct of code generation.
+Design Skill addresses those issues by making layout selection an explicit step instead of an accidental byproduct of code generation.
 
 The landing page also ships with multiple visual presets so the same structure can be previewed across different moods.
 
@@ -121,7 +121,7 @@ The agent should reject the layout if the result still feels like:
 │   │   ├── SKILL.md
 │   │   ├── agents/
 │   │   └── references/
-│   └── layout-director/
+│   └── design-skill/
 │       ├── SKILL.md
 │       ├── agents/
 │       └── references/
@@ -146,7 +146,7 @@ Then open `http://127.0.0.1:5177`.
 
 ## How It Works
 
-Layout Director gives the agent a better process:
+Design Skill gives the agent a better process:
 
 - read the brief before coding
 - choose a layout archetype first
@@ -167,7 +167,7 @@ Animation Director adds the motion layer:
 
 ### Codex
 
-Install the repo with `npx skills add ...` if your setup supports it, or use the bundled skill folders directly and invoke `$layout-director` and optionally `$animation-director`.
+Install the repo with `npx skills add ...` if your setup supports it, or use the bundled skill folders directly and invoke `$design-skill` and optionally `$animation-director`.
 
 ### Claude Code
 
@@ -181,19 +181,19 @@ Use the same principles in Cursor rules or project instructions. The reference f
 
 Use only one skill when the job is narrow:
 
-- `$layout-director` for layout, hierarchy, and visual identity
+- `$design-skill` for layout, hierarchy, and visual identity
 - `$animation-director` for motion refinement on an already-strong page
 
 Use both when the page needs a full frontend direction:
 
 ```text
-$layout-director $animation-director
+$design-skill $animation-director
 Design a landing page with a strong product frame, premium editorial typography, pinned storytelling, and tactile hover states.
 ```
 
 Good default split:
 
-- use only `layout-director` when the page still needs structural thinking
+- use only `design-skill` when the page still needs structural thinking
 - add `animation-director` after the composition already makes sense
 
 ## Example Prompts
@@ -201,21 +201,21 @@ Good default split:
 Layout only:
 
 ```text
-$layout-director
+$design-skill
 Design a homepage for a developer tool with a framed product stage, proof rail, and a calmer mobile collapse.
 ```
 
 Brand-aware layout:
 
 ```text
-$layout-director
+$design-skill
 Build a landing page for a premium finance brand using a restrained serif-led system, stricter proof placement, and a more editorial information flow.
 ```
 
 Full frontend direction:
 
 ```text
-$layout-director $animation-director
+$design-skill $animation-director
 Create a launch page with a pinned demo rail, staggered product storytelling, tactile CTA states, and motion that stays restrained on mobile.
 ```
 
@@ -250,10 +250,10 @@ The landing page also includes a project shelf section intended for screenshots 
 
 ## Manual Fallback
 
-If your setup does not support repo-based skill installs yet, copy `skills/layout-director/` and optionally `skills/animation-director/` into your local skill or rules directory and invoke:
+If your setup does not support repo-based skill installs yet, copy `skills/design-skill/` and optionally `skills/animation-director/` into your local skill or rules directory and invoke:
 
 ```text
-$layout-director
+$design-skill
 ```
 
 ## Open Source
@@ -264,8 +264,4 @@ This repository is MIT licensed. See `LICENSE`.
 
 The landing page visual direction is intentionally influenced by the live structure and product presentation style of [paper.design](https://paper.design/), while the content, code, and skill system in this repository are original.
 
-The skill package in this repo was expanded using ideas distilled from:
-
-- structured brand-system modeling in `preetsuthar17/loftlyy`
-
-Those references informed some workflow thinking, but the packaged style and motion system in this repository is now written as a first-party skill set for this project.
+The skill package in this repo was informed by structured brand-system modeling in `preetsuthar17/loftlyy`, but the packaged style and motion system in this repository is written as a first-party skill set for this project.

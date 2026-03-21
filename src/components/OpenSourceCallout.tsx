@@ -13,14 +13,14 @@ export default function OpenSourceCallout() {
       >
         <span className="font-mono text-sm tracking-[0.3em] uppercase text-paper/50 mb-8 block">MIT Licensed</span>
         
-        <a href="https://github.com/arjunkshah/layout-skill" target="_blank" rel="noreferrer" className="group block">
+        <a href="https://github.com/arjunkshah/design-skill" target="_blank" rel="noreferrer" className="group block">
           <h2 className="font-serif text-[15vw] md:text-[12vw] leading-[0.8] tracking-tighter mb-8 group-hover:text-paper/80 transition-colors">
             Open<br/>Source.
           </h2>
           <div className="flex items-center justify-center gap-4 text-paper/70 group-hover:text-paper transition-colors">
             <Github size={20} />
             <span className="font-mono text-sm md:text-base border-b border-paper/30 pb-1 group-hover:border-paper transition-colors">
-              github.com/arjunkshah/layout-skill
+              github.com/arjunkshah/design-skill
             </span>
           </div>
         </a>

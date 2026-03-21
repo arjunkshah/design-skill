@@ -2,7 +2,7 @@ interface:
   display_name: "Animation Director"
   short_description: "Portable motion choreography for frontend agents"
   brand_color: "#A8572E"
-  default_prompt: "Use $layout-director $animation-director to give this frontend strong structure plus restrained, high-quality motion that supports hierarchy, affordance, and performance."
+  default_prompt: "Use $design-skill $animation-director to give this frontend strong structure plus restrained, high-quality motion that supports hierarchy, affordance, and performance."
 
 policy:
   allow_implicit_invocation: true

@@ -8,7 +8,7 @@ Use `$animation-director` to add restrained, high-quality motion that clarifies 
 
 ## Combined Prompt
 
-Use `$layout-director $animation-director`.
+Use `$design-skill $animation-director`.
 
 Requirements:
 

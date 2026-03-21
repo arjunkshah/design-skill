@@ -4,13 +4,13 @@ Use these when the model needs a stronger briefing structure.
 
 ## Short Prompt
 
-Use `$layout-director` to design this page. Choose a layout archetype based on the brief, keep the hierarchy and spacing premium, avoid generic SaaS symmetry, and make the mobile collapse feel intentionally redesigned.
+Use `$design-skill` to design this page. Choose a layout archetype based on the brief, keep the hierarchy and spacing premium, avoid generic SaaS symmetry, and make the mobile collapse feel intentionally redesigned.
 
 If motion needs to be part of the output, add `$animation-director`.
 
 ## Structured Prompt
 
-Use `$layout-director`.
+Use `$design-skill`.
 
 Project:
 - what the product is

@@ -1,8 +1,0 @@
-interface:
-  display_name: "Layout Director"
-  short_description: "Portable layout taste for frontend agents"
-  brand_color: "#C46D3B"
-  default_prompt: "Use $layout-director to design a frontend page with a strong layout system, deliberate hierarchy, and a premium mobile collapse."
-
-policy:
-  allow_implicit_invocation: true

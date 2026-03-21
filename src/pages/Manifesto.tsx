@@ -13,7 +13,7 @@ export default function Manifesto() {
         <p>They default to what we call <strong>AI Slop</strong>: generic purple gradients, arbitrary drop shadows, rounded corners applied without rhythm, and a complete absence of structural grid.</p>
         <h3 className="text-2xl font-secondary font-medium mt-12 mb-4 text-fg">Structure Over Decoration</h3>
         <p>Great design is not about decoration; it is about the structural division of space. It is about materiality, typographic hierarchy, and deterministic layouts.</p>
-        <p>Layout Director intercepts the prompt and forces the LLM to think like an editorial designer. It removes the option to simply "center everything and add a shadow." It demands a grid. It demands a thesis.</p>
+        <p>Design Skill intercepts the prompt and forces the LLM to think like an editorial designer. It removes the option to simply "center everything and add a shadow." It demands a grid. It demands a thesis.</p>
         <blockquote className="border-l-2 border-fg pl-6 my-12 text-2xl italic">"By constraining the visual vocabulary, we force the model to focus on composition."</blockquote>
       </div>
     </motion.div>

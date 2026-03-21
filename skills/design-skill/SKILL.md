@@ -1,9 +1,9 @@
 ---
-name: layout-director
+name: design-skill
 description: Use when an agent needs stronger frontend page layout judgment for landing pages, marketing sites, product showcases, portfolios, and feature launches. This skill improves composition, hierarchy, spacing, section rhythm, and motion while preserving variation instead of locking outputs into one template.
 ---
 
-# Layout Director
+# Design Skill
 
 Use this skill when the user wants frontend design work that feels intentionally composed rather than merely functional.
 

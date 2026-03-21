@@ -29,13 +29,13 @@ Before writing animation code:
 7. Enforce the constraints in [references/performance_guardrails.md](references/performance_guardrails.md).
 8. Run the final pass in [references/review_rubric.md](references/review_rubric.md).
 
-## How It Combines With Layout Director
+## How It Combines With Design Skill
 
 Use `$animation-director` as a companion layer, not as a substitute for layout judgment.
 
 Typical pairing:
 
-- `$layout-director` decides structure, hierarchy, and style direction
+- `$design-skill` decides structure, hierarchy, and style direction
 - `$animation-director` decides sequencing, interaction behavior, scroll choreography, and motion restraint
 
 If no strong structure exists yet, fix layout first.

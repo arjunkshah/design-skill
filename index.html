@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layout Director</title>
+    <title>Design Skill</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
@@ -242,7 +242,7 @@
             <motion.nav initial={{ y: -100 }} animate={{ y: 0 }} transition={{ duration: 0.8 }} className="flex items-center justify-between px-6 py-4 border-b border-border sticky top-0 bg-bg/90 backdrop-blur-md z-50">
                 <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2 group">
                     <div className="w-4 h-4 bg-fg rounded-sm group-hover:scale-90 transition-transform"></div>
-                    <span className="font-primary text-xl tracking-tight font-medium">Layout Director</span>
+                    <span className="font-primary text-xl tracking-tight font-medium">Design Skill</span>
                 </button>
                 <div className="flex items-center gap-6 text-sm font-medium hide-scroll overflow-x-auto">
                     {sectionLinks.map(section => (
@@ -250,7 +250,7 @@
                             {section.label}
                         </button>
                     ))}
-                    <a href="https://github.com/arjunkshah/layout-skill" target="_blank" className="hidden lg:flex hover:opacity-60 transition-opacity items-center gap-2"><GithubIcon /> GitHub</a>
+                    <a href="https://github.com/arjunkshah/design-skill" target="_blank" className="hidden lg:flex hover:opacity-60 transition-opacity items-center gap-2"><GithubIcon /> GitHub</a>
                 </div>
             </motion.nav>
         );
@@ -286,13 +286,13 @@
         const Footer = () => (
             <footer className="p-8 md:p-16 max-w-[1400px] mx-auto w-full flex flex-col md:flex-row justify-between items-start md:items-center gap-8 bg-bg">
                 <div>
-                    <div className="font-primary text-2xl tracking-tight mb-2">Layout Director</div>
+                    <div className="font-primary text-2xl tracking-tight mb-2">Design Skill</div>
                     <p className="font-mono text-xs text-fg/50 uppercase tracking-widest">A skill by arjunkshah.</p>
                 </div>
                 <div className="flex gap-8 text-sm font-medium">
-                    <a href="https://github.com/arjunkshah/layout-skill" target="_blank" className="hover:underline underline-offset-4 flex items-center gap-2"><GithubIcon /> Repository</a>
-                    <a href="https://github.com/arjunkshah/layout-skill/issues" target="_blank" className="hover:underline underline-offset-4">Issues</a>
-                    <a href="https://github.com/arjunkshah/layout-skill/blob/main/LICENSE" target="_blank" className="hover:underline underline-offset-4">License</a>
+                    <a href="https://github.com/arjunkshah/design-skill" target="_blank" className="hover:underline underline-offset-4 flex items-center gap-2"><GithubIcon /> Repository</a>
+                    <a href="https://github.com/arjunkshah/design-skill/issues" target="_blank" className="hover:underline underline-offset-4">Issues</a>
+                    <a href="https://github.com/arjunkshah/design-skill/blob/main/LICENSE" target="_blank" className="hover:underline underline-offset-4">License</a>
                 </div>
             </footer>
         );
@@ -318,21 +318,21 @@
                                     Structure<br/>before code.
                                 </motion.h1>
                                 <motion.p variants={fadeUp} className="text-xl md:text-2xl font-primary text-fg/60 max-w-2xl leading-relaxed">
-                                    An open-source layout skill for coding agents. It fixes a recurring failure mode: functional code with weak, repetitive layout judgment.
+                                    An open-source design skill for coding agents. It fixes a recurring failure mode: functional code with weak, repetitive layout judgment.
                                 </motion.p>
                                 <motion.div variants={fadeUp} className="mt-12 flex flex-wrap items-center gap-4">
-                                    <a href="https://github.com/arjunkshah/layout-skill" target="_blank" className="bg-fg text-bg px-6 py-4 text-sm font-medium rounded-sm flex items-center gap-2 hover:opacity-80 transition-opacity">
+                                    <a href="https://github.com/arjunkshah/design-skill" target="_blank" className="bg-fg text-bg px-6 py-4 text-sm font-medium rounded-sm flex items-center gap-2 hover:opacity-80 transition-opacity">
                                         <GithubIcon /> View Repository
                                     </a>
                                     <div className="px-6 py-4 text-sm font-mono border border-border rounded-sm bg-fg/5 flex items-center gap-2">
-                                        <span className="text-fg/50">$</span> layout-director
+                                        <span className="text-fg/50">$</span> design-skill
                                     </div>
                                 </motion.div>
                                 <motion.div variants={fadeUp} className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-[1px] bg-border border border-border">
                                     {[
                                         ['layout archetypes', 'editorial split, bento, pinned stages'],
                                         ['motion profiles', 'quiet reveals, sticky story, rhythm shifts'],
-                                        ['skill stack', '$layout-director + $animation-director']
+                                        ['skill stack', '$design-skill + $animation-director']
                                     ].map(([label, value]) => (
                                         <div key={label} className="bg-bg px-5 py-5">
                                             <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-fg/45 mb-2">{label}</div>
@@ -376,7 +376,7 @@
                         <p className="mt-6 text-sm font-primary italic text-fg/60">Result: "AI Slop". Arbitrary padding, generic shadows, lacking materiality.</p>
                     </div>
                     <div className="p-8 md:p-16 bg-bg">
-                        <h3 className="font-mono text-xs tracking-widest uppercase mb-6 text-fg/50 flex items-center gap-2"><TerminalIcon/> Layout Director Output</h3>
+                        <h3 className="font-mono text-xs tracking-widest uppercase mb-6 text-fg/50 flex items-center gap-2"><TerminalIcon/> Design Skill Output</h3>
                         <div className="font-mono text-sm leading-relaxed text-fg/90 bg-fg/10 p-6 border border-border rounded-sm shadow-inner">
                             <span className="text-green-500">+</span> &lt;section className="grid grid-cols-12 border-b border-black/10"&gt;<br/>
                             <span className="text-green-500">+</span> &nbsp;&nbsp;&lt;div className="col-span-8 border-r border-black/10 p-16"&gt;<br/>
@@ -418,7 +418,7 @@
         // Section 5: Architecture
         const Architecture = () => {
             const steps = [
-                ["01. Intercept", "Prompt Parsing", "The agent reads the brief, activates `$layout-director`, and chooses a layout archetype before placing components."],
+                ["01. Intercept", "Prompt Parsing", "The agent reads the brief, activates `$design-skill`, and chooses a layout archetype before placing components."],
                 ["02. Inject", "System Injection", "Archetypes, variation axes, component families, and scroll patterns are pulled from the skill references before generation."],
                 ["03. Generate", "Deterministic Output", "The agent outputs stronger layout rhythm, mobile reflow, and a review pass instead of a generic hero-and-cards default."]
             ];
@@ -451,7 +451,7 @@
                 <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12">
                     <div className="md:col-span-4 p-8 md:p-16 border-r border-border flex flex-col justify-center">
                         <Reveal as="h2" className="font-primary text-4xl tracking-tight mb-4">Modular Scale</Reveal>
-                        <Reveal as="p" delay={0.08} className="text-fg/60 text-sm leading-relaxed">Layout Director bans arbitrary font sizes. The LLM is constrained to a perfect typographic ratio, ensuring rhythm across all viewports.</Reveal>
+                        <Reveal as="p" delay={0.08} className="text-fg/60 text-sm leading-relaxed">Design Skill bans arbitrary font sizes. The LLM is constrained to a perfect typographic ratio, ensuring rhythm across all viewports.</Reveal>
                     </div>
                     <div className="md:col-span-8 p-8 md:p-16 flex flex-col gap-8 justify-center bg-fg/5">
                         <div className="flex justify-between items-baseline border-b border-border pb-2">
@@ -483,15 +483,15 @@
             const layers = [
                 {
                     kicker: "01",
-                    title: "Layout Director",
+                    title: "Design Skill",
                     body: "Chooses archetype, hierarchy, section rhythm, density, and brand-aware visual direction before component detail takes over.",
-                    command: "$layout-director"
+                    command: "$design-skill"
                 },
                 {
                     kicker: "02",
                     title: "Style Engine",
                     body: "Translates brand identity, typography contrast, palette discipline, and visual taste into a coherent system instead of generic defaults.",
-                    command: "built into layout-director"
+                    command: "built into design-skill"
                 },
                 {
                     kicker: "03",
@@ -543,17 +543,17 @@
                 {
                     title: "Layout only",
                     body: "For when the page still needs stronger structure, pacing, and hierarchy before anything else.",
-                    command: "$layout-director Design a homepage for a developer tool with a framed product stage, proof rail, and a calmer mobile collapse."
+                    command: "$design-skill Design a homepage for a developer tool with a framed product stage, proof rail, and a calmer mobile collapse."
                 },
                 {
                     title: "Brand-aware layout",
                     body: "For translating a known identity system into a better composition instead of just copying colors.",
-                    command: "$layout-director Build a landing page for a premium finance brand using a restrained serif-led system, stricter proof placement, and a more editorial information flow."
+                    command: "$design-skill Build a landing page for a premium finance brand using a restrained serif-led system, stricter proof placement, and a more editorial information flow."
                 },
                 {
                     title: "Full frontend direction",
                     body: "For shipping structure, visual taste, and motion choreography as one coordinated output.",
-                    command: "$layout-director $animation-director Create a launch page with a pinned demo rail, staggered product storytelling, tactile CTA states, and motion that stays restrained on mobile."
+                    command: "$design-skill $animation-director Create a launch page with a pinned demo rail, staggered product storytelling, tactile CTA states, and motion that stays restrained on mobile."
                 }
             ];
 
@@ -709,7 +709,7 @@
                             <Reveal as="span" className="font-mono text-xs uppercase tracking-widest text-fg/50 mb-5 block">Generated With The Skill</Reveal>
                             <Reveal as="h2" delay={0.06} className="font-primary text-4xl tracking-tight mb-4">Project Shelf</Reveal>
                             <Reveal as="p" delay={0.12} className="text-sm text-fg/65 leading-relaxed max-w-sm">
-                                These cards are placeholders for the projects you generate with Layout Director and Animation Director. Swap each image for your own capture and keep the editorial grid intact.
+                                These cards are placeholders for the projects you generate with Design Skill and Animation Director. Swap each image for your own capture and keep the editorial grid intact.
                             </Reveal>
                         </div>
                         <div className="md:col-span-8 grid grid-cols-1 lg:grid-cols-3 gap-[1px] bg-border">
@@ -754,8 +754,8 @@
         const FAQ = () => {
             const faqs = [
                 { q: "Does it work with standard frontend stacks?", a: "Yes. The skill outputs normal frontend code, but it pushes the agent toward stronger spacing systems, hierarchy, and section rhythm instead of arbitrary utility spam." },
-                { q: "Can I customize the system?", a: "Yes. Edit the files in skills/layout-director/references to tune archetypes, variation ranges, component families, or review rules for your own design taste." },
-                { q: "How do I install it?", a: "Run npx skills add https://github.com/arjunkshah/layout-skill, then invoke $layout-director by itself or pair it with $animation-director when the page needs a full motion layer." },
+                { q: "Can I customize the system?", a: "Yes. Edit the files in skills/design-skill/references to tune archetypes, variation ranges, component families, or review rules for your own design taste." },
+                { q: "How do I install it?", a: "Run npx skills add https://github.com/arjunkshah/design-skill, then invoke $design-skill by itself or pair it with $animation-director when the page needs a full motion layer." },
             ];
             const [open, setOpen] = useState(0);
 
@@ -801,19 +801,19 @@
                         <div>
                             <Reveal as="div" className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-4">Step 1</Reveal>
                             <div className="border border-border bg-fg/5 p-5 font-mono text-sm overflow-x-auto">
-                                npx skills add https://github.com/arjunkshah/layout-skill
+                                npx skills add https://github.com/arjunkshah/design-skill
                             </div>
                         </div>
                         <div>
                             <Reveal as="div" className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-4">Step 2</Reveal>
                             <div className="border border-border bg-fg/5 p-5 font-mono text-sm">
-                                $layout-director
+                                $design-skill
                             </div>
                         </div>
                         <div>
                             <Reveal as="div" className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-4">Step 3</Reveal>
                             <div className="border border-border bg-fg/5 p-5 font-mono text-sm">
-                                $layout-director $animation-director
+                                $design-skill $animation-director
                             </div>
                         </div>
                         <div>
@@ -822,7 +822,7 @@
                                 Prompt for the outcome, not a template. The layout skill picks structure and style direction, and the animation skill handles sequencing, interaction polish, and scroll behavior.
                             </Reveal>
                             <div className="border border-border bg-bg p-6 font-primary text-xl leading-relaxed italic">
-                                "$layout-director $animation-director Design a landing page with a pinned demo stage, tighter editorial typography, a bento section that breaks symmetry, and restrained tactile motion."
+                                "$design-skill $animation-director Design a landing page with a pinned demo stage, tighter editorial typography, a bento section that breaks symmetry, and restrained tactile motion."
                             </div>
                         </div>
                     </div>
@@ -835,11 +835,11 @@
             <section className="bg-fg text-bg overflow-hidden relative border-b border-border">
                 <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="max-w-[1400px] mx-auto p-8 md:p-16 py-24 md:py-48 flex flex-col items-center justify-center text-center relative z-10">
                     <Reveal as="span" className="font-mono text-sm tracking-[0.3em] uppercase opacity-50 mb-8 block">MIT Licensed</Reveal>
-                    <a href="https://github.com/arjunkshah/layout-skill" target="_blank" className="group block">
+                    <a href="https://github.com/arjunkshah/design-skill" target="_blank" className="group block">
                         <Reveal as="h2" delay={0.08} className="font-primary text-[15vw] md:text-[12vw] leading-[0.8] tracking-tighter mb-8 group-hover:opacity-80 transition-opacity">Open<br/>Source.</Reveal>
                         <div className="flex items-center justify-center gap-4 opacity-70 group-hover:opacity-100 transition-opacity">
                             <GithubIcon />
-                            <span className="font-mono text-sm md:text-base border-b border-bg/30 pb-1 group-hover:border-bg transition-colors">github.com/arjunkshah/layout-skill</span>
+                            <span className="font-mono text-sm md:text-base border-b border-bg/30 pb-1 group-hover:border-bg transition-colors">github.com/arjunkshah/design-skill</span>
                         </div>
                     </a>
                 </motion.div>

@@ -7,7 +7,7 @@ export default function Install() {
       <div className="md:col-span-4 border-r border-border p-8 md:p-16 bg-fg/5">
         <h1 className="font-primary text-4xl mb-4">Installation</h1>
         <p className="text-fg/60 text-sm leading-relaxed mb-8">
-          Add the repo as a skill source, then invoke <span className="font-mono">$layout-director</span> in any supported coding agent.
+          Add the repo as a skill source, then invoke <span className="font-mono">$design-skill</span> in any supported coding agent.
         </p>
       </div>
       <div className="md:col-span-8 p-8 md:p-16">
@@ -15,7 +15,7 @@ export default function Install() {
           <div>
             <h3 className="font-mono text-xs tracking-widest uppercase mb-4 text-fg/50 border-b border-border pb-2">Step 1: Add Repo</h3>
             <div className="bg-bg border border-border p-4 font-mono text-sm flex justify-between items-center">
-              <span>npx skills add https://github.com/arjunkshah/layout-skill</span>
+              <span>npx skills add https://github.com/arjunkshah/design-skill</span>
             </div>
           </div>
           <div>
@@ -24,7 +24,7 @@ export default function Install() {
               Use the skill name directly in your agent session. The repo exposes a single frontend layout skill with structure, variation, and review guidance baked in.
             </p>
             <div className="bg-bg border border-border p-4 font-mono text-sm flex justify-between items-center">
-              <span>$layout-director</span>
+              <span>$design-skill</span>
             </div>
           </div>
           <div>
@@ -33,7 +33,7 @@ export default function Install() {
               Ask for the outcome you want. The skill decides on structure, component families, scroll behavior, and layout rhythm from the brief instead of hardcoding one template.
             </p>
             <div className="bg-fg/5 border border-border p-6 font-primary text-lg italic text-fg/80">
-              "$layout-director Design a product landing page with a pinned demo rail, tight editorial typography, and a quieter mobile reflow."
+              "$design-skill Design a product landing page with a pinned demo rail, tight editorial typography, and a quieter mobile reflow."
             </div>
           </div>
         </div>

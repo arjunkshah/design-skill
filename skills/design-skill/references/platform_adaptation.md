@@ -4,7 +4,7 @@ The design guidance is portable. Adapt it to the host tool instead of rewriting 
 
 ## Codex
 
-Place the skill in the appropriate skills directory and invoke `$layout-director` when requesting frontend work.
+Place the skill in the appropriate skills directory and invoke `$design-skill` when requesting frontend work.
 
 ## Claude Code
 
