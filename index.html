@@ -10,7 +10,7 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Press+Start+2P&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             /* 1. Paper (Default) */
@@ -97,6 +97,42 @@
             --img-invert: 1;
             --img-opacity: 0.6;
         }
+        [data-theme="signal"] {
+            --color-bg: 242 236 229;
+            --color-fg: 31 28 26;
+            --color-border: 173 81 47;
+            --border-opacity: 0.22;
+            --font-primary: 'Space Grotesk', sans-serif;
+            --font-secondary: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --img-blend: multiply;
+            --img-invert: 0;
+            --img-opacity: 0.86;
+        }
+        [data-theme="ember"] {
+            --color-bg: 24 18 16;
+            --color-fg: 243 224 204;
+            --color-border: 255 128 74;
+            --border-opacity: 0.28;
+            --font-primary: 'Newsreader', serif;
+            --font-secondary: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --img-blend: screen;
+            --img-invert: 0.2;
+            --img-opacity: 0.72;
+        }
+        [data-theme="pixel"] {
+            --color-bg: 22 27 36;
+            --color-fg: 227 244 208;
+            --color-border: 148 204 112;
+            --border-opacity: 0.3;
+            --font-primary: 'Press Start 2P', cursive;
+            --font-secondary: 'Press Start 2P', cursive;
+            --font-mono: 'Press Start 2P', cursive;
+            --img-blend: normal;
+            --img-invert: 0;
+            --img-opacity: 0.78;
+        }
 
         body {
             background-color: rgb(var(--color-bg));
@@ -118,6 +154,20 @@
         }
         .hide-scroll::-webkit-scrollbar { display: none; }
         .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+        .image-frame::after {
+            content: "";
+            position: absolute;
+            inset: 12px;
+            border: 1px solid rgba(var(--color-border), calc(var(--border-opacity) + 0.08));
+            pointer-events: none;
+        }
+        [data-theme="pixel"] .theme-image {
+            image-rendering: pixelated;
+            filter: grayscale(20%) contrast(1.15) saturate(0.85);
+        }
+        [data-theme="pixel"] .pixel-border {
+            box-shadow: 0 0 0 2px rgba(var(--color-border), 0.35), 8px 8px 0 rgba(var(--color-border), 0.12);
+        }
     </style>
     <script>
         tailwind.config = {
@@ -150,13 +200,58 @@
         const PlusIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>;
 
         // --- Animations ---
-        const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } } };
+        const fadeUp = { hidden: { opacity: 0, y: 30, filter: 'blur(10px)' }, visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } } };
         const staggerContainer = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1 } } };
+        const textReveal = {
+            hidden: { opacity: 0, y: 22, filter: 'blur(10px)' },
+            visible: (delay = 0) => ({
+                opacity: 1,
+                y: 0,
+                filter: 'blur(0px)',
+                transition: { duration: 0.82, delay, ease: [0.16, 1, 0.3, 1] }
+            })
+        };
+        const frameReveal = {
+            hidden: { opacity: 0, y: 36, scale: 0.985 },
+            visible: (delay = 0) => ({
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                transition: { duration: 0.9, delay, ease: [0.16, 1, 0.3, 1] }
+            })
+        };
+        const Reveal = ({ as = 'div', className = '', delay = 0, children, once = true }) => {
+            const Tag = motion[as] || motion.div;
+            return (
+                <Tag
+                    className={className}
+                    custom={delay}
+                    variants={textReveal}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once, amount: 0.35 }}
+                >
+                    {children}
+                </Tag>
+            );
+        };
+
+        const imagery = {
+            heroMain: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=1200&auto=format&fit=crop",
+            heroDetail: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?q=80&w=900&auto=format&fit=crop",
+            processOne: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1200&auto=format&fit=crop",
+            processTwo: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1200&auto=format&fit=crop",
+            processThree: "https://images.unsplash.com/photo-1497366412874-3415097a27e7?q=80&w=1200&auto=format&fit=crop",
+            projectOne: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop",
+            projectTwo: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop",
+            projectThree: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop"
+        };
 
         // --- Layout Shell ---
         const sectionLinks = [
             { id: 'system', label: 'System' },
             { id: 'range', label: 'Range' },
+            { id: 'projects', label: 'Projects' },
             { id: 'install', label: 'Install' },
             { id: 'faq', label: 'FAQ' },
         ];
@@ -179,7 +274,8 @@
         );
 
         const ThemeToggle = ({ theme, setTheme }) => {
-            const themes = ['paper', 'brutalist', 'sepia', 'midnight', 'terminal', 'blueprint', 'hacker'];
+            const themes = ['paper', 'brutalist', 'sepia', 'midnight', 'terminal', 'blueprint', 'hacker', 'signal', 'ember', 'pixel'];
+            const shortLabel = theme === 'blueprint' ? 'blue' : theme === 'brutalist' ? 'brut' : theme;
             
             useEffect(() => {
                 const handleKeyDown = (e) => { if (e.key.toLowerCase() === 'c') cycleTheme(); };
@@ -200,7 +296,7 @@
                 >
                     <span className="font-mono text-xs uppercase tracking-widest font-bold">Theme</span>
                     <div className="flex items-center justify-center w-6 h-6 rounded bg-bg text-fg font-mono text-[11px] font-bold border border-fg/20 shadow-inner group-hover:bg-fg group-hover:text-bg group-hover:border-bg/20 transition-colors">
-                        C
+                        {shortLabel.slice(0, 4)}
                     </div>
                 </motion.button>
             );
@@ -227,8 +323,9 @@
         // Section 1: Hero
         const Hero = () => {
             const { scrollY } = useScroll();
-            const y1 = useTransform(scrollY, [0, 1000], [0, 200]);
-            const opacity = useTransform(scrollY, [0, 400], [1, 0]);
+            const y1 = useTransform(scrollY, [0, 1000], [0, 140]);
+            const y2 = useTransform(scrollY, [0, 1000], [0, -60]);
+            const opacity = useTransform(scrollY, [0, 420], [1, 0]);
 
             return (
                 <header id="top" className="border-b border-border relative overflow-hidden">
@@ -250,17 +347,32 @@
                                         <span className="text-fg/50">$</span> layout-director
                                     </div>
                                 </motion.div>
+                                <motion.div variants={fadeUp} className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-[1px] bg-border border border-border">
+                                    {[
+                                        ['layout archetypes', 'editorial split, bento, pinned stages'],
+                                        ['motion profiles', 'quiet reveals, sticky story, rhythm shifts'],
+                                        ['style presets', 'paper, ember, terminal, pixel and more']
+                                    ].map(([label, value]) => (
+                                        <div key={label} className="bg-bg px-5 py-5">
+                                            <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-fg/45 mb-2">{label}</div>
+                                            <div className="text-sm text-fg/75 leading-relaxed">{value}</div>
+                                        </div>
+                                    ))}
+                                </motion.div>
                             </motion.div>
                         </div>
-                        <div className="md:col-span-4 flex flex-col justify-between relative">
-                            <motion.div style={{ y: y1, opacity }} className="absolute inset-0 z-0">
-                                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop" alt="Architecture" className="w-full h-full object-cover theme-image" />
+                        <div className="md:col-span-4 flex flex-col justify-between relative bg-fg/5 overflow-hidden">
+                            <motion.div style={{ y: y1, opacity }} className="absolute inset-x-10 top-12 z-0 image-frame pixel-border border border-border bg-bg overflow-hidden shadow-2xl">
+                                <img src={imagery.heroMain} alt="Editorial workspace" className="w-full aspect-[4/5] object-cover theme-image" />
                             </motion.div>
-                            <div className="p-8 md:p-16 z-10 bg-gradient-to-b from-bg via-bg/80 to-transparent">
-                                <h3 className="font-mono text-xs tracking-widest uppercase mb-4 border-b border-border pb-4">The Failure Mode</h3>
-                                <p className="text-sm text-fg/70 leading-relaxed">
+                            <motion.div style={{ y: y2, opacity }} className="absolute right-8 bottom-24 z-10 image-frame pixel-border w-[48%] border border-border bg-bg overflow-hidden shadow-xl">
+                                <img src={imagery.heroDetail} alt="Structured interior detail" className="w-full aspect-[4/5] object-cover theme-image" />
+                            </motion.div>
+                            <div className="p-8 md:p-16 z-20 mt-auto bg-gradient-to-t from-bg via-bg/88 to-transparent">
+                                <Reveal as="h3" className="font-mono text-xs tracking-widest uppercase mb-4 border-b border-border pb-4">The Failure Mode</Reveal>
+                                <Reveal as="p" delay={0.08} className="text-sm text-fg/70 leading-relaxed">
                                     The model reaches for the same centered hero, the same repeated feature cards, and the same cramped mobile collapse.
-                                </p>
+                                </Reveal>
                             </div>
                         </div>
                     </div>
@@ -315,46 +427,50 @@
         const Philosophy = () => (
             <section className="border-b border-border bg-bg py-24 md:py-48 px-8">
                 <div className="max-w-[1200px] mx-auto text-center">
-                    <motion.h2 
-                        initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}
-                        className="font-primary text-4xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight text-fg"
-                    >
+                    <Reveal as="h2" className="font-primary text-4xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight text-fg">
                         Design is not decoration.<br/>It is the structural division<br/>of space.
-                    </motion.h2>
+                    </Reveal>
                 </div>
             </section>
         );
 
         // Section 5: Architecture
-        const Architecture = () => (
+        const Architecture = () => {
+            const steps = [
+                ["01. Intercept", "Prompt Parsing", "The agent reads the brief, activates `$layout-director`, and chooses a layout archetype before placing components."],
+                ["02. Inject", "System Injection", "Archetypes, variation axes, component families, and scroll patterns are pulled from the skill references before generation."],
+                ["03. Generate", "Deterministic Output", "The agent outputs stronger layout rhythm, mobile reflow, and a review pass instead of a generic hero-and-cards default."]
+            ];
+            return (
             <section id="system" className="border-b border-border bg-bg">
                 <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3">
-                    <div className="p-8 md:p-16 border-b md:border-b-0 md:border-r border-border hover:bg-fg/5 transition-colors">
-                        <span className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-4 block">01. Intercept</span>
-                        <h3 className="font-primary text-2xl mb-4">Prompt Parsing</h3>
-                        <p className="text-sm text-fg/70 leading-relaxed font-mono">The agent reads the brief, activates `$layout-director`, and chooses a layout archetype before placing components.</p>
-                    </div>
-                    <div className="p-8 md:p-16 border-b md:border-b-0 md:border-r border-border hover:bg-fg/5 transition-colors">
-                        <span className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-4 block">02. Inject</span>
-                        <h3 className="font-primary text-2xl mb-4">System Injection</h3>
-                        <p className="text-sm text-fg/70 leading-relaxed font-mono">Archetypes, variation axes, component families, and scroll patterns are pulled from the skill references before generation.</p>
-                    </div>
-                    <div className="p-8 md:p-16 hover:bg-fg/5 transition-colors">
-                        <span className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-4 block">03. Generate</span>
-                        <h3 className="font-primary text-2xl mb-4">Deterministic Output</h3>
-                        <p className="text-sm text-fg/70 leading-relaxed font-mono">The agent outputs stronger layout rhythm, mobile reflow, and a review pass instead of a generic hero-and-cards default.</p>
-                    </div>
+                    {steps.map(([kicker, title, body], idx) => (
+                        <motion.div
+                            key={title}
+                            className={`p-8 md:p-16 ${idx < 2 ? 'border-b md:border-b-0 md:border-r' : ''} border-border hover:bg-fg/5 transition-colors`}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.3 }}
+                            custom={idx * 0.08}
+                            variants={frameReveal}
+                        >
+                            <Reveal as="span" className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-4 block">{kicker}</Reveal>
+                            <Reveal as="h3" delay={0.06} className="font-primary text-2xl mb-4">{title}</Reveal>
+                            <Reveal as="p" delay={0.12} className="text-sm text-fg/70 leading-relaxed font-mono">{body}</Reveal>
+                        </motion.div>
+                    ))}
                 </div>
             </section>
         );
+        };
 
         // Section 6: Typography Scale
         const TypographyScale = () => (
             <section className="border-b border-border bg-bg overflow-hidden">
                 <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12">
                     <div className="md:col-span-4 p-8 md:p-16 border-r border-border flex flex-col justify-center">
-                        <h2 className="font-primary text-4xl tracking-tight mb-4">Modular Scale</h2>
-                        <p className="text-fg/60 text-sm leading-relaxed">Layout Director bans arbitrary font sizes. The LLM is constrained to a perfect typographic ratio, ensuring rhythm across all viewports.</p>
+                        <Reveal as="h2" className="font-primary text-4xl tracking-tight mb-4">Modular Scale</Reveal>
+                        <Reveal as="p" delay={0.08} className="text-fg/60 text-sm leading-relaxed">Layout Director bans arbitrary font sizes. The LLM is constrained to a perfect typographic ratio, ensuring rhythm across all viewports.</Reveal>
                     </div>
                     <div className="md:col-span-8 p-8 md:p-16 flex flex-col gap-8 justify-center bg-fg/5">
                         <div className="flex justify-between items-baseline border-b border-border pb-2">
@@ -386,8 +502,8 @@
         const SpatialGrid = () => (
             <section className="border-b border-border bg-bg">
                 <div className="max-w-[1400px] mx-auto p-8 md:p-16 text-center border-b border-border">
-                    <h2 className="font-primary text-4xl tracking-tight mb-4">The 12-Column Engine</h2>
-                    <p className="text-fg/60 text-sm max-w-xl mx-auto">Visible structure removes the need for artificial depth.</p>
+                    <Reveal as="h2" className="font-primary text-4xl tracking-tight mb-4">The 12-Column Engine</Reveal>
+                    <Reveal as="p" delay={0.08} className="text-fg/60 text-sm max-w-xl mx-auto">Visible structure removes the need for artificial depth.</Reveal>
                 </div>
                 <div className="max-w-[1400px] mx-auto grid grid-cols-12 h-64 md:h-96">
                     {[...Array(12)].map((_, i) => (
@@ -409,29 +525,29 @@
         // Section 8: Scrollytelling Features
         const ScrollyTelling = () => {
             const ideas = [
-                { title: "Structure before components", desc: "The page should begin with a structural choice such as editorial split, asymmetric bento, narrative stack, or product frame.", img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop" },
-                { title: "Variation without randomness", desc: "The skill uses a variation matrix so the agent can change structure, typography mode, density, section rhythm, and motion profile.", img: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=800&auto=format&fit=crop" },
-                { title: "Review before output", desc: "The agent rejects the layout if it feels like a centered startup template, a feature-card conveyor belt, or lacks a dominant thesis.", img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop" }
+                { title: "Structure before components", desc: "The page should begin with a structural choice such as editorial split, asymmetric bento, narrative stack, or product frame.", img: imagery.processOne },
+                { title: "Variation without randomness", desc: "The skill uses a variation matrix so the agent can change structure, typography mode, density, section rhythm, and motion profile.", img: imagery.processTwo },
+                { title: "Review before output", desc: "The agent rejects the layout if it feels like a centered startup template, a feature-card conveyor belt, or lacks a dominant thesis.", img: imagery.processThree }
             ];
             return (
                 <section className="border-b border-border bg-bg relative">
                     <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2">
                         <div className="hidden md:block border-r border-border relative">
                             <div className="sticky top-20 h-[calc(100vh-5rem)] p-16 flex flex-col justify-center">
-                                <span className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-6 block">Core Ideas</span>
-                                <h2 className="font-primary text-5xl md:text-6xl tracking-tight leading-[1.1] mb-8">A better process<br/>for coding agents.</h2>
-                                <p className="text-lg text-fg/60 font-primary italic max-w-md">"The goal is not to force one visual style. The goal is to raise the floor for composition while keeping enough freedom."</p>
+                                <Reveal as="span" className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-6 block">Core Ideas</Reveal>
+                                <Reveal as="h2" delay={0.08} className="font-primary text-5xl md:text-6xl tracking-tight leading-[1.1] mb-8">A better process<br/>for coding agents.</Reveal>
+                                <Reveal as="p" delay={0.14} className="text-lg text-fg/60 font-primary italic max-w-md">"The goal is not to force one visual style. The goal is to raise the floor for composition while keeping enough freedom."</Reveal>
                             </div>
                         </div>
                         <div className="flex flex-col">
                             {ideas.map((idea, idx) => (
                                 <motion.div key={idx} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ margin: "-20%" }} transition={{ duration: 0.8 }} className="min-h-[80vh] md:min-h-screen flex flex-col justify-center p-8 md:p-16 border-b border-border last:border-b-0">
-                                    <div className="font-mono text-xs text-fg/40 mb-4">0{idx + 1}</div>
-                                    <h3 className="text-3xl font-primary tracking-tight mb-6">{idea.title}</h3>
-                                    <p className="text-fg/70 leading-relaxed mb-12 max-w-md">{idea.desc}</p>
-                                    <div className="w-full aspect-[4/3] bg-fg/5 relative overflow-hidden border border-border">
+                                    <Reveal as="div" className="font-mono text-xs text-fg/40 mb-4">0{idx + 1}</Reveal>
+                                    <Reveal as="h3" delay={0.06} className="text-3xl font-primary tracking-tight mb-6">{idea.title}</Reveal>
+                                    <Reveal as="p" delay={0.12} className="text-fg/70 leading-relaxed mb-12 max-w-md">{idea.desc}</Reveal>
+                                    <motion.div className="w-full aspect-[4/3] bg-fg/5 relative overflow-hidden border border-border image-frame pixel-border" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }} custom={0.18} variants={frameReveal}>
                                         <img src={idea.img} alt={idea.title} className="w-full h-full object-cover theme-image" />
-                                    </div>
+                                    </motion.div>
                                 </motion.div>
                             ))}
                         </div>
@@ -446,32 +562,38 @@
                 <div className="max-w-[1400px] mx-auto bg-bg">
                     <div className="p-8 md:p-16 border-b border-border flex flex-col md:flex-row justify-between items-end gap-8">
                         <div>
-                            <h2 className="font-primary text-4xl tracking-tight mb-4">UI Range</h2>
-                            <p className="text-fg/60 max-w-md">The skill explicitly supports complex structural patterns beyond basic cards.</p>
+                            <Reveal as="h2" className="font-primary text-4xl tracking-tight mb-4">UI Range</Reveal>
+                            <Reveal as="p" delay={0.08} className="text-fg/60 max-w-md">The skill explicitly supports complex structural patterns beyond basic cards.</Reveal>
                         </div>
-                        <span className="font-mono text-xs tracking-widest uppercase border border-border px-4 py-2 rounded-full">Supported Archetypes</span>
+                        <Reveal as="span" delay={0.14} className="font-mono text-xs tracking-widest uppercase border border-border px-4 py-2 rounded-full">Supported Archetypes</Reveal>
                     </div>
                     <div className="bg-border grid grid-cols-1 md:grid-cols-4 gap-[1px]">
                         <motion.div whileHover={{ backgroundColor: 'rgba(var(--color-fg), 0.02)' }} className="bg-bg p-8 md:p-12 md:col-span-2 md:row-span-2 flex flex-col justify-between min-h-[400px] transition-colors">
-                            <h3 className="font-secondary font-medium text-xl mb-4">Asymmetric Bento Sections</h3>
+                            <Reveal as="h3" className="font-secondary font-medium text-xl mb-4">Asymmetric Bento Sections</Reveal>
                             <div className="grid grid-cols-3 grid-rows-2 gap-2 mt-8 h-full">
-                                <div className="col-span-2 row-span-2 bg-fg/5 border border-border"></div>
-                                <div className="bg-fg/5 border border-border"></div>
-                                <div className="bg-fg/5 border border-border"></div>
+                                <div className="col-span-2 row-span-2 bg-fg/5 border border-border overflow-hidden image-frame">
+                                    <img src={imagery.projectOne} alt="Generated product example" className="w-full h-full object-cover theme-image" />
+                                </div>
+                                <div className="bg-fg/5 border border-border overflow-hidden">
+                                    <img src={imagery.projectTwo} alt="Generated interface detail" className="w-full h-full object-cover theme-image" />
+                                </div>
+                                <div className="bg-fg/5 border border-border overflow-hidden">
+                                    <img src={imagery.projectThree} alt="Generated product mood" className="w-full h-full object-cover theme-image" />
+                                </div>
                             </div>
                         </motion.div>
                         <motion.div whileHover={{ backgroundColor: 'rgba(var(--color-fg), 0.02)' }} className="bg-bg p-8 md:col-span-2 flex flex-col justify-center transition-colors">
-                            <h3 className="font-secondary font-medium text-lg mb-2">Editorial Split Layouts</h3>
-                            <p className="text-sm text-fg/60">Classic print-inspired divisions.</p>
+                            <Reveal as="h3" className="font-secondary font-medium text-lg mb-2">Editorial Split Layouts</Reveal>
+                            <Reveal as="p" delay={0.06} className="text-sm text-fg/60">Classic print-inspired divisions.</Reveal>
                         </motion.div>
                         <motion.div whileHover={{ backgroundColor: 'rgba(var(--color-fg), 0.02)' }} className="bg-bg p-8 flex flex-col justify-between transition-colors aspect-square">
-                            <h3 className="font-secondary font-medium text-lg">Proof Rails</h3>
+                            <Reveal as="h3" className="font-secondary font-medium text-lg">Proof Rails</Reveal>
                             <div className="flex gap-2 mt-4 overflow-hidden">
                                 {[1,2,3].map(i => <div key={i} className="w-8 h-8 rounded-full bg-fg/10 shrink-0 border border-border"></div>)}
                             </div>
                         </motion.div>
                         <motion.div whileHover={{ backgroundColor: 'rgba(var(--color-fg), 0.02)' }} className="bg-bg p-8 flex flex-col justify-between transition-colors aspect-square">
-                            <h3 className="font-secondary font-medium text-lg">Framed Stages</h3>
+                            <Reveal as="h3" className="font-secondary font-medium text-lg">Framed Stages</Reveal>
                             <div className="w-full h-1/2 mt-4 border border-border border-b-0 rounded-t-lg bg-fg/5 relative overflow-hidden">
                                 <div className="absolute top-2 left-2 right-2 bottom-0 bg-bg border border-border border-b-0 rounded-t-md shadow-sm"></div>
                             </div>
@@ -480,6 +602,39 @@
                 </div>
             </section>
         );
+
+        const ProjectGallery = () => {
+            const projects = [
+                { title: "Project Slot 01", note: "Replace this with your first generated landing page.", image: imagery.projectOne },
+                { title: "Project Slot 02", note: "Drop in a screenshot of a product frame or scrollytelling build.", image: imagery.projectTwo },
+                { title: "Project Slot 03", note: "Use this slot for a more experimental preset or pixel-mode output.", image: imagery.projectThree }
+            ];
+            return (
+                <section id="projects" className="border-b border-border bg-bg">
+                    <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12">
+                        <div className="md:col-span-4 p-8 md:p-16 border-r border-border bg-fg/5">
+                            <Reveal as="span" className="font-mono text-xs uppercase tracking-widest text-fg/50 mb-5 block">Generated With The Skill</Reveal>
+                            <Reveal as="h2" delay={0.06} className="font-primary text-4xl tracking-tight mb-4">Project Shelf</Reveal>
+                            <Reveal as="p" delay={0.12} className="text-sm text-fg/65 leading-relaxed max-w-sm">
+                                These cards are placeholders for the projects you generate with Layout Director. Swap each image for your own capture and keep the editorial grid intact.
+                            </Reveal>
+                        </div>
+                        <div className="md:col-span-8 grid grid-cols-1 lg:grid-cols-3 gap-[1px] bg-border">
+                            {projects.map((project, idx) => (
+                                <motion.article key={project.title} className="bg-bg p-6 md:p-8" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} custom={idx * 0.08} variants={frameReveal}>
+                                    <div className="relative border border-border overflow-hidden image-frame pixel-border bg-fg/5 mb-6">
+                                        <img src={project.image} alt={project.title} className="w-full aspect-[4/5] object-cover theme-image" />
+                                        <div className="absolute left-4 top-4 bg-bg/90 border border-border px-3 py-2 font-mono text-[10px] uppercase tracking-[0.18em]">replace with your project</div>
+                                    </div>
+                                    <Reveal as="h3" className="font-secondary text-lg mb-2">{project.title}</Reveal>
+                                    <Reveal as="p" delay={0.06} className="text-sm text-fg/65 leading-relaxed">{project.note}</Reveal>
+                                </motion.article>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            );
+        };
 
         // Section 10: Testimonials
         const Testimonials = () => {
@@ -492,10 +647,10 @@
                 <section className="border-b border-border bg-bg">
                     <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3">
                         {quotes.map((q, i) => (
-                            <div key={i} className="p-8 md:p-16 border-b md:border-b-0 md:border-r border-border last:border-r-0 flex flex-col justify-between min-h-[300px] hover:bg-fg/5 transition-colors">
-                                <p className="font-primary text-xl md:text-2xl leading-relaxed text-fg/90 mb-8">"{q.text}"</p>
-                                <span className="font-mono text-xs uppercase tracking-widest text-fg/50">— {q.author}</span>
-                            </div>
+                            <motion.div key={i} className="p-8 md:p-16 border-b md:border-b-0 md:border-r border-border last:border-r-0 flex flex-col justify-between min-h-[300px] hover:bg-fg/5 transition-colors" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }} custom={i * 0.08} variants={frameReveal}>
+                                <Reveal as="p" className="font-primary text-xl md:text-2xl leading-relaxed text-fg/90 mb-8">"{q.text}"</Reveal>
+                                <Reveal as="span" delay={0.08} className="font-mono text-xs uppercase tracking-widest text-fg/50">— {q.author}</Reveal>
+                            </motion.div>
                         ))}
                     </div>
                 </section>
@@ -515,14 +670,14 @@
                 <section id="faq" className="border-b border-border bg-bg">
                     <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12">
                         <div className="md:col-span-4 p-8 md:p-16 border-r border-border">
-                            <h2 className="font-primary text-4xl tracking-tight mb-4">Index</h2>
-                            <p className="font-mono text-xs uppercase tracking-widest text-fg/50">Frequently Asked Questions</p>
+                            <Reveal as="h2" className="font-primary text-4xl tracking-tight mb-4">Index</Reveal>
+                            <Reveal as="p" delay={0.08} className="font-mono text-xs uppercase tracking-widest text-fg/50">Frequently Asked Questions</Reveal>
                         </div>
                         <div className="md:col-span-8 flex flex-col">
                             {faqs.map((faq, i) => (
                                 <div key={i} className="border-b border-border last:border-b-0">
                                     <button onClick={() => setOpen(open === i ? -1 : i)} className="w-full p-8 md:p-12 flex justify-between items-center text-left hover:bg-fg/5 transition-colors">
-                                        <h3 className="font-primary text-2xl">{faq.q}</h3>
+                                        <Reveal as="h3" className="font-primary text-2xl">{faq.q}</Reveal>
                                         <motion.div animate={{ rotate: open === i ? 45 : 0 }}><PlusIcon /></motion.div>
                                     </button>
                                     <AnimatePresence>
@@ -544,29 +699,29 @@
             <section id="install" className="border-b border-border bg-bg">
                 <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12">
                     <div className="md:col-span-4 p-8 md:p-16 border-r border-border bg-fg/5">
-                        <h2 className="font-primary text-4xl tracking-tight mb-4">Install</h2>
-                        <p className="text-sm text-fg/65 leading-relaxed">
+                        <Reveal as="h2" className="font-primary text-4xl tracking-tight mb-4">Install</Reveal>
+                        <Reveal as="p" delay={0.08} className="text-sm text-fg/65 leading-relaxed">
                             Add the repo as a skill source once, then invoke the skill directly when you want stronger frontend layout decisions.
-                        </p>
+                        </Reveal>
                     </div>
                     <div className="md:col-span-8 p-8 md:p-16 space-y-10">
                         <div>
-                            <div className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-4">Step 1</div>
+                            <Reveal as="div" className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-4">Step 1</Reveal>
                             <div className="border border-border bg-fg/5 p-5 font-mono text-sm overflow-x-auto">
                                 npx skills add https://github.com/arjunkshah/layout-skill
                             </div>
                         </div>
                         <div>
-                            <div className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-4">Step 2</div>
+                            <Reveal as="div" className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-4">Step 2</Reveal>
                             <div className="border border-border bg-fg/5 p-5 font-mono text-sm">
                                 $layout-director
                             </div>
                         </div>
                         <div>
-                            <div className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-4">Step 3</div>
-                            <p className="text-sm text-fg/70 leading-relaxed max-w-2xl mb-4">
+                            <Reveal as="div" className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-4">Step 3</Reveal>
+                            <Reveal as="p" delay={0.08} className="text-sm text-fg/70 leading-relaxed max-w-2xl mb-4">
                                 Prompt for the outcome, not a template. The skill picks structure, component vocabulary, and scroll behavior from the brief.
-                            </p>
+                            </Reveal>
                             <div className="border border-border bg-bg p-6 font-primary text-xl leading-relaxed italic">
                                 "$layout-director Design a landing page with a pinned demo stage, tighter editorial typography, and a bento section that breaks symmetry."
                             </div>
@@ -580,9 +735,9 @@
         const OpenSourceCallout = () => (
             <section className="bg-fg text-bg overflow-hidden relative border-b border-border">
                 <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="max-w-[1400px] mx-auto p-8 md:p-16 py-24 md:py-48 flex flex-col items-center justify-center text-center relative z-10">
-                    <span className="font-mono text-sm tracking-[0.3em] uppercase opacity-50 mb-8 block">MIT Licensed</span>
+                    <Reveal as="span" className="font-mono text-sm tracking-[0.3em] uppercase opacity-50 mb-8 block">MIT Licensed</Reveal>
                     <a href="https://github.com/arjunkshah/layout-skill" target="_blank" className="group block">
-                        <h2 className="font-primary text-[15vw] md:text-[12vw] leading-[0.8] tracking-tighter mb-8 group-hover:opacity-80 transition-opacity">Open<br/>Source.</h2>
+                        <Reveal as="h2" delay={0.08} className="font-primary text-[15vw] md:text-[12vw] leading-[0.8] tracking-tighter mb-8 group-hover:opacity-80 transition-opacity">Open<br/>Source.</Reveal>
                         <div className="flex items-center justify-center gap-4 opacity-70 group-hover:opacity-100 transition-opacity">
                             <GithubIcon />
                             <span className="font-mono text-sm md:text-base border-b border-bg/30 pb-1 group-hover:border-bg transition-colors">github.com/arjunkshah/layout-skill</span>
@@ -622,6 +777,7 @@
                             <SpatialGrid />
                             <ScrollyTelling />
                             <BentoGrid />
+                            <ProjectGallery />
                             <Testimonials />
                             <FAQ />
                             <Install />

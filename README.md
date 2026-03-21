@@ -50,6 +50,8 @@ The common failure modes are predictable:
 
 Layout Director addresses those issues by making layout selection an explicit step instead of an accidental byproduct of code generation.
 
+The landing page also ships with multiple visual presets so the same structure can be previewed across different moods, including a pixel-font preset for deliberately stylized outputs.
+
 ## Core Ideas
 
 ### 1. Structure before components
@@ -167,6 +169,8 @@ It explicitly supports patterns such as:
 - editorial split layouts
 - sticky scrollytelling modules
 - pinned product demos with changing supporting content
+
+The landing page also includes a project shelf section intended for screenshots of layouts you generate with the skill.
 
 ## Manual Fallback
 
