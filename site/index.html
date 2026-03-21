@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Layout Director</title>
+    <meta
+      name="description"
+      content="A portable frontend layout skill for Codex, Claude Code, Cursor, and any coding agent that needs better visual judgment."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-noise"></div>
+    <div class="page-glow page-glow-left"></div>
+    <div class="page-glow page-glow-right"></div>
+
+    <header class="site-header">
+      <div class="nav-shell">
+        <a class="brand-mark" href="#top" aria-label="Layout Director home">
+          <span class="brand-glyph">L</span>
+          <span class="brand-copy">
+            <strong>Layout Director</strong>
+            <em>Portable frontend taste system</em>
+          </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#range">Range</a>
+          <a href="#system">System</a>
+          <a href="#examples">Prompts</a>
+          <a href="#skill">Skill</a>
+        </nav>
+        <a class="nav-cta" href="#skill">
+          <span>Build the skill</span>
+          <span class="nav-cta-icon">↗</span>
+        </a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero section">
+        <div class="hero-copy" data-reveal>
+          <div class="eyebrow">Layout Systems For Coding Agents</div>
+          <h1>
+            Make Codex,
+            <span>Claude Code, Cursor</span>
+            and friends stop shipping
+            <span>generic frontend layouts.</span>
+          </h1>
+          <p class="hero-lead">
+            Layout Director is a reusable skill that teaches agents how to choose
+            stronger page structures, hierarchy, spacing, motion, and section
+            rhythm without trapping them inside one hardcoded look.
+          </p>
+          <div class="hero-actions">
+            <a class="button-primary" href="#skill">
+              <span>See the skill architecture</span>
+              <span class="button-icon">↗</span>
+            </a>
+            <a class="button-secondary" href="#examples">View prompt recipes</a>
+          </div>
+          <div class="hero-proof">
+            <div>
+              <strong>8</strong>
+              <span>layout archetypes</span>
+            </div>
+            <div>
+              <strong>5</strong>
+              <span>variation axes</span>
+            </div>
+            <div>
+              <strong>1</strong>
+              <span>quality bar across all outputs</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-stage" data-parallax>
+          <div class="stage-note stage-note-top" data-reveal>
+            <span>not a template</span>
+            <strong>guided variance</strong>
+          </div>
+
+          <article class="paper-stack paper-main" data-reveal>
+            <div class="stack-topline">
+              <span>Skill Decision Engine</span>
+              <span>v1</span>
+            </div>
+            <div class="signal-bars" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <h2>Read the brief. Choose the system. Compose with intent.</h2>
+            <p>
+              Every page starts by selecting a structure, type mode, density,
+              rhythm, and motion language that actually fit the product.
+            </p>
+            <div class="mini-grid">
+              <div>
+                <small>Archetype</small>
+                <strong>Editorial Split</strong>
+              </div>
+              <div>
+                <small>Density</small>
+                <strong>Airy / premium</strong>
+              </div>
+              <div>
+                <small>Motion</small>
+                <strong>Layered fade-up</strong>
+              </div>
+              <div>
+                <small>Grid</small>
+                <strong>7 / 5 offset</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="paper-stack paper-side paper-side-top" data-reveal>
+            <div class="card-heading">
+              <span class="eyebrow small">Layout Range</span>
+              <strong>Different outputs, same taste floor</strong>
+            </div>
+            <ul class="chip-list">
+              <li>Editorial Split</li>
+              <li>Asymmetric Bento</li>
+              <li>Narrative Stack</li>
+              <li>Gallery Runway</li>
+              <li>Product Frame</li>
+            </ul>
+          </article>
+
+          <article class="paper-stack paper-side paper-side-bottom" data-reveal>
+            <div class="card-heading">
+              <span class="eyebrow small">Guardrails</span>
+              <strong>No default sludge</strong>
+            </div>
+            <div class="constraint-list">
+              <span>Ban weak three-card SaaS grids</span>
+              <span>Ban cramped spacing scales</span>
+              <span>Ban random motion and noisy gradients</span>
+            </div>
+          </article>
+
+          <div class="orbit-chip orbit-chip-left" aria-hidden="true">Codex</div>
+          <div class="orbit-chip orbit-chip-right" aria-hidden="true">Claude Code</div>
+          <div class="orbit-chip orbit-chip-bottom" aria-hidden="true">Cursor</div>
+        </div>
+      </section>
+
+      <section class="metrics-band section-sm" data-reveal>
+        <div class="metric-card">
+          <span>Portable format</span>
+          <strong>SKILL.md + references</strong>
+        </div>
+        <div class="metric-card">
+          <span>Works for</span>
+          <strong>landing pages, product sites, feature launches</strong>
+        </div>
+        <div class="metric-card">
+          <span>Designed to improve</span>
+          <strong>composition, hierarchy, restraint, motion</strong>
+        </div>
+      </section>
+
+      <section class="section range-section" id="range">
+        <div class="section-header" data-reveal>
+          <div class="eyebrow">Controlled Variety</div>
+          <h2>
+            The skill doesn’t hardcode one layout. It chooses from strong
+            structures and adapts them to the brief.
+          </h2>
+        </div>
+
+        <div class="archetype-grid">
+          <article class="archetype-card tone-ink" data-reveal>
+            <span class="archetype-index">01</span>
+            <h3>Editorial Split</h3>
+            <p>
+              Large narrative typography on one side, modular proof and product
+              detail on the other.
+            </p>
+          </article>
+          <article class="archetype-card tone-sand" data-reveal>
+            <span class="archetype-index">02</span>
+            <h3>Asymmetric Bento</h3>
+            <p>
+              Offset blocks with deliberate scale contrast for products that need
+              strong visual modularity.
+            </p>
+          </article>
+          <article class="archetype-card tone-bloom" data-reveal>
+            <span class="archetype-index">03</span>
+            <h3>Narrative Stack</h3>
+            <p>
+              Section-to-section storytelling with staged reveals and stronger
+              pacing between proof, explanation, and conversion.
+            </p>
+          </article>
+          <article class="archetype-card tone-cream" data-reveal>
+            <span class="archetype-index">04</span>
+            <h3>Gallery Runway</h3>
+            <p>
+              Horizontal or staggered showcases for brands where visual identity
+              needs to carry the page.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section system-section" id="system">
+        <div class="system-intro" data-reveal>
+          <div class="eyebrow">How The Skill Thinks</div>
+          <h2>It makes layout decisions in layers, not vibes alone.</h2>
+          <p>
+            The point is to keep freedom where design needs it and add hard
+            guardrails where coding agents usually fail.
+          </p>
+        </div>
+        <div class="system-steps">
+          <article class="system-card" data-reveal>
+            <span>Step 1</span>
+            <h3>Read the brief like a creative director</h3>
+            <p>
+              Extract audience, product maturity, brand tone, proof density,
+              interaction weight, and mobile constraints before drawing anything.
+            </p>
+          </article>
+          <article class="system-card" data-reveal>
+            <span>Step 2</span>
+            <h3>Select variation axes</h3>
+            <p>
+              Choose a layout archetype, type contrast mode, spacing scale, CTA
+              hierarchy, and section rhythm that fit the brief.
+            </p>
+          </article>
+          <article class="system-card" data-reveal>
+            <span>Step 3</span>
+            <h3>Run a ruthless quality check</h3>
+            <p>
+              Reject layouts that feel cramped, overfilled, too symmetrical, too
+              obvious, or too animated. Keep the output usable and premium.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section matrix-section">
+        <div class="section-header" data-reveal>
+          <div class="eyebrow">Variation Matrix</div>
+          <h2>
+            The skill keeps outputs fresh by changing the right variables, not by
+            improvising blindly.
+          </h2>
+        </div>
+        <div class="matrix-grid">
+          <article class="matrix-card" data-reveal>
+            <span>Axis 1</span>
+            <h3>Structure</h3>
+            <p>
+              Pick the primary page system first so the composition has a clear
+              backbone.
+            </p>
+          </article>
+          <article class="matrix-card" data-reveal>
+            <span>Axis 2</span>
+            <h3>Typography Mode</h3>
+            <p>
+              Decide whether the page is serif-led, grotesk-led, compressed, or
+              quieter and functional.
+            </p>
+          </article>
+          <article class="matrix-card" data-reveal>
+            <span>Axis 3</span>
+            <h3>Density</h3>
+            <p>
+              Control how much information each viewport carries instead of
+              defaulting to evenly distributed content.
+            </p>
+          </article>
+          <article class="matrix-card" data-reveal>
+            <span>Axis 4</span>
+            <h3>Section Rhythm</h3>
+            <p>
+              Alternate expansion, compression, and proof moments so the page has
+              momentum.
+            </p>
+          </article>
+          <article class="matrix-card" data-reveal>
+            <span>Axis 5</span>
+            <h3>Motion Profile</h3>
+            <p>
+              Match motion intensity to the brand and use it only to clarify
+              sequence or depth.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section compare-section">
+        <div class="compare-panel generic" data-reveal>
+          <div class="eyebrow">Without The Skill</div>
+          <h2>Agents default to the same mediocre page.</h2>
+          <ul>
+            <li>centered hero</li>
+            <li>three identical feature cards</li>
+            <li>random gradient blobs</li>
+            <li>weak hierarchy</li>
+            <li>no section rhythm</li>
+          </ul>
+        </div>
+        <div class="compare-panel refined" data-reveal>
+          <div class="eyebrow">With Layout Director</div>
+          <h2>Outputs vary, but the design judgment stays consistent.</h2>
+          <ul>
+            <li>different structural systems per brief</li>
+            <li>clear focal points and pacing</li>
+            <li>coherent spacing and scale</li>
+            <li>measured motion with purpose</li>
+            <li>stronger mobile collapse rules</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section examples-section" id="examples">
+        <div class="section-header" data-reveal>
+          <div class="eyebrow">Prompt Recipes</div>
+          <h2>
+            The skill stays high-level enough to adapt, but concrete enough to
+            force better results.
+          </h2>
+        </div>
+        <div class="prompt-grid">
+          <article class="prompt-card" data-reveal>
+            <span class="prompt-label">Codex</span>
+            <pre><code>Use $layout-director to create a premium landing page for a B2B AI tool.
+Pick an archetype that suits enterprise trust, avoid generic SaaS symmetry,
+and explain the structure briefly before you code.</code></pre>
+          </article>
+          <article class="prompt-card" data-reveal>
+            <span class="prompt-label">Claude Code</span>
+            <pre><code>Apply the Layout Director rules. Build a launch page with an editorial split,
+strong proof sections, disciplined motion, and a mobile-first collapse that
+doesn’t lose hierarchy.</code></pre>
+          </article>
+          <article class="prompt-card" data-reveal>
+            <span class="prompt-label">Cursor</span>
+            <pre><code>Follow the layout skill and generate a multi-section homepage.
+Choose a structure based on the brief, vary the composition from previous pages,
+and keep the typography, whitespace, and CTA rhythm premium.</code></pre>
+          </article>
+        </div>
+      </section>
+
+      <section class="section skill-section" id="skill">
+        <div class="skill-panel" data-reveal>
+          <div class="eyebrow">Skill Architecture</div>
+          <h2>A portable skill package you can drop into any agent workflow.</h2>
+          <div class="skill-layout">
+            <div class="skill-tree">
+              <span>layout-director/</span>
+              <span>├── SKILL.md</span>
+              <span>├── agents/openai.yaml</span>
+              <span>└── references/</span>
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;├── layout_archetypes.md</span>
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;├── component_principles.md</span>
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;├── variation_matrix.md</span>
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;├── review_rubric.md</span>
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;├── prompt_recipe.md</span>
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;└── platform_adaptation.md</span>
+            </div>
+            <div class="skill-copy">
+              <p>
+                `SKILL.md` handles the workflow and the quality bar. The
+                references keep the system modular so the model only loads deeper
+                detail when it needs it.
+              </p>
+              <p>
+                That keeps the skill lean, reusable, and far more adaptable than
+                a giant prompt packed with one aesthetic.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Layout Director for Codex, Claude Code, Cursor, and any frontend agent that needs real layout taste.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
