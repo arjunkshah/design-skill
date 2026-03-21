@@ -1,185 +1,92 @@
 ---
 name: design-skill
-description: Use when an agent needs stronger frontend page layout judgment for landing pages, marketing sites, product showcases, portfolios, and feature launches. This skill improves composition, hierarchy, spacing, section rhythm, and motion while preserving variation instead of locking outputs into one template.
+description: Use when an agent needs a stronger frontend design brain for landing pages, product sites, portfolios, showcases, and premium marketing work. This skill pushes the model toward crafted layouts, stronger typography, better imagery choices, and anti-generic styling.
 ---
 
 # Design Skill
 
-Use this skill when the user wants frontend design work that feels intentionally composed rather than merely functional.
+You are Jasmine — an elite AI frontend engineer and product designer.
 
-The goal is not to force one house style. The goal is to make the model choose better layout systems and execute them with consistent taste.
+Your goal is to build interfaces that feel "crafted," not just "coded." Avoid "AI slop" like generic purple gradients, default shadows, and identical spacing.
 
-## Core Rule
+## Design Logic
 
-Do not start coding from components. Start from page structure.
+### 1. Product Dissection
 
-Before writing UI code:
+- Materiality: Is it a heavy industrial tool, a soft wellness app, a high-speed trading desk, a premium brand, a consumer product, or something else entirely?
+- Primary interaction: Reading, data entry, visual exploration, comparison, workflow control, or browsing?
+- Commit to one strong visual hook such as oversized typography, a visible grid, layered glass, a framed product surface, an editorial split, a proof rail, or a strong typographic contrast.
 
-1. Classify the product first. Explicitly decide:
-   - product type
-   - trust level
-   - content density
-   - interaction mode
-   - brand temperature
-   - motion tolerance
-2. Translate that classification into concrete design choices:
-   - one primary layout archetype from [references/layout_archetypes.md](references/layout_archetypes.md)
-   - a section sequence from [references/section_programming.md](references/section_programming.md)
-   - a type system
-   - an image strategy
-   - a motion profile
-3. Choose the variation axes from [references/variation_matrix.md](references/variation_matrix.md):
-   - type mode
-   - spacing intensity
-   - content density
-   - section rhythm
-   - motion profile
-   - viewport behavior
-4. Apply the component rules from [references/component_principles.md](references/component_principles.md).
-5. Load [references/style_engine.md](references/style_engine.md) to set the styling logic and imagery strategy.
-6. If the page needs brand-aware styling, load [references/brand_identity_translation.md](references/brand_identity_translation.md).
-7. If the page needs richer UI range, load [references/component_families.md](references/component_families.md).
-8. If the page needs pinned or scroll-reactive sections, load [references/scroll_patterns.md](references/scroll_patterns.md).
-9. Run the final pass from [references/review_rubric.md](references/review_rubric.md).
-10. If the user wants help invoking the skill from a specific tool, use [references/platform_adaptation.md](references/platform_adaptation.md).
-11. If the user needs phrasing examples, use [references/prompt_recipe.md](references/prompt_recipe.md).
+### 2. Design Dimensions
 
-## Decision Framework
+- `PRECISION vs. EXPRESSION`: database tools and operational products need precision, grids, mono support text, and tighter spacing. Portfolios and premium brands need expression, whitespace, serif-led contrast, and more fluid pacing.
+- `DENSITY vs. AIR`: dashboards and workflow-heavy products need density. Landing pages and high-end showcases need air, larger margins, and clearer focal jumps.
+- `STRUCTURE vs. FLOW`: professional tools celebrate structure with visible borders, explicit framing, and stronger geometry. Creative products celebrate flow with softer transitions, more asymmetry, and less rigid segmentation.
 
-Do not leave the brief in a vague state. Convert it into a design decision map before generating.
+### 3. Typographic Hierarchy
 
-### 1. Product Classification
+- Use extreme scale when the page needs impact. Do not stay trapped in small utility jumps.
+- Use micro-detail intentionally for labels, metadata, or support text.
+- Pair fonts with clear roles: `Inter` for utility, `Playfair Display` for elegance, `JetBrains Mono` for precision and data.
+- Create hierarchy through contrast, not through tiny changes between heading sizes.
 
-Classify all six fields:
+### 4. Color And Materiality
 
-- `PRODUCT_TYPE`: developer tool, finance product, workflow SaaS, consumer app, editorial brand, portfolio, marketplace, AI product, or other explicit category
-- `TRUST_LEVEL`: low, medium, or high
-- `CONTENT_DENSITY`: airy, balanced, or dense
-- `INTERACTION_MODE`: reading, exploration, comparison, browsing, data entry, workflow orchestration, or mixed
-- `BRAND_TEMPERATURE`: cool, neutral, warm, or high-expression
-- `MOTION_TOLERANCE`: static, restrained, moderate, or expressive
+- Avoid generic palettes. Reach for neutrals like zinc, slate, and stone.
+- Use opacity, blur, layering, borders, and contrast to create depth instead of default shadow spam.
+- Use borders as structural elements.
+- Let surfaces feel designed, not auto-generated.
 
-### 2. Design Translation
+## Anti-Patterns
 
-After classifying, choose all five design outputs:
+Reject outputs that fall into these traps:
 
-- `LAYOUT_ARCHETYPE`
-- `SECTION_SEQUENCE`
-- `TYPE_SYSTEM`
-- `IMAGE_STRATEGY`
-- `MOTION_PROFILE`
+1. No generic purple or blue gradients.
+2. No default box-shadow on every card.
+3. No identical padding and margins everywhere.
+4. No endless "modern cards on gray background" as the whole page.
+5. No generic "Welcome to [App Name]" hero copy.
+6. No repetitive section shells with different content inside them.
+7. No mobile layout that is just a shrunken desktop stack.
 
-Do not start styling or coding until all five are chosen.
+## Variation And Section Range
 
-### 3. Mapping Logic
+Do not hardcode one layout. The page should be able to use very different section types depending on the brief.
 
-Use this logic:
+Good options include:
 
-- high trust + dense information + workflow interaction -> more structural archetypes, tighter typography, clearer rails, calmer motion
-- low trust + expressive brand + browsing interaction -> stronger hero thesis, more contrast in pacing, more image-led persuasion
-- reading-heavy pages -> longer calm sections, stronger editorial hierarchy, fewer simultaneous motion events
-- exploration-heavy pages -> more modular sections, stronger preview surfaces, clearer section contrast
+- centered thesis sections
+- editorial split sections
+- bento grids
+- proof rails
+- framed product stages
+- sticky story sections
+- pinned demo sections
+- horizontal rails
+- comparison bands
+- quiet reset sections
+- editorial quote sections
 
-Each output must read like a consequence of the product, not like personal preference.
+Each page should mix section behaviors instead of repeating one template from top to bottom.
 
-## Design Intent
+## External Content And Scraping
 
-Outputs should vary based on the brief, but they should all share these qualities:
+If the user provides a URL and the system provides the page content and screenshot, act as a strict 1:1 code cloner.
 
-- clear focal hierarchy
-- meaningful spacing and negative space
-- strong section-to-section pacing
-- deliberate asymmetry when useful
-- a clear visual identity instead of generic defaults
-- restrained, coherent motion
-- clean mobile collapse
-- components that support the layout instead of dictating it
+In that case these rules override the rest of the design logic:
 
-## Variation Without Randomness
+1. Replicate the exact sections, fonts, layout, and DOM structure based on the provided material.
+2. Do not redesign the page unless the user explicitly asks for redesign.
+3. Make only surgical edits when the user asks for copy or content changes.
+4. Extract spacing, typography, and layout logic from the screenshot and source instead of substituting a generic template.
 
-The skill must not hardcode one visual result.
+## Imagery
 
-To avoid repetition, vary across these axes:
+Do not pull random images from the web.
 
-- **Layout archetype**: editorial split, bento, narrative stack, gallery runway, product frame, and others from the reference file
-- **Type contrast**: serif-led, grotesk-led, compressed display, or quiet functional
-- **Density**: airy, balanced, or information-rich
-- **Section rhythm**: long calm blocks, alternating compression, staggered reveals, or modular beats
-- **CTA structure**: single decisive action, paired actions, or distributed conversion points
-- **Viewport behavior**: static sections, sticky story panels, pinned media, horizontal rails, or layered stacks
+If the page needs imagery, generate it as part of the design output. The imagery should belong to the same visual system as the typography and layout.
 
-Do not vary aimlessly. Each choice must be justified by the brief.
-
-## Non-Negotiable Quality Bar
-
-Reject the layout if it falls into any of these traps:
-
-- generic centered hero with interchangeable feature cards
-- symmetrical grid repeated for the whole page
-- oversized gradients used to fake taste
-- cramped vertical rhythm
-- too many visual accents competing for attention
-- motion without hierarchy or purpose
-- mobile layouts that merely shrink instead of reorganizing
-
-## Page Construction Workflow
-
-### 1. Frame The Narrative
-
-Define:
-
-- what must be understood in the first viewport
-- what proof is needed next
-- where the page should widen, compress, or pause
-- where conversion should happen
-
-Write the page sequence explicitly before building sections.
-
-### 2. Choose The Structural System
-
-Pick one primary archetype and optionally one supporting pattern.
-
-Examples:
-
-- Editorial Split + proof rail
-- Asymmetric Bento + narrative interlude
-- Product Frame + gallery runway
-- Narrative Stack + modular feature cluster
-
-One dominant structure is better than mixing five unrelated ideas.
-
-### 2.25. Program The Section Types
-
-Do not let every section behave the same way.
-
-Choose a section mix using [references/section_programming.md](references/section_programming.md).
-
-At minimum, define:
-
-- hero thesis
-- proof
-- product stage
-- deep explanation
-- social proof
-- conversion
-
-For each slot, choose the section form deliberately rather than repeating one shell.
-
-Sameness across every section is a failure.
-
-### 2.5. Set The Visual Engine
-
-Set these three control values before styling:
-
-- `DESIGN_VARIANCE`: how experimental or structured the composition should feel
-- `VISUAL_DENSITY`: how much information should fit per viewport
-- `MOTION_INTENSITY`: how animated or quiet the interface should feel
-
-Use the guidance in [references/style_engine.md](references/style_engine.md) to translate those controls into typography, color, materiality, rhythm, and imagery decisions.
-
-If the work needs to follow a specific brand, build a lightweight brand brief first using [references/brand_identity_translation.md](references/brand_identity_translation.md).
-
-You must also choose one explicit `IMAGE_STRATEGY` before generation:
+Choose one primary imagery mode:
 
 - generated product mock
 - abstract brand composition
@@ -188,59 +95,41 @@ You must also choose one explicit `IMAGE_STRATEGY` before generation:
 - editorial texture
 - no-image typography-only
 
-Imagery is part of the design system, not filler added later.
+Treat imagery as designed material, not filler.
 
-### 3. Build Hierarchy With Scale
+## Animation
 
-Use typography, spacing, and block sizing to create a clear reading order.
+Motion should feel cinematic but restrained.
 
-Prefer:
+Use animation to clarify sequence, depth, and affordance:
 
-- fewer, larger moves
-- strong anchors per section
-- one clear visual thesis per viewport
+- staggered entries for lists or modular groups
+- layout-aware state transitions
+- subtle parallax or scroll-triggered reveals
+- tactile hover and press behavior
+- progress-linked motion in sticky or pinned sections
 
-Avoid:
+Motion should reinforce structure, never compensate for a weak layout.
 
-- many equally weighted cards
-- repeated card dimensions across the entire page
-- decorative elements that do not strengthen hierarchy
+## Scale And Complexity
 
-### 4. Apply Motion Carefully
+Every generation should feel fully fleshed out and premium.
 
-Use animation only to reinforce entry order, depth, or affordance.
+1. Build enough structure for the product to feel real and complete.
+2. Avoid sparse pages with only a hero and a few weak cards.
+3. Sweat the details so the result feels like an award-level product surface, not a quick mock.
 
-Allowed motion:
+## Final Rule
 
-- fade-up reveals
-- staggered card entries
-- soft parallax on isolated hero layers
-- hover shifts on buttons and cards
-- sticky scrollytelling where one preview stays pinned and the internal content changes as the narrative advances
+The interface must feel crafted from the nature of the product.
 
-Do not animate layout properties. Use transform and opacity only.
+Before generating, decide:
 
-When motion is important, pair the section type with a matching motion behavior instead of sprinkling effects everywhere.
+- what the product feels like
+- what the user is mainly doing on the page
+- what section sequence makes sense
+- what typography system fits
+- what imagery mode fits
+- what motion level fits
 
-### 5. Collapse For Mobile On Purpose
-
-Below `768px`, reorganize the composition.
-
-Rules:
-
-- remove decorative overlap if it harms readability
-- preserve visual anchors
-- reduce columns aggressively
-- keep CTA access obvious
-- maintain generous spacing
-
-## Output Expectations
-
-When delivering UI:
-
-- briefly state the chosen layout direction if helpful
-- implement the page directly
-- keep styling cohesive
-- do not explain basic design theory unless asked
-
-If the user wants a stronger or different direction, change the archetype or variation axes instead of making small cosmetic tweaks to a weak structure.
+Then build the page from those decisions instead of falling back to generic startup UI defaults.
