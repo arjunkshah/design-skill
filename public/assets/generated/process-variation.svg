@@ -1,0 +1,40 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" fill="#F5EFE6"/>
+  <rect x="96" y="96" width="1408" height="1008" rx="30" fill="#FBF8F3" stroke="#181310" stroke-width="2"/>
+  <text x="152" y="182" fill="#181310" font-family="Inter, Arial, sans-serif" font-size="30" letter-spacing="8">VARIATION WITHOUT RANDOMNESS</text>
+  <rect x="146" y="236" width="1308" height="242" rx="26" fill="#181310"/>
+  <text x="188" y="306" fill="#FBF8F3" font-family="Inter, Arial, sans-serif" font-size="24" letter-spacing="4">DECISION AXES</text>
+  <g fill="#FBF8F3" font-family="Inter, Arial, sans-serif">
+    <text x="188" y="384" font-size="64">layout archetype</text>
+    <text x="730" y="384" font-size="64">type system</text>
+    <text x="1100" y="384" font-size="64">motion profile</text>
+    <text x="188" y="442" font-size="22" letter-spacing="2">section sequence / image strategy / viewport behavior</text>
+  </g>
+  <rect x="146" y="548" width="296" height="418" rx="24" fill="#EEE7DB" stroke="#181310" stroke-width="2"/>
+  <rect x="468" y="548" width="296" height="418" rx="24" fill="#F7F1E8" stroke="#181310" stroke-width="2"/>
+  <rect x="790" y="548" width="296" height="418" rx="24" fill="#EEE7DB" stroke="#181310" stroke-width="2"/>
+  <rect x="1112" y="548" width="342" height="418" rx="24" fill="#F7F1E8" stroke="#181310" stroke-width="2"/>
+  <g fill="#181310" font-family="Inter, Arial, sans-serif">
+    <text x="182" y="612" font-size="18" letter-spacing="4">AIR</text>
+    <text x="182" y="666" font-size="46">editorial split</text>
+    <text x="504" y="612" font-size="18" letter-spacing="4">BALANCE</text>
+    <text x="504" y="666" font-size="46">framed stage</text>
+    <text x="826" y="612" font-size="18" letter-spacing="4">DENSITY</text>
+    <text x="826" y="666" font-size="46">modular bento</text>
+    <text x="1148" y="612" font-size="18" letter-spacing="4">MOTION</text>
+    <text x="1148" y="666" font-size="46">restrained</text>
+    <text x="1148" y="722" font-size="46">progress-linked</text>
+  </g>
+  <g stroke="#181310" stroke-width="2">
+    <path d="M182 742H406"/>
+    <path d="M182 782H406"/>
+    <path d="M504 742H728"/>
+    <path d="M504 782H696"/>
+    <path d="M826 742H1050"/>
+    <path d="M826 782H1040"/>
+    <path d="M1148 798H1378"/>
+    <path d="M1148 838H1378"/>
+  </g>
+  <circle cx="1328" cy="842" r="72" fill="#181310"/>
+  <circle cx="1328" cy="842" r="32" fill="#FBF8F3"/>
+</svg>

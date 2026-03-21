@@ -44,7 +44,7 @@ export default function Hero() {
         </div>
         <div className="md:col-span-4 flex flex-col justify-between relative">
           <motion.div style={{ y: y1, opacity }} className="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop" alt="Architecture" className="w-full h-full object-cover grayscale opacity-30 mix-blend-multiply" />
+            <img src="/assets/generated/hero-main.svg" alt="Generated structural design surface" className="w-full h-full object-cover grayscale opacity-30 mix-blend-multiply" />
           </motion.div>
           <div className="p-8 md:p-16 z-10 bg-gradient-to-b from-paper via-paper/80 to-transparent">
             <h3 className="font-mono text-xs tracking-widest uppercase mb-4 border-b border-black/10 pb-4">The Failure Mode</h3>

@@ -1,0 +1,28 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" fill="#F4EDE3"/>
+  <rect x="98" y="98" width="1404" height="1004" rx="30" fill="#FBF8F2" stroke="#181310" stroke-width="2"/>
+  <text x="152" y="188" fill="#181310" font-family="Inter, Arial, sans-serif" font-size="30" letter-spacing="8">REVIEW BEFORE OUTPUT</text>
+  <rect x="150" y="236" width="1300" height="262" rx="26" fill="#181310"/>
+  <g fill="#FBF8F2" font-family="Inter, Arial, sans-serif">
+    <text x="194" y="312" font-size="24" letter-spacing="4">REJECTION GATES</text>
+    <text x="194" y="384" font-size="60">samey sections / generic hero / ornamental motion / unrelated imagery</text>
+  </g>
+  <rect x="150" y="552" width="622" height="430" rx="24" fill="#EEE7DB" stroke="#181310" stroke-width="2"/>
+  <rect x="828" y="552" width="622" height="430" rx="24" fill="#F7F1E8" stroke="#181310" stroke-width="2"/>
+  <g fill="#181310" font-family="Inter, Arial, sans-serif">
+    <text x="194" y="622" font-size="18" letter-spacing="3">FAIL SIGNS</text>
+    <text x="194" y="698" font-size="54">template with</text>
+    <text x="194" y="754" font-size="54">different colors</text>
+    <text x="194" y="836" font-size="54">desktop stacked</text>
+    <text x="194" y="892" font-size="54">thoughtlessly</text>
+    <text x="872" y="622" font-size="18" letter-spacing="3">PASS SIGNS</text>
+    <text x="872" y="698" font-size="54">clear thesis</text>
+    <text x="872" y="754" font-size="54">coherent imagery</text>
+    <text x="872" y="836" font-size="54">earned conversion</text>
+    <text x="872" y="892" font-size="54">mobile reflow</text>
+  </g>
+  <g stroke="#181310" stroke-width="2">
+    <path d="M194 942H674"/>
+    <path d="M872 942H1352"/>
+  </g>
+</svg>

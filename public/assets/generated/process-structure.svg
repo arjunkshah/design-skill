@@ -1,0 +1,43 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" fill="#F3ECE3"/>
+  <rect x="88" y="88" width="1424" height="1024" rx="30" fill="#FBF7F2" stroke="#181310" stroke-width="2"/>
+  <g opacity="0.36" stroke="#181310">
+    <path d="M318 88V1112"/>
+    <path d="M548 88V1112"/>
+    <path d="M778 88V1112"/>
+    <path d="M1008 88V1112"/>
+    <path d="M1238 88V1112"/>
+    <path d="M88 344H1512"/>
+    <path d="M88 600H1512"/>
+    <path d="M88 856H1512"/>
+  </g>
+  <text x="152" y="178" fill="#181310" font-family="Inter, Arial, sans-serif" font-size="30" letter-spacing="8">STRUCTURE BEFORE COMPONENTS</text>
+  <rect x="146" y="242" width="1308" height="180" rx="26" fill="#181310"/>
+  <text x="188" y="314" fill="#FBF7F2" font-family="Inter, Arial, sans-serif" font-size="24" letter-spacing="4">PAGE RECIPE</text>
+  <text x="188" y="382" fill="#FBF7F2" font-family="Inter, Arial, sans-serif" font-size="72">hero thesis / proof / product stage / deep explanation / conversion</text>
+  <rect x="146" y="482" width="378" height="476" rx="24" fill="#EEE6DA" stroke="#181310" stroke-width="2"/>
+  <rect x="610" y="482" width="378" height="476" rx="24" fill="#F7F1E8" stroke="#181310" stroke-width="2"/>
+  <rect x="1074" y="482" width="380" height="476" rx="24" fill="#EEE6DA" stroke="#181310" stroke-width="2"/>
+  <g fill="#181310" font-family="Inter, Arial, sans-serif">
+    <text x="184" y="548" font-size="18" letter-spacing="3">THESIS</text>
+    <text x="184" y="602" font-size="52">pick the</text>
+    <text x="184" y="658" font-size="52">structural</text>
+    <text x="184" y="714" font-size="52">anchor</text>
+    <text x="648" y="548" font-size="18" letter-spacing="3">PROOF</text>
+    <text x="648" y="602" font-size="52">place trust</text>
+    <text x="648" y="658" font-size="52">before the</text>
+    <text x="648" y="714" font-size="52">scroll gets tired</text>
+    <text x="1112" y="548" font-size="18" letter-spacing="3">STAGE</text>
+    <text x="1112" y="602" font-size="52">make the</text>
+    <text x="1112" y="658" font-size="52">product the</text>
+    <text x="1112" y="714" font-size="52">center of gravity</text>
+  </g>
+  <g stroke="#181310" stroke-width="2">
+    <path d="M184 806H448"/>
+    <path d="M184 846H448"/>
+    <path d="M648 806H912"/>
+    <path d="M648 846H876"/>
+    <path d="M1112 806H1376"/>
+    <path d="M1112 846H1376"/>
+  </g>
+</svg>

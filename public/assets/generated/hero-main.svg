@@ -1,0 +1,68 @@
+<svg width="1200" height="1500" viewBox="0 0 1200 1500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="1500" fill="#F3ECE3"/>
+  <g opacity="0.38" stroke="#181310" stroke-width="1">
+    <path d="M80 0V1500"/>
+    <path d="M240 0V1500"/>
+    <path d="M400 0V1500"/>
+    <path d="M560 0V1500"/>
+    <path d="M720 0V1500"/>
+    <path d="M880 0V1500"/>
+    <path d="M1040 0V1500"/>
+    <path d="M0 180H1200"/>
+    <path d="M0 420H1200"/>
+    <path d="M0 660H1200"/>
+    <path d="M0 900H1200"/>
+    <path d="M0 1140H1200"/>
+    <path d="M0 1380H1200"/>
+  </g>
+  <rect x="132" y="104" width="936" height="1292" rx="32" fill="#FBF7F1" stroke="#181310" stroke-width="2"/>
+  <rect x="174" y="146" width="852" height="82" rx="18" fill="#181310"/>
+  <circle cx="226" cy="187" r="8" fill="#FBF7F1"/>
+  <circle cx="258" cy="187" r="8" fill="#FBF7F1"/>
+  <circle cx="290" cy="187" r="8" fill="#FBF7F1"/>
+  <text x="338" y="195" fill="#FBF7F1" font-family="Inter, Arial, sans-serif" font-size="23" letter-spacing="7">DESIGN RECORD</text>
+  <rect x="802" y="168" width="178" height="38" rx="19" fill="#FBF7F1"/>
+  <text x="835" y="192" fill="#181310" font-family="Inter, Arial, sans-serif" font-size="18" letter-spacing="2">SYNCED</text>
+  <rect x="192" y="276" width="318" height="924" rx="24" fill="#EEE6DA" stroke="#181310" stroke-width="2"/>
+  <text x="228" y="336" fill="#181310" font-family="Inter, Arial, sans-serif" font-size="18" letter-spacing="4">SECTION PROGRAM</text>
+  <g stroke="#181310" stroke-width="1.5">
+    <path d="M228 370H474"/>
+    <path d="M228 504H474"/>
+    <path d="M228 638H474"/>
+    <path d="M228 772H474"/>
+    <path d="M228 906H474"/>
+  </g>
+  <g fill="#181310" font-family="Inter, Arial, sans-serif">
+    <text x="228" y="420" font-size="18" letter-spacing="3">01 HERO THESIS</text>
+    <text x="228" y="454" font-size="40">split + proof rail</text>
+    <text x="228" y="554" font-size="18" letter-spacing="3">02 PRODUCT STAGE</text>
+    <text x="228" y="588" font-size="40">pinned demo</text>
+    <text x="228" y="688" font-size="18" letter-spacing="3">03 EXPLANATION</text>
+    <text x="228" y="722" font-size="40">sticky story</text>
+    <text x="228" y="822" font-size="18" letter-spacing="3">04 SOCIAL PROOF</text>
+    <text x="228" y="856" font-size="40">comparison band</text>
+    <text x="228" y="956" font-size="18" letter-spacing="3">05 CONVERSION</text>
+    <text x="228" y="990" font-size="40">quiet reset</text>
+  </g>
+  <rect x="548" y="276" width="442" height="442" rx="28" fill="#181310"/>
+  <g fill="#FBF7F1" font-family="Inter, Arial, sans-serif">
+    <text x="586" y="340" font-size="20" letter-spacing="5">PRIMARY SURFACE</text>
+    <text x="586" y="462" font-size="94">STRUCTURE</text>
+    <text x="586" y="552" font-size="94">BEFORE</text>
+    <text x="586" y="642" font-size="94">CODE</text>
+    <text x="586" y="690" font-size="22" letter-spacing="2">decision engine / image strategy / motion profile</text>
+  </g>
+  <rect x="548" y="754" width="210" height="218" rx="24" fill="#EEE6DA" stroke="#181310" stroke-width="2"/>
+  <rect x="780" y="754" width="210" height="218" rx="24" fill="#F7F1E8" stroke="#181310" stroke-width="2"/>
+  <rect x="548" y="994" width="442" height="206" rx="24" fill="#EEE6DA" stroke="#181310" stroke-width="2"/>
+  <circle cx="654" cy="863" r="54" fill="#181310"/>
+  <rect x="820" y="806" width="108" height="114" rx="18" fill="#181310"/>
+  <g stroke="#181310" stroke-width="2">
+    <path d="M612 1088H928"/>
+    <path d="M612 1128H928"/>
+    <path d="M612 1168H816"/>
+  </g>
+  <text x="602" y="818" fill="#181310" font-family="Inter, Arial, sans-serif" font-size="18" letter-spacing="4">IMAGE STRATEGY</text>
+  <text x="828" y="818" fill="#181310" font-family="Inter, Arial, sans-serif" font-size="18" letter-spacing="4">MOTION</text>
+  <text x="602" y="1070" fill="#181310" font-family="Inter, Arial, sans-serif" font-size="18" letter-spacing="4">REVIEW LAYER</text>
+</svg>

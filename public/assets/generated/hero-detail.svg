@@ -1,0 +1,39 @@
+<svg width="900" height="1200" viewBox="0 0 900 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1200" fill="#F5EFE7"/>
+  <rect x="86" y="96" width="728" height="1008" rx="32" fill="#FBF8F3" stroke="#181310" stroke-width="2"/>
+  <g opacity="0.34" stroke="#181310">
+    <path d="M146 96V1104"/>
+    <path d="M308 96V1104"/>
+    <path d="M470 96V1104"/>
+    <path d="M632 96V1104"/>
+    <path d="M794 96V1104"/>
+    <path d="M86 264H814"/>
+    <path d="M86 432H814"/>
+    <path d="M86 600H814"/>
+    <path d="M86 768H814"/>
+    <path d="M86 936H814"/>
+  </g>
+  <rect x="126" y="138" width="648" height="116" rx="24" fill="#181310"/>
+  <text x="160" y="205" fill="#FBF8F3" font-family="Inter, Arial, sans-serif" font-size="42" letter-spacing="8">IMAGE SYSTEM</text>
+  <rect x="126" y="300" width="282" height="360" rx="24" fill="#EEE7DB" stroke="#181310" stroke-width="2"/>
+  <rect x="446" y="300" width="288" height="172" rx="24" fill="#EEE7DB" stroke="#181310" stroke-width="2"/>
+  <rect x="446" y="488" width="288" height="172" rx="24" fill="#181310"/>
+  <rect x="126" y="706" width="608" height="314" rx="24" fill="#EEE7DB" stroke="#181310" stroke-width="2"/>
+  <circle cx="266" cy="480" r="96" fill="#181310"/>
+  <path d="M240 450L292 480L240 510" stroke="#FBF8F3" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#181310" font-family="Inter, Arial, sans-serif">
+    <text x="164" y="354" font-size="18" letter-spacing="3">PRODUCT MOCK</text>
+    <text x="486" y="354" font-size="18" letter-spacing="3">EDITORIAL TEXTURE</text>
+    <text x="486" y="544" fill="#FBF8F3" font-size="18" letter-spacing="3">DIAGRAM SYSTEM</text>
+    <text x="164" y="772" font-size="18" letter-spacing="3">ONE VISUAL LANGUAGE</text>
+    <text x="164" y="846" font-size="64">no filler</text>
+    <text x="164" y="918" font-size="64">no stock</text>
+    <text x="164" y="990" font-size="64">just system</text>
+  </g>
+  <g stroke="#181310" stroke-width="2">
+    <path d="M516 382H664"/>
+    <path d="M516 410H664"/>
+    <path d="M516 438H610"/>
+    <path d="M164 1048H688"/>
+  </g>
+</svg>

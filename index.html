@@ -217,14 +217,14 @@
         };
 
         const imagery = {
-            heroMain: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=1200&auto=format&fit=crop",
-            heroDetail: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?q=80&w=900&auto=format&fit=crop",
-            processOne: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1200&auto=format&fit=crop",
-            processTwo: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1200&auto=format&fit=crop",
-            processThree: "https://images.unsplash.com/photo-1497366412874-3415097a27e7?q=80&w=1200&auto=format&fit=crop",
-            projectOne: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop",
-            projectTwo: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop",
-            projectThree: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop"
+            heroMain: "/assets/generated/hero-main.svg",
+            heroDetail: "/assets/generated/hero-detail.svg",
+            processOne: "/assets/generated/process-structure.svg",
+            processTwo: "/assets/generated/process-variation.svg",
+            processThree: "/assets/generated/process-review.svg",
+            projectOne: "/assets/generated/project-atlas.svg",
+            projectTwo: "/assets/generated/project-lattice.svg",
+            projectThree: "/assets/generated/project-signal.svg"
         };
 
         // --- Layout Shell ---
@@ -709,7 +709,7 @@
                             <Reveal as="span" className="font-mono text-xs uppercase tracking-widest text-fg/50 mb-5 block">Generated With The Skill</Reveal>
                             <Reveal as="h2" delay={0.06} className="font-primary text-4xl tracking-tight mb-4">Project Shelf</Reveal>
                             <Reveal as="p" delay={0.12} className="text-sm text-fg/65 leading-relaxed max-w-sm">
-                                These cards are placeholders for the projects you generate with Design Skill and Animation Director. Swap each image for your own capture and keep the editorial grid intact.
+                                These sample concept boards show the kind of first-party imagery the system can ship with. Swap them later for real project captures if you want case studies instead of concept art.
                             </Reveal>
                         </div>
                         <div className="md:col-span-8 grid grid-cols-1 lg:grid-cols-3 gap-[1px] bg-border">
@@ -717,7 +717,7 @@
                                 <motion.article key={project.title} className="bg-bg p-6 md:p-8" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} custom={idx * 0.08} variants={frameReveal}>
                                     <div className="relative border border-border overflow-hidden image-frame bg-fg/5 mb-6">
                                         <img src={project.image} alt={project.title} className="w-full aspect-[4/5] object-cover theme-image" />
-                                        <div className="absolute left-4 top-4 bg-bg/90 border border-border px-3 py-2 font-mono text-[10px] uppercase tracking-[0.18em]">replace with your project</div>
+                                        <div className="absolute left-4 top-4 bg-bg/90 border border-border px-3 py-2 font-mono text-[10px] uppercase tracking-[0.18em]">generated sample surface</div>
                                     </div>
                                     <Reveal as="h3" className="font-secondary text-lg mb-2">{project.title}</Reveal>
                                     <Reveal as="p" delay={0.06} className="text-sm text-fg/65 leading-relaxed">{project.note}</Reveal>

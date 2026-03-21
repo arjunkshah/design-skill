@@ -8,17 +8,17 @@ export default function ScrollyTelling() {
     {
       title: "Structure before components",
       desc: "The page should begin with a structural choice such as editorial split, asymmetric bento, narrative stack, or product frame. Components come later.",
-      img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop"
+      img: "/assets/generated/process-structure.svg"
     },
     {
       title: "Variation without randomness",
       desc: "The skill uses a variation matrix so the agent can change structure, typography mode, density, section rhythm, and motion profile.",
-      img: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=800&auto=format&fit=crop"
+      img: "/assets/generated/process-variation.svg"
     },
     {
       title: "Review before output",
       desc: "The agent rejects the layout if it feels like a centered startup template, a feature-card conveyor belt, or lacks a dominant thesis.",
-      img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop"
+      img: "/assets/generated/process-review.svg"
     }
   ];
 

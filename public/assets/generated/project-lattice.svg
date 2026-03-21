@@ -1,0 +1,36 @@
+<svg width="1200" height="1500" viewBox="0 0 1200 1500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="1500" fill="#F4EDE4"/>
+  <rect x="114" y="110" width="972" height="1280" rx="34" fill="#FBF8F2" stroke="#181310" stroke-width="2"/>
+  <g opacity="0.34" stroke="#181310">
+    <path d="M210 110V1390"/>
+    <path d="M402 110V1390"/>
+    <path d="M594 110V1390"/>
+    <path d="M786 110V1390"/>
+    <path d="M978 110V1390"/>
+    <path d="M114 366H1086"/>
+    <path d="M114 622H1086"/>
+    <path d="M114 878H1086"/>
+    <path d="M114 1134H1086"/>
+  </g>
+  <rect x="164" y="160" width="872" height="192" rx="28" fill="#181310"/>
+  <text x="202" y="226" fill="#FBF8F2" font-family="Inter, Arial, sans-serif" font-size="22" letter-spacing="5">LATTICE PRODUCT SURFACE</text>
+  <text x="202" y="320" fill="#FBF8F2" font-family="Inter, Arial, sans-serif" font-size="88">pinned demo</text>
+  <rect x="164" y="416" width="412" height="410" rx="26" fill="#EEE7DB" stroke="#181310" stroke-width="2"/>
+  <rect x="624" y="416" width="412" height="410" rx="26" fill="#F7F1E8" stroke="#181310" stroke-width="2"/>
+  <rect x="164" y="874" width="872" height="466" rx="26" fill="#EEE7DB" stroke="#181310" stroke-width="2"/>
+  <g fill="#181310" font-family="Inter, Arial, sans-serif">
+    <text x="204" y="478" font-size="18" letter-spacing="3">DETAIL FIELD</text>
+    <text x="204" y="558" font-size="66">comparison</text>
+    <text x="204" y="624" font-size="66">band</text>
+    <text x="664" y="478" font-size="18" letter-spacing="3">PROOF RAIL</text>
+    <text x="664" y="558" font-size="66">trust</text>
+    <text x="664" y="624" font-size="66">near hero</text>
+    <text x="204" y="948" font-size="18" letter-spacing="3">SCROLL STORY</text>
+    <text x="204" y="1044" font-size="82">progress-linked</text>
+    <text x="204" y="1122" font-size="82">transitions</text>
+  </g>
+  <g stroke="#181310" stroke-width="2">
+    <path d="M204 1186H948"/>
+    <path d="M204 1226H770"/>
+  </g>
+</svg>
