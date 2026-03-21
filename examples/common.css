@@ -40,6 +40,15 @@ img {
   max-width: 100%;
 }
 
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.05));
+  opacity: 0.65;
+}
+
 .page-shell {
   width: min(1320px, calc(100% - 40px));
   margin: 0 auto;
@@ -247,12 +256,14 @@ img {
 
 .frame-main {
   inset: 42px 92px 138px 0;
+  animation: float-main 9s ease-in-out infinite;
 }
 
 .frame-secondary {
   width: 42%;
   right: 0;
   bottom: 84px;
+  animation: float-secondary 11s ease-in-out infinite;
 }
 
 .panel,
@@ -265,6 +276,11 @@ img {
   overflow: hidden;
   border: 1px solid var(--line);
   background: var(--panel);
+}
+
+.panel,
+.shot {
+  animation: float-soft 12s ease-in-out infinite;
 }
 
 .panel,
@@ -469,6 +485,76 @@ img {
   gap: 24px;
   color: var(--muted);
   font-size: 14px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  filter: blur(10px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.8s ease;
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.card,
+.plan,
+.quote-card,
+.timeline article,
+.hero-meta article,
+.proof-band span,
+.market-strip span,
+.button,
+.ghost {
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    background-color 0.35s ease;
+}
+
+.card:hover,
+.plan:hover,
+.quote-card:hover,
+.button:hover,
+.ghost:hover {
+  transform: translateY(-4px);
+}
+
+@keyframes float-main {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -12px, 0);
+  }
+}
+
+@keyframes float-secondary {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, 12px, 0);
+  }
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
 }
 
 @media (max-width: 1080px) {
