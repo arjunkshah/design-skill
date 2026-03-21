@@ -1,9 +1,8 @@
 const navShell = document.querySelector(".nav-shell");
-const reveals = document.querySelectorAll("[data-reveal]");
-const parallaxStage = document.querySelector("[data-parallax]");
+const revealNodes = document.querySelectorAll("[data-reveal]");
 
-reveals.forEach((node, index) => {
-  node.style.transitionDelay = `${Math.min(index * 55, 360)}ms`;
+revealNodes.forEach((node, index) => {
+  node.style.transitionDelay = `${Math.min(index * 45, 220)}ms`;
 });
 
 const revealObserver = new IntersectionObserver(
@@ -16,12 +15,12 @@ const revealObserver = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.18,
-    rootMargin: "0px 0px -8% 0px",
+    threshold: 0.16,
+    rootMargin: "0px 0px -10% 0px",
   }
 );
 
-reveals.forEach((node) => revealObserver.observe(node));
+revealNodes.forEach((node) => revealObserver.observe(node));
 
 const syncHeader = () => {
   if (!navShell) return;
@@ -30,31 +29,3 @@ const syncHeader = () => {
 
 syncHeader();
 window.addEventListener("scroll", syncHeader, { passive: true });
-
-if (parallaxStage && window.matchMedia("(min-width: 821px)").matches) {
-  const layers = parallaxStage.querySelectorAll(".paper-stack, .stage-note");
-
-  parallaxStage.addEventListener("pointermove", (event) => {
-    const rect = parallaxStage.getBoundingClientRect();
-    const x = (event.clientX - rect.left) / rect.width - 0.5;
-    const y = (event.clientY - rect.top) / rect.height - 0.5;
-
-    layers.forEach((layer, index) => {
-      const depth = (index + 1) * 10;
-      layer.style.transform = `translate3d(${x * depth}px, ${y * depth}px, 0) rotate(${index % 2 === 0 ? -3 : 4}deg)`;
-    });
-  });
-
-  parallaxStage.addEventListener("pointerleave", () => {
-    const resets = [
-      "rotate(6deg)",
-      "rotate(-4deg)",
-      "rotate(7deg)",
-      "rotate(-5deg)",
-    ];
-
-    layers.forEach((layer, index) => {
-      layer.style.transform = resets[index] || "none";
-    });
-  });
-}

@@ -1,6 +1,8 @@
 {
   "name": "layout-skill",
-  "private": true,
+  "version": "0.1.0",
+  "description": "Open-source layout skill for coding agents",
+  "license": "MIT",
   "scripts": {
     "dev": "python3 -m http.server 5177 --directory site"
   }
