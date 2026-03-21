@@ -1,6 +1,4 @@
 .DS_Store
-site/.DS_Store
 *.log
 node_modules
 dist
-jasmine-project (25)/

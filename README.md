@@ -33,6 +33,15 @@ Recommended split:
 - `$design-skill` for structure, hierarchy, type, spacing, and style direction
 - `$animation-director` for entry sequencing, interaction polish, sticky narratives, and motion guardrails
 
+## Agent Boundary
+
+If an AI agent scans this repository, it should use only:
+
+- `skills/design-skill/SKILL.md`
+- `skills/animation-director/SKILL.md`
+
+The landing page, README, and asset files are marketing and packaging material for this repo. They are not part of the skill prompt unless the user is explicitly asking to edit this repository's website.
+
 ## Skills
 
 | Skill | Description |
@@ -50,8 +59,7 @@ The repo now works best as a small frontend system:
 ## What Is In This Repo
 
 - `index.html`: the current landing page frontend
-- `src/`: a componentized port of the landing page kept for future iteration
-- `site/`: the earlier static landing page iteration kept as a reference
+- `public/`: generated assets used by the landing page
 - `skills/design-skill/`: the reusable skill package
 - `skills/animation-director/`: companion motion skill for choreography and performance-safe animation rules
 
@@ -96,10 +104,13 @@ The agent should reject the layout if the result still feels like:
 
 ```text
 .
+├── AGENTS.md
 ├── LICENSE
 ├── README.md
 ├── index.html
 ├── package.json
+├── public/
+│   └── assets/
 ├── skills/
 │   ├── animation-director/
 │   │   ├── SKILL.md
@@ -108,12 +119,6 @@ The agent should reject the layout if the result still feels like:
 │   └── design-skill/
 │       ├── SKILL.md
 │       └── agents/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   ├── App.tsx
-│   ├── index.css
-│   └── main.tsx
 └── ...
 ```
 
@@ -204,8 +209,7 @@ Create a launch page with a pinned demo rail, staggered product storytelling, ta
 
 ## Development
 
-This repo is intentionally lightweight. The frontend is a small React + Vite app, and the skill stays plain Markdown plus a minimal agent wrapper.
-The published landing page currently ships from the root `index.html`, while the `src/` directory is the componentized port for future cleanup.
+This repo is intentionally lightweight. The frontend is a single landing page rooted at `index.html`, and the skills stay as plain Markdown plus minimal agent wrappers.
 
 Useful commands:
 
