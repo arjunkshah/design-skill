@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design Skill Examples</title>
+    <link rel="stylesheet" href="./common.css" />
+    <style>
+      :root {
+        --bg: #0f0f11;
+        --text: #f4efe8;
+        --muted: rgba(244, 239, 232, 0.72);
+        --line: rgba(255, 255, 255, 0.1);
+        --panel: rgba(255, 255, 255, 0.03);
+        --accent: #c77b41;
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1px;
+        background: var(--line);
+      }
+      .gallery article {
+        padding: 22px;
+        background: var(--bg);
+      }
+      .gallery img {
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        border: 1px solid var(--line);
+        margin-bottom: 18px;
+      }
+      @media (max-width: 960px) {
+        .gallery {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="page-shell topbar">
+        <a class="brand" href="../index.html"><span class="brand-mark"></span><span>Design Skill Examples</span></a>
+      </div>
+    </header>
+    <main>
+      <section class="section">
+        <div class="page-shell section-head">
+          <div>
+            <div class="eyebrow">Output gallery</div>
+            <h2>Three generated example sites.</h2>
+          </div>
+          <p class="section-note">These are repo examples, not instructions. The actual skill logic lives only in `skills/design-skill/SKILL.md`.</p>
+        </div>
+        <div class="page-shell gallery">
+          <article>
+            <a href="./axon/index.html"><img src="./screenshots/axon-home.png" alt="Axon example screenshot" /></a>
+            <div class="label">Developer tool</div>
+            <h3>Axon Grid</h3>
+            <p>A precise AI operations product site with a framed product stage, proof rails, and dense information design.</p>
+          </article>
+          <article>
+            <a href="./ledger/index.html"><img src="./screenshots/ledger-home.png" alt="Ledger example screenshot" /></a>
+            <div class="label">Finance</div>
+            <h3>Northstar Ledger</h3>
+            <p>An editorial finance website balancing warmth, trust, market proof, and premium advisory positioning.</p>
+          </article>
+          <article>
+            <a href="./canopy/index.html"><img src="./screenshots/canopy-home.png" alt="Canopy example screenshot" /></a>
+            <div class="label">Consumer wellness</div>
+            <h3>Canopy Ritual</h3>
+            <p>A more expressive consumer site with softer materiality, rich sections, and a lighter conversion rhythm.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

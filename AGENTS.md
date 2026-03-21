@@ -10,6 +10,7 @@ Treat everything else in this repository as product, packaging, or marketing mat
 In particular:
 
 - `index.html` is the landing page for the skill repo
+- `examples/` contains showcase outputs and screenshots
 - `public/` contains landing-page assets
 - `README.md` is user-facing documentation
 

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canopy Ritual</title>
+    <link rel="stylesheet" href="../common.css" />
+    <style>
+      :root {
+        --bg: #eef2ea;
+        --panel: rgba(28, 46, 34, 0.04);
+        --panel-strong: rgba(28, 46, 34, 0.08);
+        --text: #203126;
+        --muted: rgba(32, 49, 38, 0.68);
+        --line: rgba(32, 49, 38, 0.12);
+        --accent: #6f8f6c;
+        --accent-soft: rgba(111, 143, 108, 0.12);
+        --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+        --sans: Inter, "Segoe UI", system-ui, sans-serif;
+        --mono: "SFMono-Regular", SFMono-Regular, Menlo, Consolas, monospace;
+        --shadow: 0 24px 70px rgba(30, 55, 34, 0.08);
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background: radial-gradient(circle at top left, rgba(111, 143, 108, 0.16), transparent 26%), radial-gradient(circle at bottom right, rgba(150, 165, 130, 0.14), transparent 28%);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="page-shell topbar">
+        <a class="brand" href="../index.html"><span class="brand-mark"></span><span>Canopy Ritual</span></a>
+        <nav class="nav">
+          <a href="#rituals">Rituals</a>
+          <a href="#journal">Journal</a>
+          <a href="#membership">Membership</a>
+          <a href="#stories">Stories</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="page-shell hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">Wellness practice</div>
+            <h1>A slower ritual system for modern nervous systems.</h1>
+            <p class="lead">Canopy Ritual combines guided sessions, daily journaling, mood-aware routines, and community prompts to help people reset without chasing optimization theater.</p>
+            <div class="hero-actions">
+              <a class="button" href="#membership">Start membership</a>
+              <a class="ghost" href="#journal">See the journal flow</a>
+            </div>
+            <div class="hero-meta">
+              <article><span class="label">Tone</span><strong>Soft + expressive</strong></article>
+              <article><span class="label">Mode</span><strong>Guided ritual + reflection</strong></article>
+              <article><span class="label">Structure</span><strong>Airy sections, warm proof</strong></article>
+            </div>
+          </div>
+          <div class="stack-grid">
+            <article class="shot">
+              <img src="../../public/assets/generated/project-signal.svg" alt="Canopy app surface" />
+            </article>
+            <article class="panel">
+              <div class="label">Design thesis</div>
+              <h3>Wellness without the usual softness clichés.</h3>
+              <p>This page uses more space, warmer pacing, and a calmer material language, but it still keeps proof and product clarity visible.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="rituals">
+        <div class="page-shell section-head">
+          <div>
+            <div class="eyebrow">Ritual system</div>
+            <h2>Small practices arranged like a real rhythm, not a challenge app.</h2>
+          </div>
+        </div>
+        <div class="page-shell timeline">
+          <article>
+            <div class="eyebrow">Wake</div>
+            <h3>Start with a body check</h3>
+            <p>Brief somatic prompts help users notice state before they force a routine onto themselves.</p>
+          </article>
+          <article>
+            <div class="eyebrow">Midday</div>
+            <h3>Reset with guided softness</h3>
+            <p>Short restorative sessions create a pressure release without demanding high discipline.</p>
+          </article>
+          <article>
+            <div class="eyebrow">Night</div>
+            <h3>Close the day with reflection</h3>
+            <p>Journal structure is tuned for pattern recognition, not productivity vanity metrics.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="journal">
+        <div class="page-shell bento">
+          <article class="card bento-large">
+            <div class="label">Journal layer</div>
+            <h3>Reflection feels tactile, private, and intentionally unhurried.</h3>
+            <p>The product stage uses softer section transitions and bigger quiet spaces, but still avoids generic wellness gradients and floating blobs.</p>
+          </article>
+          <article class="card">
+            <div class="label">Prompts</div>
+            <h3>Context-aware writing</h3>
+            <p>Questions shift based on user state instead of recycling the same journaling script.</p>
+          </article>
+          <article class="card">
+            <div class="label">Signals</div>
+            <h3>Mood patterns over time</h3>
+            <p>Visual summaries stay calm and useful instead of turning emotion into dashboard fetishism.</p>
+          </article>
+          <article class="card">
+            <div class="label">Audio</div>
+            <h3>Breath-led guidance</h3>
+            <p>Short guided sessions create a bridge between reflection and regulation.</p>
+          </article>
+          <article class="card">
+            <div class="label">Community</div>
+            <h3>Optional, not performative</h3>
+            <p>Shared rituals exist for support, not for streak pressure or social scorekeeping.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="page-shell quote-block">
+          <div class="eyebrow">Member note</div>
+          <h2>"It feels like the app is making room for me instead of asking me to optimize myself."</h2>
+          <p>That line becomes the design center: softer pacing, fewer noisy metrics, and more trust in calm surfaces.</p>
+        </div>
+      </section>
+
+      <section class="section" id="stories">
+        <div class="page-shell proof-grid">
+          <article class="quote-card">
+            <div class="label">Member story</div>
+            <h3>"The journal finally helped me notice patterns instead of just vent."</h3>
+            <p>Users respond to the way the writing prompts build continuity instead of chasing empty inspiration.</p>
+          </article>
+          <article class="quote-card">
+            <div class="label">Practitioner note</div>
+            <h3>"It is gentle without becoming vague."</h3>
+            <p>The ritual structure keeps enough scaffolding for behavior change while staying emotionally soft.</p>
+          </article>
+          <article class="quote-card">
+            <div class="label">Community lead</div>
+            <h3>"The product never turns care into a gamified performance."</h3>
+            <p>That restraint is part of why users keep trusting the system over time.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="membership">
+        <div class="page-shell pricing-grid">
+          <article class="plan">
+            <span class="plan-badge">Starter</span>
+            <h3>Daily rituals and journal flow</h3>
+            <p>Designed for people building a steadier morning and evening rhythm.</p>
+          </article>
+          <article class="plan">
+            <span class="plan-badge">Member</span>
+            <h3>Guided sessions and deeper prompts</h3>
+            <p>Includes the calmer audio library, deeper check-ins, and longer weekly reflection threads.</p>
+          </article>
+          <article class="plan">
+            <span class="plan-badge">Circle</span>
+            <h3>Community rituals and practitioner events</h3>
+            <p>A slower, more intimate group structure for users who want shared rhythm without performance pressure.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="page-shell footer-cta">
+          <div>
+            <div class="eyebrow">Begin</div>
+            <h2>Choose the kind of calm that can actually survive a real life.</h2>
+            <p>Canopy is for users who want care, reflection, and repetition without turning healing into a system of punishment.</p>
+          </div>
+          <div class="footer-meta">
+            <a class="button" href="#">Start membership</a>
+            <a class="ghost" href="#">Read practitioner note</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="page-shell">
+        <span>Canopy Ritual example output</span>
+        <span>This page is a showcase output for Design Skill.</span>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -223,9 +223,9 @@
             processOne: "/assets/generated/process-structure.svg",
             processTwo: "/assets/generated/process-variation.svg",
             processThree: "/assets/generated/process-review.svg",
-            projectOne: "/assets/generated/project-atlas.svg",
-            projectTwo: "/assets/generated/project-lattice.svg",
-            projectThree: "/assets/generated/project-signal.svg"
+            projectOne: "/examples/screenshots/axon-home.png",
+            projectTwo: "/examples/screenshots/ledger-home.png",
+            projectThree: "/examples/screenshots/canopy-home.png"
         };
 
         // --- Layout Shell ---
@@ -666,19 +666,19 @@
                             <Reveal as="h3" className="font-secondary font-medium text-xl mb-4">Asymmetric Bento Sections</Reveal>
                             <div className="grid grid-cols-3 grid-rows-2 gap-2 mt-8 h-full">
                                 <div className="col-span-2 row-span-2 bg-fg/5 border border-border overflow-hidden image-frame">
-                                    <img src={imagery.projectOne} alt="Generated product example" className="w-full h-full object-cover theme-image" />
+                                    <img src={imagery.projectOne} alt="Axon Grid example screenshot" className="w-full h-full object-cover theme-image" />
                                 </div>
                                 <div className="bg-fg/5 border border-border overflow-hidden">
-                                    <img src={imagery.projectTwo} alt="Generated interface detail" className="w-full h-full object-cover theme-image" />
+                                    <img src={imagery.projectTwo} alt="Northstar Ledger example screenshot" className="w-full h-full object-cover theme-image" />
                                 </div>
                                 <div className="bg-fg/5 border border-border overflow-hidden">
-                                    <img src={imagery.projectThree} alt="Generated product mood" className="w-full h-full object-cover theme-image" />
+                                    <img src={imagery.projectThree} alt="Canopy Ritual example screenshot" className="w-full h-full object-cover theme-image" />
                                 </div>
                             </div>
                         </motion.div>
                         <motion.div whileHover={{ backgroundColor: 'rgba(var(--color-fg), 0.02)' }} className="bg-bg p-8 md:col-span-2 flex flex-col justify-center transition-colors">
-                            <Reveal as="h3" className="font-secondary font-medium text-lg mb-2">Editorial Split Layouts</Reveal>
-                            <Reveal as="p" delay={0.06} className="text-sm text-fg/60">Classic print-inspired divisions paired with a separate motion layer.</Reveal>
+                            <Reveal as="h3" className="font-secondary font-medium text-lg mb-2">Actual Example Outputs</Reveal>
+                            <Reveal as="p" delay={0.06} className="text-sm text-fg/60">These tiles now show real example sites built with the guide instead of placeholder concept art.</Reveal>
                         </motion.div>
                         <motion.div whileHover={{ backgroundColor: 'rgba(var(--color-fg), 0.02)' }} className="bg-bg p-8 flex flex-col justify-between transition-colors aspect-square">
                             <Reveal as="h3" className="font-secondary font-medium text-lg">Proof Rails</Reveal>
@@ -699,9 +699,9 @@
 
         const ProjectGallery = () => {
             const projects = [
-                { title: "Project Slot 01", note: "Replace this with your first generated landing page.", image: imagery.projectOne },
-                { title: "Project Slot 02", note: "Drop in a screenshot of a product frame or scrollytelling build.", image: imagery.projectTwo },
-                { title: "Project Slot 03", note: "Use this slot for a more experimental or motion-led output generated with the skill.", image: imagery.projectThree }
+                { title: "Axon Grid", note: "A precise AI operations site with dense product framing, proof rails, and stronger infrastructure aesthetics.", image: imagery.projectOne, href: "/examples/axon/" },
+                { title: "Northstar Ledger", note: "An editorial finance website balancing warmth, trust, market proof, and premium advisory positioning.", image: imagery.projectTwo, href: "/examples/ledger/" },
+                { title: "Canopy Ritual", note: "A softer consumer wellness site with airy pacing, richer sections, and more expressive materiality.", image: imagery.projectThree, href: "/examples/canopy/" }
             ];
             return (
                 <section id="projects" className="border-b border-border bg-bg">
@@ -710,7 +710,7 @@
                             <Reveal as="span" className="font-mono text-xs uppercase tracking-widest text-fg/50 mb-5 block">Generated With The Skill</Reveal>
                             <Reveal as="h2" delay={0.06} className="font-primary text-4xl tracking-tight mb-4">Project Shelf</Reveal>
                             <Reveal as="p" delay={0.12} className="text-sm text-fg/65 leading-relaxed max-w-sm">
-                                These sample concept boards show the kind of first-party imagery the system can ship with. Swap them later for real project captures if you want case studies instead of concept art.
+                                These are actual showcase sites added to the repo as proof of output quality. Each one follows the guide but pushes into a distinct product and visual direction.
                             </Reveal>
                         </div>
                         <div className="md:col-span-8 grid grid-cols-1 lg:grid-cols-3 gap-[1px] bg-border">
@@ -718,10 +718,11 @@
                                 <motion.article key={project.title} className="bg-bg p-6 md:p-8" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} custom={idx * 0.08} variants={frameReveal}>
                                     <div className="relative border border-border overflow-hidden image-frame bg-fg/5 mb-6">
                                         <img src={project.image} alt={project.title} className="w-full aspect-[4/5] object-cover theme-image" />
-                                        <div className="absolute left-4 top-4 bg-bg/90 border border-border px-3 py-2 font-mono text-[10px] uppercase tracking-[0.18em]">generated sample surface</div>
+                                        <div className="absolute left-4 top-4 bg-bg/90 border border-border px-3 py-2 font-mono text-[10px] uppercase tracking-[0.18em]">repo example</div>
                                     </div>
                                     <Reveal as="h3" className="font-secondary text-lg mb-2">{project.title}</Reveal>
                                     <Reveal as="p" delay={0.06} className="text-sm text-fg/65 leading-relaxed">{project.note}</Reveal>
+                                    <a href={project.href} className="inline-flex mt-5 border border-border bg-fg/5 px-4 py-3 font-mono text-xs uppercase tracking-[0.18em] hover:bg-fg/10 transition-colors">Open Example</a>
                                 </motion.article>
                             ))}
                         </div>

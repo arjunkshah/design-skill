@@ -59,6 +59,7 @@ The repo now works best as a small frontend system:
 ## What Is In This Repo
 
 - `index.html`: the current landing page frontend
+- `examples/`: showcase websites and screenshots generated in the spirit of the skill
 - `public/`: generated assets used by the landing page
 - `skills/design-skill/`: the reusable skill package
 - `skills/animation-director/`: companion motion skill for choreography and performance-safe animation rules
@@ -80,6 +81,18 @@ Design Skill addresses those issues by forcing a stronger design brain at the pr
 The landing page also ships with multiple visual presets so the same structure can be previewed across different moods.
 
 The skill package keeps generated imagery in scope and treats section range, hierarchy, and anti-slop styling as part of one prompt instead of a separate reference stack.
+
+## Example Outputs
+
+These are real showcase sites added to the repo as proof of what the guide can produce:
+
+[![Axon Grid](examples/screenshots/axon-home.png)](examples/axon/index.html)
+[![Northstar Ledger](examples/screenshots/ledger-home.png)](examples/ledger/index.html)
+[![Canopy Ritual](examples/screenshots/canopy-home.png)](examples/canopy/index.html)
+
+- `examples/axon/`: developer-tool / AI operations example
+- `examples/ledger/`: premium finance / editorial trust example
+- `examples/canopy/`: consumer wellness / airy expressive example
 
 ## Core Ideas
 
@@ -107,6 +120,7 @@ The agent should reject the layout if the result still feels like:
 ├── AGENTS.md
 ├── LICENSE
 ├── README.md
+├── examples/
 ├── index.html
 ├── package.json
 ├── public/
@@ -234,6 +248,8 @@ It explicitly supports patterns such as:
 - pinned product demos with changing supporting content
 
 The landing page also includes a project shelf section intended for screenshots of layouts you generate with the skill.
+
+This repo now includes three actual showcase examples so the project has real proof instead of placeholders.
 
 ## Manual Fallback
 

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Axon Grid</title>
+    <link rel="stylesheet" href="../common.css" />
+    <style>
+      :root {
+        --bg: #0d1014;
+        --panel: rgba(255, 255, 255, 0.04);
+        --text: #eef2f4;
+        --muted: rgba(238, 242, 244, 0.72);
+        --line: rgba(110, 198, 255, 0.12);
+        --accent: #76c1ff;
+        --accent-soft: rgba(118, 193, 255, 0.18);
+        --serif: "Times New Roman", Georgia, serif;
+        --sans: Inter, "Segoe UI", system-ui, sans-serif;
+        --mono: "SFMono-Regular", SFMono-Regular, Menlo, Consolas, monospace;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image: linear-gradient(rgba(118, 193, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(118, 193, 255, 0.04) 1px, transparent 1px);
+        background-size: 56px 56px;
+        opacity: 0.34;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="page-shell topbar">
+        <a class="brand" href="../index.html"><span class="brand-mark"></span><span>Axon Grid</span></a>
+        <nav class="nav">
+          <a href="#system">System</a>
+          <a href="#workflow">Workflow</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#proof">Proof</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="page-shell hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">AI operations platform</div>
+            <h1>Control the model surface like infrastructure.</h1>
+            <p class="lead">Axon Grid gives platform teams one operating layer for prompts, routing, approvals, evaluation, and cost discipline across every agent workflow.</p>
+            <div class="hero-actions">
+              <a class="button" href="#pricing">Request a pilot</a>
+              <a class="ghost" href="#workflow">See the workflow</a>
+            </div>
+            <div class="hero-meta">
+              <article><span class="label">Mode</span><strong>Precise + dense</strong></article>
+              <article><span class="label">Proof</span><strong>38% lower agent waste</strong></article>
+              <article><span class="label">Stack</span><strong>Routing, evals, guardrails</strong></article>
+            </div>
+          </div>
+          <div class="stage">
+            <div class="frame frame-main">
+              <img src="../../public/assets/generated/hero-main.svg" alt="Axon system surface" />
+            </div>
+            <div class="frame frame-secondary">
+              <img src="../../public/assets/generated/process-variation.svg" alt="Axon detail surface" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="system">
+        <div class="page-shell section-head">
+          <div>
+            <div class="eyebrow">Operating surface</div>
+            <h2>One control plane for every agent path.</h2>
+          </div>
+          <p class="section-note">This homepage uses a framed product stage, proof rail logic, and denser information pacing without collapsing into dashboard monotony.</p>
+        </div>
+        <div class="page-shell feature-grid">
+          <article class="card">
+            <div class="label">Prompt routing</div>
+            <h3>Send the right task to the right model.</h3>
+            <p>Route by sensitivity, latency, budget, or required reasoning depth, with visible fallback behavior and approval rules.</p>
+          </article>
+          <article class="card">
+            <div class="label">Evaluation</div>
+            <h3>Measure production quality continuously.</h3>
+            <p>Attach evals to workflows, compare generations, and score model behavior before weak outputs reach customers or operators.</p>
+          </article>
+          <article class="card">
+            <div class="label">Guardrails</div>
+            <h3>Keep human review where it matters.</h3>
+            <p>Introduce policy checks, escalation rules, and approval states without slowing every low-risk action to a crawl.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="workflow">
+        <div class="page-shell section-head">
+          <div>
+            <div class="eyebrow">Workflow view</div>
+            <h2>Dense where it needs to be, clear where it counts.</h2>
+          </div>
+        </div>
+        <div class="page-shell bento">
+          <article class="card bento-large">
+            <div class="label">Control room</div>
+            <h3>Observe prompts, approvals, costs, and failure patterns in one frame.</h3>
+            <div class="mini-list">
+              <div>Versioned prompts and system instruction trails</div>
+              <div>Policy states and human checkpoints per route</div>
+              <div>Spend anomalies, latency shifts, and model fallback signals</div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="label">Signals</div>
+            <h3>Live eval deltas</h3>
+            <p>See where reasoning quality shifts after model changes or prompt updates.</p>
+          </article>
+          <article class="card">
+            <div class="label">Security</div>
+            <h3>Reviewable by default</h3>
+            <p>Keep audit trails visible without forcing operators into raw log spelunking.</p>
+          </article>
+          <article class="card">
+            <div class="label">Latency</div>
+            <h3>Route by time budget</h3>
+            <p>Decide when fast enough wins and when deeper reasoning is worth it.</p>
+          </article>
+          <article class="card">
+            <div class="label">Cost</div>
+            <h3>Budget-aware orchestration</h3>
+            <p>Use higher-cost models where they matter and cheaper models where they do not.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="page-shell timeline">
+          <article>
+            <div class="eyebrow">01 ingest</div>
+            <h3>Read the task context</h3>
+            <p>Inputs arrive with business risk, expected output format, and latency constraints already attached.</p>
+          </article>
+          <article>
+            <div class="eyebrow">02 route</div>
+            <h3>Choose the model path</h3>
+            <p>Routing logic decides whether the task is cheap, fast, sensitive, or reasoning-heavy before execution.</p>
+          </article>
+          <article>
+            <div class="eyebrow">03 review</div>
+            <h3>Escalate where needed</h3>
+            <p>Human checks appear only when the workflow crosses the approval threshold or confidence drops.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="proof">
+        <div class="page-shell section-head">
+          <div>
+            <div class="eyebrow">Customer proof</div>
+            <h2>Operational trust, not marketing theater.</h2>
+          </div>
+        </div>
+        <div class="page-shell proof-grid">
+          <article class="quote-card">
+            <div class="label">Platform team</div>
+            <h3>"We stopped debugging agent behavior in Slack threads."</h3>
+            <p>Axon turned our model routing and approval rules into something the whole org could actually inspect.</p>
+          </article>
+          <article class="quote-card">
+            <div class="label">Compliance lead</div>
+            <h3>"Review became targeted instead of universal."</h3>
+            <p>We moved from blanket friction to tiered approval without losing policy visibility.</p>
+          </article>
+          <article class="quote-card">
+            <div class="label">Finance ops</div>
+            <h3>"Cost finally became a design variable."</h3>
+            <p>The team can now decide where quality deserves spend instead of arguing after invoices arrive.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="pricing">
+        <div class="page-shell section-head">
+          <div>
+            <div class="eyebrow">Plans</div>
+            <h2>Start with one workflow. Expand across the stack.</h2>
+          </div>
+        </div>
+        <div class="page-shell pricing-grid">
+          <article class="plan">
+            <span class="plan-badge">Pilot</span>
+            <h3>For one high-value route</h3>
+            <p>Deploy routing, approvals, and evaluation around the workflow that already matters most.</p>
+            <ul class="plan-list">
+              <li>Prompt version control</li>
+              <li>Approval thresholds</li>
+              <li>Evaluation dashboard</li>
+            </ul>
+          </article>
+          <article class="plan">
+            <span class="plan-badge">Scale</span>
+            <h3>For platform teams</h3>
+            <p>Expand to multiple agent paths, shared policy layers, and spend-aware orchestration.</p>
+            <ul class="plan-list">
+              <li>Cross-team governance</li>
+              <li>Model routing matrix</li>
+              <li>Cost and latency control</li>
+            </ul>
+          </article>
+          <article class="plan">
+            <span class="plan-badge">Enterprise</span>
+            <h3>For regulated operators</h3>
+            <p>Custom hosting, audit exports, and policy enforcement for sensitive or high-risk environments.</p>
+            <ul class="plan-list">
+              <li>Private deployment</li>
+              <li>Extended audit trail</li>
+              <li>Dedicated architecture support</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="page-shell footer-cta">
+          <div>
+            <div class="eyebrow">Next step</div>
+            <h2>Run your first agent workflow like an operating system, not a demo.</h2>
+            <p>Start with the most expensive or risky path. That is where the control surface pays for itself first.</p>
+          </div>
+          <div class="footer-meta">
+            <a class="button" href="#">Book architecture review</a>
+            <a class="ghost" href="#">Read deployment notes</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="page-shell">
+        <span>Axon Grid example output</span>
+        <span>This page is a showcase output for Design Skill.</span>
+      </div>
+    </footer>
+  </body>
+</html>
