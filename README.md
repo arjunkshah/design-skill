@@ -1,18 +1,32 @@
 # Layout Director
 
-Layout Director is an open-source layout skill for coding agents such as Codex, Claude Code, Cursor, Cline, and Windsurf.
+Layout Director is a skill repo for coding agents that need better frontend layout judgment.
 
-It exists to fix a recurring failure mode in agent-generated frontend work: the page is usually functional, but the layout judgment is weak. The model reaches for the same centered hero, the same repeated feature cards, the same fake-premium gradients, and the same cramped mobile collapse.
+It is built for tools like Codex, Claude Code, Cursor, Cline, Windsurf, and similar agent workflows. Instead of defaulting to the same centered hero, repeated feature cards, and weak mobile collapse, the agent gets a stricter layout process and a wider UI vocabulary.
 
-Layout Director gives the agent a better process:
+![Skills](https://img.shields.io/badge/skills-agent--ready-171717?style=flat-square)
+![License](https://img.shields.io/badge/license-MIT-171717?style=flat-square)
+![Focus](https://img.shields.io/badge/focus-frontend%20layout-171717?style=flat-square)
 
-- read the brief before coding
-- choose a layout archetype first
-- vary the right design axes deliberately
-- apply component rules that serve the page structure
-- run a final review rubric before shipping
+## Installing
 
-The goal is not to force one visual style. The goal is to raise the floor for composition while keeping enough freedom for different layouts to emerge from different briefs.
+Works via CLI for major AI coding agents and skill-compatible workflows:
+
+```bash
+npx skills add https://github.com/arjunkshah/layout-skill
+```
+
+Then invoke:
+
+```text
+$layout-director
+```
+
+## Skills
+
+| Skill | Description |
+| --- | --- |
+| `layout-director` | The main frontend layout skill. Teaches structure selection, variation axes, component families, scroll patterns, and layout review. |
 
 ## What Is In This Repo
 
@@ -89,20 +103,6 @@ The agent should reject the layout if the result still feels like:
             └── variation_matrix.md
 ```
 
-## Installing
-
-Works via CLI for major AI coding agents and skill-compatible workflows:
-
-```bash
-npx skills add https://github.com/arjunkshah/layout-skill
-```
-
-Then invoke:
-
-```text
-$layout-director
-```
-
 ## Quick Start
 
 ### View the landing page
@@ -113,17 +113,17 @@ npm run dev
 
 Then open `http://127.0.0.1:5177`.
 
-### Manual fallback
+## How It Works
 
-Copy `skills/layout-director/` into the skill or rules area used by your agent tooling.
+Layout Director gives the agent a better process:
 
-Then invoke:
+- read the brief before coding
+- choose a layout archetype first
+- vary the right design axes deliberately
+- apply component rules that serve the page structure
+- run a final review rubric before shipping
 
-```text
-$layout-director
-```
-
-Or adapt the same workflow into your project instructions if your tool does not support native skill loading.
+The goal is not to force one visual style. The goal is to raise the floor for composition while keeping enough freedom for different layouts to emerge from different briefs.
 
 ## Using It With Different Tools
 
@@ -161,6 +161,14 @@ It explicitly supports patterns such as:
 - editorial split layouts
 - sticky scrollytelling modules
 - pinned product demos with changing supporting content
+
+## Manual Fallback
+
+If your setup does not support repo-based skill installs yet, copy `skills/layout-director/` into your local skill or rules directory and invoke:
+
+```text
+$layout-director
+```
 
 ## Open Source
 
