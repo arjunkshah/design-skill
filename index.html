@@ -230,6 +230,7 @@
         // --- Layout Shell ---
         const sectionLinks = [
             { id: 'system', label: 'System' },
+            { id: 'stack', label: 'Stack' },
             { id: 'range', label: 'Range' },
             { id: 'projects', label: 'Projects' },
             { id: 'install', label: 'Install' },
@@ -477,6 +478,65 @@
             </section>
         );
 
+        const SkillStack = () => {
+            const layers = [
+                {
+                    kicker: "01",
+                    title: "Layout Director",
+                    body: "Chooses archetype, hierarchy, section rhythm, density, and brand-aware visual direction before component detail takes over.",
+                    command: "$layout-director"
+                },
+                {
+                    kicker: "02",
+                    title: "Style Engine",
+                    body: "Translates brand identity, typography contrast, palette discipline, and visual taste into a coherent system instead of generic defaults.",
+                    command: "built into layout-director"
+                },
+                {
+                    kicker: "03",
+                    title: "Animation Director",
+                    body: "Adds entry sequencing, sticky storytelling, hover tactility, and motion guardrails without turning the interface into a gimmick.",
+                    command: "$animation-director"
+                }
+            ];
+
+            return (
+                <section id="stack" className="border-b border-border bg-fg/5">
+                    <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12">
+                        <div className="md:col-span-4 p-8 md:p-16 border-r border-border bg-bg">
+                            <Reveal as="span" className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-5 block">Frontend System</Reveal>
+                            <Reveal as="h2" delay={0.06} className="font-primary text-4xl tracking-tight mb-4">Three layers, one output.</Reveal>
+                            <Reveal as="p" delay={0.12} className="text-sm text-fg/65 leading-relaxed max-w-sm">
+                                The repo is stronger when you treat layout, identity, and motion as separate decisions that cooperate instead of one oversized prompt blob.
+                            </Reveal>
+                        </div>
+                        <div className="md:col-span-8 bg-border grid grid-cols-1 lg:grid-cols-3 gap-[1px]">
+                            {layers.map((layer, idx) => (
+                                <motion.article
+                                    key={layer.title}
+                                    className="bg-bg p-8 md:p-10 flex flex-col justify-between min-h-[300px]"
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={{ once: true, amount: 0.25 }}
+                                    custom={idx * 0.08}
+                                    variants={frameReveal}
+                                >
+                                    <div>
+                                        <Reveal as="div" className="font-mono text-xs text-fg/45 uppercase tracking-[0.24em] mb-6">{layer.kicker}</Reveal>
+                                        <Reveal as="h3" delay={0.05} className="font-primary text-3xl tracking-tight mb-4">{layer.title}</Reveal>
+                                        <Reveal as="p" delay={0.1} className="text-sm text-fg/68 leading-relaxed">{layer.body}</Reveal>
+                                    </div>
+                                    <Reveal as="div" delay={0.16} className="mt-10 border border-border bg-fg/5 px-4 py-3 font-mono text-xs text-fg/70">
+                                        {layer.command}
+                                    </Reveal>
+                                </motion.article>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
         // Section 7: The Spatial Grid
         const SpatialGrid = () => (
             <section className="border-b border-border bg-bg">
@@ -620,7 +680,7 @@
             const quotes = [
                 { text: "Finally, an AI that doesn't use box-shadow: 0 4px 6px rgba(0,0,0,0.1) on literally every div.", author: "Frontend Lead" },
                 { text: "It feels like having a senior designer sitting next to Claude, slapping its hand when it reaches for a generic gradient.", author: "Indie Hacker" },
-                { text: "The typographic scale enforcement alone saves me hours of manual CSS tweaking after generation.", author: "Design Engineer" }
+                { text: "Splitting layout and animation into separate skills makes the output feel much more intentional and less chaotic.", author: "Design Engineer" }
             ];
             return (
                 <section className="border-b border-border bg-bg">
@@ -641,7 +701,7 @@
             const faqs = [
                 { q: "Does it work with standard frontend stacks?", a: "Yes. The skill outputs normal frontend code, but it pushes the agent toward stronger spacing systems, hierarchy, and section rhythm instead of arbitrary utility spam." },
                 { q: "Can I customize the system?", a: "Yes. Edit the files in skills/layout-director/references to tune archetypes, variation ranges, component families, or review rules for your own design taste." },
-                { q: "How do I install it?", a: "Run npx skills add https://github.com/arjunkshah/layout-skill, then invoke $layout-director in a compatible coding agent session." },
+                { q: "How do I install it?", a: "Run npx skills add https://github.com/arjunkshah/layout-skill, then invoke $layout-director by itself or pair it with $animation-director when the page needs a full motion layer." },
             ];
             const [open, setOpen] = useState(0);
 
@@ -759,6 +819,7 @@
                             <Philosophy />
                             <Architecture />
                             <TypographyScale />
+                            <SkillStack />
                             <SpatialGrid />
                             <ScrollyTelling />
                             <BentoGrid />

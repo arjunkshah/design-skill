@@ -40,6 +40,14 @@ Recommended split:
 | `layout-director` | The main frontend layout skill. Teaches structure selection, variation axes, component families, scroll patterns, and layout review. |
 | `animation-director` | Companion motion skill for entry choreography, interaction polish, sticky narratives, and animation performance guardrails. |
 
+## System Stack
+
+The repo now works best as a small frontend system rather than one giant instruction file:
+
+- `layout-director`: chooses structure, hierarchy, section rhythm, and visual direction
+- `style engine`: inside `layout-director`, handles typography, palette, density, and brand translation
+- `animation-director`: adds motion sequencing, scroll choreography, and performance-safe interaction polish
+
 ## What Is In This Repo
 
 - `index.html`: the current landing page frontend
@@ -182,6 +190,11 @@ Use both when the page needs a full frontend direction:
 $layout-director $animation-director
 Design a landing page with a strong product frame, premium editorial typography, pinned storytelling, and tactile hover states.
 ```
+
+Good default split:
+
+- use only `layout-director` when the page still needs structural thinking
+- add `animation-director` after the composition already makes sense
 
 ## Development
 
