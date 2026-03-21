@@ -196,6 +196,29 @@ Good default split:
 - use only `layout-director` when the page still needs structural thinking
 - add `animation-director` after the composition already makes sense
 
+## Example Prompts
+
+Layout only:
+
+```text
+$layout-director
+Design a homepage for a developer tool with a framed product stage, proof rail, and a calmer mobile collapse.
+```
+
+Brand-aware layout:
+
+```text
+$layout-director
+Build a landing page for a premium finance brand using a restrained serif-led system, stricter proof placement, and a more editorial information flow.
+```
+
+Full frontend direction:
+
+```text
+$layout-director $animation-director
+Create a launch page with a pinned demo rail, staggered product storytelling, tactile CTA states, and motion that stays restrained on mobile.
+```
+
 ## Development
 
 This repo is intentionally lightweight. The frontend is a small React + Vite app, and the skill stays plain Markdown plus compact reference files.

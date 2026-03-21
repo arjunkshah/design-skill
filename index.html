@@ -231,6 +231,7 @@
         const sectionLinks = [
             { id: 'system', label: 'System' },
             { id: 'stack', label: 'Stack' },
+            { id: 'prompts', label: 'Prompts' },
             { id: 'range', label: 'Range' },
             { id: 'projects', label: 'Projects' },
             { id: 'install', label: 'Install' },
@@ -537,6 +538,59 @@
             );
         };
 
+        const PromptLab = () => {
+            const prompts = [
+                {
+                    title: "Layout only",
+                    body: "For when the page still needs stronger structure, pacing, and hierarchy before anything else.",
+                    command: "$layout-director Design a homepage for a developer tool with a framed product stage, proof rail, and a calmer mobile collapse."
+                },
+                {
+                    title: "Brand-aware layout",
+                    body: "For translating a known identity system into a better composition instead of just copying colors.",
+                    command: "$layout-director Build a landing page for a premium finance brand using a restrained serif-led system, stricter proof placement, and a more editorial information flow."
+                },
+                {
+                    title: "Full frontend direction",
+                    body: "For shipping structure, visual taste, and motion choreography as one coordinated output.",
+                    command: "$layout-director $animation-director Create a launch page with a pinned demo rail, staggered product storytelling, tactile CTA states, and motion that stays restrained on mobile."
+                }
+            ];
+
+            return (
+                <section id="prompts" className="border-b border-border bg-bg">
+                    <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12">
+                        <div className="md:col-span-4 p-8 md:p-16 border-r border-border bg-fg/5">
+                            <Reveal as="span" className="font-mono text-xs uppercase tracking-widest text-fg/50 mb-5 block">Prompt Lab</Reveal>
+                            <Reveal as="h2" delay={0.06} className="font-primary text-4xl tracking-tight mb-4">Use the system directly.</Reveal>
+                            <Reveal as="p" delay={0.12} className="text-sm text-fg/65 leading-relaxed max-w-sm">
+                                The repo works best when the prompt names the outcome and lets the skills choose structure, identity handling, and motion behavior from there.
+                            </Reveal>
+                        </div>
+                        <div className="md:col-span-8 bg-border grid grid-cols-1 gap-[1px]">
+                            {prompts.map((prompt, idx) => (
+                                <motion.article
+                                    key={prompt.title}
+                                    className="bg-bg p-8 md:p-10"
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={{ once: true, amount: 0.25 }}
+                                    custom={idx * 0.08}
+                                    variants={frameReveal}
+                                >
+                                    <Reveal as="div" className="font-mono text-xs uppercase tracking-[0.22em] text-fg/45 mb-4">{prompt.title}</Reveal>
+                                    <Reveal as="p" delay={0.06} className="text-sm text-fg/68 leading-relaxed max-w-2xl mb-6">{prompt.body}</Reveal>
+                                    <div className="border border-border bg-fg/5 p-5 font-mono text-sm leading-relaxed overflow-x-auto">
+                                        {prompt.command}
+                                    </div>
+                                </motion.article>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
         // Section 7: The Spatial Grid
         const SpatialGrid = () => (
             <section className="border-b border-border bg-bg">
@@ -820,6 +874,7 @@
                             <Architecture />
                             <TypographyScale />
                             <SkillStack />
+                            <PromptLab />
                             <SpatialGrid />
                             <ScrollyTelling />
                             <BentoGrid />
