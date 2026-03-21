@@ -11,6 +11,22 @@ Your goal is to build interfaces that feel "crafted," not just "coded." Avoid "A
 
 The goal is not to force one house style. The goal is to make the output feel deeply appropriate to the product, brand, audience, and level of ambition.
 
+## Required Planning Step
+
+Do not generate immediately.
+
+Before building the website, explicitly decide:
+
+- `SITE_MAP`: which pages actually exist
+- `PAGE_GOALS`: what each page needs to accomplish
+- `SECTION_SEQUENCE_PER_PAGE`: the section order for each major page
+- `IMAGERY_MODE`: the primary visual mode for the site
+- `MOTION_LEVEL`: how quiet or expressive motion should be overall
+
+If these decisions are still vague, the design is not ready yet.
+
+The website should be generated from this plan, not from improvised component-by-component guessing.
+
 ## Design Logic
 
 ### 1. Product Dissection
@@ -78,6 +94,27 @@ Reject outputs that fall into these traps:
 5. No generic "Welcome to [App Name]" hero copy.
 6. No repetitive section shells with different content inside them.
 7. No mobile layout that is just a shrunken desktop stack.
+
+## Anti-Placeholder Content
+
+Do not let the website feel like a dressed-up mock with empty product thinking.
+
+Reject content that feels like:
+
+- vague headlines that could apply to any startup
+- fake-premium filler copy with no concrete product meaning
+- generic metrics with no believable context
+- feature sections that say almost nothing beyond broad claims
+- empty testimonial shells, logo farms, or proof blocks with no narrative role
+- placeholder pages that exist only because a normal marketing site "should" have them
+
+The content architecture should feel like a real product story:
+
+- clear use cases
+- believable proof
+- meaningful feature framing
+- clear page goals
+- conversion moments that feel earned
 
 ## Variation And Section Range
 
@@ -159,6 +196,7 @@ The interface must feel crafted from the nature of the product.
 
 Before generating, decide:
 
+- the one-sentence design thesis for the whole site
 - what the product feels like
 - what the user is mainly doing on the page
 - how large and comprehensive the website should be
@@ -167,5 +205,12 @@ Before generating, decide:
 - what typography system fits
 - what imagery mode fits
 - what motion level fits
+
+The design thesis should be a single sentence such as:
+
+- "This site should feel like a precise operational system with restrained elegance."
+- "This site should feel like a premium editorial product launch with controlled theatricality."
+
+That sentence should guide all major decisions across pages.
 
 Then build the page from those decisions instead of falling back to generic startup UI defaults.
