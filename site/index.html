@@ -17,8 +17,6 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="page-grid" aria-hidden="true"></div>
-
     <header class="site-header">
       <div class="nav-shell">
         <a class="brand-mark" href="#top" aria-label="Layout Director home">
@@ -28,11 +26,9 @@
         <nav class="site-nav" aria-label="Primary">
           <a href="#system">system</a>
           <a href="#patterns">patterns</a>
-          <a href="#principles">principles</a>
           <a href="#install">install</a>
           <a href="https://github.com/arjunkshah/layout-skill">github</a>
         </nav>
-        <a class="nav-link" href="#install">open source</a>
       </div>
     </header>
 
@@ -40,27 +36,17 @@
       <section class="hero section">
         <div class="hero-copy" data-reveal>
           <div class="eyebrow">layout system for coding agents</div>
-          <h1>layout direction for coding agents</h1>
+          <h1>a system of record for frontend layout</h1>
           <p class="hero-lead">
-            Layout Director gives Codex, Claude Code, Cursor, and similar agents a
-            portable system for composition, hierarchy, spacing, motion, and
-            responsive collapse. It is guidance, not a template.
+            Layout Director organizes structure, hierarchy, spacing, and
+            responsive behavior into a reusable system so prompts, pages, and
+            code stay aligned.
           </p>
           <div class="hero-actions">
             <a class="button-primary" href="#install">use the skill</a>
             <a class="button-secondary" href="https://github.com/arjunkshah/layout-skill"
               >view the repo</a
             >
-          </div>
-          <div class="hero-support">
-            <span>works with</span>
-            <div class="support-list">
-              <span>codex</span>
-              <span>claude code</span>
-              <span>cursor</span>
-              <span>windsurf</span>
-              <span>cline</span>
-            </div>
           </div>
         </div>
 
@@ -72,77 +58,67 @@
                 <span></span>
                 <span></span>
               </div>
-              <div class="toolbar-title">layout-director.paper</div>
-              <div class="toolbar-pill">live canvas</div>
+              <div class="toolbar-title">layout record</div>
+              <div class="toolbar-pill">connected canvas</div>
             </div>
             <div class="app-body">
               <aside class="app-sidebar">
                 <div class="sidebar-title">pages</div>
-                <div class="sidebar-item active">landing page</div>
-                <div class="sidebar-item">features</div>
-                <div class="sidebar-item">pricing</div>
-                <div class="sidebar-item">docs</div>
-                <div class="sidebar-spacer"></div>
-                <div class="sidebar-title">agents</div>
-                <div class="sidebar-agent">codex</div>
-                <div class="sidebar-agent">claude code</div>
-                <div class="sidebar-agent">cursor</div>
+                <div class="sidebar-item active">overview</div>
+                <div class="sidebar-item">patterns</div>
+                <div class="sidebar-item">install</div>
               </aside>
 
               <div class="canvas-view">
                 <div class="canvas-window">
                   <div class="canvas-topline">
-                    <span>system</span>
+                    <span>source of truth</span>
                     <span>editorial split + proof rail</span>
                   </div>
                   <div class="canvas-hero">
                     <div class="canvas-copy">
                       <span class="mini-label">selected direction</span>
-                      <strong>make the layout do the selling</strong>
-                      <p>
-                        choose structure first. then type mode, density, rhythm,
-                        and motion.
-                      </p>
+                      <strong>prompt to page, one layout language</strong>
+                      <p>structure, density, rhythm, proof, mobile collapse.</p>
                     </div>
                     <div class="canvas-cards">
                       <div class="canvas-card canvas-card-large">
-                        <span>hero thesis</span>
-                        <strong>big message + product proof</strong>
+                        <span>layout brief</span>
+                        <strong>message, product frame, proof rail</strong>
                       </div>
                       <div class="canvas-card">
-                        <span>proof</span>
-                        <strong>metrics</strong>
+                        <span>risk</span>
+                        <strong>generic hero fallback</strong>
                       </div>
                       <div class="canvas-card">
-                        <span>cta</span>
-                        <strong>one primary action</strong>
+                        <span>review</span>
+                        <strong>mobile restructure</strong>
                       </div>
                     </div>
                   </div>
                   <div class="canvas-rail">
                     <div class="rail-pill">variation matrix</div>
                     <div class="rail-pill">review rubric</div>
-                    <div class="rail-pill">mobile redesign</div>
                   </div>
                 </div>
 
                 <div class="inspector-panel">
-                  <div class="inspector-heading">active brief</div>
+                  <div class="inspector-heading">active record</div>
                   <div class="inspector-block">
                     <span>audience</span>
-                    <strong>design teams shipping with agents</strong>
+                    <strong>teams shipping frontend with agents</strong>
                   </div>
                   <div class="inspector-block">
-                    <span>density</span>
-                    <strong>balanced</strong>
+                    <span>mode</span>
+                    <strong>balanced / enterprise</strong>
                   </div>
                   <div class="inspector-block">
-                    <span>motion</span>
-                    <strong>measured</strong>
+                    <span>status</span>
+                    <strong>ready for review</strong>
                   </div>
                   <div class="inspector-code">
                     <span>prompt</span>
-                    <code>use $layout-director and choose a structure before coding</code>
+                    <code>use $layout-director and pick the page structure before coding</code>
                   </div>
                 </div>
               </div>
@@ -151,28 +127,15 @@
         </div>
       </section>
 
-      <section class="logo-band section-sm" data-reveal>
-        <span class="band-label">designed for agents shipping real product pages</span>
-        <div class="logo-row">
-          <span>landing pages</span>
-          <span>launch sites</span>
-          <span>portfolio pages</span>
-          <span>feature marketing</span>
-          <span>product showcases</span>
-        </div>
-      </section>
-
       <section class="feature-section section" id="system">
         <div class="feature-copy" data-reveal>
           <div class="eyebrow">introducing the system</div>
-          <h2>a smaller, stricter system for layout decisions</h2>
+          <h2>your frontend usually does not fail in code</h2>
           <p>
-            The skill reads the brief, selects a layout archetype, chooses
-            variation axes deliberately, and checks the page against a quality
-            rubric before the model stops. That keeps the outputs flexible without
-            making them random.
+            It fails earlier, when layout choices stay implicit. Layout Director
+            turns those choices into a visible system: archetype, density, rhythm,
+            motion, proof, and mobile behavior.
           </p>
-          <a class="text-link" href="#install">read the install guide</a>
         </div>
         <div class="feature-visual" data-reveal>
           <div class="app-shell app-shell-stack">
@@ -214,12 +177,11 @@
       <section class="feature-section feature-reverse section" id="principles">
         <div class="feature-copy" data-reveal>
           <div class="eyebrow">design to code and back</div>
-          <h2>one shared layout language, not one repeated look</h2>
+          <h2>one source of truth from prompt to page</h2>
           <p>
-            Layout Director does not freeze the model into a single house style.
-            It sets a floor for composition quality, then gives the model
-            controlled degrees of freedom so each brief can produce a different
-            result with the same design bar.
+            The skill does not hardcode one look. It keeps the layout decisions
+            traceable so the agent can vary the page without losing structure or
+            falling back into template symmetry.
           </p>
           <ul class="principle-list">
             <li>different archetypes for different products</li>
@@ -262,11 +224,10 @@
       <section class="pattern-section section" id="patterns">
         <div class="section-intro" data-reveal>
           <div class="eyebrow">component range</div>
-          <h2>the page can stay quiet and still show more than one pattern</h2>
+          <h2>more than one pattern. still one disciplined system.</h2>
           <p>
-            It needs a vocabulary of stronger UI blocks: bentos, proof strips,
-            framed product areas, editorial rails, sticky scrollytelling, and
-            mixed-density sections that can carry different products.
+            Use stronger blocks only where they clarify the page: bentos, proof
+            strips, framed product areas, editorial rails, and pinned walkthroughs.
           </p>
         </div>
         <div class="bento-grid" data-reveal>
@@ -308,7 +269,7 @@
               <div class="story-card-stack">
                 <article class="story-card is-active" data-story-card="01">
                   <span>01</span>
-                  <strong>pin one visual anchor while the narrative moves</strong>
+                  <strong>pin one visual anchor</strong>
                   <p>
                     sticky sections work when the preview stays legible and the
                     right column advances the explanation.
@@ -316,7 +277,7 @@
                 </article>
                 <article class="story-card" data-story-card="02">
                   <span>02</span>
-                  <strong>change the surface, not the page shell</strong>
+                  <strong>change the surface, not the shell</strong>
                   <p>
                     the content inside the frame should evolve with the story
                     instead of rebuilding the whole viewport on every step.
@@ -379,44 +340,6 @@
               </p>
             </article>
           </div>
-        </div>
-      </section>
-
-      <section class="showcase-section section">
-        <div class="section-intro" data-reveal>
-          <div class="eyebrow">anti-slop</div>
-          <h2>hand off boilerplate work. keep the judgment in the loop.</h2>
-          <p>
-            Let the agent handle structure selection, responsive cleanup, and
-            section pacing. Keep the aesthetic and product judgment where it
-            belongs: with the person directing the work.
-          </p>
-        </div>
-        <div class="showcase-grid">
-          <article class="showcase-card" data-reveal>
-            <span class="showcase-kicker">what it bans</span>
-            <h3>default centered startup templates</h3>
-            <p>
-              no endless feature-card conveyor belts, no random gradients, and no
-              equally weighted sections pretending to be hierarchy.
-            </p>
-          </article>
-          <article class="showcase-card" data-reveal>
-            <span class="showcase-kicker">what it prefers</span>
-            <h3>clear focal points and measured pacing</h3>
-            <p>
-              layouts should widen, compress, pause, and convert with intent
-              instead of repeating one grid forever.
-            </p>
-          </article>
-          <article class="showcase-card" data-reveal>
-            <span class="showcase-kicker">what it protects</span>
-            <h3>mobile that feels redesigned</h3>
-            <p>
-              below 768px, overlap disappears, hierarchy survives, and the page
-              still feels purposeful rather than collapsed.
-            </p>
-          </article>
         </div>
       </section>
 
