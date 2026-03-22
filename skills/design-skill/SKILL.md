@@ -44,6 +44,42 @@ Quality constraints:
 4. Do not default to the same hero composition repeatedly.
 5. Ensure meaningful structural contrast: at least two major section types on each page must differ in composition and behavior.
 
+## Underspecified Brief Protocol (Required)
+
+If the user gives little or no design direction, do not collapse to a default hero + cards layout.
+
+You must still produce a distinct direction by explicitly choosing:
+
+1. one `product posture`:
+- operational / trust-heavy
+- premium / editorial
+- consumer / energetic
+- technical / utilitarian
+- experimental / expressive
+2. one `layout archetype family`:
+- editorial split
+- asymmetric bento
+- product stage with pinned narrative
+- horizontal discovery rail
+- dense dashboard frame
+- manifesto-led typography
+- case-study storytelling
+- catalog / marketplace composition
+3. one `motion profile`:
+- quiet
+- moderate
+- cinematic
+
+Then run the Concept Divergence Pass with these hard constraints:
+
+1. The 3 concepts must use different archetype families.
+2. The 3 concepts must use different hero structures.
+3. At least 2 concepts must use materially different type voices (for example sans-led vs serif-led vs mono-led).
+4. At least 2 concepts must use materially different color energy bands (quiet vs bold).
+5. Reject any concept that resembles a generic startup template.
+
+If the user provided no visual preference at all, prioritize distinctiveness over safety while keeping usability intact.
+
 ## Concept Divergence Pass (Required)
 
 Before building the final website, generate 3 clearly different design concepts from the same brief.
@@ -178,6 +214,7 @@ Reject and revise if any of these are true:
 - Motion is decorative but not structural.
 - The style fingerprint is not visible in real layout decisions.
 - The result does not look premium without relying on gradients and shadow tricks.
+- The brief was underspecified and the output still defaulted to a familiar house layout.
 
 When revising, change structural choices first (layout, hierarchy, pacing), then styling.
 
