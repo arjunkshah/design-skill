@@ -137,13 +137,21 @@ Default to comprehensive output depth unless the user explicitly asks for a smal
 Depth rules:
 
 1. For broad business briefs, generate a real multi-page site map, not just one homepage.
-2. Major pages should usually include 5-8 meaningful sections each (not filler blocks).
-3. Avoid shallow page shells that are just hero + features + CTA.
-4. Ensure each page has a clear purpose in the funnel:
+2. Default target is `6-10 pages` for product/business websites unless the user explicitly requests fewer.
+3. Each major page should include `6-10 meaningful sections` (not filler blocks).
+4. Avoid shallow page shells that are just hero + features + CTA.
+5. Ensure each page has a clear purpose in the funnel:
 - discovery (awareness)
 - evaluation (proof + detail)
 - decision (pricing, risk, conversion)
-5. Page content should feel complete enough to ship as a serious product marketing surface.
+6. Include both high-level and deep-detail pages. At minimum include:
+- Home
+- Product/Features
+- Solutions or Use Cases
+- Pricing or Plans
+- About/Company
+- Contact/Conversion page
+7. Page content should feel complete enough to ship as a serious product marketing surface.
 
 If generation still feels thin, expand page scope and section detail before final output.
 
@@ -205,6 +213,17 @@ Enforcement:
 1. Pick different programs for different pages in the same website.
 2. For repeated generations on similar prompts, rotate program choice.
 3. Reject output if section order drifts back to canonical startup order.
+
+## Hero Composition Preference (Required)
+
+Default hero composition should be centered thesis text with strong hierarchy.
+
+Rules:
+
+1. Prefer centered hero copy unless the user explicitly requests split left-right composition.
+2. If using a split hero, justify it from the product interaction model (for example tool-first dashboards).
+3. Do not default to left-content/right-image hero layouts as a generic fallback.
+4. Hero structure still must vary in typography rhythm, supporting modules, and motion treatment even when centered.
 
 ## Section And Motion Diversity Protocol (Required)
 
