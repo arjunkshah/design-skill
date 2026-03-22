@@ -55,13 +55,9 @@ This keeps variation high while preserving coherence.
 ├── public/
 │   └── assets/
 └── skills/
-    ├── design-skill/
-    │   ├── SKILL.md
-    │   └── agents/
-    └── animation-director/
-        ├── SKILL.md (deprecated compatibility pointer)
-        ├── agents/
-        └── references/
+    └── design-skill/
+        ├── SKILL.md
+        └── agents/
 ```
 
 ## Quick Start
