@@ -57,6 +57,42 @@ If the best concept scores below `8` on distinctiveness or below `8` on product-
 
 Do not show three tiny variants of the same layout. They must be genuinely different directions.
 
+## Content Depth Protocol (Required)
+
+Default to comprehensive output depth unless the user explicitly asks for a small/single-page result.
+
+Depth rules:
+
+1. For broad business briefs, generate a real multi-page site map, not just one homepage.
+2. Major pages should usually include 5-8 meaningful sections each (not filler blocks).
+3. Avoid shallow page shells that are just hero + features + CTA.
+4. Ensure each page has a clear purpose in the funnel:
+- discovery (awareness)
+- evaluation (proof + detail)
+- decision (pricing, risk, conversion)
+5. Page content should feel complete enough to ship as a serious product marketing surface.
+
+If generation still feels thin, expand page scope and section detail before final output.
+
+## Section And Motion Diversity Protocol (Required)
+
+Section variation must be structural, not only visual.
+
+Rules:
+
+1. Each major page should include multiple section behaviors (not one repeated shell).
+2. Across the full site, include both static and scroll-driven moments where appropriate.
+3. Vary section compositions across pages: at minimum mix dense, airy, narrative, and proof-oriented structures.
+4. Motion must be section-aware:
+- hero moments can use staged reveal or cinematic entrance
+- modular grids can use stagger and depth cues
+- sticky or pinned sections should use progress-linked transitions
+- proof rails can use subtle continuous drift
+- CTA areas should use tactile hover/press feedback
+5. Do not apply one animation recipe everywhere.
+
+If two sections feel too similar in structure and motion, revise one of them.
+
 ## Design Logic
 
 ### 1. Product Dissection
@@ -184,7 +220,8 @@ Every generation should feel fully fleshed out and premium.
 
 1. Build enough structure for the product to feel real and complete.
 2. Avoid sparse pages with only a hero and a few weak cards.
-3. Sweat the details so the result feels like an award-level product surface, not a quick mock.
+3. Prefer deeper page systems over single-page minimal output when the brief is broad.
+4. Sweat the details so the result feels like an award-level product surface, not a quick mock.
 
 ## Final Rule
 
