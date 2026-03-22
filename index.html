@@ -222,13 +222,19 @@
                 text: '#131313'
             },
             antigravity: {
-                type: 'wordmark',
+                type: 'symbol',
                 label: 'Antigravity',
-                wordmark: 'anti',
+                viewBox: '0 0 128 128',
                 front: '#efe9ff',
-                side: '#9a87d0',
-                edge: '#564489',
-                text: '#34255c'
+                side: '#a593d7',
+                edge: '#59488d',
+                render: (fill, stroke) => (
+                    <g fill={fill} stroke={stroke} strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M64 18L106 108H88L79 86H49L40 108H22L64 18Z" />
+                        <path d="M53 70H75" />
+                        <path d="M22 42C34 29 53 24 72 26C89 28 101 37 106 48" fill="none" />
+                    </g>
+                )
             },
             opencode: {
                 type: 'symbol',
@@ -426,14 +432,14 @@
         // Section 1: Hero
         const Hero = () => {
             const integrationsLeft = [
-                { name: "Claude Code", logo: "claude", x: 8, y: 10, rotate: -18, scale: 1.06 },
-                { name: "Cursor", logo: "cursor", x: 28, y: 31, rotate: -8, scale: 0.98 },
-                { name: "Codex", logo: "codex", x: 46, y: 54, rotate: 8, scale: 0.96 }
+                { name: "Claude Code", logo: "claude", x: 6, y: 10, rotate: -22, scale: 1.02 },
+                { name: "Cursor", logo: "cursor", x: 24, y: 33, rotate: -7, scale: 0.98 },
+                { name: "Codex", logo: "codex", x: 8, y: 57, rotate: 12, scale: 0.98 }
             ];
             const integrationsRight = [
-                { name: "Antigravity", logo: "antigravity", x: 46, y: 11, rotate: 18, scale: 1.05 },
-                { name: "OpenCode", logo: "opencode", x: 26, y: 32, rotate: 9, scale: 1.0 },
-                { name: "Windsurf", logo: "windsurf", x: 8, y: 55, rotate: -10, scale: 0.98 }
+                { name: "Antigravity", logo: "antigravity", x: 7, y: 11, rotate: 22, scale: 1.02 },
+                { name: "OpenCode", logo: "opencode", x: 24, y: 33, rotate: 8, scale: 1.0 },
+                { name: "Windsurf", logo: "windsurf", x: 7, y: 57, rotate: -12, scale: 0.98 }
             ];
 
             return (
