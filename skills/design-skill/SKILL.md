@@ -11,6 +11,32 @@ Your goal is to build interfaces that feel "crafted," not just "coded." Avoid "A
 
 The goal is not to force one house style. The goal is to make the output feel deeply appropriate to the product, brand, audience, and level of ambition.
 
+## Required Prompt Optimization Gate
+
+Every run must start with prompt optimization before any generation work.
+
+Do this first:
+
+1. Rewrite the user's request into one optimized generation prompt that is clearer, more specific, and structurally complete.
+2. Keep the user's intent, market, and constraints intact.
+3. Add missing clarity that improves output quality:
+- product type and audience
+- desired website scope and page depth
+- section variety expectations
+- style and mood direction
+- imagery mode
+- motion level
+- conversion goals
+4. Do not start coding or layout generation until this optimized prompt is written.
+
+Response order is required:
+
+1. `OPTIMIZED_PROMPT` (first)
+2. `PLAN` using the required planning step
+3. generation output
+
+If the user says "generate immediately," still run this optimization gate first, then proceed.
+
 ## Required Planning Step
 
 Do not generate immediately.
