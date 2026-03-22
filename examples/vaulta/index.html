@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vaulta Capital</title>
+    <link rel="stylesheet" href="../common.css" />
+    <style>
+      :root {
+        --bg: #0b0f19;
+        --panel: rgba(255, 255, 255, 0.04);
+        --panel-strong: rgba(255, 255, 255, 0.08);
+        --text: #f2f5ff;
+        --muted: rgba(242, 245, 255, 0.68);
+        --line: rgba(163, 190, 255, 0.2);
+        --accent: #7aa2ff;
+        --accent-soft: rgba(122, 162, 255, 0.16);
+        --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+        --sans: "Inter", "Segoe UI", system-ui, sans-serif;
+        --mono: "JetBrains Mono", Menlo, monospace;
+      }
+
+      body {
+        background: radial-gradient(circle at 20% 0%, #152445 0%, var(--bg) 34%, #090c14 100%);
+      }
+
+      .hero-shell {
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: linear-gradient(180deg, rgba(11, 15, 25, 0.88), rgba(11, 15, 25, 0.72));
+        overflow: hidden;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 0;
+      }
+
+      .hero-copy {
+        padding: 34px;
+      }
+
+      .hero-copy h1 {
+        margin: 10px 0 14px;
+        font-size: clamp(54px, 7vw, 106px);
+        line-height: 0.9;
+        letter-spacing: -0.05em;
+      }
+
+      .hero-copy p {
+        color: var(--muted);
+        font-size: clamp(17px, 2vw, 23px);
+      }
+
+      .terminal {
+        border-left: 1px solid var(--line);
+        padding: 18px;
+        background: #090d16;
+      }
+
+      .terminal pre {
+        margin: 0;
+        color: #bee1ff;
+        font-family: var(--mono);
+        font-size: 12px;
+        line-height: 1.55;
+      }
+
+      .kpi-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1px;
+        background: var(--line);
+      }
+
+      .kpi-grid article {
+        background: var(--panel);
+        padding: 16px;
+      }
+
+      .kpi-grid strong {
+        display: block;
+        margin-top: 4px;
+        font-size: 30px;
+      }
+
+      .mix-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 16px;
+      }
+
+      .split-stack {
+        display: grid;
+        gap: 12px;
+      }
+
+      .split-stack article,
+      .quote-card,
+      .panel {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--panel);
+        padding: 18px;
+      }
+
+      .split-stack h3,
+      .quote-card h3,
+      .panel h3 {
+        margin: 8px 0 8px;
+        font-size: 28px;
+        line-height: 0.94;
+        letter-spacing: -0.03em;
+      }
+
+      .split-stack p,
+      .quote-card p,
+      .panel p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .deal-table {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        overflow: hidden;
+        background: var(--panel);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 13px 16px;
+        text-align: left;
+        border-top: 1px solid var(--line);
+      }
+
+      th {
+        border-top: none;
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-family: var(--mono);
+      }
+
+      @media (max-width: 1080px) {
+        .hero-grid,
+        .kpi-grid,
+        .mix-grid {
+          grid-template-columns: 1fr;
+        }
+        .terminal {
+          border-left: none;
+          border-top: 1px solid var(--line);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="page-shell topbar">
+        <a class="brand" href="../../index.html"><span class="brand-mark"></span><span>Vaulta Capital</span></a>
+        <nav class="nav">
+          <a href="#overview">Overview</a>
+          <a href="#strategy">Strategy</a>
+          <a href="#risk">Risk</a>
+          <a href="#execution">Execution</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section hero" id="overview">
+        <div class="page-shell hero-shell">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <div class="eyebrow">Institutional wealth platform</div>
+              <h1>Alpha with controls.</h1>
+              <p>Vaulta blends discretionary portfolio intelligence with machine-speed execution safeguards for high-net-worth and family-office capital.</p>
+              <div class="hero-actions">
+                <a class="button" href="#execution">Request mandate</a>
+                <a class="ghost" href="#risk">View risk framework</a>
+              </div>
+            </div>
+            <aside class="terminal panel">
+              <pre>
+MANDATE : GLOBAL MULTI-ASSET
+RISK BUDGET : 4.8%
+TARGET VOL : 7.2%
+MAX DD : 6.0%
+
+LATEST:
+US TREASURY CURVE STEEPENING +12bps
+AI INFRA EQUITIES EXPOSURE REDUCED -2.1%
+FX HEDGE COVERAGE INCREASED TO 68%
+              </pre>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="page-shell kpi-grid metric-rail">
+          <article><div class="eyebrow">YTD net return</div><strong>14.8%</strong></article>
+          <article><div class="eyebrow">Sharpe ratio</div><strong>1.74</strong></article>
+          <article><div class="eyebrow">Max drawdown</div><strong>-4.1%</strong></article>
+          <article><div class="eyebrow">Assets advised</div><strong>$3.2B</strong></article>
+        </div>
+      </section>
+
+      <section class="section" id="strategy">
+        <div class="page-shell section-head">
+          <div>
+            <div class="eyebrow">Portfolio architecture</div>
+            <h2>Three-layer strategy stack.</h2>
+          </div>
+        </div>
+        <div class="page-shell mix-grid">
+          <div class="split-stack">
+            <article class="card"><div class="eyebrow">Core</div><h3>Resilient base</h3><p>Global fixed income, quality equity, and macro hedges tuned for capital preservation.</p></article>
+            <article class="card"><div class="eyebrow">Satellite</div><h3>Thematic growth</h3><p>Focused exposure to structural trends with strict position sizing and stop governance.</p></article>
+            <article class="card"><div class="eyebrow">Tactical</div><h3>Event windows</h3><p>Short-horizon deployments around macro and earnings dislocations with tight risk rails.</p></article>
+          </div>
+          <aside class="quote-card">
+            <div class="eyebrow">Style note</div>
+            <h3>Precision over spectacle.</h3>
+            <p>Every section is built for clarity first: information hierarchy, decision relevance, and controlled visual cadence.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="risk">
+        <div class="page-shell section-head">
+          <div>
+            <div class="eyebrow">Risk desk</div>
+            <h2>Live guardrails and scenario control.</h2>
+          </div>
+        </div>
+        <div class="page-shell deal-table table-card">
+          <table>
+            <thead>
+              <tr><th>Control</th><th>Threshold</th><th>Current</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Portfolio volatility</td><td>&lt; 8.0%</td><td>7.2%</td><td>In band</td></tr>
+              <tr><td>Single position cap</td><td>&lt; 4.0%</td><td>3.2%</td><td>In band</td></tr>
+              <tr><td>Sector concentration</td><td>&lt; 24%</td><td>18%</td><td>In band</td></tr>
+              <tr><td>Liquidity horizon</td><td>&lt; 10 days</td><td>6 days</td><td>In band</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" id="execution">
+        <div class="page-shell footer-cta">
+          <div>
+            <div class="eyebrow">Engage</div>
+            <h2>Open a managed mandate.</h2>
+            <p class="section-note">Private onboarding for qualified investors, family offices, and institutional allocators.</p>
+          </div>
+          <a class="button" href="#">Schedule strategy review</a>
+        </div>
+      </section>
+    </main>
+    <script src="../common.js" defer></script>
+  </body>
+</html>

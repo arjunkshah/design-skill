@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Helio Grid Health</title>
+    <link rel="stylesheet" href="../common.css" />
+    <style>
+      :root {
+        --bg: #f7fbfa;
+        --panel: #ffffff;
+        --panel-strong: #eaf5f2;
+        --text: #10211d;
+        --muted: rgba(16, 33, 29, 0.65);
+        --line: rgba(16, 33, 29, 0.13);
+        --accent: #1f7f68;
+        --accent-soft: rgba(31, 127, 104, 0.14);
+        --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+        --sans: "Inter", system-ui, sans-serif;
+        --mono: "JetBrains Mono", Menlo, monospace;
+      }
+
+      body {
+        background:
+          radial-gradient(circle at 6% -4%, rgba(118, 211, 181, 0.2), transparent 34%),
+          radial-gradient(circle at 92% 12%, rgba(82, 185, 157, 0.16), transparent 30%),
+          var(--bg);
+      }
+
+      .hero-frame {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        overflow: hidden;
+        background: var(--panel);
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+      }
+
+      .hero-copy {
+        padding: 30px;
+      }
+
+      .hero-copy h1 {
+        margin: 8px 0 12px;
+        font-size: clamp(52px, 6.7vw, 104px);
+        line-height: 0.88;
+        letter-spacing: -0.05em;
+      }
+
+      .hero-copy p {
+        color: var(--muted);
+        font-size: clamp(17px, 2vw, 23px);
+      }
+
+      .hero-chart {
+        border-left: 1px solid var(--line);
+        padding: 18px;
+      }
+
+      .chart-box {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: linear-gradient(180deg, #f4fbf8, #eef8f5);
+        min-height: 420px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .chart-line {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, transparent 0%, transparent 78%, rgba(31, 127, 104, 0.14) 100%),
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='880' height='420' viewBox='0 0 880 420'%3E%3Cpath d='M0 290 C120 240, 220 290, 320 210 C420 130, 540 200, 650 140 C740 88, 810 120, 880 70' fill='none' stroke='%231f7f68' stroke-width='8'/%3E%3C/svg%3E")
+            center/cover no-repeat;
+      }
+
+      .kpis {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1px;
+        background: var(--line);
+      }
+
+      .kpis article {
+        background: var(--panel);
+        padding: 16px;
+      }
+
+      .kpis strong {
+        display: block;
+        margin-top: 4px;
+        font-size: 30px;
+      }
+
+      .ops-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1px;
+        background: var(--line);
+      }
+
+      .ops-grid article {
+        background: var(--panel);
+        padding: 22px;
+      }
+
+      .ops-grid h3 {
+        margin: 8px 0;
+        font-size: 28px;
+        line-height: 0.95;
+        letter-spacing: -0.03em;
+      }
+
+      .ops-grid p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .proof {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: var(--panel);
+        overflow: hidden;
+      }
+
+      .proof table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .proof th,
+      .proof td {
+        padding: 13px 16px;
+        text-align: left;
+        border-top: 1px solid var(--line);
+      }
+
+      .proof th {
+        border-top: none;
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-family: var(--mono);
+      }
+
+      @media (max-width: 1080px) {
+        .hero-frame,
+        .kpis,
+        .ops-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-chart {
+          border-left: none;
+          border-top: 1px solid var(--line);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="page-shell topbar">
+        <a class="brand" href="../../index.html"><span class="brand-mark"></span><span>Helio Grid</span></a>
+        <nav class="nav">
+          <a href="#signals">Signals</a>
+          <a href="#operations">Operations</a>
+          <a href="#proof">Proof</a>
+          <a href="#book">Book</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section hero" id="signals">
+        <div class="page-shell hero-frame">
+          <div class="hero-copy">
+            <div class="eyebrow">Healthcare operations platform</div>
+            <h1>Keep care systems ahead of demand.</h1>
+            <p>Helio Grid predicts staffing load, bed pressure, and referral bottlenecks so hospital operations teams can act before service quality drops.</p>
+            <div class="hero-actions">
+              <a class="button" href="#book">Request demo</a>
+              <a class="ghost" href="#proof">See outcomes</a>
+            </div>
+          </div>
+          <div class="hero-chart panel">
+            <div class="chart-box">
+              <div class="chart-line"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="page-shell kpis metric-rail">
+          <article><div class="eyebrow">Average wait time</div><strong>-18%</strong></article>
+          <article><div class="eyebrow">ER diversion events</div><strong>-26%</strong></article>
+          <article><div class="eyebrow">Nurse overtime</div><strong>-14%</strong></article>
+          <article><div class="eyebrow">Model confidence</div><strong>92%</strong></article>
+        </div>
+      </section>
+
+      <section class="section" id="operations">
+        <div class="page-shell section-head">
+          <div>
+            <div class="eyebrow">Ops modules</div>
+            <h2>Built for hospital command teams.</h2>
+          </div>
+        </div>
+        <div class="page-shell ops-grid">
+          <article class="card"><div class="eyebrow">Forecast</div><h3>Capacity pulse</h3><p>Daily projections for admissions, discharges, and unit strain.</p></article>
+          <article class="card"><div class="eyebrow">Coordinate</div><h3>Staffing planner</h3><p>Shift recommendations mapped to acuity and policy constraints.</p></article>
+          <article class="card"><div class="eyebrow">Resolve</div><h3>Flow actions</h3><p>Prescribed interventions for referral handoff and transfer bottlenecks.</p></article>
+        </div>
+      </section>
+
+      <section class="section" id="proof">
+        <div class="page-shell section-head">
+          <div>
+            <div class="eyebrow">System proof</div>
+            <h2>Live deployments.</h2>
+          </div>
+        </div>
+        <div class="page-shell proof table-card">
+          <table>
+            <thead>
+              <tr><th>Health system</th><th>Beds</th><th>Primary impact</th><th>Window</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Northline Health</td><td>1,200</td><td>ED queue reduction 21%</td><td>90 days</td></tr>
+              <tr><td>Westbrook Clinics</td><td>840</td><td>Referral completion +17%</td><td>120 days</td></tr>
+              <tr><td>Mercy Urban</td><td>1,540</td><td>Overtime spend -12%</td><td>60 days</td></tr>
+              <tr><td>Aster Network</td><td>2,090</td><td>Transfer delay -19%</td><td>100 days</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" id="book">
+        <div class="page-shell footer-cta">
+          <div>
+            <div class="eyebrow">Deployment</div>
+            <h2>Run a 30-day operations pilot.</h2>
+            <p class="section-note">Connect scheduling, census, and referral feeds to measure impact fast.</p>
+          </div>
+          <a class="button" href="#">Schedule architecture review</a>
+        </div>
+      </section>
+    </main>
+    <script src="../common.js" defer></script>
+  </body>
+</html>
