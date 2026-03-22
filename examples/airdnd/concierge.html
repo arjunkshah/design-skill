@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Airdnd Concierge | Transaction Command Center</title>
+    <link rel="stylesheet" href="../common.css" />
+    <style>
+      :root {
+        --bg: #f3efe9;
+        --panel: #fff;
+        --text: #181411;
+        --muted: rgba(24, 20, 17, 0.66);
+        --line: rgba(24, 20, 17, 0.12);
+        --accent: #7e4a31;
+        --serif: "Canela", "Iowan Old Style", Georgia, serif;
+        --sans: "Inter", "Segoe UI", system-ui, sans-serif;
+        --mono: "JetBrains Mono", Menlo, monospace;
+      }
+      body { background: var(--bg); color: var(--text); }
+      .site-header { background: color-mix(in srgb, var(--bg) 92%, white 8%); }
+      .brand-mark { background: var(--accent); }
+      .section { padding: 64px 0; border-top: none; }
+
+      .hero-card {
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: var(--panel);
+        padding: 30px;
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 20px;
+      }
+      .hero-copy h1 {
+        margin: 8px 0 12px;
+        font-family: var(--serif);
+        font-size: clamp(48px, 6.2vw, 94px);
+        line-height: 0.9;
+        letter-spacing: -0.05em;
+      }
+      .hero-copy p { margin: 0; color: var(--muted); font-size: clamp(18px, 2vw, 24px); }
+      .hero-panel {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 16px;
+        background: color-mix(in srgb, var(--panel) 88%, #f7f2ed 12%);
+      }
+      .hero-panel .small-code { color: var(--muted); }
+
+      .step-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1px;
+        background: var(--line);
+      }
+      .step-grid article { background: var(--panel); padding: 20px; }
+      .step-grid h3 { margin: 10px 0 8px; font-size: 24px; line-height: 0.95; letter-spacing: -0.03em; }
+      .step-grid p { margin: 0; color: var(--muted); }
+
+      .ops-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 16px;
+      }
+      .ops-card, .ops-list {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: var(--panel);
+        padding: 18px;
+      }
+      .ops-card img {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-top: 10px;
+      }
+      .ops-list ul { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 10px; }
+      .ops-list li { border-top: 1px solid var(--line); padding-top: 10px; color: var(--muted); }
+
+      .faq-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .faq-grid article {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--panel);
+        padding: 18px;
+      }
+      .faq-grid h3 { margin: 0 0 8px; font-size: 20px; letter-spacing: -0.02em; }
+      .faq-grid p { margin: 0; color: var(--muted); }
+
+      .cta {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 24px;
+        background: var(--panel);
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 14px;
+      }
+      .cta h2 {
+        margin: 8px 0 8px;
+        font-family: var(--serif);
+        font-size: clamp(34px, 4vw, 58px);
+        line-height: 0.92;
+        letter-spacing: -0.04em;
+      }
+
+      .section-head h2 {
+        margin: 0 0 12px;
+        font-family: var(--serif);
+        font-size: clamp(38px, 4vw, 68px);
+        line-height: 0.9;
+        letter-spacing: -0.04em;
+      }
+
+      @media (max-width: 1080px) {
+        .hero-card, .step-grid, .ops-grid, .faq-grid { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 720px) {
+        .nav { display: none; }
+        .cta { flex-direction: column; align-items: flex-start; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="page-shell topbar">
+        <a class="brand" href="./index.html"><span class="brand-mark"></span><span>Airdnd</span></a>
+        <nav class="nav">
+          <a href="./index.html">Homes</a>
+          <a href="./buyers.html">Buyers</a>
+          <a href="./sellers.html">Sellers</a>
+          <a href="./concierge.html">Concierge</a>
+        </nav>
+        <a class="chip" href="./index.html">Back to listings</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="page-shell hero-card">
+          <div class="hero-copy">
+            <div class="eyebrow">Transaction concierge</div>
+            <h1>One command center for premium deals.</h1>
+            <p>Airdnd concierge runs underwriting, negotiation, legal, tax, and close operations as one coordinated system.</p>
+            <div class="hero-actions">
+              <a class="button" href="./buyers.html">Buyer intake</a>
+              <a class="ghost" href="./sellers.html">Seller intake</a>
+            </div>
+          </div>
+          <div class="hero-panel panel">
+            <div class="small-code">ACTIVE WORKSPACES</div>
+            <div class="mini-list">
+              <div><strong>Bel Air estate</strong><br /><span class="section-note">legal review + financing finalization</span></div>
+              <div><strong>Mayfair penthouse</strong><br /><span class="section-note">cross-border tax structure</span></div>
+              <div><strong>St. Barts villa</strong><br /><span class="section-note">title and utility compliance checks</span></div>
+              <div><strong>Dubai portfolio bundle</strong><br /><span class="section-note">offer strategy and phased close</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="page-shell section-head">
+          <div><div class="eyebrow">Workflow</div><h2>Concierge sequence from mandate to transfer.</h2></div>
+        </div>
+        <div class="page-shell step-grid timeline">
+          <article class="card"><div class="eyebrow">01</div><h3>Mandate brief</h3><p>Scope, timeline, and risk profile are translated into one operating dossier.</p></article>
+          <article class="card"><div class="eyebrow">02</div><h3>Deal room</h3><p>All diligence documents, constraints, and stakeholder approvals live in one shared workspace.</p></article>
+          <article class="card"><div class="eyebrow">03</div><h3>Negotiation loop</h3><p>Term sheets and revisions are managed with legal and finance teams in synchronized cadence.</p></article>
+          <article class="card"><div class="eyebrow">04</div><h3>Close orchestration</h3><p>Escrow, settlement, and ownership transfer are finalized with contingency tracking.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="page-shell ops-grid">
+          <article class="ops-card card">
+            <div class="eyebrow">Ops visibility</div>
+            <h3 style="margin:8px 0 10px;font-size:30px;line-height:0.95;letter-spacing:-0.03em;">Live transaction intelligence.</h3>
+            <p>Concierge dashboards expose milestone health, legal blockers, financing dependencies, and close probability in real time.</p>
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1700&q=80" alt="Luxury transaction operations desk" />
+          </article>
+          <aside class="ops-list table-card">
+            <div class="eyebrow">Current SLA</div>
+            <h3 style="margin:8px 0 2px;font-size:34px;letter-spacing:-0.04em;">24h response</h3>
+            <ul>
+              <li>Dedicated concierge lead per transaction</li>
+              <li>Daily cross-functional sync for active deals</li>
+              <li>48h diligence escalation turnaround</li>
+              <li>Weekly executive update for all principals</li>
+              <li>Post-close onboarding included for 30 days</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="page-shell section-head">
+          <div><div class="eyebrow">FAQ</div><h2>Concierge questions</h2></div>
+        </div>
+        <div class="page-shell faq-grid">
+          <article class="quote-card"><h3>Who is my primary contact?</h3><p>A senior concierge lead remains accountable end-to-end and coordinates specialists as needed.</p></article>
+          <article class="quote-card"><h3>Can you work with my existing advisors?</h3><p>Yes. We integrate with your legal, tax, and wealth teams through shared transaction protocols.</p></article>
+          <article class="quote-card"><h3>Is this only for cross-border deals?</h3><p>No. Domestic and cross-border transactions both run through the same operating standard.</p></article>
+          <article class="quote-card"><h3>What happens post-close?</h3><p>We provide handoff support for utilities, staffing, compliance renewals, and asset onboarding.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="page-shell cta">
+          <div>
+            <div class="eyebrow">Start</div>
+            <h2>Open a concierge workspace.</h2>
+            <p class="section-note">Share your property or acquisition mandate and we set up the full transaction stack in 24 hours.</p>
+          </div>
+          <a class="button" href="./buyers.html">Launch intake</a>
+        </div>
+      </section>
+    </main>
+
+    <script src="../common.js" defer></script>
+  </body>
+</html>

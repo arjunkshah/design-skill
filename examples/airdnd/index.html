@@ -162,7 +162,12 @@
       }
 
       .section {
-        padding: 70px 0;
+        padding: 64px 0;
+        border-top: none;
+      }
+
+      .section + .section {
+        padding-top: 74px;
       }
 
       .section-title {
@@ -425,6 +430,116 @@
         padding: 12px;
       }
 
+      .district-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .district-card {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: var(--panel);
+        overflow: hidden;
+      }
+
+      .district-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+      }
+
+      .district-card div {
+        padding: 12px 14px 14px;
+      }
+
+      .district-card h3 {
+        margin: 0;
+        font-size: 18px;
+      }
+
+      .district-card p {
+        margin: 4px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .workflow {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1px;
+        background: var(--line);
+      }
+
+      .workflow article {
+        background: var(--panel);
+        padding: 20px;
+      }
+
+      .workflow h3 {
+        margin: 8px 0 8px;
+        font-size: 24px;
+        line-height: 0.95;
+        letter-spacing: -0.03em;
+      }
+
+      .workflow p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .deal-table {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        overflow: hidden;
+        background: var(--panel);
+      }
+
+      .deal-table table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .deal-table th,
+      .deal-table td {
+        padding: 14px 16px;
+        text-align: left;
+        border-top: 1px solid var(--line);
+      }
+
+      .deal-table th {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        border-top: none;
+      }
+
+      .faq-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .faq-grid article {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--panel);
+        padding: 18px;
+      }
+
+      .faq-grid h3 {
+        margin: 0 0 8px;
+        font-size: 20px;
+        letter-spacing: -0.02em;
+      }
+
+      .faq-grid p {
+        margin: 0;
+        color: var(--muted);
+      }
+
       @media (max-width: 1140px) {
         .search-surface {
           grid-template-columns: 1fr 1fr;
@@ -435,6 +550,12 @@
         }
         .listing-shell {
           grid-template-columns: 1fr;
+        }
+        .district-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .workflow {
+          grid-template-columns: 1fr 1fr;
         }
         .map-panel {
           position: static;
@@ -459,6 +580,11 @@
         .footer-cta {
           grid-template-columns: 1fr;
         }
+        .faq-grid,
+        .district-grid,
+        .workflow {
+          grid-template-columns: 1fr;
+        }
         .metric-rail {
           grid-template-columns: 1fr;
         }
@@ -470,14 +596,14 @@
       <div class="page-shell topbar">
         <a class="brand" href="../../index.html"><span class="brand-mark"></span><span>Airdnd</span></a>
         <nav class="nav">
-          <a href="#homes">Homes</a>
-          <a href="#buyers">Buyers</a>
-          <a href="#sellers">Sellers</a>
-          <a href="#concierge">Concierge</a>
+          <a href="./index.html">Homes</a>
+          <a href="./buyers.html">Buyers</a>
+          <a href="./sellers.html">Sellers</a>
+          <a href="./concierge.html">Concierge</a>
         </nav>
         <div class="top-actions">
-          <a class="chip" href="#">List Property</a>
-          <a class="button" href="#">Sign In</a>
+          <a class="chip" href="./sellers.html">List Property</a>
+          <a class="button" href="./buyers.html">Sign In</a>
         </div>
       </div>
     </header>
@@ -626,6 +752,107 @@
               <a class="button" href="#">Book advisor call</a>
               <a class="ghost" href="#">See buyer process</a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="districts">
+        <div class="page-shell">
+          <div class="section-title section-head">
+            <h2>Prime districts.</h2>
+            <p>Search by market narrative, not just map radius. Each district feed is tuned to buyer profile, capital strategy, and liquidity timing.</p>
+          </div>
+          <div class="district-grid">
+            <article class="district-card card">
+              <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1100&q=80" alt="Beverly Hills district" />
+              <div><h3>Beverly Hills</h3><p>84 live listings · median $17.2M</p></div>
+            </article>
+            <article class="district-card card">
+              <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1100&q=80" alt="Aspen district" />
+              <div><h3>Aspen</h3><p>39 live listings · median $12.9M</p></div>
+            </article>
+            <article class="district-card card">
+              <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1100&q=80" alt="Lake Como district" />
+              <div><h3>Lake Como</h3><p>27 live listings · median $24.6M</p></div>
+            </article>
+            <article class="district-card card">
+              <img src="https://images.unsplash.com/photo-1465800872432-2f8b6d3f2628?auto=format&fit=crop&w=1100&q=80" alt="Mayfair district" />
+              <div><h3>Mayfair</h3><p>31 live listings · median $15.4M</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="concierge">
+        <div class="page-shell">
+          <div class="section-title section-head">
+            <h2>How Airdnd closes.</h2>
+            <p>One operating spine from first tour to signed transfer docs. No broken handoffs across agents, legal, tax, and escrow.</p>
+          </div>
+          <div class="workflow timeline">
+            <article class="card">
+              <div class="eyebrow">Step 1</div>
+              <h3>Curate</h3>
+              <p>Buyer intent, risk appetite, and timeline are translated into a precise target profile before property exposure.</p>
+            </article>
+            <article class="card">
+              <div class="eyebrow">Step 2</div>
+              <h3>Underwrite</h3>
+              <p>Deal teams vet title, zoning, liabilities, and operating costs in parallel with financing and tax structuring.</p>
+            </article>
+            <article class="card">
+              <div class="eyebrow">Step 3</div>
+              <h3>Negotiate</h3>
+              <p>Pricing, terms, and contingencies are run through market comps and scenario modeling with real-time legal review.</p>
+            </article>
+            <article class="card">
+              <div class="eyebrow">Step 4</div>
+              <h3>Close</h3>
+              <p>Escrow, entity setup, and post-close onboarding are coordinated as one workflow so keys transfer with zero churn.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="transactions">
+        <div class="page-shell">
+          <div class="section-title section-head">
+            <h2>Recent transactions.</h2>
+            <p>Representative closings from the last 90 days across on-market and invite-only inventory.</p>
+          </div>
+          <div class="deal-table table-card">
+            <table>
+              <thead>
+                <tr>
+                  <th>Market</th>
+                  <th>Asset</th>
+                  <th>Price</th>
+                  <th>Days to close</th>
+                  <th>Channel</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Monaco</td><td>Harbor penthouse</td><td>$29.8M</td><td>36</td><td>Off-market</td></tr>
+                <tr><td>Malibu</td><td>Oceanfront estate</td><td>$41.2M</td><td>49</td><td>Private list</td></tr>
+                <tr><td>Dubai Hills</td><td>Golf villa compound</td><td>$15.6M</td><td>41</td><td>On-market</td></tr>
+                <tr><td>St. Moritz</td><td>Ski residence</td><td>$12.4M</td><td>33</td><td>Off-market</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="page-shell">
+          <div class="section-title section-head">
+            <h2>Buyer and seller FAQ.</h2>
+            <p>Fast answers for how the platform handles discretion, diligence, and cross-border complexity.</p>
+          </div>
+          <div class="faq-grid">
+            <article class="quote-card"><h3>Are listings publicly visible?</h3><p>No. Most inventory is tiered: public teaser, qualified access, then full diligence room after verification.</p></article>
+            <article class="quote-card"><h3>Can you handle international buyers?</h3><p>Yes. Airdnd supports tax, legal, and financing partners across 31 markets with localized close workflows.</p></article>
+            <article class="quote-card"><h3>How are valuations set for sellers?</h3><p>We run a narrative-led valuation model: comp engine + buyer demand profile + timing windows + asset positioning.</p></article>
+            <article class="quote-card"><h3>Do you support discreet exits?</h3><p>Yes. Invite-only campaigns, controlled data-room access, and private viewing flows are standard for premium listings.</p></article>
           </div>
         </div>
       </section>
