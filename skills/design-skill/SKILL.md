@@ -31,6 +31,32 @@ Quality constraints:
 4. Do not default to the same hero composition repeatedly.
 5. Ensure meaningful structural contrast: at least two major section types on each page must differ in composition and behavior.
 
+## Concept Divergence Pass (Required)
+
+Before building the final website, generate 3 clearly different design concepts from the same brief.
+
+Each concept must differ materially in:
+
+- typographic voice
+- color energy and temperature
+- hero composition
+- section rhythm
+- motion character
+
+Then score each concept (1-10) on:
+
+- clarity of hierarchy
+- distinctiveness
+- product-fit
+- conversion readiness
+- implementation realism
+
+Select the best-scoring concept and build only that one.
+
+If the best concept scores below `8` on distinctiveness or below `8` on product-fit, revise concepts and re-run the scoring once before generating.
+
+Do not show three tiny variants of the same layout. They must be genuinely different directions.
+
 ## Design Logic
 
 ### 1. Product Dissection
@@ -70,6 +96,23 @@ Reject outputs that fall into these traps:
 5. No generic "Welcome to [App Name]" hero copy.
 6. No repetitive section shells with different content inside them.
 7. No mobile layout that is just a shrunken desktop stack.
+8. No repeating your own recent visual recipe from prior generations.
+9. No "safe default SaaS" fallback when the brief is broad.
+
+## Quality Gate (Required)
+
+Before final output, run a self-check.
+
+Reject and revise if any of these are true:
+
+- The design could be mistaken for a generic template.
+- Hero, section rhythm, and typography feel too familiar to previous outputs.
+- The page has weak focal hierarchy.
+- Motion is decorative but not structural.
+- The style fingerprint is not visible in real layout decisions.
+- The result does not look premium without relying on gradients and shadow tricks.
+
+When revising, change structural choices first (layout, hierarchy, pacing), then styling.
 
 ## Variation And Section Range
 
@@ -156,5 +199,7 @@ Before generating, decide:
 - what typography system fits
 - what imagery mode fits
 - what motion level fits
+
+Then run the Concept Divergence Pass and Quality Gate.
 
 Then build the page from those decisions instead of falling back to generic startup UI defaults.
