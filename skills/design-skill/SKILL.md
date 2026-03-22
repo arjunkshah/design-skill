@@ -169,6 +169,32 @@ Depth rules:
 
 If generation still feels thin, expand page scope and section detail before final output.
 
+## Homepage-First Information Architecture (Required)
+
+Do not split the landing page into many thin pages.
+
+Rules:
+
+1. The landing page must be substantial by default, typically `8-14 sections` with clear narrative flow.
+2. Keep core marketing narrative on the landing page:
+- thesis / hero
+- value framing
+- product stage
+- proof
+- differentiation
+- conversion
+3. Additional pages should extend depth, not replace core landing sections:
+- detailed feature breakdowns
+- industry/use-case specifics
+- pricing and plan detail
+- docs/resources/company depth
+4. Do not move key landing sections into separate pages just to increase page count.
+5. Multi-page structure should feel like:
+- one strong, comprehensive landing page
+- plus focused supporting pages for deeper exploration
+
+If the output feels like a fragmented homepage spread across multiple pages, consolidate back into the landing page.
+
 ## Section Program Library (Required)
 
 Before generating, select exactly one page program per major page.
