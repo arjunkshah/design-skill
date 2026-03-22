@@ -219,7 +219,15 @@
                 front: '#f3f2ee',
                 side: '#9f9b91',
                 edge: '#4d4a42',
-                text: '#131313'
+                text: '#131313',
+                pillWidth: 130,
+                pillHeight: 66,
+                pillRadius: 21,
+                textY: 98,
+                textSize: 27,
+                textSpacing: 2.2,
+                textStyle: 'italic',
+                textWeight: '700'
             },
             antigravity: {
                 type: 'symbol',
@@ -285,16 +293,33 @@
         };
         const ExtrudedWordmark = ({ config }) => {
             const layers = Array.from({ length: 7 }, (_, index) => 7 - index);
+            const pillWidth = config.pillWidth || 128;
+            const pillHeight = config.pillHeight || 74;
+            const pillRadius = config.pillRadius || 22;
+            const pillX = 30;
+            const pillY = 54 + Math.floor((74 - pillHeight) / 2);
+            const textX = pillX + pillWidth / 2;
+            const textY = config.textY || 99;
             return (
                 <svg viewBox="0 0 220 220" className="w-32 h-32 md:w-36 md:h-36 overflow-visible drop-shadow-[0_24px_44px_rgba(0,0,0,0.18)]">
                     <ellipse cx="110" cy="185" rx="58" ry="16" fill="rgba(0,0,0,0.11)" />
                     {layers.map((depth) => (
                         <g key={depth} transform={`translate(${depth * 2.05} ${depth * 2.55})`}>
-                            <rect x="30" y="54" width="128" height="74" rx="22" fill={config.side} stroke={config.edge} strokeWidth="3" />
+                            <rect x={pillX} y={pillY} width={pillWidth} height={pillHeight} rx={pillRadius} fill={config.side} stroke={config.edge} strokeWidth="3" />
                         </g>
                     ))}
-                    <rect x="30" y="54" width="128" height="74" rx="22" fill={config.front} stroke={config.edge} strokeWidth="3" />
-                    <text x="94" y="99" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="26" letterSpacing="3" fontWeight="700" fill={config.text}>
+                    <rect x={pillX} y={pillY} width={pillWidth} height={pillHeight} rx={pillRadius} fill={config.front} stroke={config.edge} strokeWidth="3" />
+                    <text
+                        x={textX}
+                        y={textY}
+                        textAnchor="middle"
+                        fontFamily="var(--font-mono)"
+                        fontSize={config.textSize || 26}
+                        letterSpacing={config.textSpacing || 3}
+                        fontStyle={config.textStyle || 'normal'}
+                        fontWeight={config.textWeight || '700'}
+                        fill={config.text}
+                    >
                         {config.wordmark}
                     </text>
                 </svg>
