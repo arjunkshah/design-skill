@@ -143,12 +143,90 @@
         box-shadow: var(--shadow);
       }
 
-      .phone-card img {
+      .phone-shell {
         width: 100%;
         aspect-ratio: 9 / 14;
-        object-fit: cover;
         border-radius: 32px;
         border: 1px solid var(--line);
+        background: linear-gradient(180deg, rgba(255, 111, 66, 0.18), rgba(255, 203, 84, 0.12)), #fff7ef;
+        overflow: hidden;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+      }
+
+      .phone-topbar {
+        display: flex;
+        justify-content: space-between;
+        padding: 16px 18px;
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(31, 17, 10, 0.7);
+      }
+
+      .phone-feed {
+        padding: 0 16px 16px;
+        display: grid;
+        gap: 12px;
+      }
+
+      .phone-card-ui {
+        padding: 14px;
+        border: 1px solid rgba(31, 17, 10, 0.1);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      .phone-thumb {
+        height: 140px;
+        border-radius: 18px;
+        background: linear-gradient(135deg, rgba(255, 106, 61, 0.88), rgba(255, 203, 84, 0.68));
+        margin-bottom: 12px;
+      }
+
+      .phone-thumb.alt {
+        background: linear-gradient(135deg, rgba(31, 17, 10, 0.92), rgba(255, 106, 61, 0.74));
+      }
+
+      .phone-card-ui strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 18px;
+      }
+
+      .phone-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .phone-tags span {
+        padding: 7px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(31, 17, 10, 0.1);
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .phone-nav {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1px;
+        background: rgba(31, 17, 10, 0.08);
+      }
+
+      .phone-nav div {
+        padding: 14px 10px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.66);
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
       }
 
       .signal-strip {
@@ -373,7 +451,38 @@
               </div>
             </article>
             <aside class="phone-card" data-pop>
-              <img src="https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Pulse Loop mobile app mood" />
+              <div class="phone-shell" aria-label="Pulse Loop mobile app surface">
+                <div class="phone-topbar">
+                  <span>Pulse Loop</span>
+                  <span>11:48</span>
+                </div>
+                <div class="phone-feed">
+                  <article class="phone-card-ui">
+                    <div class="phone-thumb"></div>
+                    <strong>Afterhours / DTLA</strong>
+                    <p>Invite release opens in 18 minutes for members near the warehouse district.</p>
+                    <div class="phone-tags">
+                      <span>late set</span>
+                      <span>guest list</span>
+                    </div>
+                  </article>
+                  <article class="phone-card-ui">
+                    <div class="phone-thumb alt"></div>
+                    <strong>Host Circle</strong>
+                    <p>Three new curators opened weekend access for returning members and collaborators.</p>
+                    <div class="phone-tags">
+                      <span>drop map</span>
+                      <span>host side</span>
+                    </div>
+                  </article>
+                </div>
+                <div class="phone-nav">
+                  <div>feed</div>
+                  <div>map</div>
+                  <div>drops</div>
+                  <div>host</div>
+                </div>
+              </div>
               <div class="signal-strip">
                 <span class="signal-chip">drops</span>
                 <span class="signal-chip">guest lists</span>

@@ -120,6 +120,62 @@
         border-top: 1px solid var(--line);
       }
 
+      .booking-surface {
+        display: grid;
+        gap: 18px;
+        margin-top: 20px;
+      }
+
+      .booking-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1px;
+        background: var(--line);
+      }
+
+      .booking-grid article,
+      .availability-strip div,
+      .stay-note {
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      .booking-grid article {
+        padding: 14px;
+      }
+
+      .booking-grid strong {
+        display: block;
+        margin-top: 6px;
+        font-size: 22px;
+      }
+
+      .availability-strip {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 1px;
+        background: var(--line);
+      }
+
+      .availability-strip div {
+        padding: 12px 8px;
+        text-align: center;
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .availability-strip .is-open {
+        background: rgba(154, 110, 71, 0.16);
+      }
+
+      .stay-note {
+        padding: 14px 16px;
+        border: 1px solid var(--line);
+        font-size: 14px;
+        color: var(--muted);
+      }
+
       .residences {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -226,6 +282,21 @@
         padding: 28px;
       }
 
+      .journal-ui {
+        display: grid;
+        gap: 1px;
+        margin-top: 26px;
+        background: var(--line);
+      }
+
+      .journal-ui article {
+        display: grid;
+        grid-template-columns: 108px 1fr;
+        gap: 14px;
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.62);
+      }
+
       .journal-panel blockquote {
         margin: 26px 0;
         font-family: var(--serif);
@@ -276,7 +347,9 @@
         .ritual-grid,
         .journal-grid,
         .reserve-panel,
-        .residences {
+        .residences,
+        .booking-grid,
+        .journal-ui article {
           grid-template-columns: 1fr;
         }
 
@@ -329,10 +402,23 @@
                 <div class="label">Booking thesis</div>
                 <h3>A hospitality site should heighten desire before it asks for a date.</h3>
                 <p>The visual pace here is slower, the content is more image-led, and the CTA is meant to feel inevitable rather than immediate.</p>
-                <div class="reservation-list">
-                  <div>Arrival transfer and private welcome ritual</div>
-                  <div>Residences released by season and stay length</div>
-                  <div>Concierge response before formal booking</div>
+                <div class="booking-surface">
+                  <div class="booking-grid">
+                    <article><span class="label">Arrival</span><strong>24 Aug</strong></article>
+                    <article><span class="label">Departure</span><strong>28 Aug</strong></article>
+                    <article><span class="label">Residence</span><strong>Cliff Suite</strong></article>
+                    <article><span class="label">Guests</span><strong>02 adults</strong></article>
+                  </div>
+                  <div class="availability-strip">
+                    <div>Mon</div>
+                    <div class="is-open">Tue</div>
+                    <div class="is-open">Wed</div>
+                    <div class="is-open">Thu</div>
+                    <div class="is-open">Fri</div>
+                    <div>Sat</div>
+                    <div>Sun</div>
+                  </div>
+                  <div class="stay-note">Preferred stays are released by season. Concierge follow-up begins before payment, which is why the booking UI feels more like a planning layer than a checkout form.</div>
                 </div>
               </article>
             </div>
@@ -420,6 +506,22 @@
             <div class="eyebrow">House journal</div>
             <blockquote>"It felt less like a resort and more like a private house with impossible service."</blockquote>
             <p>The editorial layer exists to extend the world beyond the reservation flow. That makes the brand feel inhabited, not transactional.</p>
+            <div class="journal-ui">
+              <article>
+                <span class="eyebrow">06:30</span>
+                <div>
+                  <strong>Breakfast terrace note</strong>
+                  <p>Sea salt pastries, fig preserves, and the outer table held until first light clears the cove.</p>
+                </div>
+              </article>
+              <article>
+                <span class="eyebrow">16:15</span>
+                <div>
+                  <strong>House ritual</strong>
+                  <p>Ceramic tea service begins before the evening turn-down, so the room shift feels ceremonial instead of procedural.</p>
+                </div>
+              </article>
+            </div>
             <div class="journal-notes">
               <div>Seasonal table notes and local ceramic commissions</div>
               <div>Shoreline itineraries written like invitation letters</div>

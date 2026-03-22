@@ -141,10 +141,179 @@
         text-transform: uppercase;
       }
 
+      .axon-screen {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: 1px;
+        background: rgba(127, 191, 255, 0.08);
+      }
+
+      .screen-topbar,
+      .screen-body,
+      .screen-mini {
+        background: rgba(5, 11, 16, 0.96);
+      }
+
+      .screen-topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 18px;
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .screen-dots {
+        display: flex;
+        gap: 8px;
+      }
+
+      .screen-dots span {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: rgba(127, 191, 255, 0.72);
+      }
+
+      .screen-body {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 1px;
+        background: rgba(127, 191, 255, 0.08);
+      }
+
+      .screen-col {
+        display: grid;
+        gap: 1px;
+        background: rgba(127, 191, 255, 0.08);
+      }
+
+      .screen-panel {
+        padding: 18px;
+        background: rgba(7, 13, 19, 0.98);
+      }
+
+      .screen-panel h4 {
+        margin: 0 0 14px;
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .bar-cluster {
+        display: grid;
+        gap: 10px;
+      }
+
+      .bar-cluster div {
+        height: 10px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, rgba(127, 191, 255, 0.88), rgba(127, 191, 255, 0.18));
+      }
+
+      .signal-grid-ui {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .signal-grid-ui article {
+        padding: 14px;
+        border: 1px solid rgba(127, 191, 255, 0.12);
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .signal-grid-ui strong {
+        display: block;
+        margin-top: 8px;
+        font-size: 24px;
+      }
+
+      .route-stack {
+        display: grid;
+        gap: 12px;
+      }
+
+      .route-stack div {
+        display: grid;
+        grid-template-columns: 110px 1fr auto;
+        gap: 12px;
+        padding: 12px 14px;
+        border: 1px solid rgba(127, 191, 255, 0.12);
+        background: rgba(255, 255, 255, 0.02);
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .status-chip {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 88px;
+        padding: 5px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(127, 191, 255, 0.18);
+        color: var(--text);
+      }
+
+      .review-surface {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        min-height: 420px;
+        background: rgba(5, 11, 16, 0.98);
+      }
+
+      .review-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 18px;
+        border-bottom: 1px solid rgba(127, 191, 255, 0.12);
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .review-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 1px;
+        background: rgba(127, 191, 255, 0.08);
+      }
+
+      .review-pane {
+        padding: 18px;
+        background: rgba(7, 13, 19, 0.98);
+      }
+
+      .review-list {
+        display: grid;
+        gap: 10px;
+      }
+
+      .review-list div {
+        padding: 12px 14px;
+        border: 1px solid rgba(127, 191, 255, 0.12);
+        background: rgba(255, 255, 255, 0.02);
+      }
+
       @media (max-width: 1080px) {
         .metric-rail,
         .story-shell,
-        .control-deck {
+        .control-deck,
+        .screen-body,
+        .review-grid {
           grid-template-columns: 1fr;
         }
 
@@ -185,10 +354,68 @@
           </div>
             <div class="stage">
             <div class="frame frame-main">
-              <img src="https://images.pexels.com/photos/32845700/pexels-photo-32845700.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Axon control surface" />
+              <div class="axon-screen" aria-label="Axon control surface">
+                <div class="screen-topbar">
+                  <span>Axon Grid / live routing</span>
+                  <div class="screen-dots"><span></span><span></span><span></span></div>
+                </div>
+                <div class="screen-body">
+                  <div class="screen-col">
+                    <section class="screen-panel">
+                      <h4>Task Pressure</h4>
+                      <div class="bar-cluster">
+                        <div style="width: 92%"></div>
+                        <div style="width: 76%"></div>
+                        <div style="width: 58%"></div>
+                        <div style="width: 81%"></div>
+                      </div>
+                    </section>
+                    <section class="screen-panel">
+                      <h4>Route Board</h4>
+                      <div class="route-stack">
+                        <div><span>policy-review</span><span>gpt-5.4 / regulated</span><span class="status-chip">paused</span></div>
+                        <div><span>support-triage</span><span>fast path / low-risk</span><span class="status-chip">live</span></div>
+                        <div><span>claims-audit</span><span>human escalation</span><span class="status-chip">review</span></div>
+                      </div>
+                    </section>
+                  </div>
+                  <div class="screen-col">
+                    <section class="screen-panel">
+                      <h4>Current Signals</h4>
+                      <div class="signal-grid-ui">
+                        <article><span class="label">Spend delta</span><strong>-18%</strong></article>
+                        <article><span class="label">Approval rate</span><strong>94%</strong></article>
+                        <article><span class="label">Eval drift</span><strong>0.7</strong></article>
+                        <article><span class="label">Fallbacks</span><strong>12</strong></article>
+                      </div>
+                    </section>
+                    <section class="screen-panel">
+                      <h4>Queue</h4>
+                      <div class="bar-cluster">
+                        <div style="width: 64%"></div>
+                        <div style="width: 42%"></div>
+                        <div style="width: 78%"></div>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="frame frame-secondary">
-              <img src="https://images.pexels.com/photos/18471532/pexels-photo-18471532.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Axon workflow detail" />
+              <div class="axon-screen screen-mini" aria-label="Axon workflow detail">
+                <div class="screen-topbar">
+                  <span>approval path</span>
+                  <span>tier 03</span>
+                </div>
+                <div class="screen-panel">
+                  <h4>Escalation Chain</h4>
+                  <div class="route-stack">
+                    <div><span>input</span><span>risk tagged</span><span class="status-chip">done</span></div>
+                    <div><span>route</span><span>high reasoning</span><span class="status-chip">live</span></div>
+                    <div><span>review</span><span>manual approval</span><span class="status-chip">next</span></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -235,7 +462,30 @@
             </div>
           </article>
           <article class="shot">
-            <img src="https://images.pexels.com/photos/7172656/pexels-photo-7172656.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Axon operational review board" />
+            <div class="review-surface" aria-label="Axon operational review board">
+              <div class="review-header">
+                <span>review station</span>
+                <span>priority / high-risk</span>
+              </div>
+              <div class="review-grid">
+                <section class="review-pane">
+                  <div class="label">Prompt path</div>
+                  <div class="review-list">
+                    <div>task classified as regulated claims review</div>
+                    <div>model route switched to guarded reasoning tier</div>
+                    <div>confidence dropped below approval threshold</div>
+                  </div>
+                </section>
+                <section class="review-pane">
+                  <div class="label">Reviewer Actions</div>
+                  <div class="review-list">
+                    <div>open redacted source context</div>
+                    <div>approve or request constrained retry</div>
+                    <div>export audit trail to compliance log</div>
+                  </div>
+                </section>
+              </div>
+            </div>
           </article>
         </div>
       </section>
