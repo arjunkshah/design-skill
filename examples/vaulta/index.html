@@ -3,271 +3,432 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vaulta Capital</title>
+    <title>Vaulta Capital | Control Desk</title>
     <link rel="stylesheet" href="../common.css" />
     <style>
       :root {
-        --bg: #0b0f19;
-        --panel: rgba(255, 255, 255, 0.04);
-        --panel-strong: rgba(255, 255, 255, 0.08);
-        --text: #f2f5ff;
-        --muted: rgba(242, 245, 255, 0.68);
-        --line: rgba(163, 190, 255, 0.2);
-        --accent: #7aa2ff;
-        --accent-soft: rgba(122, 162, 255, 0.16);
-        --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
-        --sans: "Inter", "Segoe UI", system-ui, sans-serif;
-        --mono: "JetBrains Mono", Menlo, monospace;
+        --bg: #07090e;
+        --panel: #0d1320;
+        --panel-2: #101a2e;
+        --text: #dff1ff;
+        --muted: rgba(223, 241, 255, 0.65);
+        --line: rgba(128, 198, 255, 0.22);
+        --accent: #63c2ff;
+        --accent-2: #9e7fff;
+        --sans: "IBM Plex Sans", Inter, system-ui, sans-serif;
+        --mono: "IBM Plex Mono", "JetBrains Mono", Menlo, monospace;
       }
 
       body {
-        background: radial-gradient(circle at 20% 0%, #152445 0%, var(--bg) 34%, #090c14 100%);
-      }
-
-      .hero-shell {
-        border: 1px solid var(--line);
-        border-radius: 20px;
-        background: linear-gradient(180deg, rgba(11, 15, 25, 0.88), rgba(11, 15, 25, 0.72));
-        overflow: hidden;
-      }
-
-      .hero-grid {
-        display: grid;
-        grid-template-columns: 1.05fr 0.95fr;
-        gap: 0;
-      }
-
-      .hero-copy {
-        padding: 34px;
-      }
-
-      .hero-copy h1 {
-        margin: 10px 0 14px;
-        font-size: clamp(54px, 7vw, 106px);
-        line-height: 0.9;
-        letter-spacing: -0.05em;
-      }
-
-      .hero-copy p {
-        color: var(--muted);
-        font-size: clamp(17px, 2vw, 23px);
-      }
-
-      .terminal {
-        border-left: 1px solid var(--line);
-        padding: 18px;
-        background: #090d16;
-      }
-
-      .terminal pre {
         margin: 0;
-        color: #bee1ff;
+        background: radial-gradient(circle at 90% -10%, rgba(99, 194, 255, 0.15), transparent 35%), var(--bg);
+        color: var(--text);
+        font-family: var(--sans);
+      }
+
+      .layout {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 286px 1fr;
+      }
+
+      .rail {
+        border-right: 1px solid var(--line);
+        background: linear-gradient(180deg, #0a101a, #080d15);
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        padding: 20px;
+        display: grid;
+        grid-template-rows: auto auto 1fr auto;
+        gap: 16px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+      }
+
+      .brand-mark {
+        width: 12px;
+        height: 12px;
+        border-radius: 2px;
+        background: var(--accent);
+        box-shadow: 0 0 14px rgba(99, 194, 255, 0.8);
+      }
+
+      .chip {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 7px 10px;
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .rail-nav {
+        display: grid;
+        gap: 8px;
+      }
+
+      .rail-nav a {
+        border: 1px solid var(--line);
+        border-radius: 9px;
+        padding: 10px 11px;
         font-family: var(--mono);
         font-size: 12px;
-        line-height: 1.55;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--muted);
       }
 
-      .kpi-grid {
+      .rail-nav a:hover {
+        color: var(--text);
+        border-color: var(--accent);
+      }
+
+      .watchlist {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 10px;
+        background: var(--panel);
+      }
+
+      .watchlist h3 {
+        margin: 0 0 10px;
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .watchlist ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 7px;
+      }
+
+      .watchlist li {
+        display: flex;
+        justify-content: space-between;
+        font-family: var(--mono);
+        font-size: 12px;
+      }
+
+      .main {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        min-height: 100vh;
+      }
+
+      .topbar {
+        border-bottom: 1px solid var(--line);
+        padding: 14px 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .command {
+        flex: 1;
+        border: 1px solid var(--line);
+        border-radius: 11px;
+        background: var(--panel);
+        padding: 10px 12px;
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .command b {
+        color: var(--text);
+      }
+
+      .top-actions {
+        display: flex;
+        gap: 10px;
+      }
+
+      .top-actions button {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--panel);
+        color: var(--text);
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 9px 10px;
+      }
+
+      .content {
+        padding: 18px;
+        display: grid;
+        gap: 12px;
+      }
+
+      .hero {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: linear-gradient(160deg, rgba(99, 194, 255, 0.12), rgba(158, 127, 255, 0.1));
+        padding: 18px;
+      }
+
+      .hero h1 {
+        margin: 8px 0 12px;
+        font-size: clamp(34px, 4vw, 64px);
+        line-height: 0.9;
+        letter-spacing: -0.04em;
+      }
+
+      .hero p {
+        margin: 0;
+        max-width: 66ch;
+        color: var(--muted);
+      }
+
+      .kpis {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 1px;
         background: var(--line);
       }
 
-      .kpi-grid article {
+      .kpis article {
         background: var(--panel);
-        padding: 16px;
+        padding: 12px;
       }
 
-      .kpi-grid strong {
+      .kpis span {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .kpis strong {
         display: block;
-        margin-top: 4px;
+        margin-top: 6px;
         font-size: 30px;
       }
 
-      .mix-grid {
+      .matrix {
         display: grid;
         grid-template-columns: 1.2fr 0.8fr;
-        gap: 16px;
-      }
-
-      .split-stack {
-        display: grid;
         gap: 12px;
       }
 
-      .split-stack article,
-      .quote-card,
       .panel {
         border: 1px solid var(--line);
-        border-radius: 14px;
+        border-radius: 12px;
+        background: var(--panel);
+        overflow: hidden;
+      }
+
+      .panel-head {
+        padding: 11px 12px;
+        border-bottom: 1px solid var(--line);
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .book {
+        padding: 10px 12px;
+        display: grid;
+        gap: 7px;
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr 1fr 1fr;
+        gap: 8px;
+        font-family: var(--mono);
+        font-size: 12px;
+      }
+
+      .row span:nth-child(1) {
+        color: var(--text);
+      }
+
+      .row span {
+        color: var(--muted);
+      }
+
+      .tape {
+        display: grid;
+        gap: 8px;
+        padding: 12px;
+      }
+
+      .tape article {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 10px;
+        background: var(--panel-2);
+      }
+
+      .tape h3 {
+        margin: 0;
+        font-size: 14px;
+      }
+
+      .tape p {
+        margin: 4px 0 0;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .footer-cta {
+        border: 1px solid var(--line);
+        border-radius: 12px;
         background: var(--panel);
         padding: 18px;
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: end;
       }
 
-      .split-stack h3,
-      .quote-card h3,
-      .panel h3 {
-        margin: 8px 0 8px;
-        font-size: 28px;
-        line-height: 0.94;
-        letter-spacing: -0.03em;
+      .footer-cta h2 {
+        margin: 0 0 8px;
+        font-size: 36px;
+        line-height: 0.92;
+        letter-spacing: -0.04em;
       }
 
-      .split-stack p,
-      .quote-card p,
-      .panel p {
+      .footer-cta p {
         margin: 0;
         color: var(--muted);
       }
 
-      .deal-table {
+      .footer-cta a {
         border: 1px solid var(--line);
-        border-radius: 14px;
-        overflow: hidden;
-        background: var(--panel);
-      }
-
-      table {
-        width: 100%;
-        border-collapse: collapse;
-      }
-
-      th,
-      td {
-        padding: 13px 16px;
-        text-align: left;
-        border-top: 1px solid var(--line);
-      }
-
-      th {
-        border-top: none;
-        font-size: 11px;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: var(--muted);
+        border-radius: 10px;
+        padding: 11px 12px;
         font-family: var(--mono);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
       }
 
-      @media (max-width: 1080px) {
-        .hero-grid,
-        .kpi-grid,
-        .mix-grid {
+      @media (max-width: 1120px) {
+        .layout {
           grid-template-columns: 1fr;
         }
-        .terminal {
-          border-left: none;
-          border-top: 1px solid var(--line);
+        .rail {
+          position: static;
+          height: auto;
+          border-right: none;
+          border-bottom: 1px solid var(--line);
+          grid-template-rows: auto;
+        }
+        .matrix {
+          grid-template-columns: 1fr;
+        }
+        .kpis {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .kpis {
+          grid-template-columns: 1fr;
+        }
+        .topbar {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .footer-cta {
+          flex-direction: column;
+          align-items: flex-start;
         }
       }
     </style>
   </head>
   <body>
-    <header class="site-header">
-      <div class="page-shell topbar">
-        <a class="brand" href="../../index.html"><span class="brand-mark"></span><span>Vaulta Capital</span></a>
-        <nav class="nav">
-          <a href="#overview">Overview</a>
-          <a href="#strategy">Strategy</a>
+    <div class="layout">
+      <aside class="rail">
+        <a class="brand" href="../../index.html"><span class="brand-mark"></span><span>Vaulta</span></a>
+        <span class="chip">Live mandate</span>
+        <nav class="rail-nav">
+          <a href="#macro">Macro</a>
           <a href="#risk">Risk</a>
+          <a href="#orders">Orders</a>
           <a href="#execution">Execution</a>
         </nav>
-      </div>
-    </header>
-
-    <main>
-      <section class="section hero" id="overview">
-        <div class="page-shell hero-shell">
-          <div class="hero-grid">
-            <div class="hero-copy">
-              <div class="eyebrow">Institutional wealth platform</div>
-              <h1>Alpha with controls.</h1>
-              <p>Vaulta blends discretionary portfolio intelligence with machine-speed execution safeguards for high-net-worth and family-office capital.</p>
-              <div class="hero-actions">
-                <a class="button" href="#execution">Request mandate</a>
-                <a class="ghost" href="#risk">View risk framework</a>
+        <section class="watchlist">
+          <h3>Watchlist</h3>
+          <ul>
+            <li><span>US10Y</span><span>4.18%</span></li>
+            <li><span>NVDA</span><span>+1.9%</span></li>
+            <li><span>EURUSD</span><span>1.093</span></li>
+            <li><span>BTC</span><span>$72.1k</span></li>
+          </ul>
+        </section>
+      </aside>
+      <main class="main">
+        <header class="topbar">
+          <div class="command"><b>cmd:</b> rebalance --risk=moderate --window=5d --hedge=usd</div>
+          <div class="top-actions">
+            <button>Sync</button>
+            <button>Report</button>
+            <button>Deploy</button>
+          </div>
+        </header>
+        <section class="content">
+          <article class="hero" id="macro">
+            <div class="chip">Institutional Control Desk</div>
+            <h1>Signal density without narrative noise.</h1>
+            <p>Vaulta unifies macro context, risk controls, and execution lanes so portfolio decisions are faster, more legible, and fully auditable.</p>
+          </article>
+          <section class="kpis" id="risk">
+            <article><span>YTD net</span><strong>14.8%</strong></article>
+            <article><span>Sharpe</span><strong>1.74</strong></article>
+            <article><span>Max DD</span><strong>-4.1%</strong></article>
+            <article><span>AUM advised</span><strong>$3.2B</strong></article>
+          </section>
+          <section class="matrix" id="orders">
+            <article class="panel">
+              <div class="panel-head">Order Book</div>
+              <div class="book">
+                <div class="row"><span>AI Infra Basket</span><span>Buy</span><span>$5.1M</span><span>Open</span></div>
+                <div class="row"><span>US Treasury Ladder</span><span>Rotate</span><span>$8.9M</span><span>Queued</span></div>
+                <div class="row"><span>EUR Hedge Overlay</span><span>Sell</span><span>$2.4M</span><span>Open</span></div>
+                <div class="row"><span>Japan Growth Tilt</span><span>Buy</span><span>$3.2M</span><span>Pending</span></div>
+                <div class="row"><span>Energy Pair Trade</span><span>Adjust</span><span>$1.1M</span><span>Closed</span></div>
               </div>
-            </div>
-            <aside class="terminal panel">
-              <pre>
-MANDATE : GLOBAL MULTI-ASSET
-RISK BUDGET : 4.8%
-TARGET VOL : 7.2%
-MAX DD : 6.0%
-
-LATEST:
-US TREASURY CURVE STEEPENING +12bps
-AI INFRA EQUITIES EXPOSURE REDUCED -2.1%
-FX HEDGE COVERAGE INCREASED TO 68%
-              </pre>
+            </article>
+            <aside class="panel">
+              <div class="panel-head">Execution Notes</div>
+              <div class="tape">
+                <article><h3>Desk sync 09:40</h3><p>Reduce cyclical beta by 0.6 as rates reprice faster than expected.</p></article>
+                <article><h3>Risk trigger 10:15</h3><p>FX hedge widened to 68% after volatility band breach in EUR cross.</p></article>
+                <article><h3>Close prep 14:30</h3><p>Re-open treasury duration lane if yield curve steepens another 9 bps.</p></article>
+              </div>
             </aside>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="page-shell kpi-grid metric-rail">
-          <article><div class="eyebrow">YTD net return</div><strong>14.8%</strong></article>
-          <article><div class="eyebrow">Sharpe ratio</div><strong>1.74</strong></article>
-          <article><div class="eyebrow">Max drawdown</div><strong>-4.1%</strong></article>
-          <article><div class="eyebrow">Assets advised</div><strong>$3.2B</strong></article>
-        </div>
-      </section>
-
-      <section class="section" id="strategy">
-        <div class="page-shell section-head">
-          <div>
-            <div class="eyebrow">Portfolio architecture</div>
-            <h2>Three-layer strategy stack.</h2>
-          </div>
-        </div>
-        <div class="page-shell mix-grid">
-          <div class="split-stack">
-            <article class="card"><div class="eyebrow">Core</div><h3>Resilient base</h3><p>Global fixed income, quality equity, and macro hedges tuned for capital preservation.</p></article>
-            <article class="card"><div class="eyebrow">Satellite</div><h3>Thematic growth</h3><p>Focused exposure to structural trends with strict position sizing and stop governance.</p></article>
-            <article class="card"><div class="eyebrow">Tactical</div><h3>Event windows</h3><p>Short-horizon deployments around macro and earnings dislocations with tight risk rails.</p></article>
-          </div>
-          <aside class="quote-card">
-            <div class="eyebrow">Style note</div>
-            <h3>Precision over spectacle.</h3>
-            <p>Every section is built for clarity first: information hierarchy, decision relevance, and controlled visual cadence.</p>
-          </aside>
-        </div>
-      </section>
-
-      <section class="section" id="risk">
-        <div class="page-shell section-head">
-          <div>
-            <div class="eyebrow">Risk desk</div>
-            <h2>Live guardrails and scenario control.</h2>
-          </div>
-        </div>
-        <div class="page-shell deal-table table-card">
-          <table>
-            <thead>
-              <tr><th>Control</th><th>Threshold</th><th>Current</th><th>Status</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Portfolio volatility</td><td>&lt; 8.0%</td><td>7.2%</td><td>In band</td></tr>
-              <tr><td>Single position cap</td><td>&lt; 4.0%</td><td>3.2%</td><td>In band</td></tr>
-              <tr><td>Sector concentration</td><td>&lt; 24%</td><td>18%</td><td>In band</td></tr>
-              <tr><td>Liquidity horizon</td><td>&lt; 10 days</td><td>6 days</td><td>In band</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section class="section" id="execution">
-        <div class="page-shell footer-cta">
-          <div>
-            <div class="eyebrow">Engage</div>
-            <h2>Open a managed mandate.</h2>
-            <p class="section-note">Private onboarding for qualified investors, family offices, and institutional allocators.</p>
-          </div>
-          <a class="button" href="#">Schedule strategy review</a>
-        </div>
-      </section>
-    </main>
+          </section>
+          <section class="footer-cta" id="execution">
+            <div>
+              <h2>Open a managed mandate.</h2>
+              <p>Private onboarding for family offices and qualified allocators.</p>
+            </div>
+            <a href="#">Schedule strategy review</a>
+          </section>
+        </section>
+      </main>
+    </div>
     <script src="../common.js" defer></script>
   </body>
 </html>

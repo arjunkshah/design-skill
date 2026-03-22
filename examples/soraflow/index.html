@@ -3,270 +3,364 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Soraflow Studio</title>
+    <title>Soraflow Studio | Narrative Engine</title>
     <link rel="stylesheet" href="../common.css" />
     <style>
       :root {
-        --bg: #fffaf3;
-        --panel: #ffffff;
-        --panel-strong: #f4ede2;
-        --text: #1e1711;
-        --muted: rgba(30, 23, 17, 0.66);
-        --line: rgba(30, 23, 17, 0.13);
-        --accent: #d86d3d;
-        --accent-soft: rgba(216, 109, 61, 0.16);
+        --bg: #fff5e8;
+        --panel: #fffdf8;
+        --text: #25160f;
+        --muted: rgba(37, 22, 15, 0.66);
+        --line: rgba(37, 22, 15, 0.14);
+        --accent: #e56a34;
+        --accent-2: #d43f76;
+        --accent-3: #f0b14d;
+        --sans: "Space Grotesk", Inter, system-ui, sans-serif;
         --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
-        --sans: "Space Grotesk", "Inter", system-ui, sans-serif;
         --mono: "JetBrains Mono", Menlo, monospace;
       }
 
       body {
+        margin: 0;
         background:
-          radial-gradient(circle at 12% 0%, rgba(255, 177, 124, 0.2), transparent 32%),
-          radial-gradient(circle at 90% 30%, rgba(255, 223, 150, 0.28), transparent 36%),
+          radial-gradient(circle at 6% 2%, rgba(229, 106, 52, 0.15), transparent 34%),
+          radial-gradient(circle at 86% 18%, rgba(212, 63, 118, 0.14), transparent 30%),
           var(--bg);
+        color: var(--text);
+        font-family: var(--sans);
       }
 
-      .hero-split {
-        border: 1px solid var(--line);
-        border-radius: 24px;
-        overflow: hidden;
-        background: var(--panel);
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .hero-copy {
-        padding: 32px;
-      }
-
-      .hero-copy h1 {
-        margin: 8px 0 14px;
-        font-family: var(--serif);
-        font-size: clamp(58px, 7vw, 112px);
-        line-height: 0.88;
-        letter-spacing: -0.055em;
-      }
-
-      .hero-art {
+      .poster {
+        min-height: 92vh;
+        border-bottom: 1px solid var(--line);
         position: relative;
-        background: linear-gradient(145deg, #ffd9b8 0%, #ffe9c9 46%, #fff4e8 100%);
-        border-left: 1px solid var(--line);
-        min-height: 540px;
+        overflow: hidden;
       }
 
-      .hero-art .orb {
-        position: absolute;
-        border-radius: 999px;
-        filter: blur(0.2px);
-        animation: float-soft 8s ease-in-out infinite;
+      .poster-inner {
+        width: min(1340px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 30px 0 40px;
       }
 
-      .hero-art .orb.a { width: 260px; height: 260px; top: 14%; left: 16%; background: rgba(255, 109, 87, 0.35); }
-      .hero-art .orb.b { width: 200px; height: 200px; top: 38%; left: 44%; background: rgba(255, 196, 79, 0.42); animation-delay: 0.7s; }
-      .hero-art .orb.c { width: 180px; height: 180px; top: 58%; left: 16%; background: rgba(255, 143, 143, 0.3); animation-delay: 1.1s; }
-
-      .hero-art .chip {
-        position: absolute;
-        border: 1px solid rgba(30, 23, 17, 0.14);
-        background: rgba(255, 255, 255, 0.72);
-        backdrop-filter: blur(8px);
+      .topline {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid var(--line);
         border-radius: 999px;
         padding: 10px 14px;
+        background: rgba(255, 255, 255, 0.64);
+        backdrop-filter: blur(8px);
+      }
+
+      .topline nav {
+        display: flex;
+        gap: 14px;
+      }
+
+      .topline a {
         font-family: var(--mono);
         font-size: 11px;
-        letter-spacing: 0.12em;
         text-transform: uppercase;
-      }
-
-      .hero-art .chip.x { top: 16%; right: 18%; }
-      .hero-art .chip.y { top: 48%; right: 14%; }
-      .hero-art .chip.z { top: 72%; right: 28%; }
-
-      .mosaic {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 1px;
-        background: var(--line);
-      }
-
-      .mosaic article {
-        background: var(--panel);
-        padding: 22px;
-      }
-
-      .mosaic .big {
-        grid-column: span 2;
-        min-height: 280px;
-      }
-
-      .mosaic h3 {
-        margin: 8px 0 8px;
-        font-size: 30px;
-        letter-spacing: -0.035em;
-        line-height: 0.95;
-      }
-
-      .mosaic p {
-        margin: 0;
+        letter-spacing: 0.12em;
         color: var(--muted);
       }
 
-      .rail {
-        display: grid;
-        grid-auto-flow: column;
-        grid-auto-columns: minmax(280px, 1fr);
-        gap: 12px;
-        overflow-x: auto;
-        padding-bottom: 8px;
+      .topline a:hover {
+        color: var(--text);
       }
 
-      .rail article {
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+      }
+
+      .mark {
+        width: 12px;
+        height: 12px;
+        border-radius: 3px;
+        background: var(--accent);
+      }
+
+      .headline {
+        margin-top: 40px;
+        position: relative;
+      }
+
+      .headline h1 {
+        margin: 0;
+        font-family: var(--serif);
+        font-size: clamp(84px, 16vw, 268px);
+        line-height: 0.78;
+        letter-spacing: -0.06em;
+      }
+
+      .headline p {
+        max-width: 62ch;
+        margin: 14px 0 0;
+        font-size: clamp(19px, 2.3vw, 30px);
+        color: var(--muted);
+      }
+
+      .sticker {
+        position: absolute;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 14px;
+        padding: 10px 12px;
+        font-family: var(--mono);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.11em;
+        backdrop-filter: blur(6px);
+        animation: float-main 8s ease-in-out infinite;
+      }
+
+      .sticker.one {
+        top: 4%;
+        right: 2%;
+      }
+
+      .sticker.two {
+        top: 54%;
+        right: 26%;
+        animation-delay: 0.6s;
+      }
+
+      .sticker.three {
+        top: 75%;
+        left: 2%;
+        animation-delay: 1.1s;
+      }
+
+      .orbs {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      .orb {
+        position: absolute;
+        border-radius: 999px;
+        filter: blur(0.3px);
+      }
+
+      .orb.a {
+        width: 220px;
+        height: 220px;
+        right: 8%;
+        top: 14%;
+        background: rgba(229, 106, 52, 0.25);
+      }
+
+      .orb.b {
+        width: 190px;
+        height: 190px;
+        right: 28%;
+        bottom: 12%;
+        background: rgba(212, 63, 118, 0.22);
+      }
+
+      .orb.c {
+        width: 160px;
+        height: 160px;
+        left: 10%;
+        bottom: 22%;
+        background: rgba(240, 177, 77, 0.26);
+      }
+
+      .horizontal-stage {
+        padding: 34px 0 60px;
+        overflow-x: auto;
+      }
+
+      .track {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(320px, 32vw);
+        gap: 14px;
+      }
+
+      .scene {
         border: 1px solid var(--line);
         border-radius: 16px;
         overflow: hidden;
         background: var(--panel);
       }
 
-      .rail img {
+      .scene img {
         width: 100%;
-        aspect-ratio: 4 / 3;
+        aspect-ratio: 4 / 3.2;
         object-fit: cover;
       }
 
-      .rail .copy {
+      .scene .copy {
         padding: 14px;
       }
 
-      .rail h3 {
+      .scene h3 {
         margin: 0 0 6px;
-        font-size: 23px;
-        line-height: 0.95;
+        font-size: 28px;
+        line-height: 0.92;
+        letter-spacing: -0.03em;
       }
 
-      .rail p {
+      .scene p {
         margin: 0;
         color: var(--muted);
       }
 
+      .section {
+        padding: 70px 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .grid {
+        width: min(1340px, calc(100% - 40px));
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1px;
+        background: var(--line);
+      }
+
+      .grid article {
+        background: var(--panel);
+        padding: 22px;
+      }
+
+      .grid h3 {
+        margin: 10px 0 8px;
+        font-size: 30px;
+        line-height: 0.94;
+      }
+
+      .grid p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .cta {
+        width: min(1340px, calc(100% - 40px));
+        margin: 0 auto 60px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--panel);
+        padding: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 14px;
+      }
+
+      .cta h2 {
+        margin: 8px 0 8px;
+        font-size: clamp(38px, 5vw, 72px);
+        line-height: 0.86;
+        letter-spacing: -0.05em;
+      }
+
+      .cta p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .cta a {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 12px 14px;
+        font-family: var(--mono);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.11em;
+      }
+
       @media (max-width: 1080px) {
-        .hero-split,
-        .mosaic {
+        .grid {
           grid-template-columns: 1fr;
         }
-        .hero-art {
-          border-left: none;
-          border-top: 1px solid var(--line);
+      }
+
+      @media (max-width: 760px) {
+        .topline nav {
+          display: none;
+        }
+        .track {
+          grid-auto-columns: minmax(260px, 78vw);
+        }
+        .cta {
+          flex-direction: column;
+          align-items: flex-start;
         }
       }
     </style>
   </head>
   <body>
-    <header class="site-header">
-      <div class="page-shell topbar">
-        <a class="brand" href="../../index.html"><span class="brand-mark"></span><span>Soraflow Studio</span></a>
-        <nav class="nav">
-          <a href="#work">Work</a>
-          <a href="#engine">Engine</a>
-          <a href="#stories">Stories</a>
-          <a href="#book">Book</a>
-        </nav>
+    <section class="poster">
+      <div class="orbs">
+        <div class="orb a"></div>
+        <div class="orb b"></div>
+        <div class="orb c"></div>
       </div>
-    </header>
-
-    <main>
-      <section class="section hero">
-        <div class="page-shell hero-split">
-          <div class="hero-copy">
-            <div class="eyebrow">AI creative suite</div>
-            <h1>Direct stories, not prompts.</h1>
-            <p>Soraflow combines storyboard logic, style systems, and motion timing into one collaborative environment for creative teams.</p>
-            <div class="hero-actions">
-              <a class="button" href="#book">Start project</a>
-              <a class="ghost" href="#engine">See workflow</a>
-            </div>
-          </div>
-          <div class="hero-art">
-            <div class="orb a"></div>
-            <div class="orb b"></div>
-            <div class="orb c"></div>
-            <span class="chip x">Scene synthesis</span>
-            <span class="chip y">Timing controls</span>
-            <span class="chip z">Narrative rails</span>
-          </div>
+      <div class="poster-inner">
+        <header class="topline">
+          <a class="brand" href="../../index.html"><span class="mark"></span><span>Soraflow Studio</span></a>
+          <nav>
+            <a href="#flow">Flow</a>
+            <a href="#scenes">Scenes</a>
+            <a href="#engine">Engine</a>
+            <a href="#launch">Launch</a>
+          </nav>
+        </header>
+        <div class="headline" id="flow">
+          <span class="sticker one">Narrative Control</span>
+          <span class="sticker two">Tempo Presets</span>
+          <span class="sticker three">Shot System</span>
+          <h1>Stories<br />with pulse.</h1>
+          <p>Soraflow is a creative operating system where concept, style, and motion live in one continuous canvas.</p>
         </div>
-      </section>
-
-      <section class="section" id="engine">
-        <div class="page-shell section-head">
-          <div>
-            <div class="eyebrow">Workflow engine</div>
-            <h2>From concept board to launch cut.</h2>
-          </div>
-        </div>
-        <div class="page-shell mosaic bento">
-          <article class="big card">
-            <div class="eyebrow">Direction</div>
-            <h3>Storyboard-first pipeline</h3>
-            <p>Creative leads define narrative beats visually, then map style and pacing constraints across scene groups.</p>
-          </article>
-          <article class="card">
-            <div class="eyebrow">Modeling</div>
-            <h3>Style memory</h3>
-            <p>Maintain continuity across shots with persistent art direction rules.</p>
-          </article>
-          <article class="card">
-            <div class="eyebrow">Motion</div>
-            <h3>Rhythm editor</h3>
-            <p>Adjust reveal, dwell, and transition tempo with live feedback.</p>
-          </article>
-          <article class="card">
-            <div class="eyebrow">Review</div>
-            <h3>Client rooms</h3>
-            <p>Share controlled versions with commenting and approval gates.</p>
-          </article>
-          <article class="card">
-            <div class="eyebrow">Delivery</div>
-            <h3>Export stack</h3>
-            <p>Push final sequences to campaign channels in one pass.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="stories">
-        <div class="page-shell section-head">
-          <div>
-            <div class="eyebrow">Recent story systems</div>
-            <h2>Campaigns built in Soraflow.</h2>
+      </div>
+      <div class="horizontal-stage" id="scenes">
+        <div class="poster-inner">
+          <div class="track">
+            <article class="scene card">
+              <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=1200&q=80" alt="Editorial scene" />
+              <div class="copy"><h3>Editorial Arc</h3><p>Long-form narrative pacing with expressive typography and quiet transitions.</p></div>
+            </article>
+            <article class="scene card">
+              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" alt="Product scene" />
+              <div class="copy"><h3>Product Launch</h3><p>Feature storytelling tuned for conversion moments and campaign cadence.</p></div>
+            </article>
+            <article class="scene card">
+              <img src="https://images.unsplash.com/photo-1510070009289-b5bc34383727?auto=format&fit=crop&w=1200&q=80" alt="Cultural scene" />
+              <div class="copy"><h3>Culture Drop</h3><p>Fast rhythm sequences with social-native hooks and visual impact.</p></div>
+            </article>
+            <article class="scene card">
+              <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80" alt="Brand scene" />
+              <div class="copy"><h3>Brand Film</h3><p>Cinematic motion systems with continuity memory across scenes.</p></div>
+            </article>
           </div>
         </div>
-        <div class="page-shell rail">
-          <article class="card">
-            <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=1200&q=80" alt="Fashion campaign scene" />
-            <div class="copy"><h3>Maison Drift</h3><p>Luxury launch with modular scene choreography and editorial timing.</p></div>
-          </article>
-          <article class="card">
-            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt="Technology campaign scene" />
-            <div class="copy"><h3>Neon Array</h3><p>Tech narrative balancing high speed with controlled visual legibility.</p></div>
-          </article>
-          <article class="card">
-            <img src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=1200&q=80" alt="Travel campaign scene" />
-            <div class="copy"><h3>Atlas Stories</h3><p>Global travel campaign using adaptive regional style rules.</p></div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="book">
-        <div class="page-shell footer-cta">
-          <div>
-            <div class="eyebrow">Book</div>
-            <h2>Plan your next narrative release.</h2>
-            <p class="section-note">Bring your creative and production team into one synchronized environment.</p>
-          </div>
-          <a class="button" href="#">Open studio workspace</a>
-        </div>
-      </section>
-    </main>
+      </div>
+    </section>
+    <section class="section" id="engine">
+      <div class="grid">
+        <article class="card"><div class="eyebrow">Direction</div><h3>Narrative rails</h3><p>Define scene hierarchy and cadence once, then map to any campaign format.</p></article>
+        <article class="card"><div class="eyebrow">Style</div><h3>Visual memory</h3><p>Lock core art direction while allowing controlled variation per sequence.</p></article>
+        <article class="card"><div class="eyebrow">Motion</div><h3>Timing engine</h3><p>Shape reveal, dwell, and transition behavior with production-safe constraints.</p></article>
+      </div>
+    </section>
+    <section class="cta" id="launch">
+      <div>
+        <div class="eyebrow">Launch</div>
+        <h2>Build your next story system.</h2>
+        <p>Bring creative, brand, and production into one synchronized workflow.</p>
+      </div>
+      <a href="#">Open studio workspace</a>
+    </section>
     <script src="../common.js" defer></script>
   </body>
 </html>
