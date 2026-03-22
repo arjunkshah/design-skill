@@ -179,6 +179,41 @@
         const TerminalIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>;
         const GithubIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>;
         const PlusIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>;
+        const voxelPatterns = {
+            claude: [[0,0],[1,0],[0,1],[0,2],[1,2],[3,0],[4,0],[4,1],[3,2],[4,2],[2,1]],
+            cursor: [[0,0],[1,1],[2,2],[3,3],[1,2],[0,3],[1,3],[2,3],[2,4]],
+            codex: [[0,0],[4,0],[1,1],[3,1],[2,2],[1,3],[3,3],[0,4],[4,4]],
+            antigravity: [[2,0],[1,1],[3,1],[0,2],[2,2],[4,2],[1,3],[3,3],[2,4]],
+            opencode: [[1,0],[0,1],[1,2],[3,0],[4,1],[3,2],[2,3],[2,4]],
+            windsurf: [[0,1],[1,1],[2,1],[3,0],[4,0],[1,3],[2,3],[3,3],[4,2],[0,5],[1,5],[2,5],[3,4],[4,4]]
+        };
+        const VoxelMark = ({ pattern = [], size = 16 }) => {
+            const unitX = size * 0.92;
+            const unitY = size * 0.52;
+            const cubeWidth = size * 0.92;
+            const offsetX = 82;
+            const offsetY = 28;
+            const cubes = pattern.map(([gx, gy], index) => {
+                const cx = offsetX + (gx - gy) * unitX;
+                const cy = offsetY + (gx + gy) * unitY;
+                const top = `${cx},${cy - size} ${cx + cubeWidth},${cy - size * 0.48} ${cx},${cy} ${cx - cubeWidth},${cy - size * 0.48}`;
+                const left = `${cx - cubeWidth},${cy - size * 0.48} ${cx},${cy} ${cx},${cy + size} ${cx - cubeWidth},${cy + size * 0.52}`;
+                const right = `${cx + cubeWidth},${cy - size * 0.48} ${cx},${cy} ${cx},${cy + size} ${cx + cubeWidth},${cy + size * 0.52}`;
+                return (
+                    <g key={index}>
+                        <polygon points={left} fill="rgb(var(--color-fg) / 0.28)" stroke="rgb(var(--color-border) / 0.34)" strokeWidth="0.75" />
+                        <polygon points={right} fill="rgb(var(--color-border) / 0.48)" stroke="rgb(var(--color-border) / 0.34)" strokeWidth="0.75" />
+                        <polygon points={top} fill="rgb(var(--color-fg) / 0.92)" stroke="rgb(var(--color-border) / 0.34)" strokeWidth="0.75" />
+                    </g>
+                );
+            });
+            return (
+                <svg viewBox="0 0 164 164" className="w-28 h-28 drop-shadow-[0_18px_40px_rgba(0,0,0,0.28)]">
+                    <ellipse cx="84" cy="138" rx="42" ry="12" fill="rgb(var(--color-fg) / 0.08)" />
+                    {cubes}
+                </svg>
+            );
+        };
 
         // --- Animations ---
         const fadeUp = { hidden: { opacity: 0, y: 30, filter: 'blur(10px)' }, visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } } };
@@ -305,36 +340,35 @@
         // Section 1: Hero
         const Hero = () => {
             const integrationsLeft = [
-                { name: "Claude Code", mark: "CC", note: "skill host" },
-                { name: "Cursor", mark: "CU", note: "editor agent" },
-                { name: "Codex", mark: "OX", note: "build loop" }
+                { name: "Claude Code", logo: "claude", note: "skill host", x: 8, y: 6, rotate: -16, scale: 1.12 },
+                { name: "Cursor", logo: "cursor", note: "editor agent", x: 34, y: 36, rotate: -7, scale: 1.02 },
+                { name: "Codex", logo: "codex", note: "build loop", x: 82, y: 70, rotate: 7, scale: 0.98 }
             ];
             const integrationsRight = [
-                { name: "Antigravity", mark: "AG", note: "layout system" },
-                { name: "OpenCode", mark: "OC", note: "prompt runtime" },
-                { name: "Windsurf", mark: "WS", note: "agent editor" }
+                { name: "Antigravity", logo: "antigravity", note: "layout system", x: 84, y: 8, rotate: 16, scale: 1.08 },
+                { name: "OpenCode", logo: "opencode", note: "prompt runtime", x: 40, y: 38, rotate: 8, scale: 1.02 },
+                { name: "Windsurf", logo: "windsurf", note: "agent editor", x: 10, y: 72, rotate: -8, scale: 1.0 }
             ];
 
             return (
                 <header id="top" className="border-b border-border relative overflow-hidden">
                     <div className="max-w-[1480px] mx-auto min-h-[88vh] px-6 md:px-12 py-8 md:py-12 flex items-center justify-center relative">
-                        <div className="hidden lg:flex absolute left-8 top-1/2 -translate-y-1/2 flex-col gap-5 z-10">
+                        <div className="hidden xl:block absolute left-0 top-0 bottom-0 w-[23rem] pointer-events-none z-10">
                             {integrationsLeft.map((tool, index) => (
                                 <motion.div
                                     key={tool.name}
-                                    initial={{ opacity: 0, x: -24, y: 18 }}
-                                    animate={{ opacity: 1, x: 0, y: [0, -8, 0] }}
-                                    transition={{ opacity: { duration: 0.5, delay: 0.12 * index }, x: { duration: 0.6, delay: 0.12 * index }, y: { duration: 4.4 + index, repeat: Infinity, ease: "easeInOut" } }}
-                                    className="w-48 rounded-[28px] border border-border bg-[linear-gradient(180deg,rgba(var(--color-fg),0.08),rgba(var(--color-fg),0.02))] shadow-[0_18px_60px_rgba(0,0,0,0.18)] p-4 backdrop-blur-sm"
+                                    initial={{ opacity: 0, x: -28, y: 18, scale: 0.92 }}
+                                    animate={{ opacity: 1, x: 0, y: [0, -10, 0], scale: tool.scale }}
+                                    transition={{ opacity: { duration: 0.5, delay: 0.12 * index }, x: { duration: 0.6, delay: 0.12 * index }, scale: { duration: 0.6, delay: 0.12 * index }, y: { duration: 5.2 + index, repeat: Infinity, ease: "easeInOut" } }}
+                                    className="absolute"
+                                    style={{ left: `${tool.x}%`, top: `${tool.y}%`, rotate: `${tool.rotate}deg` }}
                                 >
-                                    <div className="rounded-[22px] border border-border bg-bg/80 p-4 relative overflow-hidden">
-                                        <div className="absolute inset-x-3 top-3 h-10 rounded-full bg-fg/8 blur-xl"></div>
-                                        <div className="relative flex items-center justify-between mb-5">
-                                            <div className="w-12 h-12 rounded-2xl border border-border bg-fg/10 flex items-center justify-center font-mono text-xs tracking-[0.2em] text-fg/80">{tool.mark}</div>
-                                            <div className="w-10 h-10 rounded-full border border-border bg-fg/5"></div>
+                                    <div className="flex flex-col items-center">
+                                        <VoxelMark pattern={voxelPatterns[tool.logo]} />
+                                        <div className="mt-1 text-center">
+                                            <div className="font-secondary text-sm text-fg">{tool.name}</div>
+                                            <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-fg/45 mt-1">{tool.note}</div>
                                         </div>
-                                        <div className="font-secondary text-sm text-fg">{tool.name}</div>
-                                        <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-fg/45 mt-2">{tool.note}</div>
                                     </div>
                                 </motion.div>
                             ))}
@@ -372,23 +406,22 @@
                             </motion.div>
                         </div>
 
-                        <div className="hidden lg:flex absolute right-8 top-1/2 -translate-y-1/2 flex-col gap-5 z-10">
+                        <div className="hidden xl:block absolute right-0 top-0 bottom-0 w-[23rem] pointer-events-none z-10">
                             {integrationsRight.map((tool, index) => (
                                 <motion.div
                                     key={tool.name}
-                                    initial={{ opacity: 0, x: 24, y: 18 }}
-                                    animate={{ opacity: 1, x: 0, y: [0, 8, 0] }}
-                                    transition={{ opacity: { duration: 0.5, delay: 0.12 * index }, x: { duration: 0.6, delay: 0.12 * index }, y: { duration: 4.8 + index, repeat: Infinity, ease: "easeInOut" } }}
-                                    className="w-48 rounded-[28px] border border-border bg-[linear-gradient(180deg,rgba(var(--color-fg),0.08),rgba(var(--color-fg),0.02))] shadow-[0_18px_60px_rgba(0,0,0,0.18)] p-4 backdrop-blur-sm"
+                                    initial={{ opacity: 0, x: 28, y: 18, scale: 0.92 }}
+                                    animate={{ opacity: 1, x: 0, y: [0, 10, 0], scale: tool.scale }}
+                                    transition={{ opacity: { duration: 0.5, delay: 0.12 * index }, x: { duration: 0.6, delay: 0.12 * index }, scale: { duration: 0.6, delay: 0.12 * index }, y: { duration: 5.6 + index, repeat: Infinity, ease: "easeInOut" } }}
+                                    className="absolute"
+                                    style={{ right: `${tool.x}%`, top: `${tool.y}%`, rotate: `${tool.rotate}deg` }}
                                 >
-                                    <div className="rounded-[22px] border border-border bg-bg/80 p-4 relative overflow-hidden">
-                                        <div className="absolute inset-x-3 top-3 h-10 rounded-full bg-fg/8 blur-xl"></div>
-                                        <div className="relative flex items-center justify-between mb-5">
-                                            <div className="w-12 h-12 rounded-2xl border border-border bg-fg/10 flex items-center justify-center font-mono text-xs tracking-[0.2em] text-fg/80">{tool.mark}</div>
-                                            <div className="w-10 h-10 rounded-full border border-border bg-fg/5"></div>
+                                    <div className="flex flex-col items-center">
+                                        <VoxelMark pattern={voxelPatterns[tool.logo]} />
+                                        <div className="mt-1 text-center">
+                                            <div className="font-secondary text-sm text-fg">{tool.name}</div>
+                                            <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-fg/45 mt-1">{tool.note}</div>
                                         </div>
-                                        <div className="font-secondary text-sm text-fg">{tool.name}</div>
-                                        <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-fg/45 mt-2">{tool.note}</div>
                                     </div>
                                 </motion.div>
                             ))}
