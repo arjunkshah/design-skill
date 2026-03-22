@@ -22,6 +22,30 @@ Run these parts in order:
 
 Motion decisions must be derived from layout and section intent, never applied as generic decoration.
 
+## Hard Anti-Repetition Constraints (Required)
+
+These rules are non-optional, especially when the prompt is short:
+
+1. Never use the canonical startup sequence:
+- `centered hero -> logo row -> 3 feature cards -> testimonials -> pricing -> faq -> final cta`
+2. Never reuse the same hero family across consecutive generations:
+- centered headline hero
+- split media hero
+- framed product hero
+- manifesto/type-only hero
+- editorial offset hero
+- rail-first hero
+3. Never let more than 40% of sections be card-grid variants on a page.
+4. At least one section per page must be behaviorally distinct:
+- sticky narrative
+- pinned stage
+- horizontal rail
+- comparison band
+- editorial quote/reset
+5. If the brief is underspecified, aggressively avoid “safe SaaS” defaults.
+
+If any of these fail, regenerate structure before styling.
+
 ## Adaptive Variation Framework
 
 By default, outputs must be highly varied across projects. Do not let different prompts collapse into one house look.
@@ -122,6 +146,65 @@ Depth rules:
 5. Page content should feel complete enough to ship as a serious product marketing surface.
 
 If generation still feels thin, expand page scope and section detail before final output.
+
+## Section Program Library (Required)
+
+Before generating, select exactly one page program per major page.
+Do not improvise a default order outside these programs unless the user explicitly asks.
+
+Program A (Editorial Conversion):
+- thesis hero
+- product stage
+- deep explanation
+- proof rail
+- comparison band
+- conversion CTA
+
+Program B (Product Narrative):
+- framed hero
+- sticky story
+- feature evidence bento
+- pinned demo
+- trust strip
+- CTA
+
+Program C (Marketplace / Catalog):
+- search-led hero
+- category rail
+- inventory grid
+- comparison utility
+- social proof
+- CTA
+
+Program D (Premium Brand):
+- quiet manifesto hero
+- editorial split
+- atmosphere gallery
+- craftsmanship proof
+- testimonial quote band
+- reservation CTA
+
+Program E (Operational Tool):
+- utility hero
+- metrics strip
+- workflow stage
+- dense capability matrix
+- integration proof
+- conversion CTA
+
+Program F (Consumer Growth):
+- energetic hero
+- social rail
+- creator spotlight
+- sticky app walkthrough
+- download proof
+- CTA
+
+Enforcement:
+
+1. Pick different programs for different pages in the same website.
+2. For repeated generations on similar prompts, rotate program choice.
+3. Reject output if section order drifts back to canonical startup order.
 
 ## Section And Motion Diversity Protocol (Required)
 
