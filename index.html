@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Marketing site for the Design Skill repo. Skill instructions live only in skills/design-skill/SKILL.md and skills/animation-director/SKILL.md. -->
+<!-- Marketing site for the Design Skill repo. Skill instructions live only in skills/design-skill/SKILL.md. -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -511,7 +511,7 @@
                                     {[
                                         ['layout archetypes', 'editorial split, bento, pinned stages'],
                                         ['motion profiles', 'quiet reveals, sticky story, rhythm shifts'],
-                                        ['skill stack', '$design-skill + $animation-director']
+                                        ['skill stack', '$design-skill']
                                     ].map(([label, value]) => (
                                         <div key={label} className="bg-bg px-5 py-5">
                                             <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-fg/45 mb-2">{label}</div>
@@ -680,9 +680,9 @@
                 },
                 {
                     kicker: "03",
-                    title: "Animation Director",
-                    body: "Adds entry sequencing, sticky storytelling, hover tactility, and motion guardrails without turning the interface into a gimmick.",
-                    command: "$animation-director"
+                    title: "Motion Engine",
+                    body: "Bakes entry sequencing, sticky storytelling, hover tactility, and motion guardrails into the same generation pass.",
+                    command: "built into design-skill"
                 }
             ];
 
@@ -691,9 +691,9 @@
                     <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12">
                         <div className="md:col-span-4 p-8 md:p-16 border-r border-border bg-bg">
                             <Reveal as="span" className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-5 block">Frontend System</Reveal>
-                            <Reveal as="h2" delay={0.06} className="font-primary text-4xl tracking-tight mb-4">Three layers, one output.</Reveal>
+                            <Reveal as="h2" delay={0.06} className="font-primary text-4xl tracking-tight mb-4">Three parts, one skill.</Reveal>
                             <Reveal as="p" delay={0.12} className="text-sm text-fg/65 leading-relaxed max-w-sm">
-                                The repo is stronger when you treat layout, identity, and motion as separate decisions that cooperate instead of one oversized prompt blob.
+                                The repo now runs layout, identity, and motion as coordinated parts inside one skill so output stays coherent without losing range.
                             </Reveal>
                         </div>
                         <div className="md:col-span-8 bg-border grid grid-cols-1 lg:grid-cols-3 gap-[1px]">
@@ -738,7 +738,7 @@
                 {
                     title: "Full frontend direction",
                     body: "For shipping structure, visual taste, and motion choreography as one coordinated output.",
-                    command: "$design-skill $animation-director Create a launch page with a pinned demo rail, staggered product storytelling, tactile CTA states, and motion that stays restrained on mobile."
+                    command: "$design-skill Create a launch page with a pinned demo rail, staggered product storytelling, tactile CTA states, and motion that stays restrained on mobile."
                 }
             ];
 
@@ -920,7 +920,7 @@
             const quotes = [
                 { text: "Finally, an AI that doesn't use box-shadow: 0 4px 6px rgba(0,0,0,0.1) on literally every div.", author: "Frontend Lead" },
                 { text: "It feels like having a senior designer sitting next to Claude, slapping its hand when it reaches for a generic gradient.", author: "Indie Hacker" },
-                { text: "Splitting layout and animation into separate skills makes the output feel much more intentional and less chaotic.", author: "Design Engineer" }
+                { text: "A single integrated skill for layout and motion makes the output more coherent while still keeping real variation.", author: "Design Engineer" }
             ];
             return (
                 <section className="border-b border-border bg-bg">
@@ -941,7 +941,7 @@
             const faqs = [
                 { q: "Does it work with standard frontend stacks?", a: "Yes. The skill outputs normal frontend code, but it pushes the agent toward stronger spacing systems, hierarchy, and section rhythm instead of arbitrary utility spam." },
                 { q: "Can I customize the system?", a: "Yes. Edit skills/design-skill/SKILL.md directly. The design skill is now just the Jasmine prompt, so customization happens in one place." },
-                { q: "How do I install it?", a: "Run npx skills add https://github.com/arjunkshah/design-skill, then invoke $design-skill by itself or pair it with $animation-director when the page needs a full motion layer." },
+                { q: "How do I install it?", a: "Run npx skills add https://github.com/arjunkshah/design-skill, then invoke $design-skill. Layout, style, and motion are all built in." },
             ];
             const [open, setOpen] = useState(0);
 
@@ -980,7 +980,7 @@
                     <div className="md:col-span-4 p-8 md:p-16 border-r border-border bg-fg/5">
                         <Reveal as="h2" className="font-primary text-4xl tracking-tight mb-4">Install</Reveal>
                         <Reveal as="p" delay={0.08} className="text-sm text-fg/65 leading-relaxed">
-                            Add the repo as a skill source once, then invoke layout by itself or pair it with the motion layer when the page needs full frontend direction.
+                            Add the repo as a skill source once, then invoke one command. Structure, style, and motion all run inside the same skill.
                         </Reveal>
                     </div>
                     <div className="md:col-span-8 p-8 md:p-16 space-y-10">
@@ -999,16 +999,16 @@
                         <div>
                             <Reveal as="div" className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-4">Step 3</Reveal>
                             <div className="border border-border bg-fg/5 p-5 font-mono text-sm">
-                                $design-skill $animation-director
+                                $design-skill
                             </div>
                         </div>
                         <div>
                             <Reveal as="div" className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-4">Step 4</Reveal>
                             <Reveal as="p" delay={0.08} className="text-sm text-fg/70 leading-relaxed max-w-2xl mb-4">
-                                Prompt for the outcome, not a template. The layout skill picks structure and style direction, and the animation skill handles sequencing, interaction polish, and scroll behavior.
+                                Prompt for the outcome, not a template. The skill handles structure, style direction, sequencing, interaction polish, and scroll behavior in one pass.
                             </Reveal>
                             <div className="border border-border bg-bg p-6 font-primary text-xl leading-relaxed italic">
-                                "$design-skill $animation-director Design a landing page with a pinned demo stage, tighter editorial typography, a bento section that breaks symmetry, and restrained tactile motion."
+                                "$design-skill Design a landing page with a pinned demo stage, tighter editorial typography, a bento section that breaks symmetry, and restrained tactile motion."
                             </div>
                         </div>
                     </div>
