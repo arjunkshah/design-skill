@@ -14,17 +14,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* 1. Ember (Default) */
-            --color-bg: 24 18 16;
-            --color-fg: 243 224 204;
-            --color-border: 255 128 74;
-            --border-opacity: 0.28;
-            --font-primary: 'Newsreader', serif;
+            /* 1. Signal (Default) */
+            --color-bg: 242 236 229;
+            --color-fg: 31 28 26;
+            --color-border: 173 81 47;
+            --border-opacity: 0.22;
+            --font-primary: 'Space Grotesk', sans-serif;
             --font-secondary: 'Inter', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
-            --img-blend: screen;
-            --img-invert: 0.2;
-            --img-opacity: 0.72;
+            --img-blend: multiply;
+            --img-invert: 0;
+            --img-opacity: 0.86;
         }
         [data-theme="brutalist"] {
             /* 2. Brutalist */
@@ -1012,7 +1012,7 @@
 
         // --- Main App ---
         const App = () => {
-            const [theme, setTheme] = useState('ember');
+            const [theme, setTheme] = useState('signal');
             const scrollToSection = (id) => {
                 const el = document.getElementById(id);
                 if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
