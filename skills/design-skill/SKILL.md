@@ -410,6 +410,40 @@ In that case these rules override the rest of the design logic:
 3. Make only surgical edits when the user asks for copy or content changes.
 4. Extract spacing, typography, and layout logic from the screenshot and source instead of substituting a generic template.
 
+## Clone Implementation Standard (Required)
+
+When cloning from scraped HTML/screenshots, use a two-phase implementation:
+
+1. `Phase 1 — Visual Parity`:
+- achieve strict 1:1 appearance and behavior first
+- no creative redesign
+2. `Phase 2 — Code Organization`:
+- refactor structure without changing output
+- keep rendered UI pixel-equivalent to Phase 1
+
+Allowed cleanup in Phase 2:
+
+- split into reusable components
+- normalize naming
+- move repeated values into tokens/variables
+- remove dead code
+- improve semantic HTML and accessibility labels
+- organize files by feature/page
+
+Not allowed in Phase 2:
+
+- changing visual hierarchy
+- changing spacing scale
+- changing typography scale/weights
+- swapping layout systems in ways that alter rendering
+- “improving” design taste while cloning
+
+Final requirement for clone tasks:
+
+- output must be exact clone quality visually
+- code must be production-organized and readable
+- if there is a tradeoff, preserve visual parity first, then reorganize safely
+
 ## Imagery
 
 Do not pull random images from the web.
