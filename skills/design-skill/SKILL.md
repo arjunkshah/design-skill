@@ -484,21 +484,6 @@ Every generation should feel fully fleshed out and premium.
 3. Prefer deeper page systems over single-page minimal output when the brief is broad.
 4. Sweat the details so the result feels like an award-level product surface, not a quick mock.
 
-## File Architecture Standard (Required)
-
-Do not output the project as one monolithic HTML file.
-
-Rules:
-
-1. Each page must be its own HTML file (for example `index.html`, `features.html`, `pricing.html`, `about.html`, `contact.html`).
-2. CSS must be external files (for example `styles/base.css`, `styles/components.css`, `styles/pages/home.css`).
-3. JavaScript must be external files (for example `scripts/main.js`, `scripts/nav.js`, `scripts/animations.js`).
-4. Do not embed large `<style>` or `<script>` blocks inside HTML pages.
-5. Reuse shared assets across pages instead of duplicating styles/scripts per page.
-6. Keep structure production-like and readable with clear folders for pages, styles, scripts, and assets.
-
-Only use a single-file HTML approach if the user explicitly requests a single-file deliverable.
-
 ## Final Rule
 
 The interface must feel crafted from the nature of the product.
