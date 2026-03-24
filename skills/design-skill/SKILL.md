@@ -36,26 +36,9 @@ Run these parts in order:
 
 Motion decisions must be derived from layout and section intent, never applied as generic decoration.
 
-## Pragmatic Baseline Mode (Default)
+## Hard Anti-Repetition Constraints (Required)
 
-If the user does not ask for experimental/avant-garde direction, use a clean, typical, high-conversion layout baseline.
-
-Default baseline recipe:
-
-1. centered hero (clear headline + subhead + primary CTA)
-2. value or logo proof strip
-3. feature/value sections (2-4 blocks with clear hierarchy)
-4. product or UI stage
-5. social proof/testimonial section
-6. pricing or plan comparison
-7. FAQ
-8. final CTA + footer
-
-This baseline should feel polished, modern, and trustworthy, not over-designed.
-
-## Anti-Repetition Constraints (When User Asks For Distinctive Direction)
-
-When the user explicitly asks for highly varied, radical, or non-standard design, apply these stricter constraints:
+These rules are non-optional, especially when the prompt is short:
 
 1. Never use the canonical startup sequence:
 - `centered hero -> logo row -> 3 feature cards -> testimonials -> pricing -> faq -> final cta`
@@ -73,7 +56,7 @@ When the user explicitly asks for highly varied, radical, or non-standard design
 - horizontal rail
 - comparison band
 - editorial quote/reset
-5. If the brief is underspecified and the user asked for uniqueness, aggressively avoid “safe SaaS” defaults.
+5. If the brief is underspecified, aggressively avoid “safe SaaS” defaults.
 
 If any of these fail, regenerate structure before styling.
 
@@ -101,7 +84,7 @@ Quality constraints:
 
 ## Underspecified Brief Protocol (Required)
 
-If the user gives little or no design direction, default to the Pragmatic Baseline Mode and execute it well.
+If the user gives little or no design direction, do not collapse to a default hero + cards layout.
 
 You must still produce a distinct direction by explicitly choosing:
 
@@ -133,7 +116,7 @@ Then run the Concept Divergence Pass with these hard constraints:
 4. At least 2 concepts must use materially different color energy bands (quiet vs bold).
 5. Reject any concept that resembles a generic startup template.
 
-If the user provided no visual preference at all, prioritize clarity, polish, and usability first; add distinctiveness without sacrificing readability.
+If the user provided no visual preference at all, prioritize distinctiveness over safety while keeping usability intact.
 
 ## Concept Divergence Pass (Required)
 
@@ -516,17 +499,6 @@ Rules:
 
 Only use a single-file HTML approach if the user explicitly requests a single-file deliverable.
 
-## Coding Output Behavior (Required)
-
-When generating code, output code directly as files/components. Do not output terminal command transcripts as the primary deliverable.
-
-Rules:
-
-1. Prefer delivering complete file contents or clean diffs.
-2. Do not pad responses with shell command sequences unless the user explicitly asks for commands.
-3. Focus on readable production code, not CLI walkthroughs.
-4. If setup commands are necessary, keep them minimal and separate from the actual code output.
-
 ## Final Rule
 
 The interface must feel crafted from the nature of the product.
@@ -543,4 +515,4 @@ Before generating, decide:
 
 Then run the Concept Divergence Pass and Quality Gate.
 
-Then build the page from those decisions instead of blindly falling back to repetitive low-quality defaults.
+Then build the page from those decisions instead of falling back to generic startup UI defaults.
