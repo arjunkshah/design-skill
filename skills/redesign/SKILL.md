@@ -63,6 +63,21 @@ For substantial redesigns, enforce:
 
 If the redesign still resembles the original layout skeleton, escalate structural changes before finalizing.
 
+## Anti-AI-Look Redesign Gate (Required)
+
+Reject the redesign if it reads as "template reskin".
+
+Failure cases:
+1. mostly identical original layout with new colors/fonts only
+2. repeated stock cards replacing repeated stock cards
+3. unchanged section rhythm with minor surface edits
+4. motion limited to basic fade-ins without interaction logic
+
+Minimum redesign bar:
+1. at least `3` clearly new structural modules replacing generic legacy blocks
+2. at least `2` bespoke components unique to the product context
+3. at least `1` unique interaction pattern not present in the source UI
+
 ## Component Invention Rules
 
 When inventing components for redesign:

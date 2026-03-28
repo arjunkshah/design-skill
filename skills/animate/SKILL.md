@@ -88,6 +88,21 @@ For substantial animation passes, enforce:
 
 If motion feels repetitive, redesign the choreography before final output.
 
+## Anti-AI Motion Gate (Required)
+
+Reject motion output if it feels like stock presets layered on top.
+
+Failure cases:
+1. majority of elements use the same fade-up with stagger
+2. hover states are mostly scale(1.02) + shadow without context
+3. transitions are decorative but do not improve comprehension
+4. motion does not differentiate section roles
+
+Minimum bar:
+1. each major section gets a motion behavior tied to its semantic job
+2. at least `2` custom motion recipes (timing + trigger + sequence) invented for the current brief
+3. reduced-motion path remains purposeful, not just globally disabled
+
 ## Giant Motion Catalog (Reference)
 
 Use and mutate from this broader catalog:

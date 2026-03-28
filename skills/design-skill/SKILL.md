@@ -93,6 +93,40 @@ Hard quotas per substantial page:
 4. Use at least `2` non-rectilinear or asymmetric compositions.
 5. Limit any single reusable component pattern to max `2` appearances per page.
 
+## Anti-AI-Look Mandate (Required)
+
+If the output looks like recognizable "AI website style", reject and regenerate.
+
+Hard bans:
+1. No generic hero + three-card feature band as the dominant structure.
+2. No repeated same-radius/same-shadow cards across most sections.
+3. No monotone spacing cadence across the whole page.
+4. No copy/paste section shells with only icon/title/text swapped.
+5. No page where component variation is mostly cosmetic.
+
+## Custom Component Minimum (Required)
+
+Every substantial page must include:
+1. at least `4` custom components invented for this brief
+2. at least `2` custom section-level interaction models
+3. at least `1` signature section that cannot be described as a common template block
+
+Each custom component must define:
+- purpose
+- structural shape
+- state model (default/hover/focus/active/loading if relevant)
+- responsive collapse behavior
+
+## Structural Contrast Requirement (Required)
+
+The page must show strong internal contrast:
+1. at least one dense data-rich section
+2. at least one quiet minimal section
+3. at least one narrative/flow section
+4. at least one utility/comparison section
+
+If all sections feel like one repeated rhythm, regenerate.
+
 ## Giant Reference Taxonomy (Required)
 
 Use this as a large internal reference set and mutate from it instead of repeating a tiny subset.
