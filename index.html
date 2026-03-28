@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Marketing site for the Design Skill repo. Skill instructions live only in skills/design-skill/SKILL.md. -->
+<!-- Marketing site for the Design Skill repo. Skill instructions live in skills/design-skill/SKILL.md, skills/redesign/SKILL.md, and skills/animate/SKILL.md. -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -504,14 +504,14 @@
                                         <GithubIcon /> View Repository
                                     </a>
                                     <div className="px-6 py-4 text-sm font-mono border border-border rounded-sm bg-fg/5 flex items-center gap-2">
-                                        <span className="text-fg/50">$</span> design-skill
+                                        <span className="text-fg/50">$</span> design / redesign / animate
                                     </div>
                                 </motion.div>
                                 <motion.div variants={fadeUp} className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-[1px] bg-border border border-border text-left">
                                     {[
                                         ['layout archetypes', 'editorial split, bento, pinned stages'],
                                         ['motion profiles', 'quiet reveals, sticky story, rhythm shifts'],
-                                        ['skill stack', '$design-skill']
+                                        ['skill stack', '$design + $redesign + $animate']
                                     ].map(([label, value]) => (
                                         <div key={label} className="bg-bg px-5 py-5">
                                             <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-fg/45 mb-2">{label}</div>
@@ -603,7 +603,7 @@
         // Section 5: Architecture
         const Architecture = () => {
             const steps = [
-                ["01. Intercept", "Prompt Parsing", "The agent reads the brief, activates `$design-skill`, and chooses a layout archetype before placing components."],
+                ["01. Intercept", "Prompt Parsing", "The agent reads the brief, activates `$design`, and chooses a layout archetype before placing components."],
                 ["02. Inject", "System Injection", "Archetypes, variation axes, component families, and scroll patterns are pulled from the skill references before generation."],
                 ["03. Generate", "Deterministic Output", "The agent outputs stronger layout rhythm, mobile reflow, and a review pass instead of a generic hero-and-cards default."]
             ];
@@ -668,21 +668,21 @@
             const layers = [
                 {
                     kicker: "01",
-                    title: "Design Skill",
-                    body: "Chooses archetype, hierarchy, section rhythm, density, and brand-aware visual direction before component detail takes over.",
-                    command: "$design-skill"
+                    title: "Design",
+                    body: "Use when starting from scratch. It chooses archetype, hierarchy, section rhythm, density, and brand-aware visual direction before component detail takes over.",
+                    command: "$design"
                 },
                 {
                     kicker: "02",
-                    title: "Style Engine",
-                    body: "Translates brand identity, typography contrast, palette discipline, and visual taste into a coherent system instead of generic defaults.",
-                    command: "built into design-skill"
+                    title: "Redesign",
+                    body: "Use when upgrading an existing interface. It audits weak hierarchy and spacing, then restructures without breaking core user flows.",
+                    command: "$redesign"
                 },
                 {
                     kicker: "03",
-                    title: "Motion Engine",
-                    body: "Bakes entry sequencing, sticky storytelling, hover tactility, and motion guardrails into the same generation pass.",
-                    command: "built into design-skill"
+                    title: "Animate",
+                    body: "Use when a feature needs motion polish. It adds purposeful transitions, micro-interactions, and reduced-motion-safe behavior.",
+                    command: "$animate"
                 }
             ];
 
@@ -691,9 +691,9 @@
                     <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12">
                         <div className="md:col-span-4 p-8 md:p-16 border-r border-border bg-bg">
                             <Reveal as="span" className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-5 block">Frontend System</Reveal>
-                            <Reveal as="h2" delay={0.06} className="font-primary text-4xl tracking-tight mb-4">Three parts, one skill.</Reveal>
+                            <Reveal as="h2" delay={0.06} className="font-primary text-4xl tracking-tight mb-4">Three commands, one toolkit.</Reveal>
                             <Reveal as="p" delay={0.12} className="text-sm text-fg/65 leading-relaxed max-w-sm">
-                                The repo now runs layout, identity, and motion as coordinated parts inside one skill so output stays coherent without losing range.
+                                Choose the command for your phase: create, improve, or polish motion. The commands are designed to work together, not overlap blindly.
                             </Reveal>
                         </div>
                         <div className="md:col-span-8 bg-border grid grid-cols-1 lg:grid-cols-3 gap-[1px]">
@@ -728,17 +728,17 @@
                 {
                     title: "Layout only",
                     body: "For when the page still needs stronger structure, pacing, and hierarchy before anything else.",
-                    command: "$design-skill Design a homepage for a developer tool with a framed product stage, proof rail, and a calmer mobile collapse."
+                    command: "$design Design a homepage for a developer tool with a framed product stage, proof rail, and a calmer mobile collapse."
                 },
                 {
-                    title: "Brand-aware layout",
-                    body: "For translating a known identity system into a better composition instead of just copying colors.",
-                    command: "$design-skill Build a landing page for a premium finance brand using a restrained serif-led system, stricter proof placement, and a more editorial information flow."
+                    title: "Redesign existing UI",
+                    body: "For upgrading a shipped interface with stronger hierarchy and spacing while preserving critical flows.",
+                    command: "$redesign Upgrade our existing pricing page with clearer comparison logic, tighter mobile rhythm, and stronger conversion focus."
                 },
                 {
-                    title: "Full frontend direction",
-                    body: "For shipping structure, visual taste, and motion choreography as one coordinated output.",
-                    command: "$design-skill Create a launch page with a pinned demo rail, staggered product storytelling, tactile CTA states, and motion that stays restrained on mobile."
+                    title: "Motion polish pass",
+                    body: "For adding interaction feedback and state transitions after the layout direction is already in place.",
+                    command: "$animate Add purposeful micro-interactions, scroll reveals, and reduced-motion-safe transitions to our launch page."
                 }
             ];
 
@@ -940,8 +940,8 @@
         const FAQ = () => {
             const faqs = [
                 { q: "Does it work with standard frontend stacks?", a: "Yes. The skill outputs normal frontend code, but it pushes the agent toward stronger spacing systems, hierarchy, and section rhythm instead of arbitrary utility spam." },
-                { q: "Can I customize the system?", a: "Yes. Edit skills/design-skill/SKILL.md directly. The design skill is now just the Jasmine prompt, so customization happens in one place." },
-                { q: "How do I install it?", a: "Run npx skills add https://github.com/arjunkshah/design-skill, then invoke $design-skill. Layout, style, and motion are all built in." },
+                { q: "Can I customize the system?", a: "Yes. Edit skills/design-skill/SKILL.md, skills/redesign/SKILL.md, or skills/animate/SKILL.md directly depending on which command you want to tune." },
+                { q: "How do I install it?", a: "Run npx skills add https://github.com/arjunkshah/design-skill, then invoke $design, $redesign, or $animate based on the task." },
             ];
             const [open, setOpen] = useState(0);
 
@@ -980,7 +980,7 @@
                     <div className="md:col-span-4 p-8 md:p-16 border-r border-border bg-fg/5">
                         <Reveal as="h2" className="font-primary text-4xl tracking-tight mb-4">Install</Reveal>
                         <Reveal as="p" delay={0.08} className="text-sm text-fg/65 leading-relaxed">
-                            Add the repo as a skill source once, then invoke one command. Structure, style, and motion all run inside the same skill.
+                            Add the repo as a skill source once, then invoke the command that matches your phase: create, redesign, or animate.
                         </Reveal>
                     </div>
                     <div className="md:col-span-8 p-8 md:p-16 space-y-10">
@@ -993,13 +993,13 @@
                         <div>
                             <Reveal as="div" className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-4">Step 2</Reveal>
                             <div className="border border-border bg-fg/5 p-5 font-mono text-sm">
-                                $design-skill
+                                $design
                             </div>
                         </div>
                         <div>
                             <Reveal as="div" className="font-mono text-xs tracking-widest uppercase text-fg/50 mb-4">Step 3</Reveal>
                             <div className="border border-border bg-fg/5 p-5 font-mono text-sm">
-                                $design-skill
+                                $redesign or $animate
                             </div>
                         </div>
                         <div>
@@ -1008,7 +1008,7 @@
                                 Prompt for the outcome, not a template. The skill handles structure, style direction, sequencing, interaction polish, and scroll behavior in one pass.
                             </Reveal>
                             <div className="border border-border bg-bg p-6 font-primary text-xl leading-relaxed italic">
-                                "$design-skill Design a landing page with a pinned demo stage, tighter editorial typography, a bento section that breaks symmetry, and restrained tactile motion."
+                                "$design Design a landing page with a pinned demo stage, tighter editorial typography, a bento section that breaks symmetry, and restrained tactile motion."
                             </div>
                         </div>
                     </div>

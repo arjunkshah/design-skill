@@ -1,5 +1,5 @@
 ---
-name: design-skill
+name: design
 description: Unified frontend direction skill for layout, visual identity, and motion choreography. Use when an agent needs crafted structure, stronger typography, better imagery choices, and section-aware animation without splitting across multiple skills.
 ---
 

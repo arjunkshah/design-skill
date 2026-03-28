@@ -1,6 +1,6 @@
 # Design Skill
 
-Design Skill is an open-source frontend skill for coding agents. It is now a single integrated skill that handles layout, visual direction, and motion choreography together.
+Design Skill is an open-source frontend skill toolkit for coding agents. It provides three focused commands for design direction, redesign work, and motion polish.
 
 ![Skills](https://img.shields.io/badge/skills-agent--ready-171717?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-171717?style=flat-square)
@@ -12,10 +12,12 @@ Design Skill is an open-source frontend skill for coding agents. It is now a sin
 npx skills add https://github.com/arjunkshah/design-skill
 ```
 
-Invoke:
+Invoke one of:
 
 ```text
-$design-skill
+$design
+$redesign
+$animate
 ```
 
 ## Agent Boundary
@@ -23,6 +25,8 @@ $design-skill
 If an AI agent scans this repository, it should use only:
 
 - `skills/design-skill/SKILL.md`
+- `skills/redesign/SKILL.md`
+- `skills/animate/SKILL.md`
 
 Everything else is product, packaging, or marketing material:
 
@@ -33,7 +37,7 @@ Everything else is product, packaging, or marketing material:
 
 ## Skill Model
 
-`design-skill` is a unified workflow with four parts:
+`$design` is a unified workflow with four parts:
 
 1. Structure: layout archetype, funnel sequence, section jobs
 2. Style: type system, palette energy, surface language, imagery mode
@@ -55,7 +59,13 @@ This keeps variation high while preserving coherence.
 ├── public/
 │   └── assets/
 └── skills/
-    └── design-skill/
+    ├── design-skill/
+    │   ├── SKILL.md
+    │   └── agents/
+    ├── redesign/
+    │   ├── SKILL.md
+    │   └── agents/
+    └── animate/
         ├── SKILL.md
         └── agents/
 ```
@@ -71,21 +81,26 @@ Open `http://127.0.0.1:5177`.
 ## Usage Examples
 
 ```text
-$design-skill
+$design
 Design a homepage for a developer tool with a framed product stage, proof rail, and calmer mobile collapse.
 ```
 
 ```text
-$design-skill
+$redesign
+Upgrade an existing SaaS dashboard to improve hierarchy, spacing rhythm, and conversion-focused CTA placement without breaking flows.
+```
+
+```text
+$animate
 Create a launch site with a pinned demo stage, staggered product storytelling, tactile CTA states, and restrained mobile motion.
 ```
 
 ## Manual Fallback
 
-If your setup does not support repo-based skill installs yet, copy `skills/design-skill/` into your local skill/rules directory and invoke:
+If your setup does not support repo-based skill installs yet, copy `skills/design-skill/`, `skills/redesign/`, and `skills/animate/` into your local skill/rules directory and invoke:
 
 ```text
-$design-skill
+$design
 ```
 
 ## Open Source

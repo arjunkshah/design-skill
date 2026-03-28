@@ -3,6 +3,8 @@
 Use only these files as skill instructions:
 
 - `skills/design-skill/SKILL.md`
+- `skills/redesign/SKILL.md`
+- `skills/animate/SKILL.md`
 
 Treat everything else in this repository as product, packaging, or marketing material.
 

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Redesign Skill"
+  short_description: "Upgrade existing UI to premium quality"
+  brand_color: "#A75F3A"
+  default_prompt: "$redesign"
+
+policy:
+  allow_implicit_invocation: true

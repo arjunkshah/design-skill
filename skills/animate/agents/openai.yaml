@@ -1,0 +1,8 @@
+interface:
+  display_name: "Animate Skill"
+  short_description: "Purposeful animation and micro-interactions"
+  brand_color: "#B45A3A"
+  default_prompt: "$animate"
+
+policy:
+  allow_implicit_invocation: true
