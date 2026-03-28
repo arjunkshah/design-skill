@@ -16,6 +16,27 @@ Default to **Tailwind CSS** for redesign output.
 - Use Tailwind utility classes for all visual updates unless the user explicitly requests another styling system.
 - Preserve existing framework/runtime, but move styling decisions toward Tailwind by default when feasible.
 
+## Pretext Integration
+
+When redesigning existing UIs with text-overflow risk or unstable wrapping, use `@chenglou/pretext` to plan text layout before finalizing spacing and type scale.
+
+- Install when needed: `npm install @chenglou/pretext`
+- Use `prepare()` + `layout()` to validate key text blocks at target widths (hero, cards, CTA rows, nav labels).
+- Use the measurements to choose safer width constraints and reduce overflow regressions across breakpoints.
+- If the redesign depends on precise line rhythm, use `prepareWithSegments()` + `walkLineRanges()` to compare alternatives and pick the strongest composition.
+
+## Anti-Repetition Expansion (Required)
+
+Redesign must not look like a cosmetic restyle of standard templates.
+
+Rules:
+
+1. Build a broad candidate set across component and interaction types before choosing a direction.
+2. Replace repetitive card structures with differentiated component families (data cards, narrative blocks, comparison rows, proof strips, utility panels, etc.).
+3. Invent at least `2 new components` for each substantial redesign when current UI blocks are generic.
+4. Invent at least `1 new animation pattern` when motion is requested, tied to user feedback or hierarchy.
+5. Reject outputs where variation is only color, border radius, or font changes.
+
 ## Core Objective
 
 Transform a current interface into a clearer, higher-quality, more intentional design without breaking user flows.

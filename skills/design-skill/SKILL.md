@@ -19,6 +19,62 @@ Rules:
 2. Only switch away from Tailwind if the user explicitly asks for another stack/framework.
 3. When working in React/Next, still default styling to Tailwind classes unless asked otherwise.
 
+## Pretext Integration (Required When Applicable)
+
+Use `@chenglou/pretext` as the default text-measurement engine for typography-sensitive work in JS/TS environments.
+
+Why:
+- enables deterministic multiline text planning without DOM reflow
+- increases layout variation safely by exploring multiple copy wraps and widths
+- reduces overflow and layout-shift risk in dense hero/marketing layouts
+
+When to apply:
+1. Headlines or labels are likely to wrap unpredictably across breakpoints.
+2. The design uses asymmetry, tight columns, or bento sections where line breaks matter.
+3. The page is content-dense and needs stable, precomputed text heights.
+
+How to apply:
+1. Install: `npm install @chenglou/pretext`
+2. Use `prepare()` + `layout()` to test candidate widths and line counts for key copy.
+3. For advanced composition, use `prepareWithSegments()` + `walkLineRanges()` to find aesthetically balanced widths.
+4. Pick the width/line-count candidate that best matches section rhythm and hierarchy.
+5. Encode the selected result in Tailwind width/max-width constraints and responsive breakpoints.
+
+Quality gate:
+- At least 2-3 width candidates must be explored for hero headlines when typography is a major visual driver.
+- Reject compositions where text wraps create orphaned lines or break hierarchy.
+
+## Massive Variation Engine (Required)
+
+Treat your internal design language as a **large virtual library** (thousands of possible patterns), not a small fixed template set.
+
+Build and use a `VARIATION_INDEX` before generating:
+
+1. `component_families`: hero, feature, proof, pricing, CTA, nav, timeline, stats, testimonials, forms, footers, etc.
+2. `style_modes`: editorial, industrial, playful, premium, utilitarian, experimental, brutalist-lite, minimal, etc.
+3. `interaction_modes`: static, hover-rich, scroll-narrative, sticky/pinned, gesture-like, kinetic.
+4. `surface_modes`: flat, framed, layered glass, textured, outlined, mixed-density.
+
+Rules:
+
+1. Do not treat "cards" as one pattern. Expand into many card archetypes (rail cards, split-media cards, metric cards, narrative cards, stack cards, ticket cards, dossier cards, etc.).
+2. Per major output, create at least `3 bespoke components` that are not direct copies of common startup templates.
+3. Per major output, create at least `2 bespoke motion patterns` tied to section intent.
+4. At least `30%` of sections must use uncommon composition patterns (not standard grid-of-cards).
+5. If two sections look like simple style swaps of the same structure, redesign one.
+
+## Component Invention Protocol (Required)
+
+When existing patterns feel repetitive, invent new components deliberately:
+
+1. Define the component's job in one sentence.
+2. Choose an unconventional geometry or information flow.
+3. Define its interactive states (default, hover/focus, active, loading, reduced-motion fallback).
+4. Ensure responsive collapse still preserves hierarchy.
+5. Name the component and reuse it consistently where appropriate.
+
+Never rely on mix-and-match alone; synthesize new elements when novelty or clarity requires it.
+
 ## Creative Director Quality Bar (Required)
 
 Output must feel like top-tier human design work, not a generic AI assembly.

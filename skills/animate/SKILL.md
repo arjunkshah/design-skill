@@ -11,6 +11,8 @@ Analyze a feature and strategically add animations and micro-interactions that e
 
 Default to **Tailwind CSS** for styling and state transitions unless the user explicitly requests another styling approach.
 
+For motion that depends on multiline text size (expands/collapses, adaptive cards, staged reveals), use `@chenglou/pretext` in JS/TS stacks to pre-measure text and avoid janky transitions from unpredictable wrapping.
+
 ## MANDATORY PREPARATION
 
 Use the frontend-design skill — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no design context exists yet, you MUST run teach-impeccable first. Additionally gather: performance constraints.
@@ -48,6 +50,22 @@ Create a purposeful animation plan:
 - **Delight layer**: Where can we surprise and delight?
 
 **IMPORTANT**: One well-orchestrated experience beats scattered animations everywhere. Focus on high-impact moments.
+
+## Motion Library Expansion (Required)
+
+Treat motion choices as a large pattern space, not a short list of default fades.
+
+Before implementation, build a `MOTION_INDEX` with broad options across:
+- entrance families
+- feedback families
+- transition families
+- scroll choreography families
+- celebratory/delight families
+
+Rules:
+- choose materially different animation families across sections (not the same fade/slide everywhere)
+- create at least `2 bespoke motion patterns` per substantial animation pass
+- if a motion idea feels like a common preset, mutate timing, sequencing, layering, or trigger logic until it becomes specific to the interface
 
 ## Implement Animations
 
@@ -143,6 +161,7 @@ Use appropriate techniques for each animation:
 - **will-change**: Add sparingly for known expensive animations
 - **Reduce paint**: Minimize repaints, use `contain` where appropriate
 - **Monitor FPS**: Ensure 60fps on target devices
+- **Pre-measure text where needed**: Use `@chenglou/pretext` to compute expected text heights in advance for smoother state transitions
 
 ### Accessibility
 ```css
