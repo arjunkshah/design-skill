@@ -19,6 +19,20 @@ Rules:
 2. Only switch away from Tailwind if the user explicitly asks for another stack/framework.
 3. When working in React/Next, still default styling to Tailwind classes unless asked otherwise.
 
+## UI Library Access (Required When Useful)
+
+You may use these as component/pattern sources:
+- UIverse
+- FlyonUI (`https://flyonui.com/`)
+- daisyUI
+
+Usage rules:
+1. Treat them as starting references, not final design output.
+2. Always mutate imported patterns to match the active visual thesis.
+3. Never ship unmodified library defaults across an entire page.
+4. Combine library primitives with bespoke components to preserve uniqueness.
+5. If a library component conflicts with hierarchy or brand direction, replace or rewrite it.
+
 ## Pretext Integration (Required When Applicable)
 
 Use `@chenglou/pretext` as the default text-measurement engine for typography-sensitive work in JS/TS environments.

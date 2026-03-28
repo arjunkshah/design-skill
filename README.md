@@ -6,6 +6,7 @@ Default styling output is Tailwind CSS unless a different stack is explicitly re
 For typography-sensitive layouts and stable multiline behavior, the skills now integrate `@chenglou/pretext` guidance.
 The skills also enforce a large variation strategy: broad component/motion pattern exploration plus bespoke element creation to avoid repetitive template remixing.
 Recent updates add strict diversity quotas, giant component/motion taxonomies, mutation rules, and no-repeat gates to push outputs toward genuinely different design directions.
+Reference sources now include UIverse, FlyonUI, and daisyUI, with mandatory mutation so outputs do not ship as stock library defaults.
 
 ![Skills](https://img.shields.io/badge/skills-agent--ready-171717?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-171717?style=flat-square)

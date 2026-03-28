@@ -13,6 +13,13 @@ Default to **Tailwind CSS** for styling and state transitions unless the user ex
 
 For motion that depends on multiline text size (expands/collapses, adaptive cards, staged reveals), use `@chenglou/pretext` in JS/TS stacks to pre-measure text and avoid janky transitions from unpredictable wrapping.
 
+Allowed component/motion reference sources:
+- UIverse
+- FlyonUI (`https://flyonui.com/`)
+- daisyUI
+
+When using library components, re-choreograph states and transitions so the result is context-specific rather than stock.
+
 If the target is static HTML/CDN-only or has no JS build pipeline, skip pretext integration and use responsive CSS sizing/constraints for stable motion behavior.
 Do this silently and avoid user-facing "Note on Pretext" caveats unless explicitly requested.
 

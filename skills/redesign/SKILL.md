@@ -16,6 +16,19 @@ Default to **Tailwind CSS** for redesign output.
 - Use Tailwind utility classes for all visual updates unless the user explicitly requests another styling system.
 - Preserve existing framework/runtime, but move styling decisions toward Tailwind by default when feasible.
 
+## UI Library Access
+
+Allowed reference libraries:
+- UIverse
+- FlyonUI (`https://flyonui.com/`)
+- daisyUI
+
+Rules:
+- use libraries as accelerators, not as full-page templates
+- refactor and mutate library components to fit product semantics and brand direction
+- avoid repeated stock patterns from any single library
+- pair library usage with invented components when repetition risk is high
+
 ## Pretext Integration
 
 When redesigning existing UIs with text-overflow risk or unstable wrapping, use `@chenglou/pretext` to plan text layout before finalizing spacing and type scale.
