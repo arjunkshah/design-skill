@@ -13,6 +13,9 @@ Default to **Tailwind CSS** for styling and state transitions unless the user ex
 
 For motion that depends on multiline text size (expands/collapses, adaptive cards, staged reveals), use `@chenglou/pretext` in JS/TS stacks to pre-measure text and avoid janky transitions from unpredictable wrapping.
 
+If the target is static HTML/CDN-only or has no JS build pipeline, skip pretext integration and use responsive CSS sizing/constraints for stable motion behavior.
+Do this silently and avoid user-facing "Note on Pretext" caveats unless explicitly requested.
+
 ## MANDATORY PREPARATION
 
 Use the frontend-design skill — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no design context exists yet, you MUST run teach-impeccable first. Additionally gather: performance constraints.

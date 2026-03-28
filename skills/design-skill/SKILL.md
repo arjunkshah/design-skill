@@ -44,6 +44,10 @@ Quality gate:
 - At least 2-3 width candidates must be explored for hero headlines when typography is a major visual driver.
 - Reject compositions where text wraps create orphaned lines or break hierarchy.
 
+Fallback behavior:
+- If the target environment is static HTML, CDN-only, or otherwise non-JS-build, skip pretext implementation and use responsive CSS constraints (`clamp()`, `max-width`, breakpoints) to control wrapping.
+- Adapt silently. Do not add meta disclaimers like "Note on Pretext" unless the user explicitly asks for implementation rationale.
+
 ## Massive Variation Engine (Required)
 
 Treat your internal design language as a **large virtual library** (thousands of possible patterns), not a small fixed template set.

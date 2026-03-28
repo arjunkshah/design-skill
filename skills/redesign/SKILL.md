@@ -24,6 +24,8 @@ When redesigning existing UIs with text-overflow risk or unstable wrapping, use 
 - Use `prepare()` + `layout()` to validate key text blocks at target widths (hero, cards, CTA rows, nav labels).
 - Use the measurements to choose safer width constraints and reduce overflow regressions across breakpoints.
 - If the redesign depends on precise line rhythm, use `prepareWithSegments()` + `walkLineRanges()` to compare alternatives and pick the strongest composition.
+- If the project is static HTML/CDN-only or no JS build step exists, skip pretext integration and handle wrapping with responsive CSS constraints instead.
+- Do this silently; do not include user-facing "Note on Pretext" caveats unless asked.
 
 ## Anti-Repetition Expansion (Required)
 
