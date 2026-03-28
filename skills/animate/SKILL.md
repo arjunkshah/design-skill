@@ -67,6 +67,35 @@ Rules:
 - create at least `2 bespoke motion patterns` per substantial animation pass
 - if a motion idea feels like a common preset, mutate timing, sequencing, layering, or trigger logic until it becomes specific to the interface
 
+## Motion Diversity Quotas (Required)
+
+For substantial animation passes, enforce:
+
+1. at least `5` distinct motion families in one interface
+2. at least `3` distinct trigger types (hover, scroll, state, gesture-like, timed)
+3. at least `2` bespoke transition systems beyond simple fade/slide
+4. no single easing/timing combo reused as the dominant pattern across all sections
+
+If motion feels repetitive, redesign the choreography before final output.
+
+## Giant Motion Catalog (Reference)
+
+Use and mutate from this broader catalog:
+- reveal ladders
+- clipped mask transitions
+- directional content handoffs
+- stage pin/unpin sequences
+- guided focus sweeps
+- progressive detail unlocks
+- magnetic hover fields
+- momentum list transitions
+- stateful icon metamorphosis
+- layered depth drifts
+- micro celebratory bursts
+- rail-based motion narratives
+
+Always adapt these to context; never paste as-is.
+
 ## Implement Animations
 
 Add motion systematically across these categories:

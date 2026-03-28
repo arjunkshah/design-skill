@@ -37,6 +37,26 @@ Rules:
 4. Invent at least `1 new animation pattern` when motion is requested, tied to user feedback or hierarchy.
 5. Reject outputs where variation is only color, border radius, or font changes.
 
+## Redesign Diversity Quotas (Required)
+
+For substantial redesigns, enforce:
+
+1. at least `6` materially different section structures across the page
+2. at least `3` non-card primary content modules
+3. at least `2` newly invented components adapted to this product context
+4. no single legacy pattern may dominate more than `25%` of sections
+
+If the redesign still resembles the original layout skeleton, escalate structural changes before finalizing.
+
+## Component Invention Rules
+
+When inventing components for redesign:
+
+1. derive from product semantics (workflow, trust signal, conversion step), not visual novelty alone
+2. define explicit states and responsive behavior
+3. ensure implementation remains maintainable in Tailwind class composition
+4. add motion only where it improves comprehension or feedback speed
+
 ## Core Objective
 
 Transform a current interface into a clearer, higher-quality, more intentional design without breaking user flows.

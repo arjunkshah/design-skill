@@ -63,6 +63,77 @@ Rules:
 4. At least `30%` of sections must use uncommon composition patterns (not standard grid-of-cards).
 5. If two sections look like simple style swaps of the same structure, redesign one.
 
+## Extreme Diversity Protocol (Required)
+
+Treat each generation like a new art-direction assignment, not a continuation of prior defaults.
+
+Hard quotas per substantial page:
+
+1. Use at least `8` distinct section archetypes.
+2. Use at least `5` distinct component families beyond basic cards/buttons.
+3. Use at least `3` interaction models (for example: static utility, sticky narrative, progressive reveal).
+4. Use at least `2` non-rectilinear or asymmetric compositions.
+5. Limit any single reusable component pattern to max `2` appearances per page.
+
+## Giant Reference Taxonomy (Required)
+
+Use this as a large internal reference set and mutate from it instead of repeating a tiny subset.
+
+Component super-families to sample from:
+- editorial strips
+- dossier blocks
+- ticket/listing hybrids
+- comparison ladders
+- pinned walkthrough rails
+- split evidence bands
+- metrics matrices
+- timeline ledgers
+- command palette sections
+- control-room panels
+- quote mosaics
+- proof ribbons
+- layered media stacks
+- radial/constellation callouts
+- modular storyboards
+
+Motion super-families to sample from:
+- staggered reveal systems
+- scroll-linked depth shifts
+- directional handoff transitions
+- elastic-free spring micro-feedback
+- masked wipes
+- clipped reveal bands
+- stateful icon morphs
+- progress-driven choreography
+- focus-guided spotlight movement
+- layered parallax planes
+
+For every output, pick a different subset and mutate shape, density, axis, and behavior.
+
+## Mutation Rules (Required)
+
+When a pattern feels familiar, mutate at least 3 dimensions:
+
+1. geometry (grid, rail, stack, offset, overlap)
+2. reading flow (linear, branched, comparison-first, narrative-first)
+3. density (compressed vs breathable)
+4. interaction trigger (hover, scroll, click, timed, state-driven)
+5. visual framing (outlined, filled, divided, layered)
+
+Do not accept outputs that only change colors, fonts, or corner radius.
+
+## No-Repeat Gate (Required)
+
+Before final output, explicitly verify:
+
+1. hero structure differs from recent defaults
+2. section order is not a standard startup sequence
+3. no overuse of repeated card grids
+4. at least 3 bespoke components are present
+5. at least 2 bespoke motion systems are present
+
+If any check fails, regenerate structure before finalizing.
+
 ## Component Invention Protocol (Required)
 
 When existing patterns feel repetitive, invent new components deliberately:
