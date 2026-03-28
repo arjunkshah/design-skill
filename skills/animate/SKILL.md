@@ -7,6 +7,10 @@ argument-hint: [TARGET=<value>]
 
 Analyze a feature and strategically add animations and micro-interactions that enhance understanding, provide feedback, and create delight.
 
+## Implementation Default
+
+Default to **Tailwind CSS** for styling and state transitions unless the user explicitly requests another styling approach.
+
 ## MANDATORY PREPARATION
 
 Use the frontend-design skill — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no design context exists yet, you MUST run teach-impeccable first. Additionally gather: performance constraints.

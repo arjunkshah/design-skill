@@ -9,6 +9,13 @@ argument-hint: [TARGET=<value>]
 
 Use this command when a product already exists and needs a stronger layout, visual system, and interaction polish.
 
+## Implementation Default
+
+Default to **Tailwind CSS** for redesign output.
+
+- Use Tailwind utility classes for all visual updates unless the user explicitly requests another styling system.
+- Preserve existing framework/runtime, but move styling decisions toward Tailwind by default when feasible.
+
 ## Core Objective
 
 Transform a current interface into a clearer, higher-quality, more intentional design without breaking user flows.

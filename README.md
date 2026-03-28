@@ -2,6 +2,8 @@
 
 Design Skill is an open-source frontend skill toolkit for coding agents. It provides three focused commands for design direction, redesign work, and motion polish.
 
+Default styling output is Tailwind CSS unless a different stack is explicitly requested.
+
 ![Skills](https://img.shields.io/badge/skills-agent--ready-171717?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-171717?style=flat-square)
 ![Focus](https://img.shields.io/badge/focus-frontend%20layout-171717?style=flat-square)
